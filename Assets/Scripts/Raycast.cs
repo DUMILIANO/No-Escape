@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 namespace scripts
 {
-    public class raycast : MonoBehaviour
+    public class Raycast : MonoBehaviour
     {
         [SerializeField] private float raylength = 2.5f;
         [SerializeField] private LayerMask layerMaskInteract;
@@ -14,25 +14,20 @@ namespace scripts
         [SerializeField] private KeyCode openDoorKey = KeyCode.Mouse0;
         [SerializeField] private Image crosshair = null;
         private bool doOnce;
-        private int num;
-        public doorController door;
+        //public doorController door;
         private const string interactableTag = "PickUp";
         private const string doorTag = "Door";
         public bool isCrosshairActive;
-        public GameObject tape;
         public PickUp pickup;
         public Transform crosshairpos;
         public Camera cam;
         public Text picktxt;
-        public AudioClip[] rec;
-        public AudioSource audiosource;
-        public Animator anim;
+        //public Animator anim;
 
 
         void Start()
         {
             picktxt.gameObject.SetActive(false);
-            num = -1;
         }
 
         // Update is called once per frame
@@ -45,14 +40,12 @@ namespace scripts
 
             if (Physics.Raycast(transform.position, fwd, out hit, Mathf.Infinity, mask))
             {
-
+                //shows a ray whenever it hits with something
                 Debug.DrawRay(transform.position, fwd * hit.distance, Color.red);
-                crosshairpos.position = cam.WorldToScreenPoint(hit.point);
+                //checks if the ray is interactable and makes sures the player isn't already holding something
                 if (hit.collider.CompareTag(interactableTag) && PickUp.slotFull == false && Physics.Raycast(transform.position, fwd, out hit, raylength, mask))
                 {
                     CrosshairChange(true);
-                    tape = hit.collider.gameObject;
-                    anim = hit.collider.gameObject.GetComponent<Animator>();
                     picktxt.gameObject.SetActive(true);
                     pickup = hit.collider.gameObject.GetComponent<PickUp>();
                     if (Input.GetKey(KeyCode.E))
@@ -63,7 +56,7 @@ namespace scripts
                         pickup.pickable = false;
                     }
                 }
-                else if (hit.collider.CompareTag(doorTag) && Physics.Raycast(transform.position, fwd, out hit, raylength, mask))
+                /*else if (hit.collider.CompareTag(doorTag) && Physics.Raycast(transform.position, fwd, out hit, raylength, mask))
                 {
                     CrosshairChange(true);
                     door = hit.collider.gameObject.GetComponent<doorController>();
@@ -76,24 +69,7 @@ namespace scripts
                         //doOnce = true;
                     }
 
-                }
-                else if (hit.collider.CompareTag("recorder") && Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && PickUp.slotFull)
-                {
-                    CrosshairChange(true);
-                    picktxt.gameObject.SetActive(true);
-                    if (Input.GetKeyDown(KeyCode.E))
-                    {
-                        Destroy(tape);
-                        num = num + 1;
-                        audiosource = hit.collider.gameObject.GetComponent<AudioSource>();
-                        CrosshairChange(true);
-                        PickUp.slotFull = false;
-                        pickup.Drop();
-                        audiosource.PlayOneShot(rec[num]);
-                        
-                    }
-                    
-                }
+                }*/
 
                 else
                 {
@@ -101,16 +77,6 @@ namespace scripts
                     CrosshairChange(false);
                     //doOnce = false;
                 }
-            }
-            if(num >= 3)
-            {
-                StartCoroutine(end());
-                
-            }
-
-            if(pickup.equipped && PickUp.slotFull)
-            {
-                anim.Play("line", 0, 0.0f);
             }
 
 
@@ -126,11 +92,6 @@ namespace scripts
                 crosshair.color = Color.white;
                 isCrosshairActive = false;
             }
-        }
-        IEnumerator end()
-        {
-            yield return new WaitForSeconds(16);
-            SceneManager.LoadScene(3);
         }
     }
 
