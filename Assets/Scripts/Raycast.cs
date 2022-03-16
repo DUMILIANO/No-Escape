@@ -25,7 +25,7 @@ namespace scripts
         public Camera cam;
         public Text picktxt;
         public Animator anim;
-        bool hasKey = false;
+        [SerializeField] public bool hasKey = false;
 
 
         void Start()
@@ -73,7 +73,7 @@ namespace scripts
                     }
 
                 }
-                else if (hit.collider.CompareTag(lockedDoorTag) && Physics.Raycast(transform.position, fwd, out hit, raylength, mask && hasKey))
+                else if (hit.collider.CompareTag(lockedDoorTag) && Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hasKey)
                 {
                     CrosshairChange(true);
                     door = hit.collider.gameObject.GetComponent<doorController>();
@@ -99,10 +99,6 @@ namespace scripts
                         hasKey = true;
                         isCrosshairActive = true;
                         //doOnce = true;
-                    }
-                    else if(Input.GetKeyDown(KeyCode.Q))
-                    {
-                        hasKey = false;
                     }
 
                 }
