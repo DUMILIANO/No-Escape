@@ -14,15 +14,18 @@ namespace scripts
         [SerializeField] private KeyCode openDoorKey = KeyCode.Mouse0;
         [SerializeField] private Image crosshair = null;
         private bool doOnce;
-        //public doorController door;
+        public doorController door;
         private const string interactableTag = "PickUp";
+        private const string keyTag = "key";
         private const string doorTag = "Door";
+        private const string lockedDoorTag = "LockedDoor";
         public bool isCrosshairActive;
         public PickUp pickup;
         public Transform crosshairpos;
         public Camera cam;
         public Text picktxt;
-        //public Animator anim;
+        public Animator anim;
+        bool hasKey = false;
 
 
         void Start()
@@ -56,7 +59,7 @@ namespace scripts
                         pickup.pickable = false;
                     }
                 }
-                /*else if (hit.collider.CompareTag(doorTag) && Physics.Raycast(transform.position, fwd, out hit, raylength, mask))
+                else if (hit.collider.CompareTag(doorTag) && Physics.Raycast(transform.position, fwd, out hit, raylength, mask))
                 {
                     CrosshairChange(true);
                     door = hit.collider.gameObject.GetComponent<doorController>();
@@ -69,7 +72,40 @@ namespace scripts
                         //doOnce = true;
                     }
 
-                }*/
+                }
+                else if (hit.collider.CompareTag(lockedDoorTag) && Physics.Raycast(transform.position, fwd, out hit, raylength, mask && hasKey))
+                {
+                    CrosshairChange(true);
+                    door = hit.collider.gameObject.GetComponent<doorController>();
+                    picktxt.gameObject.SetActive(true);
+
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        door.PlayAnimation();
+                        isCrosshairActive = true;
+                        //doOnce = true;
+                    }
+
+                }
+                else if (hit.collider.CompareTag(keyTag) && Physics.Raycast(transform.position, fwd, out hit, raylength, mask))
+                {
+                    CrosshairChange(true);
+                    pickup = hit.collider.gameObject.GetComponent<PickUp>();
+                    picktxt.gameObject.SetActive(true);
+
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        pickup.Pick();
+                        hasKey = true;
+                        isCrosshairActive = true;
+                        //doOnce = true;
+                    }
+                    else if(Input.GetKeyDown(KeyCode.Q))
+                    {
+                        hasKey = false;
+                    }
+
+                }
 
                 else
                 {
