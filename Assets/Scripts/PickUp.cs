@@ -6,6 +6,7 @@ namespace scripts
 {
     public class PickUp : MonoBehaviour
     {
+        public Item item;
         public Rigidbody rb;
         public BoxCollider coll;
         public Transform player, container, cam;
