@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+
 namespace scripts
 {
     public class Raycast : MonoBehaviour
@@ -27,19 +28,24 @@ namespace scripts
         public Animator anim;
         [SerializeField] public bool hasKey = false;
 
-
         void Start()
         {
             picktxt.gameObject.SetActive(false);
+            //Cursor.lockState = CursorLockMode.Locked;
+
         }
 
         // Update is called once per frame
         void Update()
         {
+            
+
             RaycastHit hit;
             Vector3 fwd = transform.TransformDirection(Vector3.forward);
-
+            
             int mask = 1 << LayerMask.NameToLayer(excludeLayerName) | layerMaskInteract.value;
+
+            
 
             if (Physics.Raycast(transform.position, fwd, out hit, Mathf.Infinity, mask))
             {

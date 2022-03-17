@@ -51,10 +51,10 @@ namespace Scripts
                 camera.localRotation = m_CameraTargetRot;
             }
 
-            UpdateCursorLock();
+            //UpdateCursorLock();
         }
 
-        public void SetCursorLock(bool value)
+        /*public void SetCursorLock(bool value)
         {
             lockCursor = value;
             if(!lockCursor)
@@ -62,22 +62,22 @@ namespace Scripts
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
             }
-        }
+        }*/
 
-        public void UpdateCursorLock()
+        /*public void UpdateCursorLock()
         {
             //if the user set "lockCursor" we check & properly lock the cursos
             if (lockCursor)
-                InternalLockUpdate();
-        }
+                //InternalLockUpdate();
+        }*/
 
-        private void InternalLockUpdate()
+        /*private void InternalLockUpdate()
         {
-            if(Input.GetKeyUp(KeyCode.Escape))
+            if(Input.GetKeyUp(KeyCode.I))
             {
-                m_cursorIsLocked = false;
+                m_cursorIsLocked = !m_cursorIsLocked;
             }
-            else if(Input.GetMouseButtonUp(0))
+            else if(Input.GetKeyDown(KeyCode.I) && !m_cursorIsLocked)
             {
                 m_cursorIsLocked = true;
             }
@@ -92,7 +92,7 @@ namespace Scripts
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
             }
-        }
+        }*/
 
         Quaternion ClampRotationAroundXAxis(Quaternion q)
         {
