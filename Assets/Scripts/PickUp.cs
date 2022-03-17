@@ -18,6 +18,7 @@ namespace scripts
         public bool pickable;
         public bool dropable;
         public AudioClip recording;
+        public Raycast raycastScript;
 
         // Start is called before the first frame update
         void Start()
@@ -84,6 +85,7 @@ namespace scripts
             coll.isTrigger = false;
             pickable = true;
             dropable = false;
+            //raycastScript.hasKey = false;
         }
     }
 }
