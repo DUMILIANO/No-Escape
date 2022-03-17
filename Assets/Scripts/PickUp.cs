@@ -85,7 +85,7 @@ namespace scripts
             coll.isTrigger = false;
             pickable = true;
             dropable = false;
-            //raycastScript.hasKey = false;
+            raycastScript.hasKey = false;
         }
     }
 }

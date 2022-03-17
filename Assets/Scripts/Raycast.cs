@@ -65,7 +65,17 @@ namespace scripts
                     door = hit.collider.gameObject.GetComponent<doorController>();
                     picktxt.gameObject.SetActive(true);
 
-                    if (Input.GetKeyDown(KeyCode.E))
+                    if (door.locked == true)
+                    {
+                        if(hasKey)
+                        {
+                            if(Input.GetKeyDown(KeyCode.E))
+                            {
+                                door.locked = false;
+                            }
+                        }
+                    }
+                    if (Input.GetKeyDown(KeyCode.E) && door.locked == false)
                     {
                         door.PlayAnimation();
                         isCrosshairActive = true;
@@ -73,7 +83,7 @@ namespace scripts
                     }
 
                 }
-                else if (hit.collider.CompareTag(lockedDoorTag) && Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hasKey)
+                /*else if (hit.collider.CompareTag(lockedDoorTag) && Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hasKey)
                 {
                     CrosshairChange(true);
                     door = hit.collider.gameObject.GetComponent<doorController>();
@@ -86,7 +96,7 @@ namespace scripts
                         //doOnce = true;
                     }
 
-                }
+                }*/
                 else if (hit.collider.CompareTag(keyTag) && Physics.Raycast(transform.position, fwd, out hit, raylength, mask))
                 {
                     CrosshairChange(true);
