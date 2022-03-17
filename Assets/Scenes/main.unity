@@ -285,6 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afbdc72cfd4063945bd8fe99d7ece851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: f3964774c76114f4399279f3e7a4bb55, type: 2}
   rb: {fileID: 193788353}
   coll: {fileID: 193788351}
   player: {fileID: 1974863115}
@@ -3253,6 +3254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afbdc72cfd4063945bd8fe99d7ece851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item: {fileID: 0}
   rb: {fileID: 2102410676}
   coll: {fileID: 2102410677}
   player: {fileID: 1974863115}
