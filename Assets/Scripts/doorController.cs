@@ -7,6 +7,8 @@ public class doorController : MonoBehaviour
     public Animator doorAnim;
     private bool open = false;
     public bool locked = false;
+    public bool isRedDoor;
+    public bool isWhiteDoor;
 
     private void Awake()
     {

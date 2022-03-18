@@ -28,6 +28,9 @@ namespace scripts
         public Animator anim;
         [SerializeField] public bool hasKey = false;
 
+        public Inventory inventory;
+        public holding held;
+
         void Start()
         {
             picktxt.gameObject.SetActive(false);
@@ -71,13 +74,16 @@ namespace scripts
                     door = hit.collider.gameObject.GetComponent<doorController>();
                     picktxt.gameObject.SetActive(true);
 
-                    if (door.locked == true)
+                    if (door.locked == true  && GameObject.Find("key").GetComponent<PickUp>().item.onHand && door.isWhiteDoor && GameObject.Find("key").activeSelf)
                     {
                         if(hasKey)
                         {
                             if(Input.GetKeyDown(KeyCode.E))
                             {
                                 door.locked = false;
+                                inventory.Remove(GameObject.Find("key").GetComponent<PickUp>().item);
+                                held.Remove(GameObject.Find("key"));
+                                Destroy(GameObject.Find("key"));
                             }
                         }
                     }
@@ -112,6 +118,7 @@ namespace scripts
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         pickup.Pick();
+                        pickup.item.onHand = true;
                         hasKey = true;
                         isCrosshairActive = true;
                         //doOnce = true;

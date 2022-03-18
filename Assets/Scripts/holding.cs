@@ -20,6 +20,11 @@ namespace scripts
                //Debug.Log(child);
            }
        }
+
+       public void Remove(GameObject child)
+       {
+           children.Remove(child);
+       }
     }
 }
 

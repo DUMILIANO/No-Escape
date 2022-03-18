@@ -11,6 +11,7 @@ namespace scripts
         public Sprite icon = null;
         public bool important = false;
         public holding held;
+        public bool onHand;
 
         public void Start()
         {
@@ -23,10 +24,12 @@ namespace scripts
                 if(child.GetComponent<PickUp>().item.name == name)
                 {
                     child.SetActive(true);
+                    child.GetComponent<PickUp>().item.onHand = true;
                 }
                 else
                 {
                     child.SetActive(false);
+                    child.GetComponent<PickUp>().item.onHand = false;
                 }
             }
         }

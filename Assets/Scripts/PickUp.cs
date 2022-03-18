@@ -15,12 +15,12 @@ namespace scripts
         public static bool slotFull;
         public bool pickable;
         public bool dropable;
-        public Raycast raycastScript;
         public holding held;
 
         // Start is called before the first frame update
         void Start()
         {
+            item.onHand = false;
             if (!equipped)
             {
                 rb.isKinematic = false;
@@ -73,7 +73,9 @@ namespace scripts
                 held.children.Add(gameObject);
                 if(held.children.Count > 1)
                 {
+                    held.children[held.children.Count - 2].GetComponent<PickUp>().item.onHand = false;
                     held.children[held.children.Count - 2].SetActive(false);
+                    
                 }
             }
             
@@ -91,7 +93,6 @@ namespace scripts
                 coll.isTrigger = false;
                 pickable = true;
                 dropable = false;
-                raycastScript.hasKey = false;
             }
             
         }
