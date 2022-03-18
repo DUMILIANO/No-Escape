@@ -1,42 +1,56 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class InventoryUI : MonoBehaviour
+namespace scripts
 {
-    public Transform itemsParent;
-    Inventory inventory;
-    InventorySlot[] slots;
-    public GameObject inventoryUI;
-    // Start is called before the first frame update
-    void Start()
+    public class InventoryUI : MonoBehaviour
     {
-        inventory = Inventory.instance;
-        inventory.onItemChangeCallback += UpdateUI;
-        slots = itemsParent.GetComponentsInChildren<InventorySlot>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.I))
+        public Transform itemsParent;
+        Inventory inventory;
+        InventorySlot[] slots;
+        public GameObject inventoryUI;
+        bool cursorIsLocked = true;
+        // Start is called before the first frame update
+        void Start()
         {
-            inventoryUI.SetActive(!inventoryUI.activeSelf);
-            Cursor.lockState = CursorLockMode.Locked;
+            inventory = Inventory.instance;
+            inventory.onItemChangeCallback += UpdateUI;
+            slots = itemsParent.GetComponentsInChildren<InventorySlot>();
         }
-    }
 
-    void UpdateUI()
-    {
-        for(int i = 0; i < slots.Length; i++)
+        // Update is called once per frame
+        void Update()
         {
-            if(i < inventory.items.Count)
+            if(Input.GetKeyDown(KeyCode.I))
             {
-                slots[i].AddItem(inventory.items[i]);
+                inventoryUI.SetActive(!inventoryUI.activeSelf);
+                cursorIsLocked = !cursorIsLocked;
+                
+            }
+            if(cursorIsLocked)
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
             }
             else
             {
-                slots[i].ClearSlot();
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
+        }
+
+        void UpdateUI()
+        {
+            for(int i = 0; i < slots.Length; i++)
+            {
+                if(i < inventory.items.Count)
+                {
+                    slots[i].AddItem(inventory.items[i]);
+                }
+                else
+                {
+                    slots[i].ClearSlot();
+                }
             }
         }
     }

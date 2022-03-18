@@ -16,6 +16,7 @@ namespace scripts
         public bool pickable;
         public bool dropable;
         public Raycast raycastScript;
+        public holding held;
 
         // Start is called before the first frame update
         void Start()
@@ -35,6 +36,7 @@ namespace scripts
                 pickable = false;
                 dropable = true;
             }
+            item.held = container.GetComponent<holding>();
         }
 
 
@@ -50,7 +52,7 @@ namespace scripts
         }
 
         public void Pick()
-        {
+        { 
             bool wasPickedUp = Inventory.instance.Add(item);
 
             if(wasPickedUp)
@@ -68,6 +70,11 @@ namespace scripts
 
                 pickable = false;
                 dropable = true;
+                held.children.Add(gameObject);
+                if(held.children.Count > 1)
+                {
+                    held.children[held.children.Count - 2].SetActive(false);
+                }
             }
             
 

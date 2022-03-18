@@ -1,52 +1,55 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Inventory : MonoBehaviour
+namespace scripts
 {
-    #region Singleton
-    public static Inventory instance;
-
-    void Awake() 
+    public class Inventory : MonoBehaviour
     {
-        if (instance != null)
+        #region Singleton
+        public static Inventory instance;
+
+        void Awake() 
         {
-            Debug.LogWarning("More than one instance of inventory found");
-            return;
+            if (instance != null)
+            {
+                Debug.LogWarning("More than one instance of inventory found");
+                return;
+            }
+            instance = this;
         }
-        instance = this;
-    }
-    #endregion
+        #endregion
 
-    public delegate void OnItemChanged();
-    public OnItemChanged onItemChangeCallback;
+        public delegate void OnItemChanged();
+        public OnItemChanged onItemChangeCallback;
 
-    public int space = 20;
+        public int space = 20;
 
-    public List<Item> items = new List<Item>();
+        public List<Item> items = new List<Item>();
 
-    public bool Add(Item item)
-    {
-        if(items.Count >= space)
+        public bool Add(Item item)
         {
-            Debug.Log("Inventory full");
-            return false;
+            if(items.Count >= space)
+            {
+                Debug.Log("Inventory full");
+                return false;
+            }
+            items.Add(item);
+
+            if(onItemChangeCallback != null)
+            {
+                onItemChangeCallback.Invoke();
+            }
+
+            return true;
         }
-        items.Add(item);
-
-        if(onItemChangeCallback != null)
+        public void Remove (Item item)
         {
-            onItemChangeCallback.Invoke();
-        }
-
-        return true;
-    }
-    public void Remove (Item item)
-    {
-        items.Remove(item);
-        if(onItemChangeCallback != null)
-        {
-            onItemChangeCallback.Invoke();
+            items.Remove(item);
+            if(onItemChangeCallback != null)
+            {
+                onItemChangeCallback.Invoke();
+            }
         }
     }
 }
+

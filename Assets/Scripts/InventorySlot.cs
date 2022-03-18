@@ -2,32 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
-public class InventorySlot : MonoBehaviour
+namespace scripts
 {
-    public Image icon;
-    Item item;
-
-    public void AddItem(Item newItem)
+    public class InventorySlot : MonoBehaviour
     {
-        item = newItem;
+        public Image icon;
+        Item item;
 
-        icon.sprite = item.icon;
-        icon.enabled = true;
-    }
-
-    public void ClearSlot ()
-    {
-        item = null;
-        icon.sprite = null;
-        icon.enabled = false;
-    }
-
-    public void UseItem()
-    {
-        if(item != null)
+        public void AddItem(Item newItem)
         {
-            item.Use();
+            item = newItem;
+
+            icon.sprite = item.icon;
+            icon.enabled = true;
+        }
+
+        public void ClearSlot ()
+        {
+            item = null;
+            icon.sprite = null;
+            icon.enabled = false;
+        }
+
+        public void UseItem()
+        {
+            if(item != null)
+            {
+                item.Use();
+            }
         }
     }
+
 }
