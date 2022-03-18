@@ -15,3 +15,5 @@ MonoBehaviour:
   name: Key
   icon: {fileID: 21300000, guid: bc5d0be47e80cf44b857b553526d7664, type: 3}
   important: 1
+  held: {fileID: 0}
+  onHand: 0
