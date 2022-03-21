@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using Random = UnityEngine.Random;
 
 
@@ -63,6 +64,10 @@ namespace Scripts
         // Update is called once per frame
         private void Update()
         {
+            if(EventSystem.current.IsPointerOverGameObject())
+            {
+                return;
+            }
             RotateView();
 
             // the jump state needs to read here to make sure it is not missed
@@ -138,7 +143,7 @@ namespace Scripts
             ProgressStepCycle(speed);
             UpdateCameraPosition(speed);
 
-            m_MouseLook.UpdateCursorLock();
+            //m_MouseLook.UpdateCursorLock();
         }
 
 

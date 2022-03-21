@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+
 namespace scripts
 {
     public class Raycast : MonoBehaviour
@@ -27,19 +28,27 @@ namespace scripts
         public Animator anim;
         [SerializeField] public bool hasKey = false;
 
+        public Inventory inventory;
+        public holding held;
 
         void Start()
         {
             picktxt.gameObject.SetActive(false);
+            //Cursor.lockState = CursorLockMode.Locked;
+
         }
 
         // Update is called once per frame
         void Update()
         {
+            
+
             RaycastHit hit;
             Vector3 fwd = transform.TransformDirection(Vector3.forward);
-
+            
             int mask = 1 << LayerMask.NameToLayer(excludeLayerName) | layerMaskInteract.value;
+
+            
 
             if (Physics.Raycast(transform.position, fwd, out hit, Mathf.Infinity, mask))
             {
@@ -65,7 +74,20 @@ namespace scripts
                     door = hit.collider.gameObject.GetComponent<doorController>();
                     picktxt.gameObject.SetActive(true);
 
-                    if (Input.GetKeyDown(KeyCode.E))
+                    if (door.locked == true  && GameObject.Find("key").GetComponent<PickUp>().item.onHand && door.isWhiteDoor && GameObject.Find("key").activeSelf)
+                    {
+                        if(hasKey)
+                        {
+                            if(Input.GetKeyDown(KeyCode.E))
+                            {
+                                door.locked = false;
+                                inventory.Remove(GameObject.Find("key").GetComponent<PickUp>().item);
+                                held.Remove(GameObject.Find("key"));
+                                Destroy(GameObject.Find("key"));
+                            }
+                        }
+                    }
+                    if (Input.GetKeyDown(KeyCode.E) && door.locked == false)
                     {
                         door.PlayAnimation();
                         isCrosshairActive = true;
@@ -73,7 +95,7 @@ namespace scripts
                     }
 
                 }
-                else if (hit.collider.CompareTag(lockedDoorTag) && Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hasKey)
+                /*else if (hit.collider.CompareTag(lockedDoorTag) && Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hasKey)
                 {
                     CrosshairChange(true);
                     door = hit.collider.gameObject.GetComponent<doorController>();
@@ -86,7 +108,7 @@ namespace scripts
                         //doOnce = true;
                     }
 
-                }
+                }*/
                 else if (hit.collider.CompareTag(keyTag) && Physics.Raycast(transform.position, fwd, out hit, raylength, mask))
                 {
                     CrosshairChange(true);
@@ -96,6 +118,7 @@ namespace scripts
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         pickup.Pick();
+                        pickup.item.onHand = true;
                         hasKey = true;
                         isCrosshairActive = true;
                         //doOnce = true;
