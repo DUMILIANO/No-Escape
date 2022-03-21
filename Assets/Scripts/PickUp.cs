@@ -6,23 +6,21 @@ namespace scripts
 {
     public class PickUp : MonoBehaviour
     {
+        public Item item;
         public Rigidbody rb;
         public BoxCollider coll;
         public Transform player, container, cam;
-
-        public float pickUpRange;
-        public float dropForwardForce, dropUpwardForce;
 
         public bool equipped;
         public static bool slotFull;
         public bool pickable;
         public bool dropable;
-        public AudioClip recording;
-        public Raycast raycastScript;
+        public holding held;
 
         // Start is called before the first frame update
         void Start()
         {
+            item.onHand = false;
             if (!equipped)
             {
                 rb.isKinematic = false;
@@ -38,6 +36,7 @@ namespace scripts
                 pickable = false;
                 dropable = true;
             }
+            item.held = container.GetComponent<holding>();
         }
 
 
@@ -53,39 +52,49 @@ namespace scripts
         }
 
         public void Pick()
-        {
-            equipped = true;
-            slotFull = true;
+        { 
+            bool wasPickedUp = Inventory.instance.Add(item);
 
-            transform.SetParent(container);
-            transform.localPosition = Vector3.zero;
-            transform.localRotation = Quaternion.Euler(Vector3.zero);
-            transform.localScale = Vector3.one;
+            if(wasPickedUp)
+            {
+                equipped = true;
+                slotFull = true;
 
-            rb.isKinematic = true;
-            coll.isTrigger = true;
+                transform.SetParent(container);
+                transform.localPosition = Vector3.zero;
+                transform.localRotation = Quaternion.Euler(Vector3.zero);
+                transform.localScale = Vector3.one;
 
-            pickable = false;
-            dropable = true;
+                rb.isKinematic = true;
+                coll.isTrigger = true;
+
+                pickable = false;
+                dropable = true;
+                held.children.Add(gameObject);
+                if(held.children.Count > 1)
+                {
+                    held.children[held.children.Count - 2].GetComponent<PickUp>().item.onHand = false;
+                    held.children[held.children.Count - 2].SetActive(false);
+                    
+                }
+            }
+            
 
         }
         public void Drop()
         {
-            equipped = false;
-            slotFull = false;
+            if(!item.important)
+            {
+                equipped = false;
+                slotFull = false;
 
-            transform.SetParent(null);
-
-            rb.velocity = player.GetComponent<Rigidbody>().velocity;
-            rb.AddForce(cam.forward * dropForwardForce, ForceMode.Impulse);
-            rb.AddForce(cam.up * dropUpwardForce, ForceMode.Impulse);
-            float random = Random.Range(-1f, 1f);
-            rb.AddTorque(new Vector3(random, random, random) * 10);
-            rb.isKinematic = false;
-            coll.isTrigger = false;
-            pickable = true;
-            dropable = false;
-            //raycastScript.hasKey = false;
+                transform.SetParent(null);
+                rb.isKinematic = false;
+                coll.isTrigger = false;
+                pickable = true;
+                dropable = false;
+            }
+            
         }
     }
 }
