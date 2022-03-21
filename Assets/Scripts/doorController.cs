@@ -20,7 +20,7 @@ public class doorController : MonoBehaviour
     {
         if (!open && !locked)
         {
-            doorAnim.Play("spawnRoomDoorAnimationOpen", 0, 0.0f);
+            doorAnim.Play("door Open", 0, 0.0f);
             open = true;
         }
         else if (open)
