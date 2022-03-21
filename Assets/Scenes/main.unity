@@ -311,10 +311,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05c5ceb0a78f5f642be68d89d7670cc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorAnim: {fileID: 616956831}
+  doorAnim: {fileID: 1862916957}
   locked: 1
   isRedDoor: 0
   isWhiteDoor: 1
+  animationName: spawnRoomDoorAnimationOpen
 --- !u!65 &165541680
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1816,6 +1817,7 @@ MonoBehaviour:
   locked: 1
   isRedDoor: 0
   isWhiteDoor: 1
+  animationName: 
 --- !u!1 &850075309
 GameObject:
   m_ObjectHideFlags: 0
@@ -3453,6 +3455,7 @@ MonoBehaviour:
   locked: 1
   isRedDoor: 1
   isWhiteDoor: 0
+  animationName: 
 --- !u!65 &1746759427
 BoxCollider:
   m_ObjectHideFlags: 0
