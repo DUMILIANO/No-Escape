@@ -5051,7 +5051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afbdc72cfd4063945bd8fe99d7ece851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 0}
+  item: {fileID: 11400000, guid: d83ed0989baf347458a01fcd56bf2bda, type: 2}
   rb: {fileID: 8164078560105053487}
   coll: {fileID: 8164078560105053488}
   player: {fileID: 1974863115}

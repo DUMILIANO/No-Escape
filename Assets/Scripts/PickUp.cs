@@ -52,10 +52,35 @@ namespace scripts
         }
 
         public void Pick()
-        { 
-            bool wasPickedUp = Inventory.instance.Add(item);
+        {
+            if(item.important)
+            {
+                bool wasPickedUp = Inventory.instance.Add(item);
+                if(wasPickedUp)
+                {
+                    equipped = true;
+                    slotFull = true;
 
-            if(wasPickedUp)
+                    transform.SetParent(container);
+                    transform.localPosition = Vector3.zero;
+                    transform.localRotation = Quaternion.Euler(Vector3.zero);
+                    transform.localScale = Vector3.one;
+
+                    rb.isKinematic = true;
+                    coll.isTrigger = true;
+
+                    pickable = false;
+                    dropable = true;
+                    held.children.Add(gameObject);
+                    if(held.children.Count > 1)
+                    {
+                        held.children[held.children.Count - 2].GetComponent<PickUp>().item.onHand = false;
+                        held.children[held.children.Count - 2].SetActive(false);
+                        
+                    }
+                }
+            }
+            else
             {
                 equipped = true;
                 slotFull = true;
@@ -70,14 +95,10 @@ namespace scripts
 
                 pickable = false;
                 dropable = true;
-                held.children.Add(gameObject);
-                if(held.children.Count > 1)
-                {
-                    held.children[held.children.Count - 2].GetComponent<PickUp>().item.onHand = false;
-                    held.children[held.children.Count - 2].SetActive(false);
-                    
-                }
-            }
+            } 
+            
+
+            
             
 
         }
