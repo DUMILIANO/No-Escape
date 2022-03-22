@@ -8,6 +8,7 @@ TagManager:
   - Door
   - key
   - LockedDoor
+  - phone
   layers:
   - Default
   - TransparentFX
