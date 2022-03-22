@@ -10,10 +10,16 @@ public class doorController : MonoBehaviour
     public bool isRedDoor;
     public bool isWhiteDoor;
     public string animationName;
+    public AudioClip doorOpeningSFX;
+    AudioSource audio;
 
     private void Awake()
     {
         //doorAnim = gameObject.GetComponent<Animator>();
+    }
+    
+    private void Start() {
+        audio = GetComponent<AudioSource>();
     }
 
     public void PlayAnimation()
@@ -22,6 +28,7 @@ public class doorController : MonoBehaviour
         {
             doorAnim.Play("door Open", 0, 0.0f);
             open = true;
+            audio.PlayOneShot(doorOpeningSFX);
         }
         else if (open)
         {

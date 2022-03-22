@@ -316,6 +316,7 @@ MonoBehaviour:
   isRedDoor: 0
   isWhiteDoor: 1
   animationName: 
+  doorOpeningSFX: {fileID: 8300000, guid: bf419d1e5a7761d4e8c7be2988d7141c, type: 3}
 --- !u!65 &165541680
 BoxCollider:
   m_ObjectHideFlags: 0
