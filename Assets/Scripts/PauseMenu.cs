@@ -11,6 +11,7 @@ namespace scripts
         public static bool GameIsPaused = false;
         public GameObject PauseMenuUI;
         public InventoryUI inventoryUi;
+        public GameObject PausedMenu;
 
 
         // Start is called before the first frame update
@@ -22,13 +23,15 @@ namespace scripts
         // Update is called once per frame
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.P))
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
 
-                if(GameIsPaused)
+                if (GameIsPaused)
                 {
                     Resume();
-                }else
+
+                }
+                else
                 {
                     Pause();
                 }
@@ -38,6 +41,7 @@ namespace scripts
         public void Resume()
         {
             inventoryUi.cursorIsLocked = true;
+            PausedMenu.SetActive(false);
             PauseMenuUI.SetActive(false);
             Time.timeScale = 1f;
             GameIsPaused = false;
@@ -46,9 +50,18 @@ namespace scripts
         public void Pause()
         {
             inventoryUi.cursorIsLocked = false;
+            PausedMenu.SetActive(true);
             PauseMenuUI.SetActive(true);
             Time.timeScale = 0f;
             GameIsPaused = true;
         }
+    
+
+        public void QuitGame()
+        {
+            Application.Quit();
+
+        }
     }
+
 }
