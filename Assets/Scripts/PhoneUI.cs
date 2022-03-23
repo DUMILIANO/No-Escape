@@ -8,6 +8,7 @@ namespace scripts
         public GameObject flashlight;
         public InventoryUI inventoryUI;
         public GameObject phoneUI;
+        public GameObject[] objects;
 
         public void Update()
         {
@@ -23,6 +24,18 @@ namespace scripts
             phoneUI.SetActive(false);
             inventoryUI.cursorIsLocked = !inventoryUI.cursorIsLocked;
         }
+        void OnGUI()
+        {
+            foreach (GameObject go in objects)
+            {
+                bool active = GUILayout.Toggle(go.activeSelf, go.name);
+                if (active != go.activeSelf)
+                {
+                    go.SetActive(active);
+                }
+            }
+        }
     }
+
 }
 
