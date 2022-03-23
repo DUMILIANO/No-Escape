@@ -125,6 +125,20 @@ namespace scripts
                     }
 
                 }
+                else if (hit.collider.CompareTag(interactableTag) && Physics.Raycast(transform.position, fwd, out hit, raylength, mask))
+                {
+                    CrosshairChange(true);
+                    pickup = hit.collider.gameObject.GetComponent<PickUp>();
+                    picktxt.gameObject.SetActive(true);
+
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        pickup.Pick();
+                        isCrosshairActive = true;
+                        //doOnce = true;
+                    }
+
+                }
 
                 else
                 {
