@@ -9,7 +9,7 @@ namespace scripts
         Inventory inventory;
         InventorySlot[] slots;
         public GameObject inventoryUI;
-        bool cursorIsLocked = true;
+        public bool cursorIsLocked = true;
         // Start is called before the first frame update
         void Start()
         {

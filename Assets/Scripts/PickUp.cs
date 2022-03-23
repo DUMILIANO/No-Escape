@@ -46,7 +46,7 @@ namespace scripts
             Vector3 distanceToPlayer = player.position - transform.position;
             //if (!equipped && !slotFull) pickable = true;
 
-            if (equipped && Input.GetKeyDown(KeyCode.Q)) Drop();
+            //if (equipped && Input.GetKeyDown(KeyCode.Q)) Drop();
             //Debug.Log(pickable);
 
         }
