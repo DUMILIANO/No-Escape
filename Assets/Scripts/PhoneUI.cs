@@ -8,11 +8,14 @@ namespace scripts
         public GameObject flashlight;
         public InventoryUI inventoryUI;
         public GameObject phoneUI;
-        public GameObject[] objects;
+        public GameObject objects;
+        public GameObject phone;
+
+        [SerializeField] public bool hasPhone = false;
 
         public void Update()
         {
-            if(Input.GetKeyDown(KeyCode.X))
+            if(Input.GetKeyDown(KeyCode.X) && GameObject.Find("phone").GetComponent<PickUp>().item.onHand)
             {
                 phoneUI.SetActive(!phoneUI.activeSelf);
                 inventoryUI.cursorIsLocked = !inventoryUI.cursorIsLocked;
@@ -24,16 +27,24 @@ namespace scripts
             phoneUI.SetActive(false);
             inventoryUI.cursorIsLocked = !inventoryUI.cursorIsLocked;
         }
-        void OnGUI()
+        public void ShowObjects()
         {
-            foreach (GameObject go in objects)
+
+            objects.SetActive(!objects.activeSelf);
+            phoneUI.SetActive(false);
+            inventoryUI.cursorIsLocked = !inventoryUI.cursorIsLocked;
+
+
+
+
+            /*foreach (GameObject go in objects)
             {
                 bool active = GUILayout.Toggle(go.activeSelf, go.name);
                 if (active != go.activeSelf)
                 {
                     go.SetActive(active);
                 }
-            }
+            }*/
         }
     }
 
