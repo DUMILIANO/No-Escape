@@ -11,6 +11,7 @@ public class doorController : MonoBehaviour
     public bool isWhiteDoor;
     public string animationName;
     public AudioClip doorOpeningSFX;
+    public AudioClip doorLockedSFX;
     public AudioSource audio;
 
     private void Awake()
@@ -25,7 +26,6 @@ public class doorController : MonoBehaviour
         {
             doorAnim.Play("door Open", 0, 0.0f);
             open = true;
-            audio.PlayOneShot(doorOpeningSFX);
         }
         else if (open)
         {

@@ -20,7 +20,6 @@ namespace scripts
         // Start is called before the first frame update
         void Start()
         {
-            item.onHand = false;
             if (!equipped)
             {
                 rb.isKinematic = false;
@@ -74,7 +73,7 @@ namespace scripts
                     held.children.Add(gameObject);
                     if(held.children.Count > 1)
                     {
-                        held.children[held.children.Count - 2].GetComponent<PickUp>().item.onHand = false;
+                        held.children[held.children.Count - 2].GetComponent<PickUp>().equipped = false;
                         held.children[held.children.Count - 2].SetActive(false);
                         
                     }

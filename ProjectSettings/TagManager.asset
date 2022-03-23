@@ -9,6 +9,7 @@ TagManager:
   - key
   - LockedDoor
   - phone
+  - container
   layers:
   - Default
   - TransparentFX

@@ -74,20 +74,22 @@ namespace scripts
                     door = hit.collider.gameObject.GetComponent<doorController>();
                     picktxt.gameObject.SetActive(true);
 
-                    if (door.locked == true  && GameObject.Find("key").GetComponent<PickUp>().item.onHand && door.isWhiteDoor && GameObject.Find("key").activeSelf)
+                    if (door.locked == true  && GameObject.Find("key").GetComponent<PickUp>().equipped && door.isWhiteDoor && GameObject.Find("key").activeSelf)
                     {
-                        if(hasKey)
+                        if(Input.GetKeyDown(KeyCode.E) && hasKey)
                         {
-                            if(Input.GetKeyDown(KeyCode.E))
-                            {
-                                door.locked = false;
-                                inventory.Remove(GameObject.Find("key").GetComponent<PickUp>().item);
-                                held.Remove(GameObject.Find("key"));
-                                Destroy(GameObject.Find("key"));
-                            }
+                            door.locked = false;
+                            door.audio.PlayOneShot(door.doorOpeningSFX);
+                            inventory.Remove(GameObject.Find("key").GetComponent<PickUp>().item);
+                            held.Remove(GameObject.Find("key"));
+                            Destroy(GameObject.Find("key"));
                         }
                     }
-                    if (Input.GetKeyDown(KeyCode.E) && door.locked == false)
+                    else if(Input.GetKeyDown(KeyCode.E) && door.locked == true)
+                    {
+                        door.audio.PlayOneShot(door.doorLockedSFX);
+                    }
+                    else if (Input.GetKeyDown(KeyCode.E) && door.locked == false)
                     {
                         door.PlayAnimation();
                         isCrosshairActive = true;
@@ -118,7 +120,6 @@ namespace scripts
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         pickup.Pick();
-                        pickup.item.onHand = true;
                         hasKey = true;
                         isCrosshairActive = true;
                         //doOnce = true;
@@ -138,6 +139,16 @@ namespace scripts
                         //doOnce = true;
                     }
 
+                }
+                else if (hit.collider.CompareTag("container") && Physics.Raycast(transform.position, fwd, out hit, raylength, mask))
+                {
+                    CrosshairChange(true);
+                    picktxt.gameObject.SetActive(true);
+
+                    if(Input.GetKeyDown(KeyCode.E) && GameObject.Find("book").activeSelf)
+                    {
+                        Debug.Log("Book placed");
+                    }
                 }
 
                 else
