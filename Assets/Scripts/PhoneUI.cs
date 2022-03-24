@@ -12,7 +12,9 @@ namespace scripts
         public GameObject phone;
         public GameObject PostPro;
         public Camera myCamera;
+        public Renderer myRenderer;
         bool cameraOn = false;
+        public GameObject recordingUI;
 
         //[SerializeField] public bool hasPhone = false;
 
@@ -41,13 +43,17 @@ namespace scripts
                 myCamera.fieldOfView = 50f;
                 objects.SetActive(true);
                 PostPro.SetActive(true);
+                recordingUI.SetActive(true);
+                myRenderer.enabled = false;
             }
             else
             {
                 cameraOn = false;
+                recordingUI.SetActive(false);
                 myCamera.fieldOfView = 70f;
                 objects.SetActive(false);
                 PostPro.SetActive(false);
+                myRenderer.enabled = true;
             }
 
             
