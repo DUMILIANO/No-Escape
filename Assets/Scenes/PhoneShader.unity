@@ -5177,7 +5177,7 @@ RectTransform:
   - {fileID: 373988888}
   - {fileID: 1307488015}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5558,7 +5558,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &992674150
 GameObject:
@@ -9857,7 +9857,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.01
   far clip plane: 1000
   field of view: 70
   orthographic: 0
@@ -12167,6 +12167,7 @@ GameObject:
   - component: {fileID: 2982157792625993815}
   - component: {fileID: 2982157792625993814}
   - component: {fileID: 2982157792625993813}
+  - component: {fileID: 2982157792625993816}
   m_Layer: 0
   m_Name: phone
   m_TagString: PickUp
@@ -12225,6 +12226,22 @@ MonoBehaviour:
   pickable: 0
   dropable: 0
   held: {fileID: 0}
+--- !u!111 &2982157792625993816
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2982157792625993812}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: c6d9b21740c541045a6c26db3d9479e6, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: c6d9b21740c541045a6c26db3d9479e6, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!33 &3010172806709964852
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -12486,12 +12503,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2982157792625993812}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.71, y: 0.20023, z: -1.1300001}
+  m_LocalPosition: {x: -0.71, y: 0.20023, z: -1.1299999}
   m_LocalScale: {x: 0.0016428736, y: 0.0016428719, z: 0.0016428736}
   m_Children:
   - {fileID: 1615963336}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &6745302439751505963
 MeshRenderer:
