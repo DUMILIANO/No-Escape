@@ -148,6 +148,7 @@ namespace scripts
                     if(Input.GetKeyDown(KeyCode.E) && GameObject.Find("book").activeSelf)
                     {
                         Debug.Log("Book placed");
+                        GameObject.Find("book")
                     }
                 }
 
