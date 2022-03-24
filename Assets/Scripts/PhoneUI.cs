@@ -10,12 +10,15 @@ namespace scripts
         public GameObject phoneUI;
         public GameObject objects;
         public GameObject phone;
+        public GameObject PostPro;
+        public Camera myCamera;
+        bool cameraOn = false;
 
-        [SerializeField] public bool hasPhone = false;
+        //[SerializeField] public bool hasPhone = false;
 
         public void Update()
         {
-            if(Input.GetKeyDown(KeyCode.X) && GameObject.Find("phone").GetComponent<PickUp>().item.onHand)
+            if(Input.GetKeyDown(KeyCode.X) && GameObject.Find("phone").GetComponent<PickUp>().equipped)
             {
                 phoneUI.SetActive(!phoneUI.activeSelf);
                 inventoryUI.cursorIsLocked = !inventoryUI.cursorIsLocked;
@@ -29,22 +32,26 @@ namespace scripts
         }
         public void ShowObjects()
         {
-
-            objects.SetActive(!objects.activeSelf);
             phoneUI.SetActive(false);
             inventoryUI.cursorIsLocked = !inventoryUI.cursorIsLocked;
 
-
-
-
-            /*foreach (GameObject go in objects)
+            if (cameraOn == false)
             {
-                bool active = GUILayout.Toggle(go.activeSelf, go.name);
-                if (active != go.activeSelf)
-                {
-                    go.SetActive(active);
-                }
-            }*/
+                cameraOn = true;
+                myCamera.fieldOfView = 50f;
+                objects.SetActive(true);
+                PostPro.SetActive(true);
+            }
+            else
+            {
+                cameraOn = false;
+                myCamera.fieldOfView = 70f;
+                objects.SetActive(false);
+                PostPro.SetActive(false);
+            }
+
+            
+            
         }
     }
 
