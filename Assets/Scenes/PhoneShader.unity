@@ -5238,6 +5238,7 @@ MonoBehaviour:
   PostPro: {fileID: 812741995}
   myCamera: {fileID: 1974377227}
   myRenderer: {fileID: 5631323303994828465}
+  phoneCollider: {fileID: 2982157792625993814}
   recordingUI: {fileID: 337127808}
 --- !u!1 &959169114
 GameObject:
