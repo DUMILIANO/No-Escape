@@ -212,7 +212,7 @@ namespace scripts
                         //doOnce = true;
                     }
                 }
-                else if (hit.collider.CompareTag("hours") && Physics.Raycast(transform.position, fwd, out hit, raylength, mask))
+                else if (hit.collider.CompareTag("hours") && Physics.SphereCast(transform.position, 10f, fwd, out hit, raylength, mask))
                 {
                     CrosshairChange(true);
                     picktxt.gameObject.SetActive(true);
@@ -221,6 +221,17 @@ namespace scripts
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         pendClock.hours();
+                    }
+                }
+                 else if (hit.collider.CompareTag("minutes") && Physics.SphereCast(transform.position, 10f, fwd, out hit, raylength, mask))
+                {
+                    CrosshairChange(true);
+                    picktxt.gameObject.SetActive(true);
+                    hours = hit.collider.transform;
+                    
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        pendClock.minutes();
                     }
                 }
                 else
