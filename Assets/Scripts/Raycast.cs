@@ -16,6 +16,7 @@ namespace scripts
         [SerializeField] private Image crosshair = null;
         private bool doOnce;
         public doorController door;
+        public drawersAnim drawer;
         private const string interactableTag = "PickUp";
         private const string keyTag = "key";
         private const string doorTag = "Door";
@@ -195,7 +196,31 @@ namespace scripts
                     }
                     
                 }
-
+                else if (hit.collider.CompareTag("drawers") && Physics.Raycast(transform.position, fwd, out hit, raylength, mask))
+                {
+                    CrosshairChange(true);
+                    drawer = hit.collider.gameObject.GetComponent<drawersAnim>();
+                    picktxt.gameObject.SetActive(true);
+                   
+                    
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        drawer.PlayAnimation();
+                        isCrosshairActive = true;
+                        //doOnce = true;
+                    }
+                }
+                else if (hit.collider.CompareTag("hours") && Physics.Raycast(transform.position, fwd, out hit, raylength, mask))
+                {
+                    CrosshairChange(true);
+                    picktxt.gameObject.SetActive(true);
+                   
+                    
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        hit.collider.transform.rotation = Quaternion.Euler(hit.collider.transform.rotation.x + 60, -90, 90);
+                    }
+                }
                 else
                 {
                     picktxt.gameObject.SetActive(false);
