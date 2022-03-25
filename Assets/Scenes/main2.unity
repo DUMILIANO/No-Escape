@@ -1485,7 +1485,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 193788349}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.72, y: 0, z: -0.16999996}
+  m_LocalPosition: {x: -4.602, y: -1.413, z: 1.899}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1658158373}
@@ -3125,9 +3125,10 @@ GameObject:
   - component: {fileID: 464332743}
   - component: {fileID: 464332745}
   - component: {fileID: 464332744}
+  - component: {fileID: 464332746}
   m_Layer: 0
   m_Name: vintage_grandfather_clock_01_HourHand
-  m_TagString: Untagged
+  m_TagString: hours
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3139,13 +3140,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 464332742}
-  m_LocalRotation: {x: 0.32353494, y: 0.6374728, z: -0.6310604, w: -0.30119154}
+  m_LocalRotation: {x: -0.5, y: -0.5, z: 0.5, w: 0.5}
   m_LocalPosition: {x: -0, y: 1.7319387, z: 0.1255319}
   m_LocalScale: {x: 100.00001, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 1578326114}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 90}
 --- !u!23 &464332744
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3194,6 +3195,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 464332742}
+  m_Mesh: {fileID: 7434807482565712941, guid: 9f7d1b70fd3052d42b0990246a4abe92, type: 3}
+--- !u!64 &464332746
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 464332742}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 7434807482565712941, guid: 9f7d1b70fd3052d42b0990246a4abe92, type: 3}
 --- !u!1 &480052590
 GameObject:
@@ -8091,9 +8106,10 @@ GameObject:
   - component: {fileID: 1235203017}
   - component: {fileID: 1235203019}
   - component: {fileID: 1235203018}
+  - component: {fileID: 1235203020}
   m_Layer: 0
   m_Name: vintage_grandfather_clock_01_MinuteHand
-  m_TagString: Untagged
+  m_TagString: minutes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8105,13 +8121,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1235203016}
-  m_LocalRotation: {x: -0.718744, y: -0.14980334, z: 0.0682611, w: 0.6755046}
+  m_LocalRotation: {x: -0.32650563, y: -0.6272114, z: 0.6272114, w: 0.32650563}
   m_LocalPosition: {x: -0, y: 1.7319387, z: 0.1255319}
-  m_LocalScale: {x: 99.99999, y: 100, z: 100.00001}
+  m_LocalScale: {x: 100, y: 100, z: 100.00001}
   m_Children: []
   m_Father: {fileID: 1578326114}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -215, y: 90, z: -90}
 --- !u!23 &1235203018
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8160,6 +8176,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1235203016}
+  m_Mesh: {fileID: -4814384289931778623, guid: 9f7d1b70fd3052d42b0990246a4abe92, type: 3}
+--- !u!64 &1235203020
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235203016}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: -4814384289931778623, guid: 9f7d1b70fd3052d42b0990246a4abe92, type: 3}
 --- !u!1 &1271936225
 GameObject:
@@ -8936,9 +8966,12 @@ GameObject:
   - component: {fileID: 1365000864}
   - component: {fileID: 1365000866}
   - component: {fileID: 1365000865}
+  - component: {fileID: 1365000869}
+  - component: {fileID: 1365000868}
+  - component: {fileID: 1365000867}
   m_Layer: 0
   m_Name: Desk.001
-  m_TagString: Untagged
+  m_TagString: drawers
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9006,6 +9039,51 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1365000863}
   m_Mesh: {fileID: -5679243772008491806, guid: 97351c8b76f16214d89c14d64b7101e5, type: 3}
+--- !u!114 &1365000867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1365000863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d276783d3193af4db334485bd94b343, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drawerAnim: {fileID: 1365000869}
+--- !u!65 &1365000868
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1365000863}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.022187749, y: 0.035020243, z: 0.0104714455}
+  m_Center: {x: 0.015471259, y: 0.0037809648, z: 0.008868953}
+--- !u!95 &1365000869
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1365000863}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1b4cc6c8153602742aadd790ee6c46c2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1393661992
 GameObject:
   m_ObjectHideFlags: 0
@@ -9910,9 +9988,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1578326113}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.00000058114523}
-  m_LocalPosition: {x: 3.0207114, y: -2.13, z: 8.235749}
-  m_LocalScale: {x: 2.67222, y: 2.67222, z: 2.67222}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.89, y: -2.13, z: 8.24}
+  m_LocalScale: {x: 1.484899, y: 1.484899, z: 1.484899}
   m_Children:
   - {fileID: 75533982}
   - {fileID: 1688890794}
@@ -9920,7 +9998,7 @@ Transform:
   - {fileID: 1235203017}
   m_Father: {fileID: 0}
   m_RootOrder: 24
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1599058458
 GameObject:
   m_ObjectHideFlags: 0
@@ -10162,9 +10240,12 @@ GameObject:
   - component: {fileID: 1637911479}
   - component: {fileID: 1637911481}
   - component: {fileID: 1637911480}
+  - component: {fileID: 1637911484}
+  - component: {fileID: 1637911483}
+  - component: {fileID: 1637911482}
   m_Layer: 0
   m_Name: Desk.002
-  m_TagString: Untagged
+  m_TagString: drawers
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10232,6 +10313,51 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1637911478}
   m_Mesh: {fileID: 6766272393365294120, guid: 97351c8b76f16214d89c14d64b7101e5, type: 3}
+--- !u!114 &1637911482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637911478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d276783d3193af4db334485bd94b343, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drawerAnim: {fileID: 1637911483}
+--- !u!95 &1637911483
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637911478}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1b4cc6c8153602742aadd790ee6c46c2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &1637911484
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637911478}
+  m_Material: {fileID: 13400000, guid: 7963ad2ab8b9f5a4a851512f6fbfc99a, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.022187749, y: 0.035020243, z: 0.0010729079}
+  m_Center: {x: 0.015470528, y: 0.0037809715, z: -0.010205306}
 --- !u!1001 &1641463109
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11437,7 +11563,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1762062653}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 7963ad2ab8b9f5a4a851512f6fbfc99a, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -11521,14 +11647,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1762062653}
-  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.71, y: 0.20023, z: -1.1299999}
+  m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
+  m_LocalPosition: {x: -4.32015, y: -1.537, z: 2.218}
   m_LocalScale: {x: 0.0016428736, y: 0.0016428719, z: 0.0016428736}
   m_Children:
   - {fileID: 235642779}
   m_Father: {fileID: 0}
   m_RootOrder: 25
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: -90}
 --- !u!1 &1796902103
 GameObject:
   m_ObjectHideFlags: 0
@@ -12154,6 +12280,7 @@ MonoBehaviour:
   openDoorKey: 323
   crosshair: {fileID: 2012514266}
   door: {fileID: 0}
+  drawer: {fileID: 0}
   isCrosshairActive: 0
   pickup: {fileID: 0}
   crosshairpos: {fileID: 2012514265}
@@ -14658,7 +14785,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &1079662024206074822
 MeshRenderer:
   m_ObjectHideFlags: 0

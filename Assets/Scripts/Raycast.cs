@@ -30,7 +30,7 @@ namespace scripts
         public Transform bookPos;
         public bookChecker check;
         public bool hasKey = false;
-
+        Transform hours;
         public Inventory inventory;
         public holding held;
 
@@ -214,11 +214,11 @@ namespace scripts
                 {
                     CrosshairChange(true);
                     picktxt.gameObject.SetActive(true);
-                   
+                    hours = hit.collider.transform;
                     
                     if (Input.GetKeyDown(KeyCode.E))
                     {
-                        hit.collider.transform.rotation = Quaternion.Euler(hit.collider.transform.rotation.x + 60, -90, 90);
+                        hours.eulerAngles = new Vector3(hours.rotation.x + 25, -90, 90);
                     }
                 }
                 else

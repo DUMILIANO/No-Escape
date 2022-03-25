@@ -10,6 +10,9 @@ TagManager:
   - LockedDoor
   - phone
   - container
+  - drawers
+  - minutes
+  - hours
   layers:
   - Default
   - TransparentFX
