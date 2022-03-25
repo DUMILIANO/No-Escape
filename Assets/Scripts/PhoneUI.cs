@@ -79,15 +79,15 @@ namespace scripts
             }
             else
             {
-                Debug.Log("AnimationPlaying");
                 phone.GetComponent<Animation>().Play("phoneback");
+                Debug.Log("AnimationPlaying");
+                myRenderer.enabled = true;
+                myCamera.fieldOfView = 70f;
+                PostPro.SetActive(false);
+                recordingUI.SetActive(false);
                 yield return new WaitForSeconds(1);
                 cameraOn = false;
-                recordingUI.SetActive(false);
-                myCamera.fieldOfView = 70f;
                 objects.SetActive(false);
-                PostPro.SetActive(false);
-                myRenderer.enabled = true;
                 phoneCollider.enabled = true;
 
             }
