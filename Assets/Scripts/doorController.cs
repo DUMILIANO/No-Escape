@@ -9,6 +9,7 @@ public class doorController : MonoBehaviour
     public bool locked = false;
     public bool isRedDoor;
     public bool isWhiteDoor;
+    public GameObject key;
     public string animationName;
     public AudioClip doorOpeningSFX;
     public AudioClip doorLockedSFX;
@@ -19,7 +20,13 @@ public class doorController : MonoBehaviour
         //doorAnim = gameObject.GetComponent<Animator>();
     }
 
-
+    void Update()
+    {
+        if(!locked)
+        {
+            key = null;
+        }
+    }
     public void PlayAnimation()
     {
         if (!open && !locked)

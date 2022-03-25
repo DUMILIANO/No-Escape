@@ -28,7 +28,7 @@ namespace scripts
         public Animator anim;
         public Transform bookPos;
         public bookChecker check;
-        [SerializeField] public bool hasKey = false;
+        public bool hasKey = false;
 
         public Inventory inventory;
         public holding held;
@@ -75,22 +75,45 @@ namespace scripts
                     CrosshairChange(true);
                     door = hit.collider.gameObject.GetComponent<doorController>();
                     picktxt.gameObject.SetActive(true);
-
-                    if (door.locked == true  && GameObject.Find("key").GetComponent<PickUp>().equipped && door.isWhiteDoor && GameObject.Find("key").activeSelf)
+                    if(door.locked)
                     {
-                        if(Input.GetKeyDown(KeyCode.E) && hasKey)
+                        if (door.isWhiteDoor)
                         {
-                            door.locked = false;
-                            door.audio.PlayOneShot(door.doorOpeningSFX);
-                            inventory.Remove(GameObject.Find("key").GetComponent<PickUp>().item);
-                            held.Remove(GameObject.Find("key"));
-                            Destroy(GameObject.Find("key"));
+                            if(door.key.GetComponent<PickUp>().equipped)
+                            {
+                                if(Input.GetKeyDown(KeyCode.E) && hasKey)
+                                {
+                                    door.locked = false;
+                                    door.audio.PlayOneShot(door.doorOpeningSFX);
+                                    inventory.Remove(door.key.GetComponent<PickUp>().item);
+                                    held.Remove(door.key);
+                                    hasKey = false;
+                                    Destroy(door.key);
+                                }
+                            }
                         }
+                        if (door.isRedDoor)
+                        {
+                            if(door.key.GetComponent<PickUp>().equipped)
+                            {
+                                if(Input.GetKeyDown(KeyCode.E) && hasKey)
+                                {
+                                    door.locked = false;
+                                    door.audio.PlayOneShot(door.doorOpeningSFX);
+                                    inventory.Remove(door.key.GetComponent<PickUp>().item);
+                                    held.Remove(door.key);
+                                    hasKey = false;
+                                    Destroy(door.key);
+                                }
+                            }
+                        }   
+                        
                     }
-                    else if(Input.GetKeyDown(KeyCode.E) && door.locked == true)
-                    {
-                        door.audio.PlayOneShot(door.doorLockedSFX);
-                    }
+                    if(Input.GetKeyDown(KeyCode.E) && door.locked)
+                        {
+                            door.audio.PlayOneShot(door.doorLockedSFX);
+                        }
+                    
                     else if (Input.GetKeyDown(KeyCode.E) && door.locked == false)
                     {
                         door.PlayAnimation();
@@ -139,6 +162,7 @@ namespace scripts
                         Debug.Log(hit.collider.transform.parent);
                         if(hit.collider.transform.parent != null && hit.collider.transform.parent.GetComponent<bookContainer>().rightBook)
                         {
+                            hit.collider.transform.parent.GetComponent<bookContainer>().rightBook = false;
                             check.count--;
                         }
                         pickup.Pick();
