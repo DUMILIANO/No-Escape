@@ -31,6 +31,7 @@ namespace scripts
         public bookChecker check;
         public bool hasKey = false;
         Transform hours;
+        public clock pendClock;
         public Inventory inventory;
         public holding held;
 
@@ -160,14 +161,15 @@ namespace scripts
 
                     if (Input.GetKeyDown(KeyCode.E))
                     {
+                        pickup.Pick();
+                        isCrosshairActive = true;
                         Debug.Log(hit.collider.transform.parent);
                         if(hit.collider.transform.parent != null && hit.collider.transform.parent.GetComponent<bookContainer>().rightBook)
                         {
                             hit.collider.transform.parent.GetComponent<bookContainer>().rightBook = false;
                             check.count--;
                         }
-                        pickup.Pick();
-                        isCrosshairActive = true;
+                        
                         //doOnce = true;
                         
                     }
@@ -218,7 +220,7 @@ namespace scripts
                     
                     if (Input.GetKeyDown(KeyCode.E))
                     {
-                        hours.eulerAngles = new Vector3(hours.rotation.x + 25, -90, 90);
+                        pendClock.hours();
                     }
                 }
                 else
