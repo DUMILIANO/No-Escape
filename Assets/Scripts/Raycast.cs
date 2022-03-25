@@ -26,6 +26,8 @@ namespace scripts
         public Camera cam;
         public Text picktxt;
         public Animator anim;
+        public Transform bookPos;
+        public bookChecker check;
         [SerializeField] public bool hasKey = false;
 
         public Inventory inventory;
@@ -134,9 +136,15 @@ namespace scripts
 
                     if (Input.GetKeyDown(KeyCode.E))
                     {
+                        Debug.Log(hit.collider.transform.parent);
+                        if(hit.collider.transform.parent != null && hit.collider.transform.parent.GetComponent<bookContainer>().rightBook)
+                        {
+                            check.count--;
+                        }
                         pickup.Pick();
                         isCrosshairActive = true;
                         //doOnce = true;
+                        
                     }
 
                 }
@@ -144,12 +152,24 @@ namespace scripts
                 {
                     CrosshairChange(true);
                     picktxt.gameObject.SetActive(true);
-
-                    if(Input.GetKeyDown(KeyCode.E) && GameObject.Find("book").activeSelf)
+                    bookPos = hit.collider.transform;
+                    foreach(GameObject child in held.children)
                     {
-                        Debug.Log("Book placed");
-                        GameObject.Find("book");
+                        if(Input.GetKeyDown(KeyCode.E) && child.activeSelf && (child.name == "book1" || child.name == "book2" || child.name == "book3" || child.name == "book4" || child.name == "book5" || child.name == "book6"))
+                        {
+                            PickUp bookScript = child.GetComponent<PickUp>();
+                            child.transform.SetParent(bookPos);
+                            child.transform.localPosition = Vector3.zero;
+                            child.transform.localRotation = Quaternion.Euler(Vector3.zero);
+                            child.transform.localScale = Vector3.one;
+                            inventory.Remove(bookScript.item);
+                            held.Remove(child);
+                            
+                            bookPos.GetComponent<bookContainer>().Check();
+                            
+                        }
                     }
+                    
                 }
 
                 else
