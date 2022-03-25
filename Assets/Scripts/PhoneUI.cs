@@ -63,12 +63,12 @@ namespace scripts
         IEnumerator FinishAnim()
         {
             phoneUI.SetActive(false); 
-            phone.GetComponent<Animation>().Play("phone");
             inventoryUI.cursorIsLocked = !inventoryUI.cursorIsLocked;
-            yield return new WaitForSeconds(1);
 
             if (cameraOn == false)
             {
+                phone.GetComponent<Animation>().Play("phone");
+                yield return new WaitForSeconds(1);
                 cameraOn = true;
                 myCamera.fieldOfView = 50f;
                 objects.SetActive(true);
@@ -79,6 +79,9 @@ namespace scripts
             }
             else
             {
+                Debug.Log("AnimationPlaying");
+                phone.GetComponent<Animation>().Play("phoneback");
+                yield return new WaitForSeconds(1);
                 cameraOn = false;
                 recordingUI.SetActive(false);
                 myCamera.fieldOfView = 70f;
