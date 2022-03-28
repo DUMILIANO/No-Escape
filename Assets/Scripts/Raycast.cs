@@ -153,7 +153,7 @@ namespace scripts
                     }
 
                 }
-                else if (hit.collider.CompareTag(interactableTag) && Physics.Raycast(transform.position, fwd, out hit, raylength, mask))
+                else if (hit.collider.CompareTag("phone") && Physics.Raycast(transform.position, fwd, out hit, raylength, mask))
                 {
                     CrosshairChange(true);
                     pickup = hit.collider.gameObject.GetComponent<PickUp>();
@@ -162,6 +162,7 @@ namespace scripts
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         pickup.Pick();
+                        hit.collider.gameObject.layer = 7;
                         isCrosshairActive = true;
                         Debug.Log(hit.collider.transform.parent);
                         if(hit.collider.transform.parent != null && hit.collider.transform.parent.GetComponent<bookContainer>().rightBook)
