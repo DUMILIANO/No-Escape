@@ -10,7 +10,8 @@ public class doorController : MonoBehaviour
     public bool isRedDoor;
     public bool isWhiteDoor;
     public GameObject key;
-    public string animationName;
+    public string openAnimationName;
+    public string closeAnimationName;
     public AudioClip doorOpeningSFX;
     public AudioClip doorLockedSFX;
     public AudioSource audio;
@@ -31,12 +32,12 @@ public class doorController : MonoBehaviour
     {
         if (!open && !locked)
         {
-            doorAnim.Play("door Open", 0, 0.0f);
+            doorAnim.Play(openAnimationName, 0, 0.0f);
             open = true;
         }
         else if (open)
         {
-            doorAnim.Play("door Close", 0, 0.0f);
+            doorAnim.Play(closeAnimationName, 0, 0.0f);
             open = false;
         }
     }

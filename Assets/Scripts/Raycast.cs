@@ -59,7 +59,7 @@ namespace scripts
                 //shows a ray whenever it hits with something
                 Debug.DrawRay(transform.position, fwd * hit.distance, Color.red);
                 //checks if the ray is interactable and makes sures the player isn't already holding something
-                if (hit.collider.CompareTag(interactableTag) && PickUp.slotFull == false && Physics.Raycast(transform.position, fwd, out hit, raylength, mask))
+                if (hit.collider.CompareTag(interactableTag) && Physics.Raycast(transform.position, fwd, out hit, raylength, mask))
                 {
                     CrosshairChange(true);
                     picktxt.gameObject.SetActive(true);
@@ -213,7 +213,7 @@ namespace scripts
                         //doOnce = true;
                     }
                 }
-                else if (hit.collider.CompareTag("hours") && Physics.SphereCast(transform.position, 10f, fwd, out hit, raylength, mask))
+                else if (hit.collider.CompareTag("hours") && Physics.Raycast(transform.position, fwd, out hit, raylength, mask))
                 {
                     CrosshairChange(true);
                     picktxt.gameObject.SetActive(true);
@@ -224,7 +224,7 @@ namespace scripts
                         pendClock.hours();
                     }
                 }
-                 else if (hit.collider.CompareTag("minutes") && Physics.SphereCast(transform.position, 10f, fwd, out hit, raylength, mask))
+                 else if (hit.collider.CompareTag("minutes") && Physics.Raycast(transform.position, fwd, out hit, raylength, mask))
                 {
                     CrosshairChange(true);
                     picktxt.gameObject.SetActive(true);

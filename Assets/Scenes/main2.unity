@@ -1075,7 +1075,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &134138484
 GameObject:
@@ -1244,7 +1244,8 @@ MonoBehaviour:
   isRedDoor: 0
   isWhiteDoor: 1
   key: {fileID: 193788349}
-  animationName: 
+  openAnimationName: door Open
+  closeAnimationName: door Close
   doorOpeningSFX: {fileID: 8300000, guid: bf419d1e5a7761d4e8c7be2988d7141c, type: 3}
   doorLockedSFX: {fileID: 8300000, guid: ec5830478747e3a45890bcd26b907733, type: 3}
   audio: {fileID: 1976369355}
@@ -3032,7 +3033,6 @@ GameObject:
   - component: {fileID: 464332743}
   - component: {fileID: 464332745}
   - component: {fileID: 464332744}
-  - component: {fileID: 464332747}
   m_Layer: 0
   m_Name: vintage_grandfather_clock_01_HourHand
   m_TagString: hours
@@ -3104,20 +3104,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 464332742}
   m_Mesh: {fileID: 7434807482565712941, guid: 9f7d1b70fd3052d42b0990246a4abe92, type: 3}
---- !u!114 &464332747
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 464332742}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 837495b1e01ed0a428dfd6df747fa8ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hourSpace: 0
-  minuteSpace: 0
 --- !u!1 &480052590
 GameObject:
   m_ObjectHideFlags: 0
@@ -3150,7 +3136,7 @@ Transform:
   - {fileID: 1645857356}
   - {fileID: 1676794140}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &491382953
 GameObject:
@@ -3465,7 +3451,7 @@ Transform:
   - {fileID: 1365000864}
   - {fileID: 1637911479}
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: -90.795, z: 0}
 --- !u!1001 &536044014
 PrefabInstance:
@@ -4883,7 +4869,7 @@ MonoBehaviour:
   coll: {fileID: 755355657}
   player: {fileID: 1974863115}
   container: {fileID: 1649704527}
-  cam: {fileID: 0}
+  cam: {fileID: 1878288963}
   equipped: 0
   pickable: 0
   dropable: 0
@@ -4901,7 +4887,7 @@ Transform:
   m_Children:
   - {fileID: 682783284}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &796214401
 GameObject:
@@ -5957,7 +5943,7 @@ MonoBehaviour:
   coll: {fileID: 955730846}
   player: {fileID: 1974863115}
   container: {fileID: 1649704527}
-  cam: {fileID: 0}
+  cam: {fileID: 1878288963}
   equipped: 0
   pickable: 0
   dropable: 0
@@ -5975,7 +5961,7 @@ Transform:
   m_Children:
   - {fileID: 1224501715}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &957751668
 GameObject:
@@ -7189,6 +7175,50 @@ RectTransform:
   m_AnchoredPosition: {x: 101, y: -40}
   m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1093260471
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1093260472}
+  - component: {fileID: 1093260473}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: minutes
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1093260472
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093260471}
+  m_LocalRotation: {x: 0, y: 0.35020736, z: 0, w: 0.9366722}
+  m_LocalPosition: {x: 0.000378, y: 0.000068, z: 0.000419}
+  m_LocalScale: {x: 0.00035402042, y: 0.000034814682, z: 0.0009149942}
+  m_Children: []
+  m_Father: {fileID: 1235203017}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 41, z: 0}
+--- !u!65 &1093260473
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093260471}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1.6673543}
+  m_Center: {x: 0.000000007806142, y: 0.00000062628106, z: 0.33367637}
 --- !u!1 &1097622753
 GameObject:
   m_ObjectHideFlags: 0
@@ -7280,7 +7310,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &1132589514
 GameObject:
@@ -7635,7 +7665,7 @@ Transform:
   m_Children:
   - {fileID: 1355158910}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: -90}
 --- !u!1 &1210456817
 GameObject:
@@ -7674,7 +7704,8 @@ MonoBehaviour:
   isRedDoor: 0
   isWhiteDoor: 0
   key: {fileID: 0}
-  animationName: 
+  openAnimationName: door Open
+  closeAnimationName: door Close
   doorOpeningSFX: {fileID: 8300000, guid: bf419d1e5a7761d4e8c7be2988d7141c, type: 3}
   doorLockedSFX: {fileID: 8300000, guid: ec5830478747e3a45890bcd26b907733, type: 3}
   audio: {fileID: 1976369355}
@@ -8107,7 +8138,6 @@ GameObject:
   - component: {fileID: 1235203017}
   - component: {fileID: 1235203019}
   - component: {fileID: 1235203018}
-  - component: {fileID: 1235203020}
   m_Layer: 0
   m_Name: vintage_grandfather_clock_01_MinuteHand
   m_TagString: minutes
@@ -8122,13 +8152,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1235203016}
-  m_LocalRotation: {x: -0.32650563, y: -0.6272114, z: 0.6272114, w: 0.32650563}
-  m_LocalPosition: {x: -0, y: 1.7319387, z: 0.1255319}
-  m_LocalScale: {x: 100, y: 100, z: 100.00001}
-  m_Children: []
+  m_LocalRotation: {x: -0.44977525, y: -0.545621, z: 0.545621, w: 0.44977525}
+  m_LocalPosition: {x: 0, y: 1.7319388, z: 0.12553199}
+  m_LocalScale: {x: 100, y: 100, z: 100.00002}
+  m_Children:
+  - {fileID: 1093260472}
   m_Father: {fileID: 1578326114}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: -215, y: 90, z: -90}
+  m_LocalEulerAnglesHint: {x: 11, y: -90, z: 90}
 --- !u!23 &1235203018
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8177,20 +8208,6 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1235203016}
-  m_Mesh: {fileID: -4814384289931778623, guid: 9f7d1b70fd3052d42b0990246a4abe92, type: 3}
---- !u!64 &1235203020
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1235203016}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
   m_Mesh: {fileID: -4814384289931778623, guid: 9f7d1b70fd3052d42b0990246a4abe92, type: 3}
 --- !u!1 &1271936225
 GameObject:
@@ -8695,7 +8712,7 @@ Transform:
   - {fileID: 618472913}
   - {fileID: 1867902550}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1333186711
 MonoBehaviour:
@@ -8839,7 +8856,8 @@ MonoBehaviour:
   isRedDoor: 1
   isWhiteDoor: 0
   key: {fileID: 1707041620}
-  animationName: 
+  openAnimationName: door Open
+  closeAnimationName: door Close
   doorOpeningSFX: {fileID: 8300000, guid: bf419d1e5a7761d4e8c7be2988d7141c, type: 3}
   doorLockedSFX: {fileID: 8300000, guid: ec5830478747e3a45890bcd26b907733, type: 3}
   audio: {fileID: 1976369355}
@@ -9375,7 +9393,7 @@ MonoBehaviour:
   coll: {fileID: 1429215749}
   player: {fileID: 1974863115}
   container: {fileID: 1649704527}
-  cam: {fileID: 0}
+  cam: {fileID: 1878288963}
   equipped: 0
   pickable: 0
   dropable: 0
@@ -9393,7 +9411,7 @@ Transform:
   m_Children:
   - {fileID: 1528103143}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1459139942
 GameObject:
@@ -9815,7 +9833,7 @@ MonoBehaviour:
   coll: {fileID: 1489795576}
   player: {fileID: 1974863115}
   container: {fileID: 1649704527}
-  cam: {fileID: 0}
+  cam: {fileID: 1878288963}
   equipped: 0
   pickable: 0
   dropable: 0
@@ -9833,7 +9851,7 @@ Transform:
   m_Children:
   - {fileID: 192160089}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1528103142
 GameObject:
@@ -9975,6 +9993,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1578326114}
+  - component: {fileID: 1578326115}
   m_Layer: 0
   m_Name: Clock
   m_TagString: Untagged
@@ -9998,8 +10017,25 @@ Transform:
   - {fileID: 1235203017}
   - {fileID: 464332743}
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1578326115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578326113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 837495b1e01ed0a428dfd6df747fa8ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hourSpace: 0
+  minuteSpace: 0
+  hourHand: {fileID: 464332742}
+  minuteHand: {fileID: 1235203016}
+  door: {fileID: 1688890798}
 --- !u!1 &1599058458
 GameObject:
   m_ObjectHideFlags: 0
@@ -10890,9 +10926,12 @@ GameObject:
   - component: {fileID: 1688890794}
   - component: {fileID: 1688890796}
   - component: {fileID: 1688890795}
+  - component: {fileID: 1688890798}
+  - component: {fileID: 1688890797}
+  - component: {fileID: 1688890799}
   m_Layer: 0
   m_Name: vintage_grandfather_clock_01_Body.001
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10904,7 +10943,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1688890793}
-  m_LocalRotation: {x: -0.7070887, y: -0.005062584, z: -0.005062593, w: 0.7070887}
+  m_LocalRotation: {x: -0.7070887, y: -0.005059937, z: -0.005059937, w: 0.7070887}
   m_LocalPosition: {x: -0.1801881, y: 0.9528509, z: 0.14556615}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
@@ -10960,6 +10999,60 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1688890793}
   m_Mesh: {fileID: -8532141663607409245, guid: 9f7d1b70fd3052d42b0990246a4abe92, type: 3}
+--- !u!95 &1688890797
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688890793}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1d20fee639e042740a002a3a761c4492, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1688890798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688890793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05c5ceb0a78f5f642be68d89d7670cc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorAnim: {fileID: 1688890797}
+  locked: 1
+  isRedDoor: 0
+  isWhiteDoor: 0
+  key: {fileID: 0}
+  openAnimationName: clockOpen
+  closeAnimationName: clockClose
+  doorOpeningSFX: {fileID: 8300000, guid: bf419d1e5a7761d4e8c7be2988d7141c, type: 3}
+  doorLockedSFX: {fileID: 8300000, guid: ec5830478747e3a45890bcd26b907733, type: 3}
+  audio: {fileID: 1976369355}
+--- !u!65 &1688890799
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688890793}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.003520485, y: 0.000110270856, z: 0.00989394}
+  m_Center: {x: 0.0018018789, y: 0.00009899447, z: -0.00011496528}
 --- !u!1 &1694288381
 GameObject:
   m_ObjectHideFlags: 0
@@ -11228,7 +11321,7 @@ MonoBehaviour:
   coll: {fileID: 1707041621}
   player: {fileID: 1974863115}
   container: {fileID: 1649704527}
-  cam: {fileID: 0}
+  cam: {fileID: 1878288963}
   equipped: 0
   pickable: 0
   dropable: 0
@@ -11705,7 +11798,7 @@ Transform:
   - {fileID: 1036375576}
   - {fileID: 2146924446}
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: -93.64375, y: 1.0121657, z: 15.247418}
 --- !u!1 &1796902103
 GameObject:
@@ -11772,7 +11865,7 @@ MonoBehaviour:
   coll: {fileID: 1796902105}
   player: {fileID: 1974863115}
   container: {fileID: 1649704527}
-  cam: {fileID: 0}
+  cam: {fileID: 1878288963}
   equipped: 0
   pickable: 0
   dropable: 0
@@ -11790,7 +11883,7 @@ Transform:
   m_Children:
   - {fileID: 374423136}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1799914919
 GameObject:
@@ -11950,7 +12043,7 @@ Transform:
   - {fileID: 39042750}
   - {fileID: 2036992861}
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1815144570
 GameObject:
@@ -12017,7 +12110,7 @@ MonoBehaviour:
   coll: {fileID: 1815144572}
   player: {fileID: 1974863115}
   container: {fileID: 1649704527}
-  cam: {fileID: 0}
+  cam: {fileID: 1878288963}
   equipped: 0
   pickable: 0
   dropable: 0
@@ -12035,7 +12128,7 @@ Transform:
   m_Children:
   - {fileID: 383305887}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1862916955
 GameObject:
@@ -12224,7 +12317,7 @@ GameObject:
   - component: {fileID: 1878288965}
   - component: {fileID: 1878288964}
   m_Layer: 0
-  m_Name: FirstPersonCharacter (1)
+  m_Name: FirstPersonCharacter
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12342,7 +12435,7 @@ MonoBehaviour:
   bookPos: {fileID: 0}
   check: {fileID: 1333186711}
   hasKey: 0
-  pendClock: {fileID: 464332747}
+  pendClock: {fileID: 1578326115}
   inventory: {fileID: 850075310}
   held: {fileID: 1649704528}
 --- !u!114 &1878288967
@@ -12761,56 +12854,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1884021438}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1902497443
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1902497445}
-  - component: {fileID: 1902497444}
-  m_Layer: 0
-  m_Name: door red
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!95 &1902497444
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1902497443}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ff22f227f0f24584e89738066ae48437, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!4 &1902497445
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1902497443}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.18, y: -0.78, z: 13.3}
-  m_LocalScale: {x: 2.2682, y: 3.3753493, z: 0.23184025}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1911483680
 GameObject:
   m_ObjectHideFlags: 0

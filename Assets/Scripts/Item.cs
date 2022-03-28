@@ -26,6 +26,11 @@ namespace scripts
                 {
                     child.SetActive(true);
                     child.GetComponent<PickUp>().equipped = true;
+                    if(child.tag == "key")
+                    {
+                        raycast = GameObject.Find("FirstPersonCharacter").GetComponent<Raycast>();
+                        raycast.hasKey = true;
+                    }
                     
                 }
                 
@@ -34,12 +39,7 @@ namespace scripts
                     child.SetActive(false);
                     child.GetComponent<PickUp>().equipped = false;
                 }
-                if(child.tag == "key")
-                    {
-                        raycast = GameObject.Find("FirstPersonCharacter").GetComponent<Raycast>();
-                        raycast.hasKey = true;
-                        Debug.Log("red key");
-                    }
+                
             }
         }
     }

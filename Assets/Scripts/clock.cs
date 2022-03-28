@@ -7,27 +7,38 @@ namespace scripts
         {
             public float hourSpace;
             public float minuteSpace;
+            public GameObject hourHand;
+            public GameObject minuteHand;
+            public doorController door;
 
 
             void Start()
             {
                 hourSpace = 45f;
-                minuteSpace = 45f;
+                minuteSpace = 11f;
             }
 
             void Update()
             {
                 
+                
+                if((Mathf.Round(minuteHand.transform.rotation.eulerAngles.x * 2) / 2) == 35 && (Mathf.Round(hourHand.transform.rotation.eulerAngles.x * 2) / 2) == 15)
+                {
+                    door.locked = false;
+
+                }
             }
             public void hours()
             {
                 hourSpace = hourSpace + 30f;
-                transform.rotation = Quaternion.Euler(hourSpace, -90f, 90f);
+                hourHand.transform.rotation = Quaternion.Euler(hourSpace, -90f, 90f);
+                Debug.Log(hourHand.transform.rotation.eulerAngles.x);
             }
             public void minutes()
             {
-                minuteSpace = minuteSpace + 30f;
-                transform.rotation = Quaternion.Euler(minuteSpace, -90f, 90f);
+                minuteSpace = minuteSpace + 6f;
+                minuteHand.transform.rotation = Quaternion.Euler(minuteSpace, -90f, 90f);
+                Debug.Log(minuteHand.transform.rotation.eulerAngles.x);
             }
         }
     }
