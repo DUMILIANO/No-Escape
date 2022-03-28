@@ -14,6 +14,7 @@ namespace scripts
         public static bool slotFull;
         public bool pickable;
         public bool dropable;
+        public GameObject phoneLayer;
 
         // Start is called before the first frame update
         void Start()
@@ -32,6 +33,7 @@ namespace scripts
                 slotFull = true;
                 pickable = false;
                 dropable = true;
+                phoneLayer.layer = LayerMask.NameToLayer("ItemInFront");
             }
         }
 
