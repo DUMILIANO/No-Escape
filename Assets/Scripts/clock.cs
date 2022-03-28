@@ -32,13 +32,11 @@ namespace scripts
             {
                 hourSpace = hourSpace + 30f;
                 hourHand.transform.rotation = Quaternion.Euler(hourSpace, -90f, 90f);
-                Debug.Log(hourHand.transform.rotation.eulerAngles.x);
             }
             public void minutes()
             {
                 minuteSpace = minuteSpace + 6f;
                 minuteHand.transform.rotation = Quaternion.Euler(minuteSpace, -90f, 90f);
-                Debug.Log(minuteHand.transform.rotation.eulerAngles.x);
             }
         }
     }
