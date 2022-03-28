@@ -11,6 +11,7 @@ namespace scripts
         public GameObject objects;
         public GameObject phone;
         public GameObject PostPro;
+        public GameObject panel;
         public Camera myCamera;
         public Renderer myRenderer;
         public BoxCollider phoneCollider;
@@ -58,17 +59,26 @@ namespace scripts
                 //myRenderer.enabled = true;*/
 
             StartCoroutine(FinishAnim());
+
+        }
+
+        IEnumerator Fade()
+        {
+            panel.GetComponent<Animation>().Play("FadeIn");
+            yield return new WaitForSeconds(1);
+            panel.GetComponent<Animation>().Play("FadeOut");
         }
 
         IEnumerator FinishAnim()
         {
             phoneUI.SetActive(false); 
             inventoryUI.cursorIsLocked = !inventoryUI.cursorIsLocked;
+            StartCoroutine(Fade());  
 
             if (cameraOn == false)
             {
-                phone.GetComponent<Animation>().Play("phone");
-                yield return new WaitForSeconds(1);
+                phone.GetComponent<Animation>().Play("phone");         
+                yield return new WaitForSeconds(0.9f);
                 cameraOn = true;
                 myCamera.fieldOfView = 50f;
                 objects.SetActive(true);
@@ -79,13 +89,14 @@ namespace scripts
             }
             else
             {
+                yield return new WaitForSeconds(1);
                 phone.GetComponent<Animation>().Play("phoneback");
                 Debug.Log("AnimationPlaying");
                 myRenderer.enabled = true;
                 myCamera.fieldOfView = 70f;
                 PostPro.SetActive(false);
                 recordingUI.SetActive(false);
-                yield return new WaitForSeconds(1);
+                yield return new WaitForSeconds(0.01f);
                 cameraOn = false;
                 objects.SetActive(false);
                 phoneCollider.enabled = true;
