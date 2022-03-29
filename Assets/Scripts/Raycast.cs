@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 
 namespace scripts
@@ -26,7 +27,7 @@ namespace scripts
         public Transform crosshairpos;
         public Rotatelock lockScript;
         public Camera cam;
-        public Text picktxt;
+        public TMP_Text picktxt;
         public Animator anim;
         public Transform bookPos;
         public bookChecker check;
