@@ -15,6 +15,9 @@ namespace scripts
         private int numberShown;
         public InventoryUI inventoryUI;
         public bool pressed = false;
+        private float rotateSpeed = 2.719166f;
+
+
         // Start is called before the first frame update
         void Start()
         {
@@ -41,14 +44,13 @@ namespace scripts
         }*/
 
 
-
         IEnumerator RotateWheel()
         {
             coroutineAllowed = false;
 
             for (int i = 0; i <= 11; i++)
-            {
-                transform.Rotate(0f, 0f, -32.72f);
+            {              
+                transform.Rotate(Vector3.forward * rotateSpeed);
                 yield return new WaitForSeconds(0.01f);
             }
 
