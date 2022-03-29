@@ -34,6 +34,7 @@ namespace scripts
         public clock pendClock;
         public Inventory inventory;
         public holding held;
+        public Transform stovePos;
 
         void Start()
         {
@@ -69,7 +70,6 @@ namespace scripts
                         pickup.Pick();
                         isCrosshairActive = true;
                         //doOnce = true;
-                        pickup.pickable = false;
                     }
                 }
                 else if (hit.collider.CompareTag(doorTag) && Physics.Raycast(transform.position, fwd, out hit, raylength, mask))
@@ -233,6 +233,26 @@ namespace scripts
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         pendClock.minutes();
+                    }
+                }
+                else if(hit.collider.CompareTag("stoveContainer") && Physics.Raycast(transform.position, fwd, out hit, raylength, mask))
+                {
+                    CrosshairChange(true);
+                    picktxt.gameObject.SetActive(true);
+                    stovePos = hit.collider.transform;
+                    foreach(GameObject child in held.children)
+                    {
+                        if(Input.GetKeyDown(KeyCode.E) && child.activeSelf && child.name == "Ice")
+                        {
+                            PickUp iceScript = child.GetComponent<PickUp>();
+                            child.transform.SetParent(stovePos);
+                            child.transform.localPosition = Vector3.zero;
+                            child.transform.localRotation = Quaternion.Euler(Vector3.zero);
+                            child.transform.localScale = Vector3.one;
+                            inventory.Remove(iceScript.item);
+                            held.Remove(child);
+
+                        }
                     }
                 }
                 else

@@ -23,7 +23,7 @@ namespace scripts
             if (!equipped)
             {
                 rb.isKinematic = false;
-                coll.isTrigger = false;
+                //coll.isTrigger = false;
                 pickable = true;
                 dropable = false;
             }

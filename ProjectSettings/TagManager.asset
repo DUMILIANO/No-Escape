@@ -13,6 +13,7 @@ TagManager:
   - drawers
   - minutes
   - hours
+  - stoveContainer
   layers:
   - Default
   - TransparentFX
