@@ -10036,6 +10036,7 @@ MonoBehaviour:
   hourHand: {fileID: 464332742}
   minuteHand: {fileID: 1235203016}
   door: {fileID: 1688890798}
+  rotateSpeed: 0.09
 --- !u!1 &1599058458
 GameObject:
   m_ObjectHideFlags: 0
