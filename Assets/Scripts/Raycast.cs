@@ -24,6 +24,7 @@ namespace scripts
         public bool isCrosshairActive;
         public PickUp pickup;
         public Transform crosshairpos;
+        public Rotatelock lockScript;
         public Camera cam;
         public Text picktxt;
         public Animator anim;
@@ -31,9 +32,12 @@ namespace scripts
         public bookChecker check;
         public bool hasKey = false;
         Transform hours;
+        public GameObject player;
+        public GameObject lockCam;
         public clock pendClock;
         public Inventory inventory;
         public holding held;
+        public InventoryUI inventoryUI;
 
         void Start()
         {
@@ -224,7 +228,7 @@ namespace scripts
                         pendClock.hours();
                     }
                 }
-                 else if (hit.collider.CompareTag("minutes") && Physics.SphereCast(transform.position, 10f, fwd, out hit, raylength, mask))
+                else if (hit.collider.CompareTag("minutes") && Physics.SphereCast(transform.position, 10f, fwd, out hit, raylength, mask))
                 {
                     CrosshairChange(true);
                     picktxt.gameObject.SetActive(true);
@@ -235,6 +239,23 @@ namespace scripts
                         pendClock.minutes();
                     }
                 }
+
+                else if (hit.collider.CompareTag("lock") && Physics.Raycast(transform.position, fwd, out hit, raylength, mask))
+                {
+                    CrosshairChange(true);
+                    picktxt.gameObject.SetActive(true);
+                    lockScript = hit.collider.gameObject.GetComponent<Rotatelock>();
+
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        crosshair.enabled = false;
+                        picktxt.enabled = false;
+                        lockCam.SetActive(true);
+                        player.SetActive(false);
+                        inventoryUI.cursorIsLocked = !inventoryUI.cursorIsLocked;
+                    }
+                }
+
                 else
                 {
                     picktxt.gameObject.SetActive(false);
