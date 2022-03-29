@@ -35,10 +35,10 @@ namespace scripts
 
 
 
-        IEnumerator SlowRotation()
+        /*IEnumerator SlowRotation()
         {
 
-        }
+        }*/
 
 
 
