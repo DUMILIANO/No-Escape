@@ -15,12 +15,6 @@ namespace scripts
         private int numberShown;
         public InventoryUI inventoryUI;
         public bool pressed = false;
-
-        float time = 0;
-
-        int position = 0;
-        float space = 0f;
-
         // Start is called before the first frame update
         void Start()
         {
@@ -29,104 +23,45 @@ namespace scripts
         }
         public void OnMouseDown()
         {
-            position++;
-            space = space + 32f;
+            Debug.Log("Running");
+
+
+            if (coroutineAllowed)
+            {
+                StartCoroutine(RotateWheel());
+            }
+
         }
 
-        void Update() {
-            if (position == 0)
+
+
+        IEnumerator SlowRotation()
+        {
+
+        }
+
+
+
+        IEnumerator RotateWheel()
+        {
+            coroutineAllowed = false;
+
+            for (int i = 0; i <= 11; i++)
             {
-                if (transform.rotation.eulerAngles.z != space)
-                {
-                    transform.eulerAngles = Vector3.Lerp(transform.rotation.eulerAngles, new Vector3(0f, 0f, space), Time.deltaTime * 5);
-                }
-                //Set rotation to pos 0
-            } else if (position == 1)
-            {
-                if (transform.rotation.eulerAngles.z != space)
-                {
-                    transform.eulerAngles = Vector3.Lerp(transform.rotation.eulerAngles, new Vector3(0f, 0f, space), Time.deltaTime * 5);
-                }
-                //Set rotation to pos 1
-            }
-            else if (position == 2)
-            {
-                if (transform.rotation.eulerAngles.z != space)
-                {
-                    transform.eulerAngles = Vector3.Lerp(transform.rotation.eulerAngles, new Vector3(0f, 0f, space), Time.deltaTime * 5);
-                }
-                //Set rotation to pos 1
-            }
-            else if (position == 3)
-            {
-                if (transform.rotation.eulerAngles.z != space)
-                {
-                    transform.eulerAngles = Vector3.Lerp(transform.rotation.eulerAngles, new Vector3(0f, 0f, space), Time.deltaTime * 5);
-                }
-                //Set rotation to pos 1
-            }
-            else if (position == 4)
-            {
-                if (transform.rotation.eulerAngles.z != space)
-                {
-                    transform.eulerAngles = Vector3.Lerp(transform.rotation.eulerAngles, new Vector3(0f, 0f, space), Time.deltaTime * 5);
-                }
-                //Set rotation to pos 1
-            }
-            else if (position == 5)
-            {
-                if (transform.rotation.eulerAngles.z != space)
-                {
-                    transform.eulerAngles = Vector3.Lerp(transform.rotation.eulerAngles, new Vector3(0f, 0f, space), Time.deltaTime * 5);
-                }
-                //Set rotation to pos 1
-            }
-            else if (position == 6)
-            {
-                if (transform.rotation.eulerAngles.z != space)
-                {
-                    transform.eulerAngles = Vector3.Lerp(transform.rotation.eulerAngles, new Vector3(0f, 0f, space), Time.deltaTime * 5);
-                }
-                //Set rotation to pos 1
-            }
-            else if (position == 7)
-            {
-                if (transform.rotation.eulerAngles.z != space)
-                {
-                    transform.eulerAngles = Vector3.Lerp(transform.rotation.eulerAngles, new Vector3(0f, 0f, space), Time.deltaTime * 5);
-                }
-                //Set rotation to pos 1
-            }
-            else if (position == 8)
-            {
-                if (transform.rotation.eulerAngles.z != space)
-                {
-                    transform.eulerAngles = Vector3.Lerp(transform.rotation.eulerAngles, new Vector3(0f, 0f, space), Time.deltaTime * 5);
-                }
-                //Set rotation to pos 1
-            }
-            else if (position == 9)
-            {
-                if (transform.rotation.eulerAngles.z != space)
-                {
-                    transform.eulerAngles = Vector3.Lerp(transform.rotation.eulerAngles, new Vector3(0f, 0f, space), Time.deltaTime * 5);
-                }
-                //Set rotation to pos 1
-            }
-            else if (position == 10)
-            {
-                if (transform.rotation.eulerAngles.z != space)
-                {
-                    transform.eulerAngles = Vector3.Lerp(transform.rotation.eulerAngles, new Vector3(0f, 0f, space), Time.deltaTime * 5);
-                }
-                //Set rotation to pos 1
+                transform.Rotate(0f, 0f, -32.72f);
+                yield return new WaitForSeconds(0.01f);
             }
 
-            if(position == 10)
+            coroutineAllowed = true;
+
+            numberShown += 1;
+
+            if (numberShown > 9)
             {
-                position = 0;
+                numberShown = 0;
             }
 
+            Rotated(name, numberShown);
         }
     }
 }
