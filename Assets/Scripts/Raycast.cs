@@ -49,18 +49,19 @@ namespace scripts
             
 
             RaycastHit hit;
+            RaycastHit bHit;
             Vector3 fwd = transform.TransformDirection(Vector3.forward);
             
             int mask = 1 << LayerMask.NameToLayer(excludeLayerName) | layerMaskInteract.value;
 
             
 
-            if (Physics.Raycast(transform.position, fwd, out hit, Mathf.Infinity, mask))
+            if (Physics.Raycast(transform.position, fwd, out bHit, Mathf.Infinity, mask))
             {
                 //shows a ray whenever it hits with something
-                Debug.DrawRay(transform.position, fwd * hit.distance, Color.red);
+                Debug.DrawRay(transform.position, fwd * bHit.distance, Color.red);
                 //checks if the ray is interactable and makes sures the player isn't already holding something
-                if (hit.collider.CompareTag(interactableTag) && Physics.Raycast(transform.position, fwd, out hit, raylength, mask))
+                if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag(interactableTag))
                 {
                     CrosshairChange(true);
                     picktxt.gameObject.SetActive(true);
@@ -70,9 +71,15 @@ namespace scripts
                         pickup.Pick();
                         isCrosshairActive = true;
                         //doOnce = true;
+                        Debug.Log(hit.collider.transform.parent);
+                        if(hit.collider.transform.parent != null && hit.collider.transform.parent.GetComponent<bookContainer>().rightBook)
+                        {
+                            hit.collider.transform.parent.GetComponent<bookContainer>().rightBook = false;
+                            check.count--;
+                        }
                     }
                 }
-                else if (hit.collider.CompareTag(doorTag) && Physics.Raycast(transform.position, fwd, out hit, raylength, mask))
+                else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag(doorTag))
                 {
                     CrosshairChange(true);
                     door = hit.collider.gameObject.GetComponent<doorController>();
@@ -138,7 +145,7 @@ namespace scripts
                     }
 
                 }*/
-                else if (hit.collider.CompareTag(keyTag) && Physics.Raycast(transform.position, fwd, out hit, raylength, mask))
+                else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag(keyTag))
                 {
                     CrosshairChange(true);
                     pickup = hit.collider.gameObject.GetComponent<PickUp>();
@@ -153,7 +160,7 @@ namespace scripts
                     }
 
                 }
-                else if (hit.collider.CompareTag("phone") && Physics.Raycast(transform.position, fwd, out hit, raylength, mask))
+                else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("phone"))
                 {
                     CrosshairChange(true);
                     pickup = hit.collider.gameObject.GetComponent<PickUp>();
@@ -164,19 +171,14 @@ namespace scripts
                         pickup.Pick();
                         hit.collider.gameObject.layer = 7;
                         isCrosshairActive = true;
-                        Debug.Log(hit.collider.transform.parent);
-                        if(hit.collider.transform.parent != null && hit.collider.transform.parent.GetComponent<bookContainer>().rightBook)
-                        {
-                            hit.collider.transform.parent.GetComponent<bookContainer>().rightBook = false;
-                            check.count--;
-                        }
+                        
                         
                         //doOnce = true;
                         
                     }
 
                 }
-                else if (hit.collider.CompareTag("container") && Physics.Raycast(transform.position, fwd, out hit, raylength, mask))
+                else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("container"))
                 {
                     CrosshairChange(true);
                     picktxt.gameObject.SetActive(true);
@@ -199,7 +201,7 @@ namespace scripts
                     }
                     
                 }
-                else if (hit.collider.CompareTag("drawers") && Physics.Raycast(transform.position, fwd, out hit, raylength, mask))
+                else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("drawers"))
                 {
                     CrosshairChange(true);
                     drawer = hit.collider.gameObject.GetComponent<drawersAnim>();
@@ -213,7 +215,7 @@ namespace scripts
                         //doOnce = true;
                     }
                 }
-                else if (hit.collider.CompareTag("hours") && Physics.Raycast(transform.position, fwd, out hit, raylength, mask))
+                else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("hours"))
                 {
                     CrosshairChange(true);
                     picktxt.gameObject.SetActive(true);
@@ -224,7 +226,7 @@ namespace scripts
                         pendClock.hours();
                     }
                 }
-                 else if (hit.collider.CompareTag("minutes") && Physics.Raycast(transform.position, fwd, out hit, raylength, mask))
+                 else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("minutes"))
                 {
                     CrosshairChange(true);
                     picktxt.gameObject.SetActive(true);
@@ -235,7 +237,7 @@ namespace scripts
                         pendClock.minutes();
                     }
                 }
-                else if(hit.collider.CompareTag("stoveContainer") && Physics.Raycast(transform.position, fwd, out hit, raylength, mask))
+                else if(Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("stoveContainer"))
                 {
                     CrosshairChange(true);
                     picktxt.gameObject.SetActive(true);
