@@ -16,6 +16,7 @@ namespace scripts
         public BoxCollider phoneCollider;
         bool cameraOn = false;
         public GameObject recordingUI;
+        public AudioSource phoneturnOn;
 
         //[SerializeField] public bool hasPhone = false;
 
@@ -58,6 +59,11 @@ namespace scripts
                 //myRenderer.enabled = true;*/
 
             StartCoroutine(FinishAnim());
+        }
+
+        public void playSoundEffects()
+        {
+            phoneturnOn.Play();
         }
 
         IEnumerator FinishAnim()
