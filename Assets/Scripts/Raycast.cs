@@ -35,6 +35,9 @@ namespace scripts
         public Inventory inventory;
         public holding held;
         public Transform stovePos;
+        public GameObject player;
+        public GameObject lockCam;
+        public InventoryUI inventoryUI;
 
         void Start()
         {
