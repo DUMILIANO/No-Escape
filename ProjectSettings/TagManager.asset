@@ -4,7 +4,6 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - PickUp
   - Door
   - key
   - LockedDoor
@@ -14,6 +13,8 @@ TagManager:
   - minutes
   - hours
   - stoveContainer
+  - book
+  - Interactable
   layers:
   - Default
   - TransparentFX

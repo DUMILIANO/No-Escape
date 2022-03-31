@@ -17,7 +17,7 @@ namespace scripts
         private bool doOnce;
         public doorController door;
         public drawersAnim drawer;
-        private const string interactableTag = "PickUp";
+        private const string interactableTag = "Interactable";
         private const string keyTag = "key";
         private const string doorTag = "Door";
         private const string lockedDoorTag = "LockedDoor";
@@ -71,12 +71,12 @@ namespace scripts
                         pickup.Pick();
                         isCrosshairActive = true;
                         //doOnce = true;
-                        Debug.Log(hit.collider.transform.parent);
+                        /*Debug.Log(hit.collider.transform.parent);
                         if(hit.collider.transform.parent != null && hit.collider.transform.parent.GetComponent<bookContainer>().rightBook)
                         {
                             hit.collider.transform.parent.GetComponent<bookContainer>().rightBook = false;
                             check.count--;
-                        }
+                        }*/
                     }
                 }
                 else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag(doorTag))
@@ -155,6 +155,20 @@ namespace scripts
                     {
                         pickup.Pick();
                         hasKey = true;
+                        isCrosshairActive = true;
+                        //doOnce = true;
+                    }
+
+                }
+                else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("book"))
+                {
+                    CrosshairChange(true);
+                    pickup = hit.collider.gameObject.GetComponent<PickUp>();
+                    picktxt.gameObject.SetActive(true);
+
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        pickup.Pick();
                         isCrosshairActive = true;
                         //doOnce = true;
                     }
