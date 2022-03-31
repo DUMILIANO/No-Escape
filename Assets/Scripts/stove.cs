@@ -22,8 +22,18 @@ namespace scripts
             if(container.transform.childCount > 0)
             {
                 screwdriver.transform.SetParent(container.transform);
-                Destroy(ice);
+                StartCoroutine(DestroyIce());
             }
+        }
+
+        IEnumerator DestroyIce()
+        {
+            //Activates ice break shader.
+            yield return new WaitForSeconds(1);       
+            Destroy(ice);
+            screwdriver.SetActive(true);
+
+
         }
     }
 

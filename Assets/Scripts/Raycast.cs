@@ -271,6 +271,33 @@ namespace scripts
                         }
                     }
                 }
+
+                else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("ice"))
+                {
+                    CrosshairChange(true);
+                    pickup = hit.collider.gameObject.GetComponent<PickUp>();
+                    picktxt.gameObject.SetActive(true);
+
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        pickup.Pick();
+                        isCrosshairActive = true;
+                        //doOnce = true;
+                    }
+                }
+                else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("screwdriver"))
+                {
+                    CrosshairChange(true);
+                    pickup = hit.collider.gameObject.GetComponent<PickUp>();
+                    picktxt.gameObject.SetActive(true);
+
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        pickup.Pick();
+                        isCrosshairActive = true;
+                        //doOnce = true;
+                    }
+                }
                 else
                 {
                     picktxt.gameObject.SetActive(false);
