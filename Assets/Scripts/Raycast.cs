@@ -276,7 +276,7 @@ namespace scripts
                         }
                     }
                 }
-                else if (hit.collider.CompareTag("lock") && Physics.Raycast(transform.position, fwd, out hit, raylength, mask))
+                else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("lock"))
                 {
                     CrosshairChange(true);
                     picktxt.gameObject.SetActive(true);
