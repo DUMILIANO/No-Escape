@@ -24,7 +24,9 @@ namespace scripts
         public bool isCrosshairActive;
         public PickUp pickup;
         public Transform crosshairpos;
+        public Rotatelock lockScript;
         public Camera cam;
+        //public TMP_Text picktxt;
         public Text picktxt;
         public Animator anim;
         public Transform bookPos;
@@ -59,10 +61,10 @@ namespace scripts
 
             
 
-            if (Physics.Raycast(transform.position, fwd, out bHit, Mathf.Infinity, mask))
+            if (Physics.Raycast(transform.position, fwd, out hit, Mathf.Infinity, mask))
             {
                 //shows a ray whenever it hits with something
-                Debug.DrawRay(transform.position, fwd * bHit.distance, Color.red);
+                Debug.DrawRay(transform.position, fwd * hit.distance, Color.red);
                 //checks if the ray is interactable and makes sures the player isn't already holding something
                 if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag(interactableTag))
                 {
