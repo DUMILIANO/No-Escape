@@ -271,6 +271,21 @@ namespace scripts
                         }
                     }
                 }
+                else if (hit.collider.CompareTag("lock") && Physics.Raycast(transform.position, fwd, out hit, raylength, mask))
+                {
+                    CrosshairChange(true);
+                    picktxt.gameObject.SetActive(true);
+                    lockScript = hit.collider.gameObject.GetComponent<Rotatelock>();
+
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        crosshair.enabled = false;
+                        picktxt.enabled = false;
+                        lockCam.SetActive(true);
+                        player.SetActive(false);
+                        inventoryUI.cursorIsLocked = !inventoryUI.cursorIsLocked;
+                    }
+                }
                 else
                 {
                     picktxt.gameObject.SetActive(false);
