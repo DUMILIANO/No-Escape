@@ -10,6 +10,7 @@ namespace scripts
         public GameObject container;
         public GameObject ice;
         public GameObject screwdriver;
+        public BoxCollider screwdriverCollider;
         // Start is called before the first frame update
         void Start()
         {
@@ -31,7 +32,7 @@ namespace scripts
             //Activates ice break shader.
             yield return new WaitForSeconds(1);       
             Destroy(ice);
-            screwdriver.SetActive(true);
+            screwdriverCollider.enabled = true;
 
 
         }
