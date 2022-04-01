@@ -17,6 +17,7 @@ TagManager:
   - Interactable
   - lock
   - PickUp
+  - switch
   layers:
   - Default
   - TransparentFX
