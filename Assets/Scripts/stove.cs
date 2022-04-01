@@ -12,6 +12,7 @@ namespace scripts
         public GameObject iceCube;
         public GameObject screwdriver;
         public BoxCollider screwdriverCollider;
+        public GameObject puddle;
         
         // Start is called before the first frame update
         void Start()
@@ -27,6 +28,7 @@ namespace scripts
                 screwdriver.transform.SetParent(container.transform);
                 iceCube.GetComponent<Animation>().Play("MeltingIce");
                 screwdriver.GetComponent<Animation>().Play("screwdriver");
+                puddle.GetComponent<Animation>().Play("puddle");
                 StartCoroutine(DestroyIce());
             }
         }
