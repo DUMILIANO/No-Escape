@@ -281,6 +281,7 @@ namespace scripts
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         pickup.Pick();
+                        pickup.transform.localPosition = new Vector3 (-1.34f, 0, 0);
                         isCrosshairActive = true;
                         //doOnce = true;
                     }
@@ -294,6 +295,8 @@ namespace scripts
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         pickup.Pick();
+                        pickup.transform.localPosition = new Vector3 (-0.5634038f, 0.295f, -1.037854f);
+                        pickup.transform.localRotation = Quaternion.Euler(0, -75, 0);
                         isCrosshairActive = true;
                         //doOnce = true;
                     }
