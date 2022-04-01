@@ -9,8 +9,10 @@ namespace scripts
     {
         public GameObject container;
         public GameObject ice;
+        public GameObject iceCube;
         public GameObject screwdriver;
         public BoxCollider screwdriverCollider;
+        
         // Start is called before the first frame update
         void Start()
         {
@@ -23,6 +25,8 @@ namespace scripts
             if(container.transform.childCount > 0)
             {
                 screwdriver.transform.SetParent(container.transform);
+                iceCube.GetComponent<Animation>().Play("MeltingIce");
+                screwdriver.GetComponent<Animation>().Play("screwdriver");
                 StartCoroutine(DestroyIce());
             }
         }
@@ -30,8 +34,10 @@ namespace scripts
         IEnumerator DestroyIce()
         {
             //Activates ice break shader.
-            yield return new WaitForSeconds(1);       
+            yield return new WaitForSeconds(7);       
             Destroy(ice);
+            ice = null;
+            iceCube = null;
             screwdriverCollider.enabled = true;
             screwdriver.AddComponent<Rigidbody>();
             screwdriver.GetComponent<PickUp>().rb = screwdriver.GetComponent<Rigidbody>();
