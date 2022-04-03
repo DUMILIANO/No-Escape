@@ -6,33 +6,40 @@ namespace scripts
 {
     public class FlashingLights : MonoBehaviour
     {
-        public GameObject lights;
-        float time;
+        public bool isFlickering = false;
+        public float timeDelay;
 
-        // Start is called before the first frame update
-        void Start()
-        { 
-        }
-
-        // Update is called once per frame
-        void OnTriggerEnter(Collider other)
+        /*void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.tag == "Player")
             {
-                Debug.Log("Entered");
-                for (int i = 2; i > Time.deltaTime;)
+                if (isFlickering == false)
                 {
-                    Debug.Log(i);
+                    StartCoroutine(FlickeringLight());
                 }
+            }
+               
+        }*/
 
-             
-                //for (i = Time.deltaTime; )
-                
-
-                
-
+        void Update()
+        {
+            if (isFlickering == false)
+            {
+                StartCoroutine(FlickeringLight());
             }
 
+        }
+
+        IEnumerator FlickeringLight()
+        {
+            isFlickering = true;
+            this.gameObject.GetComponent<Light>().enabled = false;
+            timeDelay = Random.Range(0.01f, 0.3f);
+            yield return new WaitForSeconds(timeDelay);
+            this.gameObject.GetComponent<Light>().enabled = true;
+            timeDelay = Random.Range(0.01f, 0.3f);
+            yield return new WaitForSeconds(timeDelay);
+            isFlickering = false;
         }
     }
 }
