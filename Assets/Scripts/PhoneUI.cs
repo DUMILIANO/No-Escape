@@ -18,6 +18,7 @@ namespace scripts
         bool cameraOn = false;
         public GameObject recordingUI;
         public AudioSource phoneturnOn;
+        public GameObject enemy;
 
         //[SerializeField] public bool hasPhone = false;
 
@@ -92,6 +93,8 @@ namespace scripts
                 recordingUI.SetActive(true);
                 myRenderer.enabled = false;
                 phoneCollider.enabled = false;
+                enemy.GetComponent<Renderer>().enabled = true;
+
             }
             else
             {
@@ -106,6 +109,7 @@ namespace scripts
                 cameraOn = false;
                 objects.SetActive(false);
                 phoneCollider.enabled = true;
+                enemy.GetComponent<Renderer>().enabled = false;
 
             }
 

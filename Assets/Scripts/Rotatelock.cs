@@ -15,7 +15,7 @@ namespace scripts
         private int numberShown;
         public InventoryUI inventoryUI;
         public bool pressed = false;
-        private float rotateSpeed = 2.719166f;
+        public float rotateSpeed = 2.719166f;
 
 
         // Start is called before the first frame update
