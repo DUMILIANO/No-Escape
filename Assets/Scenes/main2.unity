@@ -10020,6 +10020,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 1365760941}
   player: {fileID: 1974573355}
+  collider: {fileID: 525929519}
 --- !u!195 &1365760941
 NavMeshAgent:
   m_ObjectHideFlags: 0
