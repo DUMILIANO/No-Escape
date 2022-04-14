@@ -46,7 +46,6 @@ namespace scripts
         // Update is called once per frame
         void Update()
         {
-            
 
             RaycastHit hit;
             RaycastHit bHit;
@@ -294,6 +293,7 @@ namespace scripts
 
                     if (Input.GetKeyDown(KeyCode.E))
                     {
+                        Debug.Log(pickup.item.name);
                         pickup.Pick();
                         pickup.transform.localPosition = new Vector3 (-0.5634038f, 0.295f, -1.037854f);
                         pickup.transform.localRotation = Quaternion.Euler(0, -75, 0);
