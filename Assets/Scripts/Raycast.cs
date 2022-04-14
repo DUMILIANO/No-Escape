@@ -35,6 +35,10 @@ namespace scripts
         public Inventory inventory;
         public holding held;
         public Transform stovePos;
+        public Rotatelock lockScript;
+        public GameObject player;
+        public GameObject lockCam;
+        public InventoryUI inventoryUI;
 
         void Start()
         {
@@ -314,6 +318,8 @@ namespace scripts
                         lockCam.SetActive(true);
                         player.SetActive(false);
                         inventoryUI.cursorIsLocked = !inventoryUI.cursorIsLocked;
+                    }
+                }
                 else
                 {
                     picktxt.gameObject.SetActive(false);
@@ -337,5 +343,4 @@ namespace scripts
             }
         }
     }
-
 }
