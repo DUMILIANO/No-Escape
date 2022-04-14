@@ -44,10 +44,6 @@ namespace scripts
             screwdriverCollider.enabled = true;
             screwdriver.AddComponent<Rigidbody>();
             screwdriver.GetComponent<PickUp>().rb = screwdriver.GetComponent<Rigidbody>();
-            yield return null;
-
-
-
         }
     }
 
