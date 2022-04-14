@@ -27,6 +27,7 @@ namespace scripts
             {
                 screwdriver.transform.SetParent(container.transform);
                 iceCube.GetComponent<Animation>().Play("MeltingIce");
+                ice.gameObject.tag = "Untagged";
                 screwdriver.GetComponent<Animation>().Play("screwdriver");
                 puddle.GetComponent<Animation>().Play("puddle");
                 StartCoroutine(DestroyIce());
@@ -43,6 +44,7 @@ namespace scripts
             screwdriverCollider.enabled = true;
             screwdriver.AddComponent<Rigidbody>();
             screwdriver.GetComponent<PickUp>().rb = screwdriver.GetComponent<Rigidbody>();
+            yield return null;
 
 
 
