@@ -24,9 +24,7 @@ namespace scripts
         public bool isCrosshairActive;
         public PickUp pickup;
         public Transform crosshairpos;
-        public Rotatelock lockScript;
         public Camera cam;
-        //public TMP_Text picktxt;
         public Text picktxt;
         public Animator anim;
         public Transform bookPos;
@@ -37,9 +35,6 @@ namespace scripts
         public Inventory inventory;
         public holding held;
         public Transform stovePos;
-        public GameObject player;
-        public GameObject lockCam;
-        public InventoryUI inventoryUI;
 
         void Start()
         {
@@ -51,7 +46,6 @@ namespace scripts
         // Update is called once per frame
         void Update()
         {
-            
 
             RaycastHit hit;
             RaycastHit bHit;
@@ -61,10 +55,10 @@ namespace scripts
 
             
 
-            if (Physics.Raycast(transform.position, fwd, out hit, Mathf.Infinity, mask))
+            if (Physics.Raycast(transform.position, fwd, out bHit, Mathf.Infinity, mask))
             {
                 //shows a ray whenever it hits with something
-                Debug.DrawRay(transform.position, fwd * hit.distance, Color.red);
+                Debug.DrawRay(transform.position, fwd * bHit.distance, Color.red);
                 //checks if the ray is interactable and makes sures the player isn't already holding something
                 if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag(interactableTag))
                 {
@@ -276,19 +270,35 @@ namespace scripts
                         }
                     }
                 }
-                else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("lock"))
+
+                else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("ice"))
                 {
                     CrosshairChange(true);
+                    pickup = hit.collider.gameObject.GetComponent<PickUp>();
                     picktxt.gameObject.SetActive(true);
-                    lockScript = hit.collider.gameObject.GetComponent<Rotatelock>();
 
                     if (Input.GetKeyDown(KeyCode.E))
                     {
-                        crosshair.enabled = false;
-                        picktxt.enabled = false;
-                        lockCam.SetActive(true);
-                        player.SetActive(false);
-                        inventoryUI.cursorIsLocked = !inventoryUI.cursorIsLocked;
+                        pickup.Pick();
+                        pickup.transform.localPosition = new Vector3 (-1.34f, 0, 0);
+                        isCrosshairActive = true;
+                        //doOnce = true;
+                    }
+                }
+                else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("screwdriver"))
+                {
+                    CrosshairChange(true);
+                    pickup = hit.collider.gameObject.GetComponent<PickUp>();
+                    picktxt.gameObject.SetActive(true);
+
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        Debug.Log(pickup.item.name);
+                        pickup.Pick();
+                        pickup.transform.localPosition = new Vector3 (-0.5634038f, 0.295f, -1.037854f);
+                        pickup.transform.localRotation = Quaternion.Euler(0, -75, 0);
+                        isCrosshairActive = true;
+                        //doOnce = true;
                     }
                 }
                 else

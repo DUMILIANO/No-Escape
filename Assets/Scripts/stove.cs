@@ -4,12 +4,18 @@ using UnityEngine;
 
 namespace scripts
 {
-
     public class stove : MonoBehaviour
     {
         public GameObject container;
         public GameObject ice;
+        public GameObject iceCube;
         public GameObject screwdriver;
+        public BoxCollider screwdriverCollider;
+        public GameObject puddle;
+        public bool doOnce;
+        public Inventory inventory;
+        public holding held;
+        
         // Start is called before the first frame update
         void Start()
         {
@@ -19,11 +25,35 @@ namespace scripts
         // Update is called once per frame
         void Update()
         {
-            if(container.transform.childCount > 0)
+            if(container.transform.childCount > 0 && !doOnce)
             {
                 screwdriver.transform.SetParent(container.transform);
-                Destroy(ice);
+                iceCube.GetComponent<Animation>().Play("MeltingIce");
+                ice.gameObject.tag = "Untagged";
+                screwdriver.GetComponent<Animation>().Play("screwdriver");
+                puddle.GetComponent<Animation>().Play("puddle");
+                StartCoroutine(DestroyIce());
+                doOnce = true;
+                
             }
+        }
+
+        IEnumerator DestroyIce()
+        {
+            //Activates ice break shader.
+            yield return new WaitForSeconds(7);
+            inventory.Remove(ice.GetComponent<PickUp>().item);
+            held.Remove(ice);  
+            Destroy(ice);
+            ice = null;
+            iceCube = null;
+            screwdriverCollider.enabled = true;
+            /*if(screwdriver.GetComponent<Rigidbody>() == null)
+            {
+                screwdriver.AddComponent<Rigidbody>();
+            }
+            
+            screwdriver.GetComponent<PickUp>().rb = screwdriver.GetComponent<Rigidbody>();*/
         }
     }
 

@@ -15,7 +15,7 @@ namespace scripts
 
         public void Start()
         {
-            held = GameObject.Find("container").GetComponent<holding>();
+            held = GameObject.Find("rightHand").GetComponent<holding>();
             
         }
         public void Use()
@@ -24,6 +24,7 @@ namespace scripts
             {
                 if(child.GetComponent<PickUp>().item.name == name)
                 {
+                    Debug.Log("pressed");
                     child.SetActive(true);
                     child.GetComponent<PickUp>().equipped = true;
                     if(child.tag == "key")

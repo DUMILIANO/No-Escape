@@ -15,8 +15,8 @@ TagManager:
   - stoveContainer
   - book
   - Interactable
-  - lock
-  - PickUp
+  - ice
+  - screwdriver
   layers:
   - Default
   - TransparentFX
