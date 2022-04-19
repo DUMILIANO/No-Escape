@@ -10,6 +10,10 @@ namespace scripts
         public NavMeshAgent enemy;
         public GameObject player;
         public GameObject collider;
+
+        float timer = 0.0f;
+        public float waitTime = 2.0f;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -20,17 +24,16 @@ namespace scripts
         void Update()
         {
             enemy.SetDestination(player.transform.position);
-            if(collider.transform.localScale != new Vector3(0f, 1f, 0f))
+            timer += Time.deltaTime;
+            if(timer > waitTime)
             {
-                StartCoroutine(shrinkCollider());
-            }
+                if (collider.transform.localScale != new Vector3(0f, 1f, 0f))
+                {
+                    collider.transform.localScale = new Vector3(collider.transform.localScale.x - 1, collider.transform.localScale.y, collider.transform.localScale.z - 1);
+                }
+                timer = timer - waitTime;
                 
-        }
-
-        IEnumerator shrinkCollider()
-        {
-            collider.transform.localScale = new Vector3(collider.transform.localScale.x - 1, collider.transform.localScale.y, collider.transform.localScale.z - 1);
-            yield return new WaitForSeconds(1f);
+            }        
         }
     }
 }
