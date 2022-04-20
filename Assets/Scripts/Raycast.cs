@@ -38,6 +38,7 @@ namespace scripts
         public Rotatelock lockScript;
         public GameObject player;
         public GameObject lockCam;
+        public GameObject light;
         public InventoryUI inventoryUI;
 
         void Start()
@@ -318,6 +319,16 @@ namespace scripts
                         lockCam.SetActive(true);
                         player.SetActive(false);
                         inventoryUI.cursorIsLocked = !inventoryUI.cursorIsLocked;
+                    }
+                }
+                else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("switch"))
+                {
+                    CrosshairChange(true);
+                    picktxt.gameObject.SetActive(true);
+
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        light.SetActive(!light.activeSelf);
                     }
                 }
                 else

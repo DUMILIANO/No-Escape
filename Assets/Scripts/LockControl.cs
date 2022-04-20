@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +8,7 @@ namespace scripts
     public class LockControl : MonoBehaviour
     {
 
-        private int[] result, correctCombination;
+        public int[] result, correctCombination;
 
         // Start is called before the first frame update
         void Start()
