@@ -8,10 +8,10 @@ namespace scripts
     {
         public bool isFlickering;
         public float timeDelay;
-        public bool lightsOn;
+        public bool lightsOn = true;
         public bool insideCol = false;
-        float timer;
-        float waitTime;
+        float timer = 0f;
+        float waitTime = 3f;
 
         void OnTriggerEnter(Collider other)
         {
@@ -27,16 +27,20 @@ namespace scripts
         void Update()
         {
             
-            if(insideCol)
+            if(insideCol == true)
             {
-                timer += Time.deltaTime;
+
+                StartCoroutine(GoOff());
+                /*timer += Time.deltaTime;
+                Debug.Log(timer);
                 if(timer > waitTime)
                 {
                     lightsOn = false;
                     timer = timer - waitTime;
-                }
+                    this.gameObject.GetComponent<Light>().enabled = false;
+                }*/
             }
-            if (isFlickering == false && lightsOn)
+            if (isFlickering == false)
             {
                 
                 StartCoroutine(FlickeringLight());
@@ -55,6 +59,12 @@ namespace scripts
             timeDelay = Random.Range(0.01f, 0.1f);
             yield return new WaitForSeconds(timeDelay);
             isFlickering = false;
+        }
+
+        IEnumerator GoOff()
+        {
+            yield return new WaitForSeconds(3f);
+            this.gameObject.GetComponent<Light>().enabled = false;
         }
     }
 }
