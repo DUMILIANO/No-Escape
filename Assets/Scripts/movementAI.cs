@@ -23,7 +23,7 @@ namespace scripts
         // Update is called once per frame
         void Update()
         {
-            enemy.SetDestination(player.transform.position);
+            //enemy.SetDestination(player.transform.position);
             timer += Time.deltaTime;
             if(timer > waitTime)
             {

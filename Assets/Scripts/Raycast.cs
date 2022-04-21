@@ -13,7 +13,7 @@ namespace scripts
         [SerializeField] private LayerMask layerMaskInteract;
         [SerializeField] private string excludeLayerName = null;
         [SerializeField] private KeyCode openDoorKey = KeyCode.Mouse0;
-        [SerializeField] private Image crosshair = null;
+        [SerializeField] public Image crosshair = null;
         private bool doOnce;
         public doorController door;
         public drawersAnim drawer;
@@ -39,6 +39,7 @@ namespace scripts
         public GameObject player;
         public GameObject lockCam;
         public InventoryUI inventoryUI;
+        public bool inLockView = false;
 
         void Start()
         {
@@ -313,6 +314,7 @@ namespace scripts
 
                     if (Input.GetKeyDown(KeyCode.E))
                     {
+                        inLockView = true;
                         crosshair.enabled = false;
                         picktxt.enabled = false;
                         lockCam.SetActive(true);

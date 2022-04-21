@@ -16,6 +16,8 @@ namespace scripts
         public InventoryUI inventoryUI;
         public bool pressed = false;
         public float rotateSpeed = 2.719166f;
+        bool inLockView = false;
+        public Raycast raycast;
 
 
         // Start is called before the first frame update
@@ -26,9 +28,6 @@ namespace scripts
         }
         public void OnMouseDown()
         {
-            Debug.Log("Running");
-
-
             if (coroutineAllowed)
             {
                 StartCoroutine(RotateWheel());
@@ -37,15 +36,25 @@ namespace scripts
         }
 
 
-
-        /*IEnumerator SlowRotation()
+        private void Update()
         {
 
-        }*/
+            if (raycast.inLockView == true && Input.GetKeyDown(KeyCode.J))
+            {
+                Debug.Log("Pressed");
+                raycast.crosshair.enabled = true;
+                raycast.picktxt.enabled = true;
+                raycast.lockCam.SetActive(false);
+                raycast.player.SetActive(true);
+                inventoryUI.cursorIsLocked = true;
+            }
+
+        }
 
 
         IEnumerator RotateWheel()
         {
+           
             coroutineAllowed = false;
 
             for (int i = 0; i <= 11; i++)
