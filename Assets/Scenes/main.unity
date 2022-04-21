@@ -345,8 +345,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1343475165}
+  - {fileID: 656030995}
   m_Father: {fileID: 1711064636}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: -89.853, z: 0}
 --- !u!114 &28265764
 MonoBehaviour:
@@ -482,7 +483,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -1715,7 +1716,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: 8cc566ea1a8962f41ae9000788eab5ba, type: 2}
+  sharedProfile: {fileID: 11400000, guid: 4bbd57b6588e6f9449b120d1a0223db9, type: 2}
 --- !u!1 &131152088
 GameObject:
   m_ObjectHideFlags: 0
@@ -3188,6 +3189,7 @@ MonoBehaviour:
   inventoryUI: {fileID: 0}
   pressed: 0
   rotateSpeed: 2.719166
+  raycast: {fileID: 0}
 --- !u!4 &292662577
 Transform:
   m_ObjectHideFlags: 0
@@ -5723,7 +5725,8 @@ GameObject:
   m_Component:
   - component: {fileID: 656030995}
   - component: {fileID: 656030996}
-  m_Layer: 8
+  - component: {fileID: 656030997}
+  m_Layer: 0
   m_Name: PostproLockCam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5737,12 +5740,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 656030994}
-  m_LocalRotation: {x: -0, y: -0.7061964, z: -0, w: 0.70801604}
-  m_LocalPosition: {x: -4.047, y: 0.2750001, z: 0.42899996}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1711064636}
-  m_RootOrder: 4
+  m_Father: {fileID: 28265763}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &656030996
 MonoBehaviour:
@@ -5761,6 +5764,23 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   priority: 0
+--- !u!114 &656030997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 656030994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 86834a149767b90448348fe7183f0a35, type: 2}
 --- !u!1 &664940848
 GameObject:
   m_ObjectHideFlags: 0
@@ -7822,6 +7842,7 @@ MonoBehaviour:
   inventoryUI: {fileID: 957751673}
   pressed: 0
   rotateSpeed: 2.719166
+  raycast: {fileID: 1878288966}
 --- !u!64 &909366575
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7934,6 +7955,7 @@ MonoBehaviour:
   inventoryUI: {fileID: 957751673}
   pressed: 0
   rotateSpeed: 2.719166
+  raycast: {fileID: 1878288966}
 --- !u!64 &920447674
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -11625,7 +11647,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1343475164}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.027, z: 0.332}
+  m_LocalPosition: {x: 0.001, y: 0.027, z: -0.012}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 28265763}
@@ -11643,13 +11665,13 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.7690135, g: 0.7735849, b: 0.6458704, a: 1}
-  m_Intensity: 0.47
-  m_Range: 13.34
+  m_Intensity: 0.09
+  m_Range: 0.83
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -12165,6 +12187,7 @@ MonoBehaviour:
   inventoryUI: {fileID: 957751673}
   pressed: 0
   rotateSpeed: 2.719166
+  raycast: {fileID: 1878288966}
 --- !u!64 &1387950758
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -12925,6 +12948,7 @@ MonoBehaviour:
   inventoryUI: {fileID: 957751673}
   pressed: 0
   rotateSpeed: 2.719166
+  raycast: {fileID: 1878288966}
 --- !u!64 &1491322732
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -14890,7 +14914,6 @@ Transform:
   - {fileID: 1491322730}
   - {fileID: 920447672}
   - {fileID: 1387950756}
-  - {fileID: 656030995}
   - {fileID: 28265763}
   m_Father: {fileID: 0}
   m_RootOrder: 21
@@ -16390,7 +16413,9 @@ MonoBehaviour:
   lockScript: {fileID: 0}
   player: {fileID: 1974573355}
   lockCam: {fileID: 28265762}
+  lockCamPP: {fileID: 656030994}
   inventoryUI: {fileID: 957751673}
+  inLockView: 0
 --- !u!114 &1878288967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17921,7 +17946,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1974573355}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.5, y: 0, z: -27.63}
+  m_LocalPosition: {x: 32, y: 0, z: -19.89}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1878288963}

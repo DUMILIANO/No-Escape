@@ -39,7 +39,7 @@ namespace scripts
         private void Update()
         {
 
-            if (raycast.inLockView == true && Input.GetKeyDown(KeyCode.J))
+            if (raycast.inLockView == true && Input.GetKeyDown(KeyCode.E))
             {
                 Debug.Log("Pressed");
                 raycast.crosshair.enabled = true;
@@ -47,6 +47,7 @@ namespace scripts
                 raycast.lockCam.SetActive(false);
                 raycast.player.SetActive(true);
                 inventoryUI.cursorIsLocked = true;
+         
             }
 
         }

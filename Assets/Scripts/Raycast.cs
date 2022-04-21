@@ -38,6 +38,7 @@ namespace scripts
         public Rotatelock lockScript;
         public GameObject player;
         public GameObject lockCam;
+        public GameObject lockCamPP;
         public InventoryUI inventoryUI;
         public bool inLockView = false;
 
@@ -318,6 +319,7 @@ namespace scripts
                         crosshair.enabled = false;
                         picktxt.enabled = false;
                         lockCam.SetActive(true);
+                        lockCamPP.SetActive(true);
                         player.SetActive(false);
                         inventoryUI.cursorIsLocked = !inventoryUI.cursorIsLocked;
                     }
