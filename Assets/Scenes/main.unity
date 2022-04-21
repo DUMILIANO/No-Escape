@@ -1660,6 +1660,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 128236613}
+  - component: {fileID: 128236612}
   - component: {fileID: 128236614}
   m_Layer: 0
   m_Name: PostPro
@@ -1668,6 +1669,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!114 &128236612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128236611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: 0a045153eab1096468505b0bf3b17df8, type: 2}
+  isGlobal: 1
+  blendDistance: 0
+  weight: 1
+  priority: 0
 --- !u!4 &128236613
 Transform:
   m_ObjectHideFlags: 0
@@ -12260,7 +12278,7 @@ RectTransform:
   m_GameObject: {fileID: 1393661992}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.92999995, y: 0.92999995, z: 0.92999995}
   m_Children: []
   m_Father: {fileID: 957751672}
   m_RootOrder: 4
@@ -12290,7 +12308,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f374c01de786645429f5e1e774e071e8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a9ca4edee914dad4bbdce6abb3f7789a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
