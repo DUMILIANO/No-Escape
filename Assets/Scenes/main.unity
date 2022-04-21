@@ -1716,7 +1716,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: 4bbd57b6588e6f9449b120d1a0223db9, type: 2}
+  sharedProfile: {fileID: 11400000, guid: e1353293d46817f49af0cbb36dd6e869, type: 2}
 --- !u!1 &131152088
 GameObject:
   m_ObjectHideFlags: 0
@@ -12308,7 +12308,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+<<<<<<< Updated upstream
   m_Sprite: {fileID: 21300000, guid: a9ca4edee914dad4bbdce6abb3f7789a, type: 3}
+=======
+  m_Sprite: {fileID: 21300000, guid: 4852d1bfdb8c2e44a9e4cf908ee37306, type: 3}
+>>>>>>> Stashed changes
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
