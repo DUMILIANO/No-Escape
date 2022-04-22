@@ -30,7 +30,7 @@ namespace scripts
                         //child.SetActive(true);
                         raycast = GameObject.Find("FirstPersonCharacter").GetComponent<Raycast>();
                         raycast.noteAnim();
-                        raycast.inventoryUI.cursorIsLocked = false;
+                        raycast.inventoryUI.cursorIsLocked = true;
                         Debug.Log("as");
                     }
                     else
