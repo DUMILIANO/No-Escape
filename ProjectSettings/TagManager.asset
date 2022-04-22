@@ -17,6 +17,9 @@ TagManager:
   - Interactable
   - ice
   - screwdriver
+  - lock
+  - switch
+  - note
   layers:
   - Default
   - TransparentFX

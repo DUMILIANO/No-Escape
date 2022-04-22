@@ -38,10 +38,11 @@ namespace scripts
         public Rotatelock lockScript;
         public GameObject player;
         public GameObject lockCam;
+        public GameObject note;
         public GameObject lockCamPP;
         public InventoryUI inventoryUI;
         public bool inLockView = false;
-
+        public bool inNoteView = false;
         void Start()
         {
             picktxt.gameObject.SetActive(false);
@@ -49,6 +50,16 @@ namespace scripts
 
         }
 
+        public void noteAnim()
+        {
+            inNoteView = true;
+            crosshair.enabled = false;
+            picktxt.enabled = false;
+            note.SetActive(true);
+            player.SetActive(false);
+            inventoryUI.inventoryUI.SetActive(false);
+
+        }
         // Update is called once per frame
         void Update()
         {
@@ -322,6 +333,22 @@ namespace scripts
                         lockCamPP.SetActive(true);
                         player.SetActive(false);
                         inventoryUI.cursorIsLocked = !inventoryUI.cursorIsLocked;
+                    }
+                }
+
+                else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("note"))
+                {
+                    CrosshairChange(true);
+                    picktxt.gameObject.SetActive(true);
+                    pickup = hit.collider.gameObject.GetComponent<PickUp>();
+                    //noteScript = hit.collider.gameObject.GetComponent<NoteScript>();
+
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        pickup.Pick();
+                        noteAnim();
+                        hit.collider.gameObject.SetActive(false);
+                            
                     }
                 }
                 else
