@@ -340,14 +340,12 @@ namespace scripts
                 {
                     CrosshairChange(true);
                     picktxt.gameObject.SetActive(true);
-                    pickup = hit.collider.gameObject.GetComponent<PickUp>();
                     //noteScript = hit.collider.gameObject.GetComponent<NoteScript>();
 
                     if (Input.GetKeyDown(KeyCode.E))
                     {
-                        pickup.Pick();
                         noteAnim();
-                        hit.collider.gameObject.SetActive(false);
+                        
                             
                     }
                 }

@@ -25,16 +25,6 @@ namespace scripts
             {
                 if(child.GetComponent<PickUp>().item.name == name)
                 {
-                    if(child.tag == "note")
-                    {
-                        //child.SetActive(true);
-                        raycast = GameObject.Find("FirstPersonCharacter").GetComponent<Raycast>();
-                        raycast.noteAnim();
-                        raycast.inventoryUI.cursorIsLocked = true;
-                        Debug.Log("as");
-                    }
-                    else
-                    {
                         Debug.Log("pressed");
                         child.SetActive(true);
                         child.GetComponent<PickUp>().equipped = true;
@@ -43,7 +33,6 @@ namespace scripts
                             
                             raycast.hasKey = true;
                         }
-                    }
                     
                     
                 }
