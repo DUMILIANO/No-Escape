@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Ice
   m_EditorClassIdentifier: 
   name: Ice
-  icon: {fileID: 21300000, guid: 76804973c89cf524c9ff5c9881f79a93, type: 3}
+  icon: {fileID: 21300000, guid: 6f7d86d078484d445932697615e027fe, type: 3}
   important: 1
   held: {fileID: 0}
   raycast: {fileID: 0}
