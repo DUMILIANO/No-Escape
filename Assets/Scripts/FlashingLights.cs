@@ -7,16 +7,15 @@ namespace scripts
     public class FlashingLights : MonoBehaviour
     {
         public bool isFlickering;
-        public bookChecker puzzleComplete;
+        public bookChecker pC;
         public float timeDelay;
         public bool lightsOn = true;
         public bool insideCol = false;
-        float timer = 0f;
-        float waitTime = 3f;
 
         void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.tag == "Player" && puzzleComplete == true)
+            Debug.Log("In");
+            if (other.gameObject.tag == "Player" && pC.puzzleComplete == true)
             {
                 isFlickering = false;
                 insideCol = true;
