@@ -16931,9 +16931,11 @@ MonoBehaviour:
   lockScript: {fileID: 0}
   player: {fileID: 1974573355}
   lockCam: {fileID: 28265762}
+  note: {fileID: 926948251}
   lockCamPP: {fileID: 656030994}
   inventoryUI: {fileID: 957751673}
   inLockView: 0
+  inNoteView: 0
 --- !u!114 &1878288967
 MonoBehaviour:
   m_ObjectHideFlags: 0

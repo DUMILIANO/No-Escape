@@ -16,6 +16,7 @@ namespace scripts
         public void Start()
         {
             held = GameObject.Find("rightHand").GetComponent<holding>();
+            raycast = GameObject.Find("FirstPersonCharacter").GetComponent<Raycast>();
             
         }
         public void Use()
@@ -24,14 +25,15 @@ namespace scripts
             {
                 if(child.GetComponent<PickUp>().item.name == name)
                 {
-                    Debug.Log("pressed");
-                    child.SetActive(true);
-                    child.GetComponent<PickUp>().equipped = true;
-                    if(child.tag == "key")
-                    {
-                        raycast = GameObject.Find("FirstPersonCharacter").GetComponent<Raycast>();
-                        raycast.hasKey = true;
-                    }
+                        Debug.Log("pressed");
+                        child.SetActive(true);
+                        child.GetComponent<PickUp>().equipped = true;
+                        if(child.tag == "key")
+                        {
+                            
+                            raycast.hasKey = true;
+                        }
+                    
                     
                 }
                 
