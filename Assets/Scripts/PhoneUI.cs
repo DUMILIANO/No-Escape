@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+
 namespace scripts
 {
     public class PhoneUI : MonoBehaviour
@@ -19,6 +21,8 @@ namespace scripts
         public GameObject recordingUI;
         public AudioSource phoneturnOn;
         public GameObject enemy;
+        public TMP_Text phoneText;
+        public Raycast raycast;
 
         //[SerializeField] public bool hasPhone = false;
 
@@ -26,6 +30,8 @@ namespace scripts
         {
             if(Input.GetKeyDown(KeyCode.X) && GameObject.Find("phone").GetComponent<PickUp>().equipped)
             {
+                raycast.phoneText.gameObject.SetActive(false);
+                raycast.objectives.gameObject.SetActive(false);
                 phoneUI.SetActive(!phoneUI.activeSelf);
                 inventoryUI.cursorIsLocked = !inventoryUI.cursorIsLocked;
             }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 
 namespace scripts
@@ -25,7 +26,9 @@ namespace scripts
         public PickUp pickup;
         public Transform crosshairpos;
         public Camera cam;
-        public Text picktxt;
+        public TMP_Text picktxt;
+        public TMP_Text interact;
+        public TMP_Text phoneText;
         public Animator anim;
         public Transform bookPos;
         public bookChecker check;
@@ -39,6 +42,7 @@ namespace scripts
         public GameObject player;
         public GameObject lockCam;
         public GameObject note;
+        public GameObject objectives;
         public GameObject lockCamPP;
         public InventoryUI inventoryUI;
         public bool inLockView = false;
@@ -54,6 +58,7 @@ namespace scripts
         {
             inNoteView = true;
             crosshair.enabled = false;
+            interact.enabled = false;
             picktxt.enabled = false;
             note.SetActive(true);
             player.SetActive(false);
@@ -74,32 +79,25 @@ namespace scripts
 
             if (Physics.Raycast(transform.position, fwd, out bHit, Mathf.Infinity, mask))
             {
-                //shows a ray whenever it hits with something
                 Debug.DrawRay(transform.position, fwd * bHit.distance, Color.red);
-                //checks if the ray is interactable and makes sures the player isn't already holding something
                 if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag(interactableTag))
                 {
                     CrosshairChange(true);
-                    picktxt.gameObject.SetActive(true);
+                    interact.gameObject.SetActive(true);
+                    picktxt.gameObject.SetActive(false);
                     pickup = hit.collider.gameObject.GetComponent<PickUp>();
                     if (Input.GetKey(KeyCode.E))
                     {
                         pickup.Pick();
                         isCrosshairActive = true;
-                        //doOnce = true;
-                        /*Debug.Log(hit.collider.transform.parent);
-                        if(hit.collider.transform.parent != null && hit.collider.transform.parent.GetComponent<bookContainer>().rightBook)
-                        {
-                            hit.collider.transform.parent.GetComponent<bookContainer>().rightBook = false;
-                            check.count--;
-                        }*/
                     }
                 }
                 else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag(doorTag))
                 {
                     CrosshairChange(true);
                     door = hit.collider.gameObject.GetComponent<doorController>();
-                    picktxt.gameObject.SetActive(true);
+                    interact.gameObject.SetActive(true);
+                    picktxt.gameObject.SetActive(false);
                     if(door.locked)
                     {
                         if (door.isWhiteDoor)
@@ -143,36 +141,21 @@ namespace scripts
                     {
                         door.PlayAnimation();
                         isCrosshairActive = true;
-                        //doOnce = true;
                     }
 
                 }
-                /*else if (hit.collider.CompareTag(lockedDoorTag) && Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hasKey)
-                {
-                    CrosshairChange(true);
-                    door = hit.collider.gameObject.GetComponent<doorController>();
-                    picktxt.gameObject.SetActive(true);
-
-                    if (Input.GetKeyDown(KeyCode.E))
-                    {
-                        door.PlayAnimation();
-                        isCrosshairActive = true;
-                        //doOnce = true;
-                    }
-
-                }*/
                 else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag(keyTag))
                 {
                     CrosshairChange(true);
                     pickup = hit.collider.gameObject.GetComponent<PickUp>();
                     picktxt.gameObject.SetActive(true);
+                    interact.gameObject.SetActive(false);
 
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         pickup.Pick();
                         hasKey = true;
                         isCrosshairActive = true;
-                        //doOnce = true;
                     }
 
                 }
@@ -181,12 +164,12 @@ namespace scripts
                     CrosshairChange(true);
                     pickup = hit.collider.gameObject.GetComponent<PickUp>();
                     picktxt.gameObject.SetActive(true);
+                    interact.gameObject.SetActive(false);
 
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         pickup.Pick();
                         isCrosshairActive = true;
-                        //doOnce = true;
                     }
 
                 }
@@ -195,9 +178,12 @@ namespace scripts
                     CrosshairChange(true);
                     pickup = hit.collider.gameObject.GetComponent<PickUp>();
                     picktxt.gameObject.SetActive(true);
+                    interact.gameObject.SetActive(false);
 
                     if (Input.GetKeyDown(KeyCode.E))
                     {
+                        phoneText.gameObject.SetActive(true);
+                        objectives.gameObject.SetActive(true);
                         pickup.Pick();
                         hit.collider.gameObject.layer = 7;
                         isCrosshairActive = true;
@@ -211,7 +197,8 @@ namespace scripts
                 else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("container"))
                 {
                     CrosshairChange(true);
-                    picktxt.gameObject.SetActive(true);
+                    interact.gameObject.SetActive(true);
+                    picktxt.gameObject.SetActive(false);
                     bookPos = hit.collider.transform;
                     foreach(GameObject child in held.children)
                     {
@@ -235,7 +222,9 @@ namespace scripts
                 {
                     CrosshairChange(true);
                     drawer = hit.collider.gameObject.GetComponent<drawersAnim>();
-                    picktxt.gameObject.SetActive(true);
+                    interact.gameObject.SetActive(true);
+                    picktxt.gameObject.SetActive(false);
+
                    
                     
                     if (Input.GetKeyDown(KeyCode.E))
@@ -248,7 +237,8 @@ namespace scripts
                 else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("hours"))
                 {
                     CrosshairChange(true);
-                    picktxt.gameObject.SetActive(true);
+                    interact.gameObject.SetActive(true);
+                    picktxt.gameObject.SetActive(false);
                     hours = hit.collider.transform;
                     
                     if (Input.GetKeyDown(KeyCode.E))
@@ -259,7 +249,8 @@ namespace scripts
                  else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("minutes"))
                 {
                     CrosshairChange(true);
-                    picktxt.gameObject.SetActive(true);
+                    interact.gameObject.SetActive(true);
+                    picktxt.gameObject.SetActive(false);
                     hours = hit.collider.transform;
                     
                     if (Input.GetKeyDown(KeyCode.E))
@@ -269,8 +260,6 @@ namespace scripts
                 }
                 else if(Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("stoveContainer"))
                 {
-                    CrosshairChange(true);
-                    picktxt.gameObject.SetActive(true);
                     stovePos = hit.collider.transform;
                     foreach(GameObject child in held.children)
                     {
@@ -293,6 +282,8 @@ namespace scripts
                     CrosshairChange(true);
                     pickup = hit.collider.gameObject.GetComponent<PickUp>();
                     picktxt.gameObject.SetActive(true);
+                    interact.gameObject.SetActive(false);
+
 
                     if (Input.GetKeyDown(KeyCode.E))
                     {
@@ -307,6 +298,7 @@ namespace scripts
                     CrosshairChange(true);
                     pickup = hit.collider.gameObject.GetComponent<PickUp>();
                     picktxt.gameObject.SetActive(true);
+                    interact.gameObject.SetActive(false);
 
                     if (Input.GetKeyDown(KeyCode.E))
                     {
@@ -321,14 +313,15 @@ namespace scripts
                 else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("lock"))
                 {
                     CrosshairChange(true);
-                    picktxt.gameObject.SetActive(true);
+                    interact.gameObject.SetActive(true);
+                    picktxt.gameObject.SetActive(false);
                     lockScript = hit.collider.gameObject.GetComponent<Rotatelock>();
 
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         inLockView = true;
                         crosshair.enabled = false;
-                        picktxt.enabled = false;
+                        interact.enabled = false;
                         lockCam.SetActive(true);
                         lockCamPP.SetActive(true);
                         player.SetActive(false);
@@ -339,7 +332,8 @@ namespace scripts
                 else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("note"))
                 {
                     CrosshairChange(true);
-                    picktxt.gameObject.SetActive(true);
+                    interact.gameObject.SetActive(true);
+                    picktxt.gameObject.SetActive(false);
                     //noteScript = hit.collider.gameObject.GetComponent<NoteScript>();
 
                     if (Input.GetKeyDown(KeyCode.E))
@@ -351,6 +345,7 @@ namespace scripts
                 }
                 else
                 {
+                    interact.gameObject.SetActive(false);
                     picktxt.gameObject.SetActive(false);
                     CrosshairChange(false);
                     //doOnce = false;
