@@ -10,6 +10,7 @@ namespace scripts
         public Raycast raycast;
         public List<GameObject> container = new List<GameObject>();
         public int count;
+        public bool puzzleComplete;
         void Update()
         {
             foreach (GameObject book in container)
@@ -17,6 +18,7 @@ namespace scripts
                 if(book.GetComponent<bookContainer>().rightBook == true && count == 6)
                 {
                     door.locked = false;
+                    puzzleComplete = true;
                 }
             }
         }
