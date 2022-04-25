@@ -11,42 +11,29 @@ namespace scripts
         public float timeDelay;
         public bool lightsOn = true;
         public bool insideCol = false;
+        public bool finished = false;
 
         void OnTriggerEnter(Collider other)
         {
-            Debug.Log("In");
-            if (other.gameObject.tag == "Player" && pC.puzzleComplete == true)
+            if (other.gameObject.tag == "Player" && pC.puzzleComplete == true && finished == false)
             {
+                Debug.Log("working");
                 isFlickering = false;
-                insideCol = true;
-     
-    }
+                finished = true;
+            }
 
         }
 
         void Update()
         {
-
-            if (insideCol == true)
-            {
-
-                StartCoroutine(GoOff());
-                /*timer += Time.deltaTime;
-                Debug.Log(timer);
-                if(timer > waitTime)
-                {
-                    lightsOn = false;
-                    timer = timer - waitTime;
-                    this.gameObject.GetComponent<Light>().enabled = false;
-                }*/
-            }
             if (isFlickering == false)
             {
-
                 StartCoroutine(FlickeringLight());
-
             }
-
+            else if (insideCol == true)
+            {
+                StartCoroutine(GoOff());
+            }
         }
 
         IEnumerator FlickeringLight()
@@ -59,11 +46,13 @@ namespace scripts
             timeDelay = Random.Range(0.01f, 0.1f);
             yield return new WaitForSeconds(timeDelay);
             isFlickering = false;
+            insideCol = true;
         }
 
         IEnumerator GoOff()
         {
             yield return new WaitForSeconds(3f);
+            isFlickering = true;
             this.gameObject.GetComponent<Light>().enabled = false;
         }
     }
