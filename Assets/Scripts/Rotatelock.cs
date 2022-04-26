@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 
 
-namespace scripts
+namespace Scripts
 {
     public class Rotatelock : MonoBehaviour
     {

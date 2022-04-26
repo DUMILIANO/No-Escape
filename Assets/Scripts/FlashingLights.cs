@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace scripts
+namespace Scripts
 {
     public class FlashingLights : MonoBehaviour
     {
@@ -13,19 +13,11 @@ namespace scripts
         public bool insideCol = false;
         public bool finished = false;
         public List<GameObject> lights = new List<GameObject>();
-        //public Material lampOffMaterial;
-        //public Material lampOnMaterial;
         public GameObject lamp;
         public Material lanternMaterial;
         public Material[] mat;
         public Renderer rend;
         public int lightNumber;
-
-
-        void Start()
-        {
-            //mat = lamp.GetComponent<Renderer>().materials;
-        }
 
         void Update()
         {

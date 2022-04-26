@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-namespace scripts
+namespace Scripts
 {
     public class PhoneUI : MonoBehaviour
     {

@@ -7201,27 +7201,14 @@ GameObject:
   m_Component:
   - component: {fileID: 652937112}
   - component: {fileID: 652937111}
-  - component: {fileID: 652937110}
+  - component: {fileID: 652937113}
   m_Layer: 0
   m_Name: Cutscene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!65 &652937110
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 652937109}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.51398665, y: 1, z: 3.3452468}
-  m_Center: {x: -0.24300975, y: 0, z: -1.1726227}
+  m_IsActive: 1
 --- !u!65 &652937111
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7230,11 +7217,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 652937109}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1, z: 2.2669554}
+  m_Center: {x: 0, y: 0, z: -0.6334769}
 --- !u!4 &652937112
 Transform:
   m_ObjectHideFlags: 0
@@ -7249,6 +7236,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 42
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &652937113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652937109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06b14e73ae5e7fa4a8840403e640df8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collider: {fileID: 652937111}
+  gCutscene: {fileID: 1878288964}
+  animPlayed: 0
+  player: {fileID: 1974573355}
+  firstPersonController: {fileID: 1964895435}
+  crosshair: {fileID: 2012514266}
+  phoneAnim: {fileID: 1788091662}
+  puzzleDone: {fileID: 823761193}
 --- !u!1 &655166861
 GameObject:
   m_ObjectHideFlags: 0
@@ -8819,7 +8826,7 @@ MonoBehaviour:
   raycast: {fileID: 1878288966}
   container: []
   count: 0
-  puzzleComplete: 1
+  puzzleComplete: 0
 --- !u!4 &832704760 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e2c95cc9ca19f6c4a9f8cd5431c6ed9b, type: 3}
@@ -20113,6 +20120,7 @@ GameObject:
   - component: {fileID: 1878288967}
   - component: {fileID: 1878288966}
   - component: {fileID: 1878288965}
+  - component: {fileID: 1878288970}
   - component: {fileID: 1878288964}
   m_Layer: 0
   m_Name: FirstPersonCharacter
@@ -20134,26 +20142,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1974863115}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1878288964
-Animator:
-  serializedVersion: 3
+  m_LocalEulerAnglesHint: {x: 0, y: -77.81, z: 0}
+--- !u!111 &1878288964
+Animation:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1878288962}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: bec4bd0016d78f940ab70cb404a41883, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 828226f8c38ac2f47b99dfdbce20d175, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 828226f8c38ac2f47b99dfdbce20d175, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!81 &1878288965
 AudioListener:
   m_ObjectHideFlags: 0
@@ -20291,6 +20296,22 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &1878288970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878288962}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ab8353b5ebd32545867da143199a814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DefaultPosInfluence: {x: 0.15, y: 0.15, z: 0.15}
+  DefaultRotInfluence: {x: 1, y: 1, z: 1}
+  RestPositionOffset: {x: 0, y: 0, z: 0}
+  RestRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1001 &1881401041
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21804,7 +21825,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1974573355}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 39.6, y: -0.663, z: -19.46}
+  m_LocalPosition: {x: 37.58, y: -0.654, z: -15.91}
   m_LocalScale: {x: 1, y: 0.87172, z: 1}
   m_Children:
   - {fileID: 1878288963}
