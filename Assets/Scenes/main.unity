@@ -17149,8 +17149,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.56187785, y: 0.10153668, z: 0.38712844}
-  m_Center: {x: 0.016540581, y: 0.55, z: 0.0102125155}
+  m_Size: {x: 0.5, y: 0.10153668, z: 0.3}
+  m_Center: {x: -0.01, y: 0.41, z: 0.0102125155}
 --- !u!1 &1580951525
 GameObject:
   m_ObjectHideFlags: 0
@@ -20565,7 +20565,7 @@ MonoBehaviour:
   lockScript: {fileID: 0}
   player: {fileID: 1974573355}
   lockCam: {fileID: 28265762}
-  note: {fileID: 0}
+  note: {fileID: 813786498}
   objectives: {fileID: 1377145289}
   lockCamPP: {fileID: 656030994}
   inventoryUI: {fileID: 957751673}
