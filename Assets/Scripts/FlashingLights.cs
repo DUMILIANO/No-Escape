@@ -12,17 +12,10 @@ namespace scripts
         public bool lightsOn = true;
         public bool insideCol = false;
         public bool finished = false;
-
-        void OnTriggerEnter(Collider other)
-        {
-            if (other.gameObject.tag == "Player" && pC.puzzleComplete == true && finished == false)
-            {
-                Debug.Log("working");
-                isFlickering = false;
-                finished = true;
-            }
-
-        }
+        public List<GameObject> lights = new List<GameObject>();
+        //public Material lampOffMaterial;
+        //public Material lampOnMaterial;
+        public GameObject lamp;
 
         void Update()
         {
@@ -40,9 +33,11 @@ namespace scripts
         {
             isFlickering = true;
             this.gameObject.GetComponent<Light>().enabled = false;
+            //lamp.GetComponent<MeshRenderer>().material = lampOffMaterial;
             timeDelay = Random.Range(0.01f, 0.1f);
             yield return new WaitForSeconds(timeDelay);
             this.gameObject.GetComponent<Light>().enabled = true;
+            //lamp.GetComponent<MeshRenderer>().material = lampOnMaterial;
             timeDelay = Random.Range(0.01f, 0.1f);
             yield return new WaitForSeconds(timeDelay);
             isFlickering = false;
@@ -54,6 +49,8 @@ namespace scripts
             yield return new WaitForSeconds(3f);
             isFlickering = true;
             this.gameObject.GetComponent<Light>().enabled = false;
+            //lamp.GetComponent<MeshRenderer>().material = lampOffMaterial;
+
         }
     }
 }
