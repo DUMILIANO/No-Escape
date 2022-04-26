@@ -9,6 +9,7 @@ namespace scripts
         public GameObject book;
         public bookChecker bookCheck;
         public bool rightBook = false;
+        public Raycast raycast;
 
         void Start()
         {
@@ -17,7 +18,19 @@ namespace scripts
 
         void Update()
         {
-
+            if(transform.childCount == 2)
+            {
+                
+                if(transform.GetChild(1).gameObject.tag == "book")
+                {
+                    gameObject.GetComponent<BoxCollider>().enabled = false;
+                }
+                
+            }
+            else
+            {
+                this.GetComponent<BoxCollider>().enabled = true;
+            }
         }
 
         public void Check()
@@ -36,3 +49,4 @@ namespace scripts
             
     }
 }
+

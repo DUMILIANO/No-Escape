@@ -69,13 +69,16 @@ namespace scripts
         void Update()
         {
 
+            if(bookPos != null)
+            {
+                bookPos.GetChild(0).gameObject.SetActive(false);
+            }
             RaycastHit hit;
             RaycastHit bHit;
             Vector3 fwd = transform.TransformDirection(Vector3.forward);
             
             int mask = 1 << LayerMask.NameToLayer(excludeLayerName) | layerMaskInteract.value;
 
-            
 
             if (Physics.Raycast(transform.position, fwd, out bHit, Mathf.Infinity, mask))
             {
@@ -200,21 +203,29 @@ namespace scripts
                     interact.gameObject.SetActive(true);
                     picktxt.gameObject.SetActive(false);
                     bookPos = hit.collider.transform;
+                    
+                    
                     foreach(GameObject child in held.children)
                     {
-                        if(Input.GetKeyDown(KeyCode.E) && child.activeSelf && (child.name == "book1" || child.name == "book2" || child.name == "book3" || child.name == "book4" || child.name == "book5" || child.name == "book6"))
+                        if(child.activeSelf && (child.name == "book1" || child.name == "book2" || child.name == "book3" || child.name == "book4" || child.name == "book5" || child.name == "book6"))
                         {
-                            PickUp bookScript = child.GetComponent<PickUp>();
-                            child.transform.SetParent(bookPos);
-                            child.transform.localPosition = Vector3.zero;
-                            child.transform.localRotation = Quaternion.Euler(Vector3.zero);
-                            child.transform.localScale = Vector3.one;
-                            inventory.Remove(bookScript.item);
-                            held.Remove(child);
-                            
-                            bookPos.GetComponent<bookContainer>().Check();
-                            
+                            bookPos.GetChild(0).gameObject.SetActive(true);
+
+                            if(Input.GetKeyDown(KeyCode.E) && child.activeSelf && (child.name == "book1" || child.name == "book2" || child.name == "book3" || child.name == "book4" || child.name == "book5" || child.name == "book6"))
+                            {
+                                PickUp bookScript = child.GetComponent<PickUp>();
+                                child.transform.SetParent(bookPos);
+                                child.transform.localPosition = Vector3.zero;
+                                child.transform.localRotation = Quaternion.Euler(Vector3.zero);
+                                child.transform.localScale = Vector3.one;
+                                inventory.Remove(bookScript.item);
+                                held.Remove(child);
+                                
+                                bookPos.GetComponent<bookContainer>().Check();
+                                
+                            }
                         }
+                        
                     }
                     
                 }
@@ -349,6 +360,7 @@ namespace scripts
                     picktxt.gameObject.SetActive(false);
                     CrosshairChange(false);
                     //doOnce = false;
+                    bookPos.GetChild(0).gameObject.SetActive(false);
                 }
             }
 
