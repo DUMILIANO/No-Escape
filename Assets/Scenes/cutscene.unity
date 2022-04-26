@@ -2581,7 +2581,9 @@ MonoBehaviour:
   insideCol: 0
   finished: 0
   lights: []
-  lamp: {fileID: 0}
+  lamp: {fileID: 2018422715}
+  lanternMaterial: {fileID: 2100000, guid: cf6d76801a3edea4ca00ee7135d32110, type: 2}
+  mat: []
 --- !u!1 &157684223
 GameObject:
   m_ObjectHideFlags: 0
@@ -8661,7 +8663,7 @@ MonoBehaviour:
   raycast: {fileID: 1878288966}
   container: []
   count: 0
-  puzzleComplete: 0
+  puzzleComplete: 1
 --- !u!4 &832704760 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e2c95cc9ca19f6c4a9f8cd5431c6ed9b, type: 3}
@@ -22241,7 +22243,9 @@ MonoBehaviour:
   insideCol: 0
   finished: 0
   lights: []
-  lamp: {fileID: 0}
+  lamp: {fileID: 1580951525}
+  lanternMaterial: {fileID: 2100000, guid: cf6d76801a3edea4ca00ee7135d32110, type: 2}
+  mat: []
 --- !u!1 &2035012916
 GameObject:
   m_ObjectHideFlags: 0
@@ -28126,6 +28130,8 @@ MonoBehaviour:
   finished: 0
   lights: []
   lamp: {fileID: 8422124075411740098}
+  lanternMaterial: {fileID: 2100000, guid: dab59f30603e72845a8fa9806c0f3643, type: 2}
+  mat: []
 --- !u!108 &1895012523653977744
 Light:
   m_ObjectHideFlags: 0
@@ -28240,6 +28246,8 @@ MonoBehaviour:
   finished: 0
   lights: []
   lamp: {fileID: 8422124074614997257}
+  lanternMaterial: {fileID: 2100000, guid: 95c339a5fed31d64c9798a05c243943d, type: 2}
+  mat: []
 --- !u!4 &1895012524467683930
 Transform:
   m_ObjectHideFlags: 0

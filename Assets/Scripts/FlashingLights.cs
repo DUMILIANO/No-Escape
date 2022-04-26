@@ -16,6 +16,14 @@ namespace scripts
         //public Material lampOffMaterial;
         //public Material lampOnMaterial;
         public GameObject lamp;
+        public Material lanternMaterial;
+        public Material[] mat;
+
+
+        void Start()
+        {
+            mat = lamp.GetComponent<Renderer>().materials;
+        }
 
         void Update()
         {
@@ -33,15 +41,16 @@ namespace scripts
         {
             isFlickering = true;
             this.gameObject.GetComponent<Light>().enabled = false;
-            //lamp.GetComponent<MeshRenderer>().material = lampOffMaterial;
             timeDelay = Random.Range(0.01f, 0.1f);
             yield return new WaitForSeconds(timeDelay);
             this.gameObject.GetComponent<Light>().enabled = true;
-            //lamp.GetComponent<MeshRenderer>().material = lampOnMaterial;
             timeDelay = Random.Range(0.01f, 0.1f);
             yield return new WaitForSeconds(timeDelay);
             isFlickering = false;
             insideCol = true;
+
+            
+            
         }
 
         IEnumerator GoOff()
@@ -49,7 +58,8 @@ namespace scripts
             yield return new WaitForSeconds(3f);
             isFlickering = true;
             this.gameObject.GetComponent<Light>().enabled = false;
-            //lamp.GetComponent<MeshRenderer>().material = lampOffMaterial;
+            lamp.GetComponent<Renderer>().materials[1] = lanternMaterial;
+            Debug.Log(lamp.GetComponent<Renderer>().materials[1]);
 
         }
     }
