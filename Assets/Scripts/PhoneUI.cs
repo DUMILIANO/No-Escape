@@ -24,8 +24,6 @@ namespace Scripts
         public TMP_Text phoneText;
         public Raycast raycast;
 
-        //[SerializeField] public bool hasPhone = false;
-
         public void Update()
         {
             if(Input.GetKeyDown(KeyCode.X) && GameObject.Find("phone").GetComponent<PickUp>().equipped)
@@ -44,28 +42,6 @@ namespace Scripts
         }
         public void ShowObjects()
         {
-            /*phoneUI.SetActive(false);
-            phone.GetComponent<Animation>().Play("phone");
-            inventoryUI.cursorIsLocked = !inventoryUI.cursorIsLocked;
-
-            if (cameraOn == false)
-            {
-                cameraOn = true;
-                myCamera.fieldOfView = 50f;
-                objects.SetActive(true);
-                PostPro.SetActive(true);
-                recordingUI.SetActive(true);
-                //myRenderer.enabled = false;
-            }
-            else
-            {
-                cameraOn = false;
-                recordingUI.SetActive(false);
-                myCamera.fieldOfView = 70f;
-                objects.SetActive(false);
-                PostPro.SetActive(false);
-                //myRenderer.enabled = true;*/
-
             StartCoroutine(FinishAnim());
 
         }
