@@ -55,7 +55,7 @@ namespace Scripts
             yield return new WaitForSeconds(1f);
             StartCoroutine(Fade());
             yield return new WaitForSeconds(0.9f);
-            myCamera.fieldOfView = 50f;
+            myCamera.fieldOfView = 30f;
             PostPro.SetActive(true);
             recordingUI.SetActive(true);
             phoneRenderer.enabled = false;

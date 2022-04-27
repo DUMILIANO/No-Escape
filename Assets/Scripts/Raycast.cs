@@ -225,10 +225,9 @@ namespace Scripts
                     interact.gameObject.SetActive(true);
                     picktxt.gameObject.SetActive(false);
 
-                   
-                    
                     if (Input.GetKeyDown(KeyCode.E))
                     {
+                        
                         drawer.PlayAnimation();
                         isCrosshairActive = true;
                         //doOnce = true;
