@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 using TMPro;
 
 
-namespace scripts
+namespace Scripts
 {
     public class Raycast : MonoBehaviour
     {

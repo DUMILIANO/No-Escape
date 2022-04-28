@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace scripts
+namespace Scripts
 {
     public class PickUp : MonoBehaviour
     {

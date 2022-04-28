@@ -3,43 +3,47 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SliderScript : MonoBehaviour
+namespace Script
 {
-    // Start is called before the first frame update
-
-    [SerializeField] Slider volumeSlider;
-
-    void Start()
+    public class SliderScript : MonoBehaviour
     {
-        if(!PlayerPrefs.HasKey("musicVolume"))
+        // Start is called before the first frame update
+
+        [SerializeField] Slider volumeSlider;
+
+        void Start()
         {
-            PlayerPrefs.SetFloat("musicVolume", 1);
+            if(!PlayerPrefs.HasKey("musicVolume"))
+            {
+                PlayerPrefs.SetFloat("musicVolume", 1);
+            }
+            else
+            {
+                Load();
+            }
         }
-        else
+
+        // Update is called once per frame
+        void Update()
         {
-            Load();
+            
         }
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+        public void ChangeVolume()
+        {
+            AudioListener.volume = volumeSlider.value;
+            Save();
+        }
 
-    public void ChangeVolume()
-    {
-        AudioListener.volume = volumeSlider.value;
-        Save();
-    }
+        public void Load()
+        {
+            volumeSlider.value = PlayerPrefs.GetFloat("musicVolume");
+        }
 
-    public void Load()
-    {
-        volumeSlider.value = PlayerPrefs.GetFloat("musicVolume");
-    }
-
-    public void Save()
-    {
-        PlayerPrefs.SetFloat("musicVolume", volumeSlider.value);
+        public void Save()
+        {
+            PlayerPrefs.SetFloat("musicVolume", volumeSlider.value);
+        }
     }
 }
+

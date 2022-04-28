@@ -1,44 +1,47 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class doorController : MonoBehaviour
+namespace Scripts
 {
-    public Animator doorAnim;
-    private bool open = false;
-    public bool locked = false;
-    public bool isRedDoor;
-    public bool isWhiteDoor;
-    public GameObject key;
-    public string openAnimationName;
-    public string closeAnimationName;
-    public AudioClip doorOpeningSFX;
-    public AudioClip doorLockedSFX;
-    public AudioSource audio;
+    public class doorController : MonoBehaviour
+    {
+        public Animator doorAnim;
+        private bool open = false;
+        public bool locked = false;
+        public bool isRedDoor;
+        public bool isWhiteDoor;
+        public GameObject key;
+        public string openAnimationName;
+        public string closeAnimationName;
+        public AudioClip doorOpeningSFX;
+        public AudioClip doorLockedSFX;
+        public AudioSource audio;
 
-    private void Awake()
-    {
-        //doorAnim = gameObject.GetComponent<Animator>();
-    }
+        private void Awake()
+        {
+            //doorAnim = gameObject.GetComponent<Animator>();
+        }
 
-    void Update()
-    {
-        if(!locked)
+        void Update()
         {
-            key = null;
+            if(!locked)
+            {
+                key = null;
+            }
         }
-    }
-    public void PlayAnimation()
-    {
-        if (!open && !locked)
+        public void PlayAnimation()
         {
-            doorAnim.Play(openAnimationName, 0, 0.0f);
-            open = true;
+            if (!open && !locked)
+            {
+                doorAnim.Play(openAnimationName, 0, 0.0f);
+                open = true;
+            }
+            else if (open)
+            {
+                doorAnim.Play(closeAnimationName, 0, 0.0f);
+                open = false;
+            }
         }
-        else if (open)
-        {
-            doorAnim.Play(closeAnimationName, 0, 0.0f);
-            open = false;
-        }
-    }
 }
+}
+

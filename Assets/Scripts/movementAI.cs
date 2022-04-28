@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace scripts
+namespace Scripts
 {
     public class movementAI : MonoBehaviour
     {
