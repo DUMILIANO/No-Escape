@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.10902058, g: 0.1119402, b: 0.10350669, a: 0.1}
+  m_IndirectSpecularColor: {r: 0.1371643, g: 0.1562567, b: 0.18629497, a: 0.1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1091,7 +1091,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &49326052
 Light:
   m_ObjectHideFlags: 0
@@ -26073,7 +26073,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6089873161482784931}
   m_LocalRotation: {x: 0.5, y: 0.5, z: -0.4999999, w: 0.5000001}
-  m_LocalPosition: {x: -68.97759, y: -2.6970427, z: 17.50077}
+  m_LocalPosition: {x: -68.75, y: -2.6970427, z: 17.50077}
   m_LocalScale: {x: -143.5862, y: -116.391136, z: -162.74675}
   m_Children: []
   m_Father: {fileID: 543450653109975876}
@@ -31562,7 +31562,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2526685835701295180}
   m_LocalRotation: {x: 0.5004361, y: -0.4995635, z: -0.5004361, w: -0.49956352}
-  m_LocalPosition: {x: -70.81699, y: 5.506163, z: 17.51627}
+  m_LocalPosition: {x: -70.5894, y: 5.506163, z: 17.51627}
   m_LocalScale: {x: 10.466935, y: 10.466934, z: 162.74675}
   m_Children: []
   m_Father: {fileID: 543450653109975876}
@@ -36902,7 +36902,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4255186632886650815}
   m_LocalRotation: {x: 0.50000006, y: 0.49999997, z: 0.5, w: -0.5}
-  m_LocalPosition: {x: -68.866875, y: 7.060803, z: 17.513073}
+  m_LocalPosition: {x: -68.63928, y: 7.060803, z: 17.513073}
   m_LocalScale: {x: 162.74675, y: 162.74675, z: 162.74675}
   m_Children: []
   m_Father: {fileID: 543450653109975876}
@@ -37636,7 +37636,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7416365224260711790}
   m_LocalRotation: {x: 0.50000006, y: 0.49999997, z: 0.5, w: -0.5}
-  m_LocalPosition: {x: -68.43844, y: 5.4176397, z: 17.491707}
+  m_LocalPosition: {x: -68.210846, y: 5.4176397, z: 17.491707}
   m_LocalScale: {x: 227.84546, y: 227.84546, z: 227.84546}
   m_Children: []
   m_Father: {fileID: 543450653109975876}
