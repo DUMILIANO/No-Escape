@@ -154,20 +154,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collider: {fileID: 18384298}
-  gCutscene: {fileID: 0}
+  gCutscene: {fileID: 1974573357}
   animPlayed: 0
-  player: {fileID: 0}
-  crosshair: {fileID: 0}
-  puzzleDone: {fileID: 0}
-  panel: {fileID: 0}
-  PostPro: {fileID: 0}
-  myCamera: {fileID: 0}
-  recordingUI: {fileID: 0}
-  phoneRenderer: {fileID: 0}
-  phoneCollider: {fileID: 0}
-  enemy: {fileID: 0}
-  phone: {fileID: 0}
-  FirstPersonController: {fileID: 0}
+  player: {fileID: 1974573355}
+  crosshair: {fileID: 2012514266}
+  puzzleDone: {fileID: 823761193}
+  panel: {fileID: 780756799}
+  PostPro: {fileID: 128236611}
+  myCamera: {fileID: 1878288969}
+  recordingUI: {fileID: 1393661992}
+  phoneRenderer: {fileID: 1788091665}
+  phoneCollider: {fileID: 1788091661}
+  enemy: {fileID: 1834793887}
+  phone: {fileID: 1788091660}
+  FirstPersonController: {fileID: 1878288962}
 --- !u!65 &18384298
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20530,66 +20530,23 @@ Transform:
   m_Father: {fileID: 1974863115}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1878288964
-MonoBehaviour:
+--- !u!111 &1878288964
+Animation:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1878288962}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  volumeTrigger: {fileID: 1878288963}
-  volumeLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  stopNaNPropagation: 1
-  finalBlitToCameraTarget: 0
-  antialiasingMode: 0
-  temporalAntialiasing:
-    jitterSpread: 0.75
-    sharpness: 0.25
-    stationaryBlending: 0.95
-    motionBlending: 0.85
-  subpixelMorphologicalAntialiasing:
-    quality: 2
-  fastApproximateAntialiasing:
-    fastMode: 0
-    keepAlpha: 0
-  fog:
-    enabled: 1
-    excludeSkybox: 1
-  debugLayer:
-    lightMeter:
-      width: 512
-      height: 256
-      showCurves: 1
-    histogram:
-      width: 512
-      height: 256
-      channel: 3
-    waveform:
-      exposure: 0.12
-      height: 256
-    vectorscope:
-      size: 256
-      exposure: 0.12
-    overlaySettings:
-      linearDepth: 0
-      motionColorIntensity: 4
-      motionGridSize: 64
-      colorBlindnessType: 0
-      colorBlindnessStrength: 1
-  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
-  m_ShowToolkit: 1
-  m_ShowCustomSorter: 0
-  breakBeforeColorGrading: 0
-  m_BeforeTransparentBundles: []
-  m_BeforeStackBundles: []
-  m_AfterStackBundles: []
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 9e1ee413e6919da42b159538aaa572b5, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 9e1ee413e6919da42b159538aaa572b5, type: 2}
+  - {fileID: 7400000, guid: 89eb7c3a010179b4daf86f205b1d047f, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!81 &1878288965
 AudioListener:
   m_ObjectHideFlags: 0
@@ -22247,6 +22204,7 @@ GameObject:
   - component: {fileID: 1964895435}
   - component: {fileID: 1976369355}
   - component: {fileID: 1974573356}
+  - component: {fileID: 1974573357}
   m_Layer: 2
   m_Name: Player
   m_TagString: Player
@@ -22270,6 +22228,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!111 &1974573357
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974573355}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 828226f8c38ac2f47b99dfdbce20d175, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 828226f8c38ac2f47b99dfdbce20d175, type: 2}
+  - {fileID: 7400000, guid: a131f7f543a7fd440ab4625646f7492c, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!4 &1974863115
 Transform:
   m_ObjectHideFlags: 0
