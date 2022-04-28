@@ -1698,6 +1698,7 @@ GameObject:
   - component: {fileID: 75533982}
   - component: {fileID: 75533984}
   - component: {fileID: 75533983}
+  - component: {fileID: 75533985}
   m_Layer: 0
   m_Name: vintage_grandfather_clock_01_Body
   m_TagString: Untagged
@@ -1769,6 +1770,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 75533981}
   m_Mesh: {fileID: 8588631502226672803, guid: 9f7d1b70fd3052d42b0990246a4abe92, type: 3}
+--- !u!65 &75533985
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75533981}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.006256247, y: 0.0042661647, z: 0.004586083}
+  m_Center: {x: 0, y: -0.00025101623, z: 0.0022923925}
 --- !u!1 &80111696
 GameObject:
   m_ObjectHideFlags: 0
@@ -9005,7 +9019,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 818390397}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 51.2829, y: -1.45, z: -25.0312}
+  m_LocalPosition: {x: 51.2829, y: -1.4293, z: -25.0312}
   m_LocalScale: {x: 0.013247737, y: 0.013247737, z: 0.013247737}
   m_Children:
   - {fileID: 2022436488}
@@ -20841,7 +20855,7 @@ MonoBehaviour:
   lockScript: {fileID: 0}
   player: {fileID: 1974573355}
   lockCam: {fileID: 28265762}
-  note: {fileID: 0}
+  note: {fileID: 813786498}
   objectives: {fileID: 1377145289}
   lockCamPP: {fileID: 656030994}
   inventoryUI: {fileID: 957751673}
