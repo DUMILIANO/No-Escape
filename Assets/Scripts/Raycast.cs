@@ -207,11 +207,11 @@ namespace Scripts
                     
                     foreach(GameObject child in held.children)
                     {
-                        if(child.activeSelf && (child.name == "book1" || child.name == "book2" || child.name == "book3" || child.name == "book4" || child.name == "book5" || child.name == "book6"))
+                        if(child.activeSelf && (child.name == "redBook" || child.name == "lBlueBook" || child.name == "blueBook" || child.name == "greenBook" || child.name == "pinkBook" || child.name == "orangeBook"))
                         {
                             bookPos.GetChild(0).gameObject.SetActive(true);
 
-                            if(Input.GetKeyDown(KeyCode.E) && child.activeSelf && (child.name == "book1" || child.name == "book2" || child.name == "book3" || child.name == "book4" || child.name == "book5" || child.name == "book6"))
+                            if(Input.GetKeyDown(KeyCode.E) && child.activeSelf && (child.name == "redBook" || child.name == "lBlueBook" || child.name == "blueBook" || child.name == "greenBook" || child.name == "pinkBook" || child.name == "orangeBook"))
                             {
                                 PickUp bookScript = child.GetComponent<PickUp>();
                                 child.transform.SetParent(bookPos);
