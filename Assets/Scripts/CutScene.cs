@@ -32,6 +32,7 @@ namespace Scripts
             {
                 player.GetComponent<FirstPersonController>().enabled = false;
                 crosshair.enabled = false;
+                FirstPersonController.GetComponent<Animation>().Play("CameraXCutScene");
                 gCutscene.Play();
                 animPlayed = true;
                 StartCoroutine(PhoneOnAnimation());
@@ -51,8 +52,7 @@ namespace Scripts
         IEnumerator PhoneOnAnimation()
         {
             yield return new WaitForSeconds(0.2f);
-            phone.GetComponent<Animation>().Play("PhoneOnCutScene");
-            yield return new WaitForSeconds(1f);
+            phone.GetComponent<Animation>().Play("phone");
             StartCoroutine(Fade());
             yield return new WaitForSeconds(0.9f);
             myCamera.fieldOfView = 30f;
@@ -69,8 +69,9 @@ namespace Scripts
         {
             StartCoroutine(Fade());
             yield return new WaitForSeconds(1f);
-            FirstPersonController.GetComponent<Animation>().Play("GhostCutSceneOff");
-            phone.GetComponent<Animation>().Play("PhoneOffCutscene");
+            FirstPersonController.GetComponent<Animation>().Play("CameraXCutSceneBack");
+            player.GetComponent<Animation>().Play("GhostCutSceneOff");
+            phone.GetComponent<Animation>().Play("phoneback");
             phoneRenderer.enabled = true;
             myCamera.fieldOfView = 70f;
             PostPro.SetActive(false);

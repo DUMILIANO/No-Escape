@@ -7249,7 +7249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collider: {fileID: 652937111}
-  gCutscene: {fileID: 1878288964}
+  gCutscene: {fileID: 1974573357}
   animPlayed: 0
   player: {fileID: 1974573355}
   crosshair: {fileID: 2012514266}
@@ -8833,7 +8833,7 @@ MonoBehaviour:
   raycast: {fileID: 1878288966}
   container: []
   count: 0
-  puzzleComplete: 0
+  puzzleComplete: 1
 --- !u!4 &832704760 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e2c95cc9ca19f6c4a9f8cd5431c6ed9b, type: 3}
@@ -18867,12 +18867,11 @@ Animation:
   m_GameObject: {fileID: 1788091660}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 319407ecaf4e3004ab8791f00304da3b, type: 2}
+  m_Animation: {fileID: 7400000, guid: c6d9b21740c541045a6c26db3d9479e6, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: c6d9b21740c541045a6c26db3d9479e6, type: 2}
   - {fileID: 7400000, guid: ff74b6e539f8fdc479d6a4bac1f136ef, type: 2}
-  - {fileID: 7400000, guid: 319407ecaf4e3004ab8791f00304da3b, type: 2}
-  - {fileID: 7400000, guid: 1adf4188c0bb57b4583f64efc2e05197, type: 2}
+  - {fileID: 7400000, guid: a131f7f543a7fd440ab4625646f7492c, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
@@ -18975,15 +18974,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1788091660}
-  m_LocalRotation: {x: 0.2908705, y: -0.64451104, z: 0.29087037, w: 0.644511}
-  m_LocalPosition: {x: 0.0118, y: 0.00698, z: -0.00551}
+  m_LocalRotation: {x: 0.29883623, y: -0.64085644, z: 0.29883623, w: 0.64085644}
+  m_LocalPosition: {x: 0.2449, y: 0.0607, z: 0.0074}
   m_LocalScale: {x: 0.002161419, y: 0.0021614188, z: 0.0021614186}
   m_Children:
   - {fileID: 1036375576}
   - {fileID: 2146924446}
   m_Father: {fileID: 1637911479}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: -75.82, y: -97.878, z: 35.28}
+  m_LocalEulerAnglesHint: {x: 50, y: -90, z: 0}
 --- !u!1 &1799914919
 GameObject:
   m_ObjectHideFlags: 0
@@ -20145,13 +20144,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1878288962}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.008813815, y: 0, z: 0, w: 0.9999612}
   m_LocalPosition: {x: 0, y: 1.01, z: -0.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1974863115}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -0.83902335, y: -68.69306, z: 0}
+  m_LocalEulerAnglesHint: {x: 1.01, y: 0, z: 0}
 --- !u!111 &1878288964
 Animation:
   m_ObjectHideFlags: 0
@@ -20161,10 +20160,10 @@ Animation:
   m_GameObject: {fileID: 1878288962}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 828226f8c38ac2f47b99dfdbce20d175, type: 2}
+  m_Animation: {fileID: 7400000, guid: 9e1ee413e6919da42b159538aaa572b5, type: 2}
   m_Animations:
-  - {fileID: 7400000, guid: 828226f8c38ac2f47b99dfdbce20d175, type: 2}
-  - {fileID: 7400000, guid: a131f7f543a7fd440ab4625646f7492c, type: 2}
+  - {fileID: 7400000, guid: 9e1ee413e6919da42b159538aaa572b5, type: 2}
+  - {fileID: 7400000, guid: 89eb7c3a010179b4daf86f205b1d047f, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
@@ -21804,6 +21803,7 @@ GameObject:
   - component: {fileID: 1964895435}
   - component: {fileID: 1976369355}
   - component: {fileID: 1974573356}
+  - component: {fileID: 1974573357}
   m_Layer: 2
   m_Name: Player
   m_TagString: Player
@@ -21827,6 +21827,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!111 &1974573357
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974573355}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 828226f8c38ac2f47b99dfdbce20d175, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 828226f8c38ac2f47b99dfdbce20d175, type: 2}
+  - {fileID: 7400000, guid: a131f7f543a7fd440ab4625646f7492c, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!4 &1974863115
 Transform:
   m_ObjectHideFlags: 0
@@ -21835,7 +21852,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1974573355}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 39.6, y: -0.654, z: -22.41}
+  m_LocalPosition: {x: 50.08, y: -0.654, z: -22.41}
   m_LocalScale: {x: 1, y: 0.87172, z: 1}
   m_Children:
   - {fileID: 1878288963}
