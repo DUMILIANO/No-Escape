@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1371643, g: 0.1562567, b: 0.18629497, a: 0.1}
+  m_IndirectSpecularColor: {r: 0.10902058, g: 0.1119402, b: 0.10350669, a: 0.1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,6 +123,78 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 1a47d1019a8e2bf49baf395feb554c1b, type: 2}
+--- !u!1 &18384296
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 18384299}
+  - component: {fileID: 18384298}
+  - component: {fileID: 18384297}
+  m_Layer: 0
+  m_Name: Cutscene
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &18384297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18384296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06b14e73ae5e7fa4a8840403e640df8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collider: {fileID: 18384298}
+  gCutscene: {fileID: 0}
+  animPlayed: 0
+  player: {fileID: 0}
+  crosshair: {fileID: 0}
+  puzzleDone: {fileID: 0}
+  panel: {fileID: 0}
+  PostPro: {fileID: 0}
+  myCamera: {fileID: 0}
+  recordingUI: {fileID: 0}
+  phoneRenderer: {fileID: 0}
+  phoneCollider: {fileID: 0}
+  enemy: {fileID: 0}
+  phone: {fileID: 0}
+  FirstPersonController: {fileID: 0}
+--- !u!65 &18384298
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18384296}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 2.2669554}
+  m_Center: {x: 0, y: 0, z: -0.6334769}
+--- !u!4 &18384299
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18384296}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 52.98, y: -1.57, z: -9.22}
+  m_LocalScale: {x: 5.5544534, y: 1, z: 0.83592}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 42
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &22446471
 GameObject:
   m_ObjectHideFlags: 0
@@ -956,7 +1028,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &49326052
 Light:
   m_ObjectHideFlags: 0
@@ -12979,7 +13051,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1180517405
 Transform:
   m_ObjectHideFlags: 0
@@ -22997,6 +23069,12 @@ MonoBehaviour:
   lightsOn: 1
   insideCol: 0
   finished: 0
+  lights: []
+  lamp: {fileID: 0}
+  lanternMaterial: {fileID: 0}
+  mat: []
+  rend: {fileID: 0}
+  lightNumber: 0
 --- !u!65 &2033997117
 BoxCollider:
   m_ObjectHideFlags: 0
