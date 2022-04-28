@@ -37,7 +37,7 @@ namespace scripts
         {
             if(transform.childCount > 0)
             {
-                if(transform.GetChild(0).gameObject == book)
+                if(transform.GetChild(1).gameObject == book)
                 {
                     rightBook = true;
                     bookCheck.count++;
