@@ -20,6 +20,7 @@ TagManager:
   - lock
   - switch
   - note
+  - enemy
   layers:
   - Default
   - TransparentFX

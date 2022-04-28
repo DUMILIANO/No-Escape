@@ -23,6 +23,8 @@ namespace Scripts
         public GameObject enemy;
         public GameObject phone;
         public GameObject FirstPersonController;
+        public GameObject emissionPanel;
+        public GameObject shadowPanel;
 
 
 
@@ -32,13 +34,11 @@ namespace Scripts
             {
                 player.GetComponent<FirstPersonController>().enabled = false;
                 crosshair.enabled = false;
+                emissionPanel.SetActive(true);
                 FirstPersonController.GetComponent<Animation>().Play("CameraXCutScene");
                 gCutscene.Play();
                 animPlayed = true;
                 StartCoroutine(PhoneOnAnimation());
-
-
-
             }
         }
 
@@ -60,8 +60,11 @@ namespace Scripts
             recordingUI.SetActive(true);
             phoneRenderer.enabled = false;
             phoneCollider.enabled = false;
-            enemy.GetComponent<Renderer>().enabled = true;
-            yield return new WaitForSeconds(1);
+            enemy.GetComponent<SkinnedMeshRenderer>().enabled = true;
+            enemy.GetComponent<Animation>().Play("GhostMovingCutScene");
+            yield return new WaitForSeconds(6f);
+            enemy.GetComponent<Animation>().Play("Armature_ArmatureAction");
+            yield return new WaitForSeconds(3f);
             StartCoroutine(PhoneOffAnimation());
         }
 
@@ -69,6 +72,8 @@ namespace Scripts
         {
             StartCoroutine(Fade());
             yield return new WaitForSeconds(1f);
+            emissionPanel.SetActive(false);
+            shadowPanel.SetActive(false);
             FirstPersonController.GetComponent<Animation>().Play("CameraXCutSceneBack");
             player.GetComponent<Animation>().Play("GhostCutSceneOff");
             phone.GetComponent<Animation>().Play("phoneback");
@@ -78,7 +83,7 @@ namespace Scripts
             recordingUI.SetActive(false);
             yield return new WaitForSeconds(0.01f);
             phoneCollider.enabled = true;
-            enemy.GetComponent<Renderer>().enabled = false;
+            enemy.GetComponent<SkinnedMeshRenderer>().enabled = false;
             player.GetComponent<FirstPersonController>().enabled = true;
             crosshair.enabled = true;
 
