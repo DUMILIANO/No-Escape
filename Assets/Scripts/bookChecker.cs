@@ -11,11 +11,6 @@ namespace Scripts
         public List<GameObject> container = new List<GameObject>();
         public int count;
         public bool puzzleComplete;
-        bool doOnce = true;
-        public string animationName;
-        public Animator doorAnim;
-
-
         void Update()
         {
             foreach (GameObject book in container)
@@ -25,13 +20,6 @@ namespace Scripts
                     door.locked = false;
                     puzzleComplete = true;
                 }
-            }
-
-            if(puzzleComplete && doOnce)
-            {
-                door.audio.PlayOneShot(door.doorOpeningSFX);
-                doOnce = false;
-                doorAnim.Play(animationName, 0, 0.0f);
             }
         }
     }
