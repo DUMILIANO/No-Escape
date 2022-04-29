@@ -25,11 +25,11 @@ namespace Scripts
         public GameObject FirstPersonController;
         public GameObject emissionPanel;
         public GameObject shadowPanel;
-        public string animationName;
-        public Animator doorAnim;
+        public bool blinking;
+        public bool CutSceneDone;
 
 
-
+        
         public void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.tag == "Player" && animPlayed == false && puzzleDone.puzzleComplete == true)
@@ -41,6 +41,14 @@ namespace Scripts
                 gCutscene.Play();
                 animPlayed = true;
                 StartCoroutine(PhoneOnAnimation());
+            }
+        }
+
+        public void Update()
+        {
+            if(blinking == false && puzzleDone.puzzleComplete == true && CutSceneDone == false)
+            {
+                StartCoroutine(blink());
             }
         }
 
@@ -63,12 +71,21 @@ namespace Scripts
             phoneRenderer.enabled = false;
             phoneCollider.enabled = false;
             enemy.GetComponent<SkinnedMeshRenderer>().enabled = true;
-            enemy.GetComponent<Animation>().Play("GhostMovingCutScene");
-            yield return new WaitForSeconds(6f);
-            enemy.GetComponent<Animation>().Play("Armature_ArmatureAction");
             yield return new WaitForSeconds(3f);
             StartCoroutine(PhoneOffAnimation());
         }
+
+        IEnumerator blink()
+        {
+            Debug.Log("Emissionflickering");
+            blinking = true;
+            emissionPanel.SetActive (false);
+            yield return new WaitForSeconds(0.3f);
+            emissionPanel.SetActive (true);
+            yield return new WaitForSeconds(0.3f);
+            blinking = false;
+        }
+    
 
         IEnumerator PhoneOffAnimation()
         {
@@ -88,7 +105,8 @@ namespace Scripts
             enemy.GetComponent<SkinnedMeshRenderer>().enabled = false;
             player.GetComponent<FirstPersonController>().enabled = true;
             crosshair.enabled = true;
-            doorAnim.Play(animationName, 0, 0.0f);
+            CutSceneDone = true;
+            emissionPanel.SetActive(false);
 
         }
     }
