@@ -27,6 +27,8 @@ namespace Scripts
         public GameObject shadowPanel;
         public string animationName;
         public Animator doorAnim;
+        public bool blinking;
+        public bool CutSceneDone;
 
 
 
@@ -44,11 +46,30 @@ namespace Scripts
             }
         }
 
+        public void Update()
+        {
+            if(blinking == false && puzzleDone.puzzleComplete == true && CutSceneDone == false)
+            {
+                StartCoroutine(blink());
+            }
+        }
+
         IEnumerator Fade()
         {
             panel.GetComponent<Animation>().Play("FadeIn");
             yield return new WaitForSeconds(1);
             panel.GetComponent<Animation>().Play("FadeOut");
+        }
+
+        IEnumerator blink()
+        {
+            Debug.Log("Emissionflickering");
+            blinking = true;
+            emissionPanel.SetActive (false);
+            yield return new WaitForSeconds(0.3f);
+            emissionPanel.SetActive (true);
+            yield return new WaitForSeconds(0.3f);
+            blinking = false;
         }
 
         IEnumerator PhoneOnAnimation()
@@ -63,9 +84,6 @@ namespace Scripts
             phoneRenderer.enabled = false;
             phoneCollider.enabled = false;
             enemy.GetComponent<SkinnedMeshRenderer>().enabled = true;
-            enemy.GetComponent<Animation>().Play("GhostMovingCutScene");
-            yield return new WaitForSeconds(6f);
-            enemy.GetComponent<Animation>().Play("Armature_ArmatureAction");
             yield return new WaitForSeconds(3f);
             StartCoroutine(PhoneOffAnimation());
         }
@@ -85,10 +103,12 @@ namespace Scripts
             recordingUI.SetActive(false);
             yield return new WaitForSeconds(0.01f);
             phoneCollider.enabled = true;
-            enemy.GetComponent<SkinnedMeshRenderer>().enabled = false;
             player.GetComponent<FirstPersonController>().enabled = true;
             crosshair.enabled = true;
-            doorAnim.Play(animationName, 0, 0.0f);
+            CutSceneDone = true;
+            enemy.GetComponent<SkinnedMeshRenderer>().enabled = false;
+            emissionPanel.SetActive(false);
+            
 
         }
     }
