@@ -29,6 +29,7 @@ namespace Scripts
         public Animator doorAnim;
         public bool blinking;
         public bool CutSceneDone;
+        public float timeDelay;
 
 
 
@@ -66,9 +67,11 @@ namespace Scripts
             Debug.Log("Emissionflickering");
             blinking = true;
             emissionPanel.SetActive (false);
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(timeDelay);
+            timeDelay = Random.Range(0.01f, 0.3f);
             emissionPanel.SetActive (true);
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(timeDelay);
+            timeDelay = Random.Range(0.01f, 0.3f);
             blinking = false;
         }
 
