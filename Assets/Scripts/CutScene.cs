@@ -25,6 +25,8 @@ namespace Scripts
         public GameObject FirstPersonController;
         public GameObject emissionPanel;
         public GameObject shadowPanel;
+        public string animationName;
+        public Animator doorAnim;
 
 
 
@@ -86,6 +88,7 @@ namespace Scripts
             enemy.GetComponent<SkinnedMeshRenderer>().enabled = false;
             player.GetComponent<FirstPersonController>().enabled = true;
             crosshair.enabled = true;
+            doorAnim.Play(animationName, 0, 0.0f);
 
         }
     }

@@ -10,20 +10,25 @@ namespace Scripts
     public class BlinkingTime : MonoBehaviour
     {
         public TMP_Text microwaveTxt;
-        public bool textOn = true;
+        public bool blinking;
 
         // Update is called once per frame
         void Update()
         {
-            if(textOn == true)
+            if(blinking == false)
             {
-                microwaveTxt.enabled = false;
+                StartCoroutine(blink());
             }
-            
-            if(textOn == false)
-            {
-                microwaveTxt.enabled = true;
-            }
+        }
+
+        IEnumerator blink()
+        {
+            blinking = true;
+            microwaveTxt.enabled = false;
+            yield return new WaitForSeconds(0.1f);
+            microwaveTxt.enabled = true;
+            yield return new WaitForSeconds(0.1f);
+            blinking = false;
         }
     }
 
