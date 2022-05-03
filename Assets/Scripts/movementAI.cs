@@ -23,13 +23,13 @@ namespace Scripts
         // Update is called once per frame
         void Update()
         {
-            //enemy.SetDestination(player.transform.position);
+            enemy.SetDestination(player.transform.position);
             timer += Time.deltaTime;
             if(timer > waitTime)
             {
                 if (collider.transform.localScale != new Vector3(0f, 1f, 0f))
                 {
-                    collider.transform.localScale = new Vector3(collider.transform.localScale.x - 1, collider.transform.localScale.y, collider.transform.localScale.z - 1);
+                    collider.transform.localScale = new Vector3(collider.transform.localScale.x - 1, collider.transform.localScale.y, collider.transform.localScale.z - 0.25f);
                 }
                 timer = timer - waitTime;
                 
