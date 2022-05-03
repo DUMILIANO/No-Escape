@@ -111,8 +111,6 @@ namespace Scripts
             CutSceneDone = true;
             enemy.GetComponent<SkinnedMeshRenderer>().enabled = false;
             emissionPanel.SetActive(false);
-            
-
         }
     }
 }
