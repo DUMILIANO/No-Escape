@@ -29,11 +29,22 @@ namespace Scripts
             {
                 if (collider.transform.localScale != new Vector3(0f, 1f, 0f))
                 {
-                    collider.transform.localScale = new Vector3(collider.transform.localScale.x - 1, collider.transform.localScale.y, collider.transform.localScale.z - 0.25f);
+                    collider.transform.localScale = new Vector3(collider.transform.localScale.x - 0.25f, collider.transform.localScale.y, collider.transform.localScale.z - 0.25f);
                 }
                 timer = timer - waitTime;
                 
             }        
+        }
+        void OnCollisionEnter(Collision collision) {
+            Debug.Log("collision");
+            if(collision.gameObject.tag == "collider")
+            {
+                Debug.Log("hit");
+            }
+            else if(collision.gameObject.tag == "Player")
+            {
+                Debug.Log("Dead");
+            }
         }
     }
 }

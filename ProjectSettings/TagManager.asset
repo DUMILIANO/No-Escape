@@ -21,6 +21,7 @@ TagManager:
   - switch
   - note
   - enemy
+  - collider
   layers:
   - Default
   - TransparentFX
