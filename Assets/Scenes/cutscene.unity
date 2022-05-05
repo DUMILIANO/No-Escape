@@ -1106,7 +1106,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.14
+  m_Intensity: 0.65
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -17008,7 +17008,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &1392680860
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -19895,7 +19895,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &1653540202
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -56788,9 +56788,9 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5107733442016208249, guid: 5c8d5e8bc282e164393b7af4a86ad8aa, type: 3}
-  - {fileID: 3851978939096998111, guid: 5c8d5e8bc282e164393b7af4a86ad8aa, type: 3}
-  - {fileID: -9103484930961366303, guid: 5c8d5e8bc282e164393b7af4a86ad8aa, type: 3}
+  - {fileID: 2100000, guid: bfde4a3fbe72d3f4489d519c4d0ccca9, type: 2}
+  - {fileID: 2100000, guid: c9b0fa221bb181e48a27d1f4346e33ec, type: 2}
+  - {fileID: 2100000, guid: cd445ccdd0fd8aa4f885ab0b9109513b, type: 2}
   - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
