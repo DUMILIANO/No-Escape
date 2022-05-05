@@ -30,6 +30,7 @@ namespace Scripts
         public bool blinking;
         public bool CutSceneDone;
         public float timeDelay;
+        public AudioSource ghostScream;
 
 
 
@@ -77,6 +78,7 @@ namespace Scripts
 
         IEnumerator PhoneOnAnimation()
         {
+            ghostScream.Play();
             yield return new WaitForSeconds(0.2f);
             phone.GetComponent<Animation>().Play("phone");
             StartCoroutine(Fade());
