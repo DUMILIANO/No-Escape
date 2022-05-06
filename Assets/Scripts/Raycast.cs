@@ -236,7 +236,7 @@ namespace Scripts
                     interact.gameObject.SetActive(true);
                     picktxt.gameObject.SetActive(false);
 
-                    if (Input.GetKeyDown(KeyCode.E))
+                    if (Input.GetKeyDown(KeyCode.E) && !drawer.doOnce)
                     {
                         
                         drawer.PlayAnimation();
