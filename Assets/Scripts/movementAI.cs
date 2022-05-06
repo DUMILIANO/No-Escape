@@ -19,6 +19,7 @@ namespace Scripts
 
         float timer = 0.0f;
         public float waitTime = 2.0f;
+        public bool hittable = false;
 
         // Start is called before the first frame update
         void Start()
@@ -62,6 +63,19 @@ namespace Scripts
             {
                 character.Move(Vector3.zero, false, false);
             }
+
+            RaycastHit hit;
+            Vector3 fwd = transform.TransformDirection(Vector3.forward);
+
+            if(Physics.Raycast(transform.position, fwd, out hit, 3.5f) && hit.collider.CompareTag("Door"))
+            {
+                Debug.Log("door");
+                var door = hit.collider.gameObject.GetComponent<doorController>();
+                if(door.locked == false)
+                {
+                    door.PlayAnimation();
+                }
+            }
                     
         }
         void OnCollisionEnter(Collision collision) 
@@ -77,6 +91,7 @@ namespace Scripts
         {
             if(other.tag == "collider")
             {
+                hittable = true;
                 Debug.Log("Heartbeat");
                 audio.Play();
             }
@@ -85,6 +100,7 @@ namespace Scripts
         {
             if(other.tag == "collider")
             {
+                hittable = false;
                 Debug.Log("Heartbeat");
                 audio.Pause();
             }
