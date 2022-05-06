@@ -31,6 +31,7 @@ namespace Scripts
         public bool CutSceneDone;
         public float timeDelay;
         public GameObject ghostAI;
+        public PhoneUI menu;
 
 
 
@@ -106,12 +107,14 @@ namespace Scripts
             PostPro.SetActive(false);
             recordingUI.SetActive(false);
             yield return new WaitForSeconds(0.01f);
+            menu.cameraOn = false;
             phoneCollider.enabled = true;
             player.GetComponent<FirstPersonController>().enabled = true;
             crosshair.enabled = true;
             CutSceneDone = true;
             enemy.GetComponent<SkinnedMeshRenderer>().enabled = false;
             emissionPanel.SetActive(false);
+            menu.objects.SetActive(false);
             ghostAI.SetActive(true);
         }
     }

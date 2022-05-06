@@ -17,7 +17,7 @@ namespace Scripts
         public Camera myCamera;
         public Renderer myRenderer;
         public BoxCollider phoneCollider;
-        bool cameraOn = false;
+        public bool cameraOn = false;
         public GameObject recordingUI;
         public AudioSource phoneturnOn;
         public GameObject enemy;
