@@ -23,12 +23,13 @@ namespace Scripts
         public bool hittable = false;
         public AudioClip scream;
         public InventoryUI inventoryUI;
-
+        
         // Start is called before the first frame update
         void Start()
         {
             enemy = GetComponent<NavMeshAgent>();
             enemy.updateRotation = false;
+
         }
         private void Step()
         {
