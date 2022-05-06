@@ -47,6 +47,7 @@ namespace Scripts
         public InventoryUI inventoryUI;
         public bool inLockView = false;
         public bool inNoteView = false;
+        public AudioSource drawerOpen;
         void Start()
         {
             picktxt.gameObject.SetActive(false);
@@ -241,6 +242,8 @@ namespace Scripts
                         
                         drawer.PlayAnimation();
                         isCrosshairActive = true;
+                        drawerOpen.Play();
+
                         //doOnce = true;
                     }
                 }
