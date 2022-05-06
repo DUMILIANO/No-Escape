@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityStandardAssets.Characters.ThirdPerson;
+using UnityEngine.SceneManagement;
 
 namespace Scripts
 {
@@ -20,6 +21,8 @@ namespace Scripts
         float timer = 0.0f;
         public float waitTime = 2.0f;
         public bool hittable = false;
+        public AudioClip scream;
+        public InventoryUI inventoryUI;
 
         // Start is called before the first frame update
         void Start()
@@ -71,7 +74,7 @@ namespace Scripts
             {
                 Debug.Log("door");
                 var door = hit.collider.gameObject.GetComponent<doorController>();
-                if(door.locked == false)
+                if(door.locked == false  && !door.doOnce)
                 {
                     door.PlayAnimation();
                 }
@@ -84,6 +87,7 @@ namespace Scripts
             if(collision.gameObject.tag == "Player")
             {
                 Debug.Log("Dead");
+                StartCoroutine(deathScene());
             }
         }
 
@@ -104,6 +108,13 @@ namespace Scripts
                 Debug.Log("Heartbeat");
                 audio.Pause();
             }
+        }
+        IEnumerator deathScene()
+        {
+            audio.PlayOneShot(scream);
+            yield return new WaitForSeconds(3.5f);
+            SceneManager.LoadScene(0);
+            inventoryUI.cursorIsLocked = !inventoryUI.cursorIsLocked;
         }
     } 
 }

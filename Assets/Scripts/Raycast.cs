@@ -140,7 +140,7 @@ namespace Scripts
                             door.audio.PlayOneShot(door.doorLockedSFX);
                         }
                     
-                    else if (Input.GetKeyDown(KeyCode.E) && door.locked == false)
+                    else if (Input.GetKeyDown(KeyCode.E) && door.locked == false && !door.doOnce)
                     {
                         door.PlayAnimation();
                         isCrosshairActive = true;

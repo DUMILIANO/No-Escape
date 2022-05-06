@@ -30,6 +30,7 @@ namespace Scripts
         public bool blinking;
         public bool CutSceneDone;
         public float timeDelay;
+        public GameObject ghostAI;
 
 
 
@@ -111,6 +112,7 @@ namespace Scripts
             CutSceneDone = true;
             enemy.GetComponent<SkinnedMeshRenderer>().enabled = false;
             emissionPanel.SetActive(false);
+            ghostAI.SetActive(true);
         }
     }
 }
