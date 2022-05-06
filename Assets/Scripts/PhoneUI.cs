@@ -23,6 +23,8 @@ namespace Scripts
         public GameObject enemy;
         public TMP_Text phoneText;
         public Raycast raycast;
+        public movementAI AI;
+        public GameObject ghostAI;
 
         public void Update()
         {
@@ -43,6 +45,12 @@ namespace Scripts
         public void ShowObjects()
         {
             StartCoroutine(FinishAnim());
+            if(AI.hittable == true && cameraOn == false)
+            {
+                var rand = new Vector3(Random.Range(25f, 54f), ghostAI.transform.position.y, Random.Range(-1f, -24f));
+                ghostAI.transform.position = rand;
+                StartCoroutine(AIspeed());
+            }
 
         }
 
@@ -75,8 +83,7 @@ namespace Scripts
                 recordingUI.SetActive(true);
                 myRenderer.enabled = false;
                 phoneCollider.enabled = false;
-                enemy.GetComponent<Renderer>().enabled = true;
-
+                enemy.SetActive(true);
             }
             else
             {
@@ -91,11 +98,17 @@ namespace Scripts
                 cameraOn = false;
                 objects.SetActive(false);
                 phoneCollider.enabled = true;
-                enemy.GetComponent<Renderer>().enabled = false;
+                enemy.SetActive(false);
 
             }
 
 
+        }
+        IEnumerator AIspeed()
+        {
+            AI.enemy.speed = 0f;
+            yield return new WaitForSeconds(5f);
+            AI.enemy.speed = 3f;
         }
     }
 
