@@ -9,6 +9,10 @@ namespace Scripts
 {
     public class movementAI : MonoBehaviour
     {
+        public float viewRadius = 15;
+        public LayerMask playerMask;
+        public float viewAngle = 90;
+        public LayerMask obstacleMask;
         public NavMeshAgent enemy;
         public GameObject player;
         public GameObject collider;
@@ -23,13 +27,57 @@ namespace Scripts
         public bool hittable = false;
         public AudioClip scream;
         public InventoryUI inventoryUI;
+
+        public Transform[] points;
+        private int destPoint = 0;
+
+        bool playerInRange;
+        Vector3 PlayerPosition = Vector3.zero;
         
         // Start is called before the first frame update
         void Start()
         {
             enemy = GetComponent<NavMeshAgent>();
             enemy.updateRotation = false;
+            enemy.autoBraking = false;
+            GoPoint();
 
+        }
+
+        void GoPoint()
+        {
+            enemy.destination = points[destPoint].position;
+            destPoint = Random.Range(0, points.Length - 1);
+        }
+        void AIview()
+        {
+            Collider[] playerInRange_ = Physics.OverlapSphere(transform.position, viewRadius, playerMask);
+            for (int i = 0; i < playerInRange_.Length; i++)
+            {
+                Transform player_ = playerInRange_[i].transform;
+                Vector3 dirToPlayer = (player_.position - transform.position).normalized;
+                if (Vector3.Angle(transform.forward, dirToPlayer) < viewAngle / 2)
+                {
+                    float dstToPlayer = Vector3.Distance(transform.position, player_.position);
+                    if (!Physics.Raycast(transform.position, dirToPlayer, dstToPlayer, obstacleMask))
+                    {
+                        playerInRange = true;
+                        
+                    }
+                    else
+                    {
+                        playerInRange = false;
+                    }
+                }
+                if (Vector3.Distance(transform.position, player_.position) > viewRadius)
+                {
+                    playerInRange = false;                
+                }
+                if (playerInRange)
+                {
+                    PlayerPosition = player_.transform.position;
+                }
+            }
         }
         private void Step()
         {
@@ -46,7 +94,21 @@ namespace Scripts
         // Update is called once per frame
         void Update()
         {
-            enemy.SetDestination(player.transform.position);
+            AIview();
+            if(playerInRange)
+            {
+                enemy.SetDestination(player.transform.position);
+                enemy.speed = 3f;
+            }
+            else
+            {
+                enemy.speed = 1f;
+            }
+            if(!enemy.pathPending && enemy.remainingDistance < 0.5f)
+            {
+                GoPoint();
+            }
+            
             timer += Time.deltaTime;
             if(timer > waitTime)
             {
@@ -75,9 +137,14 @@ namespace Scripts
             {
                 Debug.Log("door");
                 var door = hit.collider.gameObject.GetComponent<doorController>();
-                if(door.locked == false  && !door.doOnce)
+                
+                if(door.locked == false  && !door.doOnce && !door.open)
                 {
                     door.PlayAnimation();
+                }
+                if(door.locked)
+                {
+                    GoPoint();
                 }
             }
                     
