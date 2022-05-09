@@ -25,6 +25,7 @@ namespace Scripts
         public Raycast raycast;
         public movementAI AI;
         public GameObject ghostAI;
+        
 
         public void Update()
         {

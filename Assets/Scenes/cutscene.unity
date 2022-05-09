@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.10902058, g: 0.1119402, b: 0.10350669, a: 0.1}
+  m_IndirectSpecularColor: {r: 0.1371643, g: 0.1562567, b: 0.18629497, a: 0.1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -716,7 +716,7 @@ MonoBehaviour:
   raycast: {fileID: 1878288966}
   container: []
   count: 0
-  puzzleComplete: 0
+  puzzleComplete: 1
   animationName: kitchenDoorHalfOpen
   doorAnim: {fileID: 1025432927}
 --- !u!1 &34099177
@@ -1125,7 +1125,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &49326052
 Light:
   m_ObjectHideFlags: 0
@@ -11271,6 +11271,9 @@ MonoBehaviour:
   CutSceneDone: 0
   timeDelay: 0
   ghostAI: {fileID: 990948322}
+  menu: {fileID: 957751675}
+  Annie: {fileID: 1119361116}
+  phnUI: {fileID: 0}
 --- !u!1 &655166861
 GameObject:
   m_ObjectHideFlags: 0
@@ -15772,6 +15775,7 @@ MonoBehaviour:
   myCamera: {fileID: 1878288969}
   myRenderer: {fileID: 1788091665}
   phoneCollider: {fileID: 1788091661}
+  cameraOn: 0
   recordingUI: {fileID: 1393661992}
   phoneturnOn: {fileID: 0}
   enemy: {fileID: 1119361116}
@@ -27740,7 +27744,7 @@ SkinnedMeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1762353407}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -28044,7 +28048,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1788091660}
   m_LocalRotation: {x: 0.29883623, y: -0.64085644, z: 0.29883623, w: 0.64085644}
-  m_LocalPosition: {x: 0.01819, y: 0.00755, z: -0.0094}
+  m_LocalPosition: {x: 0.1718, y: 0.0097, z: -0.0094}
   m_LocalScale: {x: 0.002161419, y: 0.0021614188, z: 0.0021614186}
   m_Children:
   - {fileID: 1036375576}
@@ -31397,7 +31401,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1974573355}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 39.1, y: -1.5, z: -19.6}
+  m_LocalPosition: {x: 50.49, y: -1.5, z: -19.6}
   m_LocalScale: {x: 1, y: 0.87172, z: 1}
   m_Children:
   - {fileID: 1878288963}

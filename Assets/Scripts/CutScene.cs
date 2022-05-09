@@ -32,6 +32,8 @@ namespace Scripts
         public float timeDelay;
         public GameObject ghostAI;
         public PhoneUI menu;
+        public GameObject Annie;
+        public PhoneUI phnUI;
 
 
 
@@ -66,7 +68,6 @@ namespace Scripts
 
         IEnumerator blink()
         {
-            Debug.Log("Emissionflickering");
             blinking = true;
             emissionPanel.SetActive (false);
             yield return new WaitForSeconds(timeDelay);
@@ -97,9 +98,10 @@ namespace Scripts
         {
             StartCoroutine(Fade());
             yield return new WaitForSeconds(1f);
-            emissionPanel.SetActive(false);
-            shadowPanel.SetActive(false);
             FirstPersonController.GetComponent<Animation>().Play("CameraXCutSceneBack");
+            emissionPanel.SetActive(false);
+            Debug.Log("EmissionOff");
+            shadowPanel.SetActive(false);
             player.GetComponent<Animation>().Play("GhostCutSceneOff");
             phone.GetComponent<Animation>().Play("phoneback");
             phoneRenderer.enabled = true;
@@ -113,9 +115,11 @@ namespace Scripts
             crosshair.enabled = true;
             CutSceneDone = true;
             enemy.GetComponent<SkinnedMeshRenderer>().enabled = false;
-            emissionPanel.SetActive(false);
             menu.objects.SetActive(false);
             ghostAI.SetActive(true);
+            blinking = true;
+            phnUI.enemy.SetActive(false);
+            //Annie.SetActive(false);
         }
     }
 }
