@@ -11289,7 +11289,7 @@ MonoBehaviour:
   ghostAI: {fileID: 990948322}
   menu: {fileID: 957751675}
   Annie: {fileID: 1119361116}
-  phnUI: {fileID: 0}
+  enemySkin: {fileID: 1119361116}
 --- !u!1 &655166861
 GameObject:
   m_ObjectHideFlags: 0
@@ -16246,7 +16246,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &990948323
 AudioSource:
   m_ObjectHideFlags: 0

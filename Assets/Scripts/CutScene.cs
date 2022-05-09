@@ -33,7 +33,7 @@ namespace Scripts
         public GameObject ghostAI;
         public PhoneUI menu;
         public GameObject Annie;
-        public PhoneUI phnUI;
+        public GameObject enemySkin;
 
 
 
@@ -118,7 +118,7 @@ namespace Scripts
             menu.objects.SetActive(false);
             ghostAI.SetActive(true);
             blinking = true;
-            phnUI.enemy.SetActive(false);
+            enemySkin.SetActive(false);
             //Annie.SetActive(false);
         }
     }
