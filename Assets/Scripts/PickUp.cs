@@ -55,7 +55,7 @@ namespace Scripts
             if(item.important)
             {
                 bool wasPickedUp = Inventory.instance.Add(item);
-                if(wasPickedUp)
+                if (wasPickedUp)
                 {
                     equipped = true;
                     slotFull = true;

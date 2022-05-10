@@ -44,6 +44,7 @@ namespace Scripts
         public GameObject note;
         public GameObject objectives;
         public GameObject lockCamPP;
+        public GameObject inventoryText;
         public InventoryUI inventoryUI;
         public bool inLockView = false;
         public bool inNoteView = false;
@@ -173,6 +174,7 @@ namespace Scripts
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         pickup.Pick();
+                        inventoryText.gameObject.SetActive(true);
                         isCrosshairActive = true;
                     }
 

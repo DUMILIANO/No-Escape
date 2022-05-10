@@ -118,8 +118,8 @@ namespace Scripts
             menu.objects.SetActive(false);
             ghostAI.SetActive(true);
             blinking = true;
+            emissionPanel.SetActive(false);
             enemySkin.SetActive(false);
-            //Annie.SetActive(false);
         }
     }
 }
