@@ -44,10 +44,12 @@ namespace Scripts
         public GameObject note;
         public GameObject objectives;
         public GameObject lockCamPP;
+        public GameObject inventoryText;
         public InventoryUI inventoryUI;
         public bool inLockView = false;
         public bool inNoteView = false;
         public AudioSource drawerOpen;
+        public bool invDoOnce = true;
         void Start()
         {
             picktxt.gameObject.SetActive(false);
@@ -173,7 +175,15 @@ namespace Scripts
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         pickup.Pick();
+                       
                         isCrosshairActive = true;
+
+                        if(invDoOnce)
+                        {
+                            inventoryText.gameObject.SetActive(true);
+                            invDoOnce = false;
+                        }
+
                     }
 
                 }

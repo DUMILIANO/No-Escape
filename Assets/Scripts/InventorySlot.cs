@@ -8,6 +8,7 @@ namespace Scripts
     {
         public Image icon;
         Item item;
+        public InventoryUI invUi;
 
         public void AddItem(Item newItem)
         {
@@ -29,6 +30,8 @@ namespace Scripts
             if(item != null)
             {
                 item.Use();
+                invUi.inventoryUI.SetActive(false);
+                invUi.cursorIsLocked = true;
             }
         }
     }
