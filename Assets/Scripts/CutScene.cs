@@ -76,6 +76,7 @@ namespace Scripts
             yield return new WaitForSeconds(timeDelay);
             timeDelay = Random.Range(0.01f, 0.3f);
             blinking = false;
+            emissionPanel.SetActive(false);
         }
 
         IEnumerator PhoneOnAnimation()

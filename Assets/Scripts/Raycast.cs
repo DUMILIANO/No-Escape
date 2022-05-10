@@ -49,6 +49,7 @@ namespace Scripts
         public bool inLockView = false;
         public bool inNoteView = false;
         public AudioSource drawerOpen;
+        public bool invDoOnce = true;
         void Start()
         {
             picktxt.gameObject.SetActive(false);
@@ -174,8 +175,15 @@ namespace Scripts
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         pickup.Pick();
-                        inventoryText.gameObject.SetActive(true);
+                       
                         isCrosshairActive = true;
+
+                        if(invDoOnce)
+                        {
+                            inventoryText.gameObject.SetActive(true);
+                            invDoOnce = false;
+                        }
+
                     }
 
                 }
