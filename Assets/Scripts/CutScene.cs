@@ -34,7 +34,6 @@ namespace Scripts
         public PhoneUI menu;
         public GameObject Annie;
         public GameObject enemySkin;
-        public GameObject closedPanel;
 
 
 
@@ -78,7 +77,6 @@ namespace Scripts
             timeDelay = Random.Range(0.01f, 0.3f);
             blinking = false;
             emissionPanel.SetActive(false);
-            
         }
 
         IEnumerator PhoneOnAnimation()
@@ -102,8 +100,9 @@ namespace Scripts
             StartCoroutine(Fade());
             yield return new WaitForSeconds(1f);
             FirstPersonController.GetComponent<Animation>().Play("CameraXCutSceneBack");
+            emissionPanel.SetActive(false);
+            Debug.Log("EmissionOff");
             shadowPanel.SetActive(false);
-            closedPanel.SetActive(true);
             player.GetComponent<Animation>().Play("GhostCutSceneOff");
             phone.GetComponent<Animation>().Play("phoneback");
             phoneRenderer.enabled = true;
@@ -120,7 +119,7 @@ namespace Scripts
             menu.objects.SetActive(false);
             ghostAI.SetActive(true);
             blinking = true;
-            shadowPanel.SetActive(false);
+            emissionPanel.SetActive(false);
             enemySkin.SetActive(false);
         }
     }
