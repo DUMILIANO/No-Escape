@@ -33,14 +33,35 @@ namespace Scripts
 
         bool playerInRange;
         Vector3 PlayerPosition = Vector3.zero;
+        public int waitTimeCheck;
+        Vector3 oldpos;
+        public PhoneUI phnUI;
         
+        IEnumerator checkPosition()
+        {
+            while (true)
+            {
+                yield return new WaitForSeconds(waitTimeCheck);
+                var newpos = this.gameObject.transform.position;
+                //Debug.Log(newpos);
+
+                if ((oldpos - newpos).magnitude < 0.1f)
+                {
+                    phnUI.teleportEnemy();
+                }
+                oldpos = newpos;
+            }
+        }
         // Start is called before the first frame update
         void Start()
         {
+            oldpos = this.gameObject.transform.position;
             enemy = GetComponent<NavMeshAgent>();
             enemy.updateRotation = false;
             enemy.autoBraking = false;
             GoPoint();
+            StartCoroutine(checkPosition());
+            
 
         }
 
@@ -90,6 +111,7 @@ namespace Scripts
             int index = Random.Range(0, audioClip.Length - 1);
             return audioClip[index];
         }
+        
 
         // Update is called once per frame
         void Update()

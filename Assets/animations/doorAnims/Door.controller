@@ -130,20 +130,8 @@ AnimatorStateMachine:
     m_State: {fileID: 6789210711036107609}
     m_Position: {x: 870, y: 430, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 8576499554192930636}
-    m_Position: {x: 905, y: 495, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: 2284322762083722653}
-    m_Position: {x: 940, y: 560, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: 2177949343021285147}
-    m_Position: {x: 975, y: 625, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: 5623884699936233787}
-    m_Position: {x: 1050, y: 320, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: -5506734643571684723}
-    m_Position: {x: 1070, y: 380, z: 0}
+    m_State: {fileID: 1392266937571299615}
+    m_Position: {x: -29.632751, y: 495.36377, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -358,6 +346,32 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
+--- !u!1102 &1392266937571299615
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: door Open- 0
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: fe339c3e97e3fc84093850090b5531d4, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!1102 &2177949343021285147
 AnimatorState:
   serializedVersion: 6
