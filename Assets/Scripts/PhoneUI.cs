@@ -27,12 +27,6 @@ namespace Scripts
         public GameObject ghostAI;
         
 
-        public void teleportEnemy()
-        {
-            var rand = new Vector3(Random.Range(25f, 54f), ghostAI.transform.position.y, Random.Range(-1f, -24f));
-            ghostAI.transform.position = rand;
-            StartCoroutine(AIspeed());
-        }
         public void Update()
         {
             if(Input.GetKeyDown(KeyCode.X) && GameObject.Find("phone").GetComponent<PickUp>().equipped)
@@ -54,7 +48,9 @@ namespace Scripts
             StartCoroutine(FinishAnim());
             if(AI.hittable == true && cameraOn == false)
             {
-                teleportEnemy();
+                var rand = new Vector3(Random.Range(25f, 54f), ghostAI.transform.position.y, Random.Range(-1f, -24f));
+                ghostAI.transform.position = rand;
+                StartCoroutine(AIspeed());
             }
 
         }
