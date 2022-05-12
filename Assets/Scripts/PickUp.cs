@@ -42,7 +42,7 @@ namespace Scripts
         // Update is called once per frame
         void Update()
         {
-            Vector3 distanceToPlayer = player.position - transform.position;
+            //Vector3 distanceToPlayer = player.position - transform.position;
             //if (!equipped && !slotFull) pickable = true;
 
             //if (equipped && Input.GetKeyDown(KeyCode.Q)) Drop();

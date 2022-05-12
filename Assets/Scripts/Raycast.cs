@@ -52,6 +52,7 @@ namespace Scripts
         public AudioSource drawerOpen;
         public bool invDoOnce = true;
         public TMP_Text blockedtxt;
+        public GameObject containerBook;
         void Start()
         {
             picktxt.gameObject.SetActive(false);
@@ -176,12 +177,23 @@ namespace Scripts
                     pickup = hit.collider.gameObject.GetComponent<PickUp>();
                     picktxt.gameObject.SetActive(true);
                     interact.gameObject.SetActive(false);
+                    var _parent = hit.collider.gameObject.transform.parent;
+                    if(_parent != null)
+                    {
+                        containerBook = hit.collider.gameObject.transform.parent.gameObject;
+                    }
+                    
 
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         pickup.Pick();
                        
                         isCrosshairActive = true;
+                        if(_parent != null && containerBook.GetComponent<bookContainer>().rightBook == true)
+                        {
+                            containerBook.GetComponent<bookContainer>().rightBook = false;
+                            containerBook.GetComponent<bookContainer>().bookCheck.count--;
+                        }
 
                         if(invDoOnce)
                         {
@@ -368,9 +380,34 @@ namespace Scripts
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         noteAnim();
-                        
-                            
+
                     }
+                }
+                else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("vent"))
+                {
+                    CrosshairChange(true);
+                    interact.gameObject.SetActive(true);
+                    picktxt.gameObject.SetActive(false);
+                    var vent = hit.collider.gameObject;
+
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        vent.GetComponent<Animator>().Play("ventScrew");
+                        GameObject.Find("ventEnterCollider").GetComponent<BoxCollider>().enabled = true;
+                    }
+                }
+                else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("ventEnterCollider"))
+                {
+                    CrosshairChange(true);
+                    interact.gameObject.SetActive(true);
+                    picktxt.gameObject.SetActive(false);
+                    var ventCol = hit.collider.gameObject;
+
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        StartCoroutine(EnterVent());
+                    }
+                    
                 }
                 else
                 {
@@ -394,6 +431,24 @@ namespace Scripts
             {
                 crosshair.color = Color.white;
                 isCrosshairActive = false;
+            }
+        }
+
+        IEnumerator EnterVent()
+        {
+            if(player.transform.position.z > -16f)
+            {
+                player.GetComponent<Animation>().Play("enteringVent");
+                yield return new WaitForSeconds(1f);
+                player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, -16f);
+
+            }
+            else if (player.transform.position.z < -16f)
+            {
+                player.GetComponent<Animation>().Play("enteringVent");
+                yield return new WaitForSeconds(1f);
+                player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, -15f);
+                
             }
         }
     }

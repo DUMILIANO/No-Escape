@@ -22,6 +22,8 @@ TagManager:
   - note
   - enemy
   - collider
+  - vent
+  - ventEnterCollider
   layers:
   - Default
   - TransparentFX

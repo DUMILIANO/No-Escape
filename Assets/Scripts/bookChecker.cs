@@ -24,6 +24,7 @@ namespace Scripts
                 {
                     door.locked = false;
                     puzzleComplete = true;
+                    book.transform.GetChild(1).GetComponent<BoxCollider>().enabled = false;
                 }
             }
 
