@@ -51,6 +51,7 @@ namespace Scripts
         public bool inNoteView = false;
         public AudioSource drawerOpen;
         public bool invDoOnce = true;
+        public TMP_Text blockedtxt;
         void Start()
         {
             picktxt.gameObject.SetActive(false);
@@ -136,12 +137,20 @@ namespace Scripts
                                     Destroy(door.key);
                                 }
                             }
-                        }   
-                        
+                        }
+                        if (door.storageDoor)
+                        {
+                            blockedtxt.gameObject.SetActive(true);
+                        }
+
                     }
+
+                    
+
                     if(Input.GetKeyDown(KeyCode.E) && door.locked)
                         {
                             door.audio.PlayOneShot(door.doorLockedSFX);
+                            
                         }
                     
                     else if (Input.GetKeyDown(KeyCode.E) && door.locked == false && !door.doOnce)
