@@ -138,11 +138,6 @@ namespace Scripts
                                 }
                             }
                         }
-                        if (door.storageDoor)
-                        {
-                            blockedtxt.gameObject.SetActive(true);
-                        }
-
                     }
 
                     
