@@ -40,7 +40,6 @@ namespace Scripts
                 if(transform.GetChild(1).gameObject == book)
                 {
                     rightBook = true;
-                    //transform.GetChild(1).gameObject.GetComponent<BoxCollider>().enabled = false;
                     bookCheck.count++;
                 }
                 

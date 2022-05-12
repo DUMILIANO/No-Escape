@@ -77,15 +77,8 @@ namespace Scripts
                         held.children[held.children.Count - 2].SetActive(false);
                         
                     }
-                    if(item.name != "tool" || item.name != "Key")
-                    {
-                        var raycast = GameObject.Find("FirstPersonCharacter").GetComponent<Raycast>();
-                        raycast.hasKey = false;
-                        raycast.hasScrewdriver = false;
-                    }
                 }
             }
-            
             else
             {
                 equipped = true;

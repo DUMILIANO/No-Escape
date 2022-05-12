@@ -21,7 +21,6 @@ namespace Scripts
         }
         public void Use()
         {
-            raycast = GameObject.Find("FirstPersonCharacter").GetComponent<Raycast>();
             foreach (GameObject child in held.children)
             {
                 if(child.GetComponent<PickUp>().item.name == name)
@@ -31,18 +30,9 @@ namespace Scripts
                         child.GetComponent<PickUp>().equipped = true;
                         if(child.tag == "key")
                         {
+                            
                             raycast.hasKey = true;
                         }
-                        else if(child.tag == "screwdriver")
-                        {
-                            raycast.hasScrewdriver = true;
-                        }
-                        else
-                        {
-                            raycast.hasKey = false;
-                            raycast.hasScrewdriver = false;
-                        }
-
                     
                     
                 }
