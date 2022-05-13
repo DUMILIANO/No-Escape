@@ -9,7 +9,7 @@ namespace Scripts
         public bool open = false;
         public bool locked = false;
         public bool isRedDoor;
-        public bool isWhiteDoor;
+        public bool isWhiteDoor;    
         public GameObject key;
         public string openAnimationName;
         public string closeAnimationName;
