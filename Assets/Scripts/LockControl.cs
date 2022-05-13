@@ -8,6 +8,8 @@ namespace Scripts
     {
 
         private int[] result, correctCombination;
+        public GameObject key;
+        public MeshCollider[] lockCol;
 
         // Start is called before the first frame update
         void Start()
@@ -41,6 +43,12 @@ namespace Scripts
             if (result[0] == correctCombination[0] && result[1] == correctCombination[1] && result[2] == correctCombination[2] && result[3] == correctCombination[3])
             {
                 Debug.Log("Opened!");
+                key.SetActive(true);
+                foreach(MeshCollider collider in lockCol)
+                {
+                    collider.enabled = false;
+                }
+                
             }
 
         }

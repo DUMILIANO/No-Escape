@@ -136,6 +136,7 @@ namespace Scripts
                                     held.Remove(door.key);
                                     hasKey = false;
                                     Destroy(door.key);
+                                    SceneManager.LoadScene(0);
                                 }
                             }
                         }
@@ -390,7 +391,7 @@ namespace Scripts
                     picktxt.gameObject.SetActive(false);
                     var vent = hit.collider.gameObject;
 
-                    if (Input.GetKeyDown(KeyCode.E))
+                    if (Input.GetKeyDown(KeyCode.E) && hasScrewdriver)
                     {
                         vent.GetComponent<Animator>().Play("ventScrew");
                         GameObject.Find("ventEnterCollider").GetComponent<BoxCollider>().enabled = true;
