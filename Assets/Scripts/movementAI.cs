@@ -203,7 +203,7 @@ namespace Scripts
         {
             audio.PlayOneShot(scream);
             yield return new WaitForSeconds(3.5f);
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(2);
             inventoryUI.cursorIsLocked = !inventoryUI.cursorIsLocked;
         }
     } 
