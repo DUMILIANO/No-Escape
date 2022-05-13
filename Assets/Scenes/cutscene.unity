@@ -567,6 +567,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 22446476}
+  name: 
   open: 0
   locked: 0
   isRedDoor: 0
@@ -749,7 +750,7 @@ Transform:
   m_LocalScale: {x: 1.12169, y: 1.0927578, z: 0.053208705}
   m_Children: []
   m_Father: {fileID: 543450653166663645}
-  m_RootOrder: 166
+  m_RootOrder: 198
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &25109210
 MeshRenderer:
@@ -3186,7 +3187,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000030518, y: -344}
+  m_AnchoredPosition: {x: 28.641, y: -265}
   m_SizeDelta: {x: 906.8, y: 151.11}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &107101336
@@ -3370,6 +3371,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 872225100}
+  name: 
   open: 0
   locked: 1
   isRedDoor: 0
@@ -4901,6 +4903,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 991109142}
+  name: 
   open: 0
   locked: 0
   isRedDoor: 0
@@ -4987,6 +4990,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 1862916957}
+  name: 
   open: 0
   locked: 1
   isRedDoor: 0
@@ -11042,6 +11046,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 2033602145}
+  name: 
   open: 0
   locked: 1
   isRedDoor: 0
@@ -12795,7 +12800,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8780129341237019687, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_RootOrder
-      value: 182
+      value: 181
       objectReference: {fileID: 0}
     - target: {fileID: -8734704173890467632, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -12899,7 +12904,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8416323473632173896, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_RootOrder
-      value: 175
+      value: 174
       objectReference: {fileID: 0}
     - target: {fileID: -8270237889823493819, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -13167,7 +13172,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6628042981357940110, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_RootOrder
-      value: 194
+      value: 193
       objectReference: {fileID: 0}
     - target: {fileID: -6628042981357940110, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_LocalScale.x
@@ -13207,7 +13212,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6572290133369903376, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_RootOrder
-      value: 171
+      value: 170
       objectReference: {fileID: 0}
     - target: {fileID: -6490052543448114514, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -13219,7 +13224,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6398333575051653212, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_RootOrder
-      value: 203
+      value: 202
       objectReference: {fileID: 0}
     - target: {fileID: -6282019610603270928, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_RootOrder
@@ -13395,7 +13400,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4534768127273475760, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_RootOrder
-      value: 195
+      value: 194
       objectReference: {fileID: 0}
     - target: {fileID: -4473125202559933979, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_RootOrder
@@ -13439,7 +13444,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 8e5c4f4aa75ac4349acbf415ab45a559, type: 2}
     - target: {fileID: -4082930804184761892, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_RootOrder
-      value: 197
+      value: 196
       objectReference: {fileID: 0}
     - target: {fileID: -4058879426038799192, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_Name
@@ -13679,7 +13684,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -2451075760058684089, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_RootOrder
-      value: 170
+      value: 169
       objectReference: {fileID: 0}
     - target: {fileID: -2433274416159491960, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_RootOrder
@@ -13835,7 +13840,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -1281885975079145391, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_RootOrder
-      value: 178
+      value: 177
       objectReference: {fileID: 0}
     - target: {fileID: -1237893336017162492, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -13859,7 +13864,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -1192213394153631695, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -65.18
+      value: -64.97
       objectReference: {fileID: 0}
     - target: {fileID: -1192213394153631695, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -14055,7 +14060,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -9899720705938544, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_RootOrder
-      value: 148
+      value: 149
       objectReference: {fileID: 0}
     - target: {fileID: 26844662620191305, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -14143,7 +14148,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 709671427184362254, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_RootOrder
-      value: 202
+      value: 201
       objectReference: {fileID: 0}
     - target: {fileID: 771409446924152404, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -14151,7 +14156,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 0ecfcdfc633763a40baa27c6339450aa, type: 2}
     - target: {fileID: 856519734850450152, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_RootOrder
-      value: 187
+      value: 188
       objectReference: {fileID: 0}
     - target: {fileID: 856519734850450152, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -14207,7 +14212,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1448887752687358477, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_RootOrder
-      value: 172
+      value: 171
       objectReference: {fileID: 0}
     - target: {fileID: 1448887752687358477, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -14303,7 +14308,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 693d9e07cf9460c43bef7a3121904737, type: 2}
     - target: {fileID: 2641559533636124690, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_RootOrder
-      value: 169
+      value: 168
       objectReference: {fileID: 0}
     - target: {fileID: 2725337755230610859, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -14339,7 +14344,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2984035317426947129, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_RootOrder
-      value: 183
+      value: 182
       objectReference: {fileID: 0}
     - target: {fileID: 3002146505028463488, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -14355,7 +14360,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3261586034521160256, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_RootOrder
-      value: 193
+      value: 179
       objectReference: {fileID: 0}
     - target: {fileID: 3329336453189920914, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_NavMeshLayer
@@ -14479,7 +14484,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4354536713523572449, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_RootOrder
-      value: 180
+      value: 178
       objectReference: {fileID: 0}
     - target: {fileID: 4356877828898064976, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -14579,7 +14584,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5301936809508881357, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_RootOrder
-      value: 196
+      value: 195
       objectReference: {fileID: 0}
     - target: {fileID: 5308126664556429445, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -14603,7 +14608,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5529446487716401322, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_RootOrder
-      value: 174
+      value: 173
       objectReference: {fileID: 0}
     - target: {fileID: 5630985325466918548, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_RootOrder
@@ -14611,7 +14616,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5655351832736350685, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_RootOrder
-      value: 204
+      value: 203
       objectReference: {fileID: 0}
     - target: {fileID: 5744909990706123136, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_RootOrder
@@ -14647,7 +14652,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5898866580981961343, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_RootOrder
-      value: 181
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 5898866580981961343, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -14839,7 +14844,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7410113851253740587, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_RootOrder
-      value: 186
+      value: 187
       objectReference: {fileID: 0}
     - target: {fileID: 7410113851253740587, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -14865,6 +14870,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 151
       objectReference: {fileID: 0}
+    - target: {fileID: 7860830017646623772, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
+      propertyPath: m_RootOrder
+      value: 189
+      objectReference: {fileID: 0}
     - target: {fileID: 7917349904687423284, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
@@ -14875,7 +14884,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7996592621366314280, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_RootOrder
-      value: 189
+      value: 190
       objectReference: {fileID: 0}
     - target: {fileID: 7996592621366314280, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -14899,7 +14908,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8142729715075022039, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_RootOrder
-      value: 185
+      value: 186
       objectReference: {fileID: 0}
     - target: {fileID: 8142729715075022039, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -14907,7 +14916,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8189231164270917308, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_RootOrder
-      value: 173
+      value: 172
       objectReference: {fileID: 0}
     - target: {fileID: 8281321744065460383, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_RootOrder
@@ -14961,6 +14970,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 3d8771a0ecdef3d428b9fe47ab4ea99e, type: 2}
+    - target: {fileID: 8722564705349902177, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
+      propertyPath: m_RootOrder
+      value: 188
+      objectReference: {fileID: 0}
     - target: {fileID: 8780009712131532590, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_Name
       value: ceiling
@@ -15003,7 +15016,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9047384760956255713, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_RootOrder
-      value: 198
+      value: 197
       objectReference: {fileID: 0}
     - target: {fileID: 9069629275438457586, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_RootOrder
@@ -16646,6 +16659,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 1025432927}
+  name: 
   open: 0
   locked: 1
   isRedDoor: 0
@@ -18191,7 +18205,7 @@ Transform:
   m_LocalScale: {x: 6.501417, y: 3.0897217, z: 9.129682}
   m_Children: []
   m_Father: {fileID: 543450653166663645}
-  m_RootOrder: 159
+  m_RootOrder: 185
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: -90}
 --- !u!23 &731361872
 MeshRenderer:
@@ -18448,7 +18462,7 @@ Transform:
   m_LocalScale: {x: 0.79982036, y: 0.8175595, z: 1.2406274}
   m_Children: []
   m_Father: {fileID: 543450653166663645}
-  m_RootOrder: 188
+  m_RootOrder: 166
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &750091575
 MeshRenderer:
@@ -18591,7 +18605,7 @@ Transform:
   m_LocalScale: {x: 6.501417, y: 4.8766026, z: 9.129682}
   m_Children: []
   m_Father: {fileID: 543450653166663645}
-  m_RootOrder: 201
+  m_RootOrder: 204
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &759938617
 MeshRenderer:
@@ -21917,6 +21931,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 948856811}
+  name: 
   open: 0
   locked: 1
   isRedDoor: 0
@@ -23193,6 +23208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 1890624164}
+  name: 
   open: 0
   locked: 1
   isRedDoor: 0
@@ -23680,6 +23696,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 137011771}
+  name: 
   open: 0
   locked: 1
   isRedDoor: 0
@@ -25047,6 +25064,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 848456877}
+  name: 
   open: 0
   locked: 1
   isRedDoor: 0
@@ -26627,6 +26645,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 1357406374}
+  name: 
   open: 0
   locked: 1
   isRedDoor: 0
@@ -28387,6 +28406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 2081608630}
+  name: 
   open: 0
   locked: 1
   isRedDoor: 0
@@ -29512,6 +29532,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 1198202022}
+  name: 
   open: 0
   locked: 1
   isRedDoor: 1
@@ -33411,7 +33432,7 @@ Transform:
   m_LocalScale: {x: 1.4713047, y: 1.4333546, z: 0.0697931}
   m_Children: []
   m_Father: {fileID: 543450653166663645}
-  m_RootOrder: 200
+  m_RootOrder: 148
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1557155776
 MeshRenderer:
@@ -33769,6 +33790,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 1424654183}
+  name: 
   open: 0
   locked: 0
   isRedDoor: 0
@@ -36161,6 +36183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 1688890797}
+  name: 
   open: 0
   locked: 1
   isRedDoor: 0
@@ -36675,7 +36698,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1711064636
 Transform:
   m_ObjectHideFlags: 0
@@ -37760,7 +37783,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1768620401
 RectTransform:
   m_ObjectHideFlags: 0
@@ -37840,7 +37863,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: -1
   m_TargetDisplay: 0
 --- !u!65 &1771869370
 BoxCollider:
@@ -38716,7 +38739,7 @@ Transform:
   m_LocalScale: {x: 6.501417, y: 3.0506058, z: 9.129682}
   m_Children: []
   m_Father: {fileID: 543450653166663645}
-  m_RootOrder: 177
+  m_RootOrder: 157
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: -90}
 --- !u!23 &1804746075
 MeshRenderer:
@@ -40371,6 +40394,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 80111697}
+  name: 
   open: 0
   locked: 0
   isRedDoor: 0
@@ -41163,6 +41187,7 @@ MonoBehaviour:
   invDoOnce: 1
   blockedtxt: {fileID: 105114882}
   containerBook: {fileID: 0}
+  storageDoor: 0
 --- !u!114 &1878288967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41840,7 +41865,7 @@ Transform:
   m_LocalScale: {x: 0.86638826, y: 0.8440411, z: 0.041098163}
   m_Children: []
   m_Father: {fileID: 543450653166663645}
-  m_RootOrder: 168
+  m_RootOrder: 200
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1900863072
 MeshRenderer:
@@ -41921,7 +41946,7 @@ Transform:
   m_LocalScale: {x: 6.501417, y: 3.4293091, z: 9.129682}
   m_Children: []
   m_Father: {fileID: 543450653166663645}
-  m_RootOrder: 157
+  m_RootOrder: 183
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1903830483
 MeshRenderer:
@@ -43055,6 +43080,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 1954759113}
+  name: 
   open: 0
   locked: 1
   isRedDoor: 1
@@ -43555,6 +43581,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 207079900}
+  name: 
   open: 0
   locked: 0
   isRedDoor: 0
@@ -44274,7 +44301,7 @@ Transform:
   m_LocalScale: {x: 1.0343843, y: 1.6237986, z: 1.0343843}
   m_Children: []
   m_Father: {fileID: 543450653166663645}
-  m_RootOrder: 149
+  m_RootOrder: 175
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2012514264
 GameObject:
@@ -45171,6 +45198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 2044232507}
+  name: 
   open: 0
   locked: 0
   isRedDoor: 0
@@ -46117,7 +46145,7 @@ Transform:
   m_LocalScale: {x: 6.501417, y: 4.4399476, z: 9.129682}
   m_Children: []
   m_Father: {fileID: 543450653166663645}
-  m_RootOrder: 179
+  m_RootOrder: 159
   m_LocalEulerAnglesHint: {x: 0, y: -270, z: -90}
 --- !u!23 &2074946282
 MeshRenderer:
@@ -48725,6 +48753,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 152955310828625151}
+  name: 
   open: 0
   locked: 0
   isRedDoor: 0
@@ -55447,6 +55476,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 1582813066533306453}
+  name: storageDoor
   open: 0
   locked: 1
   isRedDoor: 0
@@ -55527,6 +55557,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 0}
+  name: 
   open: 0
   locked: 0
   isRedDoor: 0
@@ -56339,6 +56370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 1772624470413128049}
+  name: 
   open: 0
   locked: 0
   isRedDoor: 0
@@ -57406,6 +57438,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 1980921582481007598}
+  name: 
   open: 0
   locked: 0
   isRedDoor: 0
@@ -63670,6 +63703,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 3455292421590866414}
+  name: 
   open: 0
   locked: 0
   isRedDoor: 0
@@ -63731,6 +63765,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 3455292421680977269}
+  name: 
   open: 0
   locked: 0
   isRedDoor: 0
@@ -68009,6 +68044,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 4504409718769886187}
+  name: 
   open: 0
   locked: 0
   isRedDoor: 0
@@ -71012,6 +71048,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 5252682845318140975}
+  name: 
   open: 0
   locked: 1
   isRedDoor: 0
@@ -72917,6 +72954,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 152955310828625151}
+  name: 
   open: 0
   locked: 1
   isRedDoor: 0
@@ -75884,6 +75922,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 6458859407770645084}
+  name: 
   open: 0
   locked: 0
   isRedDoor: 0
@@ -79528,6 +79567,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 7199088262884683999}
+  name: 
   open: 0
   locked: 0
   isRedDoor: 0

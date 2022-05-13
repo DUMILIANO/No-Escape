@@ -6,6 +6,7 @@ namespace Scripts
     public class doorController : MonoBehaviour
     {
         public Animator doorAnim;
+        public string name;
         public bool open = false;
         public bool locked = false;
         public bool isRedDoor;

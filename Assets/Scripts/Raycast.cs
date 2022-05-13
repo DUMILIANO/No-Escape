@@ -53,6 +53,11 @@ namespace Scripts
         public bool invDoOnce = true;
         public TMP_Text blockedtxt;
         public GameObject containerBook;
+        public bool storageDoor;
+        public TMP_Text blockedDoortxt;
+
+
+
         void Start()
         {
             picktxt.gameObject.SetActive(false);
@@ -109,6 +114,12 @@ namespace Scripts
                     picktxt.gameObject.SetActive(false);
                     if(door.locked)
                     {
+                        if(door.name == "storageDoor" && Input.GetKeyDown(KeyCode.E))
+                        {
+                            blockedtxt.gameObject.SetActive(true);
+                            StartCoroutine(TextOffAfterTime());
+                            
+                        }
                         if (door.isWhiteDoor)
                         {
                             if(door.key.GetComponent<PickUp>().equipped)
@@ -147,7 +158,8 @@ namespace Scripts
                     if(Input.GetKeyDown(KeyCode.E) && door.locked)
                         {
                             door.audio.PlayOneShot(door.doorLockedSFX);
-                            
+                            blockedDoortxt.gameObject.SetActive(true);
+                            StartCoroutine(TextOffAfterTime());
                         }
                     
                     else if (Input.GetKeyDown(KeyCode.E) && door.locked == false && !door.doOnce)
@@ -440,17 +452,24 @@ namespace Scripts
             if(player.transform.position.z > -16f)
             {
                 player.GetComponent<Animation>().Play("enteringVent");
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(1.5f);
                 player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, -16f);
 
             }
             else if (player.transform.position.z < -16f)
             {
                 player.GetComponent<Animation>().Play("enteringVent");
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(1.5f);
                 player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, -15f);
                 
             }
+        }
+        
+        IEnumerator TextOffAfterTime()
+        {
+            yield return new WaitForSeconds(1.5f);
+            blockedtxt.gameObject.SetActive(false); 
+            blockedDoortxt.gameObject.SetActive(false); 
         }
     }
 }
