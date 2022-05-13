@@ -18,13 +18,14 @@ namespace Scripts
         public float rotateSpeed = 2.719166f;
         bool inLockView = false;
         public Raycast raycast;
+        public string name;
 
 
         // Start is called before the first frame update
         void Start()
         {
             coroutineAllowed = true;
-            numberShown = 5;
+            numberShown = 10;
         }
         public void OnMouseDown()
         {
@@ -68,7 +69,7 @@ namespace Scripts
 
             numberShown += 1;
 
-            if (numberShown > 9)
+            if (numberShown > 10)
             {
                 numberShown = 0;
             }

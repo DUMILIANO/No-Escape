@@ -12,8 +12,8 @@ namespace Scripts
         // Start is called before the first frame update
         void Start()
         {
-            result = new int[] { 5, 5, 5, 5 };
-            correctCombination = new int[] { 3, 2, 3, 3 };
+            result = new int[] { 10, 10, 10, 10};
+            correctCombination = new int[] { 5, 1, 0, 8 };
             Rotatelock.Rotated += CheckResults;
         }
 
