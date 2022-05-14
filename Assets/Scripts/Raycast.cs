@@ -55,6 +55,9 @@ namespace Scripts
         public GameObject containerBook;
         public bool storageDoor;
         public TMP_Text blockedDoortxt;
+        public TMP_Text noteTxt;
+        public GameObject lockObject;
+        public GameObject leaveLockTxt;
 
 
 
@@ -373,6 +376,8 @@ namespace Scripts
 
                     if (Input.GetKeyDown(KeyCode.E))
                     {
+                        leaveLockTxt.gameObject.SetActive(true);
+                        lockObject.SetActive(true);
                         inLockView = true;
                         crosshair.enabled = false;
                         interact.enabled = false;
@@ -388,6 +393,7 @@ namespace Scripts
                     CrosshairChange(true);
                     interact.gameObject.SetActive(true);
                     picktxt.gameObject.SetActive(false);
+                    noteTxt.gameObject.SetActive(true);
                     //noteScript = hit.collider.gameObject.GetComponent<NoteScript>();
 
                     if (Input.GetKeyDown(KeyCode.E))

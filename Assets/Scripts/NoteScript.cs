@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 namespace Scripts
 {
@@ -8,6 +9,7 @@ namespace Scripts
     {
         public Raycast raycast;
         public InventoryUI inventoryUI;
+        
 
 
         // Start is called before the first frame update
@@ -26,6 +28,7 @@ namespace Scripts
                 raycast.picktxt.enabled = true;
                 raycast.note.SetActive(false);
                 raycast.player.SetActive(true);
+                raycast.noteTxt.gameObject.SetActive(false);
                 inventoryUI.cursorIsLocked = true;
             
             }
