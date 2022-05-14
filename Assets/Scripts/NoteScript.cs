@@ -29,6 +29,7 @@ namespace Scripts
                 raycast.note.SetActive(false);
                 raycast.player.SetActive(true);
                 raycast.noteTxt.gameObject.SetActive(false);
+                raycast.leaveNotetxt.gameObject.SetActive(false);
                 inventoryUI.cursorIsLocked = true;
             
             }
