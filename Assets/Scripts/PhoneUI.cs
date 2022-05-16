@@ -25,6 +25,7 @@ namespace Scripts
         public Raycast raycast;
         public movementAI AI;
         public GameObject ghostAI;
+        public GameObject paintings;
         
 
         public void teleportEnemy()
@@ -89,6 +90,7 @@ namespace Scripts
                 myRenderer.enabled = false;
                 phoneCollider.enabled = false;
                 enemy.SetActive(true);
+                paintings.SetActive(false);
             }
             else
             {
@@ -104,6 +106,7 @@ namespace Scripts
                 objects.SetActive(false);
                 phoneCollider.enabled = true;
                 enemy.SetActive(false);
+                paintings.SetActive(true);
 
             }
 
