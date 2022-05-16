@@ -48,7 +48,9 @@ namespace Scripts
                 raycast.lockCam.SetActive(false);
                 raycast.player.SetActive(true);
                 inventoryUI.cursorIsLocked = true;
-         
+                raycast.lockObject.SetActive(false);
+                raycast.leaveLockTxt.gameObject.SetActive(false);
+
             }
 
         }

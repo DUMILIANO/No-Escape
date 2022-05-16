@@ -55,6 +55,11 @@ namespace Scripts
         public GameObject containerBook;
         public bool storageDoor;
         public TMP_Text blockedDoortxt;
+        public TMP_Text noteTxt;
+        public GameObject lockObject;
+        public TMP_Text leaveLockTxt;
+        public TMP_Text leaveNotetxt;
+        public GameObject screwdriver;
 
 
 
@@ -72,7 +77,9 @@ namespace Scripts
             interact.enabled = false;
             picktxt.enabled = false;
             note.SetActive(true);
+            noteTxt.gameObject.SetActive(true);
             player.SetActive(false);
+            leaveNotetxt.gameObject.SetActive(true);
             inventoryUI.inventoryUI.SetActive(false);
 
         }
@@ -373,6 +380,8 @@ namespace Scripts
 
                     if (Input.GetKeyDown(KeyCode.E))
                     {
+                        leaveLockTxt.gameObject.SetActive(true);
+                        lockObject.SetActive(true);
                         inLockView = true;
                         crosshair.enabled = false;
                         interact.enabled = false;
@@ -388,6 +397,7 @@ namespace Scripts
                     CrosshairChange(true);
                     interact.gameObject.SetActive(true);
                     picktxt.gameObject.SetActive(false);
+                    
                     //noteScript = hit.collider.gameObject.GetComponent<NoteScript>();
 
                     if (Input.GetKeyDown(KeyCode.E))
@@ -405,6 +415,7 @@ namespace Scripts
 
                     if (Input.GetKeyDown(KeyCode.E) && hasScrewdriver)
                     {
+                        Destroy(screwdriver);
                         vent.GetComponent<Animator>().Play("ventScrew");
                         GameObject.Find("ventEnterCollider").GetComponent<BoxCollider>().enabled = true;
                     }
@@ -452,14 +463,14 @@ namespace Scripts
             if(player.transform.position.z > -16f)
             {
                 player.GetComponent<Animation>().Play("enteringVent");
-                yield return new WaitForSeconds(1.5f);
+                yield return new WaitForSeconds(2f);
                 player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, -16f);
 
             }
             else if (player.transform.position.z < -16f)
             {
                 player.GetComponent<Animation>().Play("enteringVent");
-                yield return new WaitForSeconds(1.5f);
+                yield return new WaitForSeconds(2f);
                 player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, -15f);
                 
             }
