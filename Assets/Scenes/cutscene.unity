@@ -17842,7 +17842,7 @@ RectTransform:
   m_GameObject: {fileID: 655166861}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.0635, y: 1, z: 1}
   m_Children:
   - {fileID: 2125287691}
   - {fileID: 959169115}
@@ -17853,7 +17853,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.5079, y: 0}
   m_SizeDelta: {x: 2193.1792, y: 980.00024}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &655166863
@@ -23724,7 +23724,7 @@ MonoBehaviour:
   openAnimationName: door Open+
   closeAnimationName: door Close+
   doorOpeningSFX: {fileID: 8300000, guid: cbdd7c98e9c8c23408a1315c6014b95d, type: 3}
-  doorLockedSFX: {fileID: 8300000, guid: 3de1cc43c80195e48bb12368fe06842d, type: 3}
+  doorLockedSFX: {fileID: 8300000, guid: ec5830478747e3a45890bcd26b907733, type: 3}
   audio: {fileID: 1976369355}
   doOnce: 0
 --- !u!65 &948856813
@@ -42800,6 +42800,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &1839797689 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8918200784141051098, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
+  m_PrefabInstance: {fileID: 542019638}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1839797693
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839797689}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1710441326325921854, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
 --- !u!1 &1843519523
 GameObject:
   m_ObjectHideFlags: 0
@@ -46002,7 +46021,7 @@ MonoBehaviour:
   openAnimationName: KCdoorOpen
   closeAnimationName: KCdoorClose
   doorOpeningSFX: {fileID: 8300000, guid: cbdd7c98e9c8c23408a1315c6014b95d, type: 3}
-  doorLockedSFX: {fileID: 8300000, guid: 3de1cc43c80195e48bb12368fe06842d, type: 3}
+  doorLockedSFX: {fileID: 8300000, guid: ec5830478747e3a45890bcd26b907733, type: 3}
   audio: {fileID: 1976369355}
   doOnce: 0
 --- !u!65 &1954759117
@@ -51580,7 +51599,7 @@ MonoBehaviour:
   openAnimationName: door Open-
   closeAnimationName: door Close-
   doorOpeningSFX: {fileID: 8300000, guid: bf419d1e5a7761d4e8c7be2988d7141c, type: 3}
-  doorLockedSFX: {fileID: 8300000, guid: 3de1cc43c80195e48bb12368fe06842d, type: 3}
+  doorLockedSFX: {fileID: 8300000, guid: ec5830478747e3a45890bcd26b907733, type: 3}
   audio: {fileID: 1976369355}
   doOnce: 0
 --- !u!208 &152955310828625156
@@ -58311,7 +58330,7 @@ MonoBehaviour:
   openAnimationName: door Open+
   closeAnimationName: door Close+
   doorOpeningSFX: {fileID: 8300000, guid: cbdd7c98e9c8c23408a1315c6014b95d, type: 3}
-  doorLockedSFX: {fileID: 8300000, guid: 3de1cc43c80195e48bb12368fe06842d, type: 3}
+  doorLockedSFX: {fileID: 8300000, guid: ec5830478747e3a45890bcd26b907733, type: 3}
   audio: {fileID: 1976369355}
   doOnce: 0
 --- !u!4 &1582813066533306455 stripped
@@ -66641,7 +66660,7 @@ MonoBehaviour:
   openAnimationName: LRdoorOpen
   closeAnimationName: LRdoorClose
   doorOpeningSFX: {fileID: 8300000, guid: bf419d1e5a7761d4e8c7be2988d7141c, type: 3}
-  doorLockedSFX: {fileID: 8300000, guid: 3de1cc43c80195e48bb12368fe06842d, type: 3}
+  doorLockedSFX: {fileID: 8300000, guid: ec5830478747e3a45890bcd26b907733, type: 3}
   audio: {fileID: 1976369355}
   doOnce: 0
 --- !u!65 &3455292421680977271
@@ -73970,7 +73989,7 @@ MonoBehaviour:
   openAnimationName: KCdoorOpen
   closeAnimationName: KCdoorClose
   doorOpeningSFX: {fileID: 8300000, guid: cbdd7c98e9c8c23408a1315c6014b95d, type: 3}
-  doorLockedSFX: {fileID: 8300000, guid: 3de1cc43c80195e48bb12368fe06842d, type: 3}
+  doorLockedSFX: {fileID: 8300000, guid: ec5830478747e3a45890bcd26b907733, type: 3}
   audio: {fileID: 1976369355}
   doOnce: 0
 --- !u!65 &5252682845318140977
