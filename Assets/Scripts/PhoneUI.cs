@@ -106,6 +106,7 @@ namespace Scripts
                 objects.SetActive(false);
                 phoneCollider.enabled = true;
                 enemy.SetActive(false);
+                paintings.SetActive(true);
 
             }
 
