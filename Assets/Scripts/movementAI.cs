@@ -202,7 +202,7 @@ namespace Scripts
         IEnumerator deathScene()
         {
             audio.PlayOneShot(scream);
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(6f);
             SceneManager.LoadScene(2);
             inventoryUI.cursorIsLocked = !inventoryUI.cursorIsLocked;
         }
