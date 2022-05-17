@@ -64,6 +64,7 @@ namespace Scripts
         public CutScene finishedCutScene;
         public GameObject painting;
         public GameObject propLock;
+        public TMP_Text ventTxt;
 
 
 
@@ -169,8 +170,12 @@ namespace Scripts
                     if(Input.GetKeyDown(KeyCode.E) && door.locked)
                         {
                             door.audio.PlayOneShot(door.doorLockedSFX);
-                            blockedDoortxt.gameObject.SetActive(true);
-                            StartCoroutine(TextOffAfterTime());
+                            if(door.name != "storageDoor")
+                            {
+                                blockedDoortxt.gameObject.SetActive(true);
+                                StartCoroutine(TextOffAfterTime());
+                            }
+                            
                         }
                     
                     else if (Input.GetKeyDown(KeyCode.E) && door.locked == false && !door.doOnce)
@@ -266,6 +271,7 @@ namespace Scripts
 
                             if(Input.GetKeyDown(KeyCode.E) && child.activeSelf && (child.name == "redBook" || child.name == "lBlueBook" || child.name == "blueBook" || child.name == "greenBook" || child.name == "pinkBook" || child.name == "orangeBook"))
                             {
+                                child.transform.GetChild(0).gameObject.layer = 0;
                                 PickUp bookScript = child.GetComponent<PickUp>();
                                 child.transform.SetParent(bookPos);
                                 child.transform.localPosition = Vector3.zero;
@@ -425,6 +431,11 @@ namespace Scripts
                         vent.GetComponent<Animator>().Play("ventScrew");
                         GameObject.Find("ventEnterCollider").GetComponent<BoxCollider>().enabled = true;
                     }
+                    else if (Input.GetKeyDown(KeyCode.E) && !hasScrewdriver)
+                    {
+                        ventTxt.gameObject.SetActive(true);
+                        StartCoroutine(TextOffAfterTime());
+                    }
                 }
                 else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("ventEnterCollider"))
                 {
@@ -495,11 +506,11 @@ namespace Scripts
         
         IEnumerator TextOffAfterTime()
         {
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(2f);
             blockedtxt.gameObject.SetActive(false); 
             blockedDoortxt.gameObject.SetActive(false);
-            blockedDoortxt.gameObject.SetActive(false);
-            bookTxt.gameObject.SetActive(true);
+            bookTxt.gameObject.SetActive(false);
+            ventTxt.gameObject.SetActive(false);
         }
     }
 }
