@@ -1628,6 +1628,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 90737795}
+  name: 
   open: 0
   locked: 1
   isRedDoor: 0
@@ -2785,6 +2786,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 991109142}
+  name: 
   open: 0
   locked: 0
   isRedDoor: 0
@@ -2871,6 +2873,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 1862916957}
+  name: 
   open: 0
   locked: 1
   isRedDoor: 0
@@ -5542,6 +5545,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 2033602145}
+  name: 
   open: 0
   locked: 1
   isRedDoor: 0
@@ -7110,6 +7114,7 @@ MonoBehaviour:
   menu: {fileID: 0}
   Annie: {fileID: 0}
   enemySkin: {fileID: 0}
+  closedPanel: {fileID: 0}
 --- !u!1 &655771044
 GameObject:
   m_ObjectHideFlags: 0
@@ -11462,6 +11467,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 968986877}
+  name: 
   open: 0
   locked: 1
   isRedDoor: 1
@@ -11831,6 +11837,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 968986903}
+  name: 
   open: 0
   locked: 1
   isRedDoor: 0
@@ -11887,6 +11894,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 968986906}
+  name: 
   open: 0
   locked: 0
   isRedDoor: 0
@@ -12008,6 +12016,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 968986914}
+  name: 
   open: 0
   locked: 0
   isRedDoor: 0
@@ -12339,6 +12348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 968986914}
+  name: 
   open: 0
   locked: 1
   isRedDoor: 0
@@ -12389,6 +12399,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 968986940}
+  name: 
   open: 0
   locked: 0
   isRedDoor: 0
@@ -12471,6 +12482,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 968986945}
+  name: 
   open: 0
   locked: 0
   isRedDoor: 0
@@ -12527,6 +12539,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 968986948}
+  name: 
   open: 0
   locked: 0
   isRedDoor: 0
@@ -12596,6 +12609,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 968986952}
+  name: 
   open: 0
   locked: 1
   isRedDoor: 0
@@ -12720,6 +12734,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 968986960}
+  name: 
   open: 0
   locked: 1
   isRedDoor: 0
@@ -13079,6 +13094,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 1890624164}
+  name: 
   open: 0
   locked: 1
   isRedDoor: 0
@@ -14991,6 +15007,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 1357406374}
+  name: 
   open: 0
   locked: 1
   isRedDoor: 0
@@ -15995,6 +16012,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 2081608630}
+  name: 
   open: 0
   locked: 1
   isRedDoor: 0
@@ -16898,6 +16916,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 1198202022}
+  name: 
   open: 0
   locked: 1
   isRedDoor: 1
@@ -24493,6 +24512,17 @@ MonoBehaviour:
   invDoOnce: 1
   blockedtxt: {fileID: 0}
   containerBook: {fileID: 0}
+  storageDoor: 0
+  blockedDoortxt: {fileID: 0}
+  noteTxt: {fileID: 0}
+  lockObject: {fileID: 0}
+  leaveLockTxt: {fileID: 0}
+  leaveNotetxt: {fileID: 0}
+  screwdriver: {fileID: 0}
+  bookTxt: {fileID: 0}
+  finishedCutScene: {fileID: 0}
+  painting: {fileID: 0}
+  propLock: {fileID: 0}
 --- !u!114 &1878288967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25642,6 +25672,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 207079900}
+  name: 
   open: 0
   locked: 0
   isRedDoor: 0
@@ -34425,6 +34456,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 0}
+  name: 
   open: 0
   locked: 0
   isRedDoor: 0
@@ -36165,6 +36197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 1980921582481007598}
+  name: 
   open: 0
   locked: 0
   isRedDoor: 0
@@ -40651,6 +40684,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 3455292421590866414}
+  name: 
   open: 0
   locked: 0
   isRedDoor: 0
@@ -55749,7 +55783,7 @@ Transform:
   m_GameObject: {fileID: 8780009712563648409}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: 24.284676, y: 19.642834, z: 19.5186}
-  m_LocalScale: {x: 12.296064, y: 16.156816, z: 0.3081768}
+  m_LocalScale: {x: 170.49724, y: 68.46774, z: 0.3081768}
   m_Children: []
   m_Father: {fileID: 543450652772988764}
   m_RootOrder: 108

@@ -60,6 +60,10 @@ namespace Scripts
         public TMP_Text leaveLockTxt;
         public TMP_Text leaveNotetxt;
         public GameObject screwdriver;
+        public TMP_Text bookTxt;
+        public CutScene finishedCutScene;
+        public GameObject painting;
+        public GameObject propLock;
 
 
 
@@ -207,7 +211,8 @@ namespace Scripts
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         pickup.Pick();
-                       
+                        bookTxt.gameObject.SetActive(true);
+                        StartCoroutine(TextOffAfterTime());
                         isCrosshairActive = true;
                         if(_parent != null && containerBook.GetComponent<bookContainer>().rightBook == true)
                         {
@@ -381,7 +386,8 @@ namespace Scripts
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         leaveLockTxt.gameObject.SetActive(true);
-                        lockObject.SetActive(true);
+                        propLock.SetActive(false);
+                        lockObject.SetActive(true);                     
                         inLockView = true;
                         crosshair.enabled = false;
                         interact.enabled = false;
@@ -433,6 +439,17 @@ namespace Scripts
                     }
                     
                 }
+                else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("CorridorPainting") && finishedCutScene.CutSceneDone == true)
+                {
+                    CrosshairChange(true);
+                    interact.gameObject.SetActive(true);
+                    picktxt.gameObject.SetActive(false);
+
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        painting.GetComponent<Animation>().Play("paintingAnim");
+                    }
+                }
                 else
                 {
                     interact.gameObject.SetActive(false);
@@ -480,7 +497,9 @@ namespace Scripts
         {
             yield return new WaitForSeconds(1.5f);
             blockedtxt.gameObject.SetActive(false); 
-            blockedDoortxt.gameObject.SetActive(false); 
+            blockedDoortxt.gameObject.SetActive(false);
+            blockedDoortxt.gameObject.SetActive(false);
+            bookTxt.gameObject.SetActive(true);
         }
     }
 }
