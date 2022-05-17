@@ -360,6 +360,7 @@ namespace Scripts
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         iceTxt.gameObject.SetActive(true);
+                        StartCoroutine(TextOffAfterTime());
                         pickup.Pick();
                         pickup.transform.localPosition = new Vector3 (-1.34f, 0, 0);
                         isCrosshairActive = true;
