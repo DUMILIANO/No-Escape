@@ -26,6 +26,11 @@ namespace Scripts
                     puzzleComplete = true;
                     book.transform.GetChild(1).GetComponent<BoxCollider>().enabled = false;
                 }
+
+                if(book.transform.childCount > 1)
+                {
+                    Debug.Log("placed");
+                }
             }
 
 
