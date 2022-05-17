@@ -28,12 +28,13 @@ namespace Scripts
         public string animationName;
         public Animator doorAnim;
         public bool blinking;
-        public bool CutSceneDone;
+        public bool CutSceneDone = false;
         public float timeDelay;
         public GameObject ghostAI;
         public PhoneUI menu;
         public GameObject Annie;
         public GameObject enemySkin;
+        public GameObject closedPanel;
 
 
 
@@ -53,6 +54,7 @@ namespace Scripts
 
         public void Update()
         {
+
             if(blinking == false && puzzleDone.puzzleComplete == true && CutSceneDone == false)
             {
                 StartCoroutine(blink());
@@ -121,6 +123,7 @@ namespace Scripts
             blinking = true;
             emissionPanel.SetActive(false);
             enemySkin.SetActive(false);
+            closedPanel.SetActive(true);
         }
     }
 }
