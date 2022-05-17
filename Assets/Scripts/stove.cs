@@ -45,6 +45,7 @@ namespace Scripts
             inventory.Remove(ice.GetComponent<PickUp>().item);
             held.Remove(ice);  
             Destroy(ice);
+            screwdriver.gameObject.layer = 0;
             ice = null;
             iceCube = null;
             screwdriverCollider.enabled = true;

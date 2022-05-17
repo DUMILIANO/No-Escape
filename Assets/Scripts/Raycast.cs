@@ -65,14 +65,13 @@ namespace Scripts
         public GameObject painting;
         public GameObject propLock;
         public TMP_Text ventTxt;
+        public TMP_Text iceTxt;
 
 
 
         void Start()
         {
             picktxt.gameObject.SetActive(false);
-            //Cursor.lockState = CursorLockMode.Locked;
-
         }
 
         public void noteAnim()
@@ -216,7 +215,7 @@ namespace Scripts
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         pickup.Pick();
-                        bookTxt.gameObject.SetActive(true);
+                        
                         StartCoroutine(TextOffAfterTime());
                         isCrosshairActive = true;
                         if(_parent != null && containerBook.GetComponent<bookContainer>().rightBook == true)
@@ -228,6 +227,7 @@ namespace Scripts
                         if(invDoOnce)
                         {
                             inventoryText.gameObject.SetActive(true);
+                            bookTxt.gameObject.SetActive(true);
                             invDoOnce = false;
                         }
 
@@ -271,6 +271,7 @@ namespace Scripts
 
                             if(Input.GetKeyDown(KeyCode.E) && child.activeSelf && (child.name == "redBook" || child.name == "lBlueBook" || child.name == "blueBook" || child.name == "greenBook" || child.name == "pinkBook" || child.name == "orangeBook"))
                             {
+                                child.gameObject.layer = 0;
                                 child.transform.GetChild(0).gameObject.layer = 0;
                                 PickUp bookScript = child.GetComponent<PickUp>();
                                 child.transform.SetParent(bookPos);
@@ -358,6 +359,7 @@ namespace Scripts
 
                     if (Input.GetKeyDown(KeyCode.E))
                     {
+                        iceTxt.gameObject.SetActive(true);
                         pickup.Pick();
                         pickup.transform.localPosition = new Vector3 (-1.34f, 0, 0);
                         isCrosshairActive = true;
@@ -511,6 +513,7 @@ namespace Scripts
             blockedDoortxt.gameObject.SetActive(false);
             bookTxt.gameObject.SetActive(false);
             ventTxt.gameObject.SetActive(false);
+            iceTxt.gameObject.SetActive(false);
         }
     }
 }
