@@ -17,6 +17,15 @@ namespace Scripts
         public bool dropable;
         public holding held;
 
+        void SetLayerRecursively(GameObject obj, int newLayer)
+            {
+                obj.layer = newLayer;
+            
+                foreach(Transform child in obj.transform )
+                {
+                    SetLayerRecursively( child.gameObject, newLayer );
+                }
+            }
         // Start is called before the first frame update
         void Start()
         {
@@ -57,6 +66,8 @@ namespace Scripts
                 bool wasPickedUp = Inventory.instance.Add(item);
                 if (wasPickedUp)
                 {
+                    SetLayerRecursively(this.gameObject, 7);
+                    Debug.Log(this.gameObject);
                     equipped = true;
                     slotFull = true;
 
@@ -83,6 +94,7 @@ namespace Scripts
                         raycast.hasKey = false;
                         raycast.hasScrewdriver = false;
                     }
+                    
                 }
             }
             
