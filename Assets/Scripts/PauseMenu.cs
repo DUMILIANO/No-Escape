@@ -16,6 +16,7 @@ namespace Scripts
         public GameObject AudioMenu;
         public GameObject ControlsMenu;
         public GameObject DisplayMenu;
+        public GameObject Inventory;
 
 
         // Start is called before the first frame update
@@ -58,6 +59,7 @@ namespace Scripts
         public void Pause()
         {
             inventoryUi.cursorIsLocked = false;
+            Inventory.SetActive(false);
             PausedMenu.SetActive(true);
             PauseMenuUI.SetActive(true);
             Time.timeScale = 0f;
