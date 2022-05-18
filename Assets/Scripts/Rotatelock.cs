@@ -50,6 +50,7 @@ namespace Scripts
                 inventoryUI.cursorIsLocked = true;
                 raycast.lockObject.SetActive(false);
                 raycast.leaveLockTxt.gameObject.SetActive(false);
+                raycast.propLock.SetActive(true);
 
             }
 
