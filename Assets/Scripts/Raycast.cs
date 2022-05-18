@@ -227,13 +227,17 @@ namespace Scripts
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         pickup.Pick();
-                        
                         StartCoroutine(TextOffAfterTime());
                         isCrosshairActive = true;
-                        if(_parent != null && containerBook.GetComponent<bookContainer>().rightBook == true)
+                        if(_parent != null)
                         {
-                            containerBook.GetComponent<bookContainer>().rightBook = false;
-                            containerBook.GetComponent<bookContainer>().bookCheck.count--;
+                            containerBook.GetComponent<bookContainer>().bookCheck.allCount--;
+                            if(containerBook.GetComponent<bookContainer>().rightBook == true)
+                            {
+                                containerBook.GetComponent<bookContainer>().rightBook = false;
+                                containerBook.GetComponent<bookContainer>().bookCheck.count--;
+                            }
+                            
                         }
 
                         if(invDoOnce)
