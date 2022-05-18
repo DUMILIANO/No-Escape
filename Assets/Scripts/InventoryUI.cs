@@ -11,6 +11,7 @@ namespace Scripts
         public GameObject inventoryUI;
         public bool cursorIsLocked = true;
         public GameObject invText;
+        public PauseMenu menuScript;
 
         // Start is called before the first frame update
         void Start()
@@ -23,7 +24,7 @@ namespace Scripts
         // Update is called once per frame
         void Update()
         {
-            if(Input.GetKeyDown(KeyCode.I))
+            if(Input.GetKeyDown(KeyCode.I) && PauseMenu.GameIsPaused == false)
             {
                 invText.gameObject.SetActive(false);
                 inventoryUI.SetActive(!inventoryUI.activeSelf);
