@@ -18,7 +18,6 @@ namespace Scripts
             {
                 foreach (FlashingLights light in lights)
                 {
-                    Debug.Log("working");
                     light.isFlickering = false;
                     finished = true;
                 }

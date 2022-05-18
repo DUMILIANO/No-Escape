@@ -35,8 +35,9 @@ namespace Scripts
 
         public void Check()
         {
-            if(transform.childCount > 0)
+            if(transform.childCount >= 1)
             {
+                bookCheck.allCount++;
                 if(transform.GetChild(1).gameObject == book)
                 {
                     rightBook = true;

@@ -261,14 +261,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 1862916957}
+  name: 
+  open: 0
   locked: 1
   isRedDoor: 0
   isWhiteDoor: 1
   key: {fileID: 0}
-  animationName: 
+  openAnimationName: 
+  closeAnimationName: 
   doorOpeningSFX: {fileID: 8300000, guid: bf419d1e5a7761d4e8c7be2988d7141c, type: 3}
   doorLockedSFX: {fileID: 0}
   audio: {fileID: 0}
+  doOnce: 0
 --- !u!65 &165541680
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -694,14 +698,47 @@ MonoBehaviour:
   pickup: {fileID: 0}
   crosshairpos: {fileID: 2012514265}
   cam: {fileID: 702994014}
-  picktxt: {fileID: 618110644}
+  picktxt: {fileID: 0}
+  interact: {fileID: 0}
+  phoneText: {fileID: 0}
   anim: {fileID: 0}
   bookPos: {fileID: 0}
   check: {fileID: 0}
   hasKey: 0
+  hasScrewdriver: 0
   pendClock: {fileID: 0}
   inventory: {fileID: 850075310}
   held: {fileID: 1649704528}
+  stovePos: {fileID: 0}
+  lockScript: {fileID: 0}
+  player: {fileID: 0}
+  lockCam: {fileID: 0}
+  note: {fileID: 0}
+  objectives: {fileID: 0}
+  lockCamPP: {fileID: 0}
+  inventoryText: {fileID: 0}
+  inventoryUI: {fileID: 0}
+  inLockView: 0
+  inNoteView: 0
+  drawerOpen: {fileID: 0}
+  invDoOnce: 1
+  blockedtxt: {fileID: 0}
+  containerBook: {fileID: 0}
+  storageDoor: 0
+  blockedDoortxt: {fileID: 0}
+  noteTxt: {fileID: 0}
+  lockObject: {fileID: 0}
+  leaveLockTxt: {fileID: 0}
+  leaveNotetxt: {fileID: 0}
+  screwdriver: {fileID: 0}
+  bookTxt: {fileID: 0}
+  finishedCutScene: {fileID: 0}
+  painting: {fileID: 0}
+  propLock: {fileID: 0}
+  ventTxt: {fileID: 0}
+  iceTxt: {fileID: 0}
+  inBasement: 0
+  target: {fileID: 0}
 --- !u!1 &338396703
 GameObject:
   m_ObjectHideFlags: 0
@@ -2052,6 +2089,7 @@ MonoBehaviour:
   itemsParent: {fileID: 1008244162}
   inventoryUI: {fileID: 992674150}
   cursorIsLocked: 1
+  invText: {fileID: 0}
 --- !u!1 &966243025
 GameObject:
   m_ObjectHideFlags: 0

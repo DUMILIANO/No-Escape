@@ -66,6 +66,8 @@ namespace Scripts
         public GameObject propLock;
         public TMP_Text ventTxt;
         public TMP_Text iceTxt;
+        public bool inBasement = false;
+        public Transform target;
 
 
 
@@ -162,11 +164,20 @@ namespace Scripts
                                 }
                             }
                         }
+                        
                     }
 
-                    
+                    if (door.name == "basementHouseDoor" && Input.GetKeyDown(KeyCode.E))
+                    {
+                        StartCoroutine(EnterBasement());
+                    }
 
-                    if(Input.GetKeyDown(KeyCode.E) && door.locked)
+                    if (door.name == "basementDoor" && Input.GetKeyDown(KeyCode.E))
+                    {
+                        StartCoroutine(EnterHouse());
+                    }
+
+                    if (Input.GetKeyDown(KeyCode.E) && door.locked)
                         {
                             door.audio.PlayOneShot(door.doorLockedSFX);
                             if(door.name != "storageDoor")
@@ -179,6 +190,7 @@ namespace Scripts
                     
                     else if (Input.GetKeyDown(KeyCode.E) && door.locked == false && !door.doOnce)
                     {
+                       
                         door.PlayAnimation();
                         isCrosshairActive = true;
                     }
@@ -215,13 +227,17 @@ namespace Scripts
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         pickup.Pick();
-                        
                         StartCoroutine(TextOffAfterTime());
                         isCrosshairActive = true;
-                        if(_parent != null && containerBook.GetComponent<bookContainer>().rightBook == true)
+                        if(_parent != null)
                         {
-                            containerBook.GetComponent<bookContainer>().rightBook = false;
-                            containerBook.GetComponent<bookContainer>().bookCheck.count--;
+                            containerBook.GetComponent<bookContainer>().bookCheck.allCount--;
+                            if(containerBook.GetComponent<bookContainer>().rightBook == true)
+                            {
+                                containerBook.GetComponent<bookContainer>().rightBook = false;
+                                containerBook.GetComponent<bookContainer>().bookCheck.count--;
+                            }
+                            
                         }
 
                         if(invDoOnce)
@@ -360,6 +376,7 @@ namespace Scripts
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         iceTxt.gameObject.SetActive(true);
+                        StartCoroutine(TextOffAfterTime());
                         pickup.Pick();
                         pickup.transform.localPosition = new Vector3 (-1.34f, 0, 0);
                         isCrosshairActive = true;
@@ -505,7 +522,24 @@ namespace Scripts
                 
             }
         }
-        
+
+        IEnumerator EnterBasement()
+        {
+            player.GetComponent<Animation>().Play("enteringBasement");
+            yield return new WaitForSeconds(0.5f);
+            player.transform.position = new Vector3 (5.44f, -0.53f, -8.7f);
+            inBasement = true;
+        }
+
+        IEnumerator EnterHouse()
+        {
+            player.GetComponent<Animation>().Play("enteringBasement");
+            yield return new WaitForSeconds(0.5f);
+            player.transform.position = new Vector3(25.84667f, -0.2427391f, -0.9764763f);
+            inBasement = false;
+        }
+
+
         IEnumerator TextOffAfterTime()
         {
             yield return new WaitForSeconds(2f);
