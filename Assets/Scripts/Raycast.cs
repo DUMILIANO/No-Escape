@@ -480,6 +480,21 @@ namespace Scripts
                         painting.GetComponent<Animation>().Play("paintingAnim");
                     }
                 }
+
+                else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("doll"))
+                {
+                    CrosshairChange(true);
+                    pickup = hit.collider.gameObject.GetComponent<PickUp>();
+                    interact.gameObject.SetActive(true);
+                    picktxt.gameObject.SetActive(false);
+
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        pickup.Pick();
+                        pickup.transform.localPosition = new Vector3 (-0.2f, 0f, 0f);
+                        pickup.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
+                    }
+                }
                 else
                 {
                     interact.gameObject.SetActive(false);
@@ -528,6 +543,7 @@ namespace Scripts
             player.GetComponent<Animation>().Play("enteringBasement");
             yield return new WaitForSeconds(0.5f);
             player.transform.position = new Vector3 (5.44f, -0.53f, -8.7f);
+            //player.transform.localRotation = Quaternion.Euler (0f, -156.894f, 0f);
             inBasement = true;
         }
 

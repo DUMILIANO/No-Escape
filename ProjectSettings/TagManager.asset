@@ -25,6 +25,7 @@ TagManager:
   - vent
   - ventEnterCollider
   - CorridorPainting
+  - doll
   layers:
   - Default
   - TransparentFX
