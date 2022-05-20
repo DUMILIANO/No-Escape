@@ -68,7 +68,9 @@ namespace Scripts
         public TMP_Text iceTxt;
         public bool inBasement = false;
         public Transform target;
-
+        public Transform tpTarget;
+        public GameObject thePlayer;
+        public Rigidbody body;
 
 
         void Start()
@@ -543,7 +545,9 @@ namespace Scripts
             player.GetComponent<Animation>().Play("enteringBasement");
             yield return new WaitForSeconds(0.5f);
             player.transform.position = new Vector3 (5.44f, -0.53f, -8.7f);
-            //player.transform.localRotation = Quaternion.Euler (0f, -156.894f, 0f);
+            //player.transform.localRotation = Quaternion.Euler (0f, -160f, 0f);
+            thePlayer.transform.rotation = tpTarget.transform.rotation;
+            FindObjectOfType<FirstPersonController>().m_MouseLook.SetRotation(tpTarget.transform.rotation);
             inBasement = true;
         }
 
