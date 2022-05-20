@@ -10412,6 +10412,49 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &339624604 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1644296196739873966, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
+  m_PrefabInstance: {fileID: 542019638}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &339624608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339624604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05c5ceb0a78f5f642be68d89d7670cc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorAnim: {fileID: 1582813066533306453}
+  name: storageDoor
+  open: 0
+  locked: 1
+  isRedDoor: 0
+  isWhiteDoor: 0
+  key: {fileID: 0}
+  openAnimationName: door Open-
+  closeAnimationName: door Close-
+  doorOpeningSFX: {fileID: 8300000, guid: cbdd7c98e9c8c23408a1315c6014b95d, type: 3}
+  doorLockedSFX: {fileID: 8300000, guid: 3de1cc43c80195e48bb12368fe06842d, type: 3}
+  audio: {fileID: 1976369355}
+  doOnce: 0
+--- !u!65 &339624609
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339624604}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0613892, y: 2.0135295, z: 0.050597947}
+  m_Center: {x: 0.04811401, y: -1.00765, z: 0.0044526914}
 --- !u!1 &343256077
 GameObject:
   m_ObjectHideFlags: 0
@@ -16949,6 +16992,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 921454a072b39ee4b8f12c7186750508, type: 2}
+    - target: {fileID: 1644296196739873966, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1644296196739873966, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
+      propertyPath: m_TagString
+      value: Door
+      objectReference: {fileID: 0}
     - target: {fileID: 1771266950956608360, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_RootOrder
       value: 50
@@ -41272,9 +41323,9 @@ ParticleSystem:
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 1
+  looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -50134,7 +50185,7 @@ MonoBehaviour:
   doOnce: 0
   inventory: {fileID: 850075310}
   held: {fileID: 1649704528}
-  smoke: {fileID: 0}
+  smoke: {fileID: 1589649555}
 --- !u!1 &1775824071
 GameObject:
   m_ObjectHideFlags: 0
@@ -62031,10 +62082,10 @@ MonoBehaviour:
   doorAnim: {fileID: 152955310828625151}
   name: 
   open: 0
-  locked: 0
+  locked: 1
   isRedDoor: 0
-  isWhiteDoor: 0
-  key: {fileID: 0}
+  isWhiteDoor: 1
+  key: {fileID: 193788349}
   openAnimationName: door Open-
   closeAnimationName: door Close-
   doorOpeningSFX: {fileID: 8300000, guid: bf419d1e5a7761d4e8c7be2988d7141c, type: 3}
@@ -68762,7 +68813,7 @@ MonoBehaviour:
   doorAnim: {fileID: 1582813066533306453}
   name: storageDoor
   open: 0
-  locked: 1
+  locked: 0
   isRedDoor: 0
   isWhiteDoor: 0
   key: {fileID: 0}
