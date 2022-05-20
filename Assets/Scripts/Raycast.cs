@@ -68,9 +68,8 @@ namespace Scripts
         public TMP_Text iceTxt;
         public bool inBasement = false;
         public Transform target;
-        public Transform tpTarget;
-        public GameObject thePlayer;
-        public Rigidbody body;
+        public bool inStore;
+
 
 
         void Start()
@@ -468,6 +467,7 @@ namespace Scripts
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         StartCoroutine(EnterVent());
+                        inStore = true;
                     }
                     
                 }
@@ -524,20 +524,9 @@ namespace Scripts
 
         IEnumerator EnterVent()
         {
-            if(player.transform.position.z > -16f)
-            {
-                player.GetComponent<Animation>().Play("enteringVent");
-                yield return new WaitForSeconds(2f);
-                player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, -16f);
-
-            }
-            else if (player.transform.position.z < -16f)
-            {
-                player.GetComponent<Animation>().Play("enteringVent");
-                yield return new WaitForSeconds(2f);
-                player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, -15f);
-                
-            }
+            player.GetComponent<Animation>().Play("enteringVent");
+            yield return new WaitForSeconds(1f);
+            player.transform.position = new Vector3 (25.407f, -0.2427424f, -18.124f);
         }
 
         IEnumerator EnterBasement()
@@ -545,9 +534,7 @@ namespace Scripts
             player.GetComponent<Animation>().Play("enteringBasement");
             yield return new WaitForSeconds(0.5f);
             player.transform.position = new Vector3 (5.44f, -0.53f, -8.7f);
-            //player.transform.localRotation = Quaternion.Euler (0f, -160f, 0f);
-            thePlayer.transform.rotation = tpTarget.transform.rotation;
-            FindObjectOfType<FirstPersonController>().m_MouseLook.SetRotation(tpTarget.transform.rotation);
+            //player.transform.localRotation = Quaternion.Euler (0f, -156.894f, 0f);
             inBasement = true;
         }
 
