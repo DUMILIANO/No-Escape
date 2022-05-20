@@ -55,14 +55,26 @@ namespace Scripts
         public GameObject containerBook;
         public bool storageDoor;
         public TMP_Text blockedDoortxt;
+        public TMP_Text noteTxt;
+        public GameObject lockObject;
+        public TMP_Text leaveLockTxt;
+        public TMP_Text leaveNotetxt;
+        public GameObject screwdriver;
+        public TMP_Text bookTxt;
+        public CutScene finishedCutScene;
+        public GameObject painting;
+        public GameObject propLock;
+        public TMP_Text ventTxt;
+        public TMP_Text iceTxt;
+        public bool inBasement = false;
+        public Transform target;
+        public bool inStore;
 
 
 
         void Start()
         {
             picktxt.gameObject.SetActive(false);
-            //Cursor.lockState = CursorLockMode.Locked;
-
         }
 
         public void noteAnim()
@@ -72,7 +84,9 @@ namespace Scripts
             interact.enabled = false;
             picktxt.enabled = false;
             note.SetActive(true);
+            noteTxt.gameObject.SetActive(true);
             player.SetActive(false);
+            leaveNotetxt.gameObject.SetActive(true);
             inventoryUI.inventoryUI.SetActive(false);
 
         }
@@ -151,19 +165,33 @@ namespace Scripts
                                 }
                             }
                         }
+                        
                     }
 
-                    
+                    if (door.name == "basementHouseDoor" && Input.GetKeyDown(KeyCode.E))
+                    {
+                        StartCoroutine(EnterBasement());
+                    }
 
-                    if(Input.GetKeyDown(KeyCode.E) && door.locked)
+                    if (door.name == "basementDoor" && Input.GetKeyDown(KeyCode.E))
+                    {
+                        StartCoroutine(EnterHouse());
+                    }
+
+                    if (Input.GetKeyDown(KeyCode.E) && door.locked)
                         {
                             door.audio.PlayOneShot(door.doorLockedSFX);
-                            blockedDoortxt.gameObject.SetActive(true);
-                            StartCoroutine(TextOffAfterTime());
+                            if(door.name != "storageDoor")
+                            {
+                                blockedDoortxt.gameObject.SetActive(true);
+                                StartCoroutine(TextOffAfterTime());
+                            }
+                            
                         }
                     
                     else if (Input.GetKeyDown(KeyCode.E) && door.locked == false && !door.doOnce)
                     {
+                       
                         door.PlayAnimation();
                         isCrosshairActive = true;
                     }
@@ -200,17 +228,23 @@ namespace Scripts
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         pickup.Pick();
-                       
+                        StartCoroutine(TextOffAfterTime());
                         isCrosshairActive = true;
-                        if(_parent != null && containerBook.GetComponent<bookContainer>().rightBook == true)
+                        if(_parent != null)
                         {
-                            containerBook.GetComponent<bookContainer>().rightBook = false;
-                            containerBook.GetComponent<bookContainer>().bookCheck.count--;
+                            containerBook.GetComponent<bookContainer>().bookCheck.allCount--;
+                            if(containerBook.GetComponent<bookContainer>().rightBook == true)
+                            {
+                                containerBook.GetComponent<bookContainer>().rightBook = false;
+                                containerBook.GetComponent<bookContainer>().bookCheck.count--;
+                            }
+                            
                         }
 
                         if(invDoOnce)
                         {
                             inventoryText.gameObject.SetActive(true);
+                            bookTxt.gameObject.SetActive(true);
                             invDoOnce = false;
                         }
 
@@ -254,6 +288,8 @@ namespace Scripts
 
                             if(Input.GetKeyDown(KeyCode.E) && child.activeSelf && (child.name == "redBook" || child.name == "lBlueBook" || child.name == "blueBook" || child.name == "greenBook" || child.name == "pinkBook" || child.name == "orangeBook"))
                             {
+                                child.gameObject.layer = 0;
+                                child.transform.GetChild(0).gameObject.layer = 0;
                                 PickUp bookScript = child.GetComponent<PickUp>();
                                 child.transform.SetParent(bookPos);
                                 child.transform.localPosition = Vector3.zero;
@@ -340,6 +376,8 @@ namespace Scripts
 
                     if (Input.GetKeyDown(KeyCode.E))
                     {
+                        iceTxt.gameObject.SetActive(true);
+                        StartCoroutine(TextOffAfterTime());
                         pickup.Pick();
                         pickup.transform.localPosition = new Vector3 (-1.34f, 0, 0);
                         isCrosshairActive = true;
@@ -373,6 +411,9 @@ namespace Scripts
 
                     if (Input.GetKeyDown(KeyCode.E))
                     {
+                        leaveLockTxt.gameObject.SetActive(true);
+                        propLock.SetActive(false);
+                        lockObject.SetActive(true);                     
                         inLockView = true;
                         crosshair.enabled = false;
                         interact.enabled = false;
@@ -388,6 +429,7 @@ namespace Scripts
                     CrosshairChange(true);
                     interact.gameObject.SetActive(true);
                     picktxt.gameObject.SetActive(false);
+                    
                     //noteScript = hit.collider.gameObject.GetComponent<NoteScript>();
 
                     if (Input.GetKeyDown(KeyCode.E))
@@ -405,8 +447,14 @@ namespace Scripts
 
                     if (Input.GetKeyDown(KeyCode.E) && hasScrewdriver)
                     {
+                        Destroy(screwdriver);
                         vent.GetComponent<Animator>().Play("ventScrew");
                         GameObject.Find("ventEnterCollider").GetComponent<BoxCollider>().enabled = true;
+                    }
+                    else if (Input.GetKeyDown(KeyCode.E) && !hasScrewdriver)
+                    {
+                        ventTxt.gameObject.SetActive(true);
+                        StartCoroutine(TextOffAfterTime());
                     }
                 }
                 else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("ventEnterCollider"))
@@ -419,8 +467,35 @@ namespace Scripts
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         StartCoroutine(EnterVent());
+                        inStore = true;
                     }
                     
+                }
+                else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("CorridorPainting") && finishedCutScene.CutSceneDone == true)
+                {
+                    CrosshairChange(true);
+                    interact.gameObject.SetActive(true);
+                    picktxt.gameObject.SetActive(false);
+
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        painting.GetComponent<Animation>().Play("paintingAnim");
+                    }
+                }
+
+                else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("doll"))
+                {
+                    CrosshairChange(true);
+                    pickup = hit.collider.gameObject.GetComponent<PickUp>();
+                    interact.gameObject.SetActive(true);
+                    picktxt.gameObject.SetActive(false);
+
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        pickup.Pick();
+                        pickup.transform.localPosition = new Vector3 (-0.2f, 0f, 0f);
+                        pickup.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
+                    }
                 }
                 else
                 {
@@ -449,27 +524,37 @@ namespace Scripts
 
         IEnumerator EnterVent()
         {
-            if(player.transform.position.z > -16f)
-            {
-                player.GetComponent<Animation>().Play("enteringVent");
-                yield return new WaitForSeconds(1.5f);
-                player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, -16f);
-
-            }
-            else if (player.transform.position.z < -16f)
-            {
-                player.GetComponent<Animation>().Play("enteringVent");
-                yield return new WaitForSeconds(1.5f);
-                player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, -15f);
-                
-            }
+            player.GetComponent<Animation>().Play("enteringVent");
+            yield return new WaitForSeconds(1f);
+            player.transform.position = new Vector3 (25.407f, -0.2427424f, -18.124f);
         }
-        
+
+        IEnumerator EnterBasement()
+        {
+            player.GetComponent<Animation>().Play("enteringBasement");
+            yield return new WaitForSeconds(0.5f);
+            player.transform.position = new Vector3 (5.44f, -0.53f, -8.7f);
+            //player.transform.localRotation = Quaternion.Euler (0f, -156.894f, 0f);
+            inBasement = true;
+        }
+
+        IEnumerator EnterHouse()
+        {
+            player.GetComponent<Animation>().Play("enteringBasement");
+            yield return new WaitForSeconds(0.5f);
+            player.transform.position = new Vector3(25.84667f, -0.2427391f, -0.9764763f);
+            inBasement = false;
+        }
+
+
         IEnumerator TextOffAfterTime()
         {
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(2f);
             blockedtxt.gameObject.SetActive(false); 
-            blockedDoortxt.gameObject.SetActive(false); 
+            blockedDoortxt.gameObject.SetActive(false);
+            bookTxt.gameObject.SetActive(false);
+            ventTxt.gameObject.SetActive(false);
+            iceTxt.gameObject.SetActive(false);
         }
     }
 }

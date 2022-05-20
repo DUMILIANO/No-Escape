@@ -15,6 +15,7 @@ namespace Scripts
         public bool doOnce;
         public Inventory inventory;
         public holding held;
+        public ParticleSystem smoke;
         
         // Start is called before the first frame update
         void Start()
@@ -30,6 +31,7 @@ namespace Scripts
                 screwdriver.transform.SetParent(container.transform);
                 iceCube.GetComponent<Animation>().Play("MeltingIce");
                 ice.gameObject.tag = "Untagged";
+                smoke.Play();
                 screwdriver.GetComponent<Animation>().Play("screwdriver");
                 puddle.GetComponent<Animation>().Play("puddle");
                 StartCoroutine(DestroyIce());
@@ -45,6 +47,7 @@ namespace Scripts
             inventory.Remove(ice.GetComponent<PickUp>().item);
             held.Remove(ice);  
             Destroy(ice);
+            screwdriver.gameObject.layer = 0;
             ice = null;
             iceCube = null;
             screwdriverCollider.enabled = true;

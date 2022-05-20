@@ -18,6 +18,7 @@ namespace Scripts
         public Material[] mat;
         public Renderer rend;
         public int lightNumber;
+        public LightController control;
 
         void Update()
         {
@@ -53,9 +54,10 @@ namespace Scripts
 
         IEnumerator GoOff()
         {
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(5f);
             isFlickering = true;
             this.gameObject.GetComponent<Light>().enabled = false;
+            control.Source.Pause();
             rend.materials[lightNumber].color = mat[0].color;
             rend.materials[lightNumber].DisableKeyword("_EMISSION");
 

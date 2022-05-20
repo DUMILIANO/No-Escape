@@ -24,6 +24,8 @@ TagManager:
   - collider
   - vent
   - ventEnterCollider
+  - CorridorPainting
+  - doll
   layers:
   - Default
   - TransparentFX
@@ -60,4 +62,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: number
+    uniqueID: 1062126823
+    locked: 0
+  - name: painting
+    uniqueID: 2745437081
     locked: 0

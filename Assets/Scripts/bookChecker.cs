@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 namespace Scripts
 {
     public class bookChecker : MonoBehaviour
@@ -10,14 +10,24 @@ namespace Scripts
         public Raycast raycast;
         public List<GameObject> container = new List<GameObject>();
         public int count;
+        public int allCount;
         public bool puzzleComplete;
         bool doOnce = true;
         public string animationName;
         public Animator doorAnim;
+        bool doOnceBooks = true;
+        public TMP_Text bookShelfHint;
 
 
         void Update()
         {
+
+            if(allCount == 6 && doOnceBooks == true && count != 6)
+            {
+                bookShelfHint.gameObject.SetActive(true);
+                StartCoroutine(TextOffAfterTime());
+                doOnceBooks = false;
+            }
             foreach (GameObject book in container)
             {
                 if(book.GetComponent<bookContainer>().rightBook == true && count == 6)
@@ -25,6 +35,11 @@ namespace Scripts
                     door.locked = false;
                     puzzleComplete = true;
                     book.transform.GetChild(1).GetComponent<BoxCollider>().enabled = false;
+                }
+
+                if(book.transform.childCount > 1)
+                {
+                    Debug.Log("placed");
                 }
             }
 
@@ -35,6 +50,11 @@ namespace Scripts
                 doOnce = false;
                 doorAnim.Play(animationName, 0, 0.0f);
             }
+        }
+        IEnumerator TextOffAfterTime()
+        {
+            yield return new WaitForSeconds(2f);
+            bookShelfHint.gameObject.SetActive(false); 
         }
     }
 }
