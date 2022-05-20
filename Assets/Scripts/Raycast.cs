@@ -39,6 +39,7 @@ namespace Scripts
         public Inventory inventory;
         public holding held;
         public Transform stovePos;
+        public Transform dollPos;
         public Rotatelock lockScript;
         public GameObject player;
         public GameObject lockCam;
@@ -68,8 +69,9 @@ namespace Scripts
         public TMP_Text iceTxt;
         public bool inBasement = false;
         public Transform target;
-        public bool inStore;
-
+        public Transform tpTarget;
+        public GameObject thePlayer;
+        public Rigidbody body;
 
 
         void Start()
@@ -168,9 +170,14 @@ namespace Scripts
                         
                     }
 
-                    if (door.name == "basementHouseDoor" && Input.GetKeyDown(KeyCode.E))
+                    if (door.name == "basementHouseDoor" && Input.GetKeyDown(KeyCode.E) && hasKey && door.key.GetComponent<PickUp>().equipped)
                     {
                         StartCoroutine(EnterBasement());
+                        Destroy(door.key);
+                        door.audio.PlayOneShot(door.doorOpeningSFX);
+                        inventory.Remove(door.key.GetComponent<PickUp>().item);
+                        held.Remove(door.key);
+                        hasKey = false;
                     }
 
                     if (door.name == "basementDoor" && Input.GetKeyDown(KeyCode.E))
@@ -181,7 +188,7 @@ namespace Scripts
                     if (Input.GetKeyDown(KeyCode.E) && door.locked)
                         {
                             door.audio.PlayOneShot(door.doorLockedSFX);
-                            if(door.name != "storageDoor")
+                            if(door.name != "storageDoor" || door.name != "basementHouseDoor")
                             {
                                 blockedDoortxt.gameObject.SetActive(true);
                                 StartCoroutine(TextOffAfterTime());
@@ -366,6 +373,26 @@ namespace Scripts
                     }
                 }
 
+                else if(Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("dollContainer"))
+                {
+                    CrosshairChange(true);
+                    dollPos = hit.collider.transform;
+                    foreach(GameObject child in held.children)
+                    {
+                        if(Input.GetKeyDown(KeyCode.E) && child.activeSelf && child.name == "doll")
+                        {
+                            PickUp doll = child.GetComponent<PickUp>();
+                            child.transform.SetParent(dollPos);
+                            child.transform.localPosition = Vector3.zero;
+                            child.transform.localRotation = Quaternion.Euler(Vector3.zero);
+                            child.transform.localScale = Vector3.one;
+                            inventory.Remove(doll.item);
+                            held.Remove(child);
+
+                        }
+                    }
+                }
+
                 else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("ice"))
                 {
                     CrosshairChange(true);
@@ -447,7 +474,6 @@ namespace Scripts
 
                     if (Input.GetKeyDown(KeyCode.E) && hasScrewdriver)
                     {
-                        Destroy(screwdriver);
                         vent.GetComponent<Animator>().Play("ventScrew");
                         GameObject.Find("ventEnterCollider").GetComponent<BoxCollider>().enabled = true;
                     }
@@ -467,7 +493,6 @@ namespace Scripts
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         StartCoroutine(EnterVent());
-                        inStore = true;
                     }
                     
                 }
@@ -524,9 +549,20 @@ namespace Scripts
 
         IEnumerator EnterVent()
         {
-            player.GetComponent<Animation>().Play("enteringVent");
-            yield return new WaitForSeconds(1f);
-            player.transform.position = new Vector3 (25.407f, -0.2427424f, -18.124f);
+            if(player.transform.position.z > -16f)
+            {
+                player.GetComponent<Animation>().Play("enteringVent");
+                yield return new WaitForSeconds(2f);
+                player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, -16f);
+
+            }
+            else if (player.transform.position.z < -16f)
+            {
+                player.GetComponent<Animation>().Play("enteringVent");
+                yield return new WaitForSeconds(2f);
+                player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, -15f);
+                
+            }
         }
 
         IEnumerator EnterBasement()
@@ -534,7 +570,9 @@ namespace Scripts
             player.GetComponent<Animation>().Play("enteringBasement");
             yield return new WaitForSeconds(0.5f);
             player.transform.position = new Vector3 (5.44f, -0.53f, -8.7f);
-            //player.transform.localRotation = Quaternion.Euler (0f, -156.894f, 0f);
+            //player.transform.localRotation = Quaternion.Euler (0f, -160f, 0f);
+            thePlayer.transform.rotation = tpTarget.transform.rotation;
+            FindObjectOfType<FirstPersonController>().m_MouseLook.SetRotation(tpTarget.transform.rotation);
             inBasement = true;
         }
 
