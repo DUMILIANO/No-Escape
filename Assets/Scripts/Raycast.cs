@@ -68,10 +68,7 @@ namespace Scripts
         public TMP_Text iceTxt;
         public bool inBasement = false;
         public Transform target;
-<<<<<<< HEAD
         public bool inStore;
-=======
->>>>>>> parent of 618f4c7 (Audio and fixes)
 
 
 
