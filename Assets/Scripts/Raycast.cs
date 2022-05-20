@@ -72,6 +72,9 @@ namespace Scripts
         public Transform tpTarget;
         public GameObject thePlayer;
         public Rigidbody body;
+        public Doll badEnding;
+        public GameObject panel; 
+        
 
 
         void Start()
@@ -151,23 +154,44 @@ namespace Scripts
                                 }
                             }
                         }
-                        if (door.isRedDoor)
+                        if (door.isRedDoor && badEnding.dollPlaced == false)
                         {
                             if(door.key.GetComponent<PickUp>().equipped)
                             {
                                 if(Input.GetKeyDown(KeyCode.E) && hasKey)
                                 {
+                                    Debug.Log("NO THIS ONE");
                                     door.locked = false;
                                     door.audio.PlayOneShot(door.doorOpeningSFX);
                                     inventory.Remove(door.key.GetComponent<PickUp>().item);
                                     held.Remove(door.key);
                                     hasKey = false;
                                     Destroy(door.key);
-                                    SceneManager.LoadScene(0);
+                                    StartCoroutine(BadEnding());
+                                    
                                 }
                             }
                         }
-                        
+                        else if (door.isRedDoor && badEnding.dollPlaced == true)
+                        {
+                            if (door.key.GetComponent<PickUp>().equipped)
+                            {
+                                if (Input.GetKeyDown(KeyCode.E) && hasKey)
+                                {
+                                    Debug.Log("THIS ONE");
+                                    door.locked = false;
+                                    door.audio.PlayOneShot(door.doorOpeningSFX);
+                                    inventory.Remove(door.key.GetComponent<PickUp>().item);
+                                    held.Remove(door.key);
+                                    hasKey = false;
+                                    Destroy(door.key);
+                                    panel.gameObject.SetActive(true);
+                                    StartCoroutine(GoodEnding());
+                                     
+
+                                }
+                            }
+                        }
                     }
 
                     if (door.name == "basementHouseDoor" && Input.GetKeyDown(KeyCode.E) && hasKey && door.key.GetComponent<PickUp>().equipped)
@@ -188,17 +212,16 @@ namespace Scripts
                     if (Input.GetKeyDown(KeyCode.E) && door.locked)
                         {
                             door.audio.PlayOneShot(door.doorLockedSFX);
-                            if(door.name != "storageDoor" || door.name != "basementHouseDoor")
+                            if(door.name != "storageDoor")
                             {
                                 blockedDoortxt.gameObject.SetActive(true);
                                 StartCoroutine(TextOffAfterTime());
                             }
                             
-                        }
-                    
+                        }                  
                     else if (Input.GetKeyDown(KeyCode.E) && door.locked == false && !door.doOnce)
                     {
-                       
+                        Debug.Log("working");
                         door.PlayAnimation();
                         isCrosshairActive = true;
                     }
@@ -593,6 +616,20 @@ namespace Scripts
             bookTxt.gameObject.SetActive(false);
             ventTxt.gameObject.SetActive(false);
             iceTxt.gameObject.SetActive(false);
+        }
+
+        IEnumerator BadEnding()
+        {
+            yield return new WaitForSeconds(0.5f);
+            player.GetComponent<Animation>().Play("BadEnding");
+        }
+
+        IEnumerator GoodEnding()
+        {
+            yield return new WaitForSeconds(0.5f);
+            panel.GetComponent<Animation>().Play("endingfade");
+            yield return new WaitForSeconds(2f);
+            SceneManager.LoadScene(3);
         }
     }
 }

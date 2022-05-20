@@ -22,7 +22,7 @@ namespace Scripts
                 doll.transform.localScale = new Vector3 ( 0.4f, 0.4f, 0.4f);
                 doll.GetComponent<BoxCollider>().enabled = false;
                 doOnce = true;
-                bool dollPlaced = true;
+                dollPlaced = true;
             }
 
 
