@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: key
   m_EditorClassIdentifier: 
   name: Key
-  icon: {fileID: 21300000, guid: 851037b7f1fc0594ebb4de09d7c87f51, type: 3}
+  icon: {fileID: 8486844007131521276, guid: e27be03ceea57304aa95d1504b4fe708, type: 3}
   important: 1
   held: {fileID: 0}
   raycast: {fileID: 0}
