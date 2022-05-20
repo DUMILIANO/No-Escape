@@ -35,8 +35,6 @@ namespace Scripts
         public GameObject Annie;
         public GameObject enemySkin;
         public GameObject closedPanel;
-        public AudioSource ghostWhisper;
-        public AudioSource ghostHeartbeat;
 
 
 
@@ -50,8 +48,6 @@ namespace Scripts
                 FirstPersonController.GetComponent<Animation>().Play("CameraXCutScene");
                 gCutscene.Play();
                 animPlayed = true;
-                ghostWhisper.Play();
-                ghostHeartbeat.Play();
                 StartCoroutine(PhoneOnAnimation());
             }
         }

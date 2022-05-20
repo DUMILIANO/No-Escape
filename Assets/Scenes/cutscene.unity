@@ -54402,7 +54402,10 @@ MonoBehaviour:
   iceTxt: {fileID: 1413798407}
   inBasement: 0
   target: {fileID: 1604874228}
+<<<<<<< HEAD
   inStore: 0
+=======
+>>>>>>> parent of 618f4c7 (Audio and fixes)
 --- !u!114 &1878288967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57006,7 +57009,11 @@ Transform:
   - {fileID: 1768620401}
   m_Father: {fileID: 0}
   m_RootOrder: 22
+<<<<<<< HEAD
   m_LocalEulerAnglesHint: {x: -0.12821122, y: -1.8714705, z: 0}
+=======
+  m_LocalEulerAnglesHint: {x: 0, y: -85, z: 0}
+>>>>>>> parent of 618f4c7 (Audio and fixes)
 --- !u!82 &1976369355
 AudioSource:
   m_ObjectHideFlags: 0
