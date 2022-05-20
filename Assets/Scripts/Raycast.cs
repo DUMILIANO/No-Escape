@@ -68,6 +68,7 @@ namespace Scripts
         public TMP_Text iceTxt;
         public bool inBasement = false;
         public Transform target;
+        public bool inStore;
 
 
 
@@ -466,6 +467,7 @@ namespace Scripts
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         StartCoroutine(EnterVent());
+                        inStore = true;
                     }
                     
                 }
@@ -522,20 +524,9 @@ namespace Scripts
 
         IEnumerator EnterVent()
         {
-            if(player.transform.position.z > -16f)
-            {
-                player.GetComponent<Animation>().Play("enteringVent");
-                yield return new WaitForSeconds(2f);
-                player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, -16f);
-
-            }
-            else if (player.transform.position.z < -16f)
-            {
-                player.GetComponent<Animation>().Play("enteringVent");
-                yield return new WaitForSeconds(2f);
-                player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, -15f);
-                
-            }
+            player.GetComponent<Animation>().Play("enteringVent");
+            yield return new WaitForSeconds(1f);
+            player.transform.position = new Vector3 (25.407f, -0.2427424f, -18.124f);
         }
 
         IEnumerator EnterBasement()
