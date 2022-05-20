@@ -39,6 +39,7 @@ namespace Scripts
         public Inventory inventory;
         public holding held;
         public Transform stovePos;
+        public Transform dollPos;
         public Rotatelock lockScript;
         public GameObject player;
         public GameObject lockCam;
@@ -168,9 +169,14 @@ namespace Scripts
                         
                     }
 
-                    if (door.name == "basementHouseDoor" && Input.GetKeyDown(KeyCode.E))
+                    if (door.name == "basementHouseDoor" && Input.GetKeyDown(KeyCode.E) && hasKey && door.key.GetComponent<PickUp>().equipped)
                     {
                         StartCoroutine(EnterBasement());
+                        Destroy(door.key);
+                        door.audio.PlayOneShot(door.doorOpeningSFX);
+                        inventory.Remove(door.key.GetComponent<PickUp>().item);
+                        held.Remove(door.key);
+                        hasKey = false;
                     }
 
                     if (door.name == "basementDoor" && Input.GetKeyDown(KeyCode.E))
@@ -181,7 +187,7 @@ namespace Scripts
                     if (Input.GetKeyDown(KeyCode.E) && door.locked)
                         {
                             door.audio.PlayOneShot(door.doorLockedSFX);
-                            if(door.name != "storageDoor")
+                            if(door.name != "storageDoor" || door.name != "basementHouseDoor")
                             {
                                 blockedDoortxt.gameObject.SetActive(true);
                                 StartCoroutine(TextOffAfterTime());
@@ -366,6 +372,26 @@ namespace Scripts
                     }
                 }
 
+                else if(Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("dollContainer"))
+                {
+                    CrosshairChange(true);
+                    dollPos = hit.collider.transform;
+                    foreach(GameObject child in held.children)
+                    {
+                        if(Input.GetKeyDown(KeyCode.E) && child.activeSelf && child.name == "doll")
+                        {
+                            PickUp doll = child.GetComponent<PickUp>();
+                            child.transform.SetParent(dollPos);
+                            child.transform.localPosition = Vector3.zero;
+                            child.transform.localRotation = Quaternion.Euler(Vector3.zero);
+                            child.transform.localScale = Vector3.one;
+                            inventory.Remove(doll.item);
+                            held.Remove(child);
+
+                        }
+                    }
+                }
+
                 else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("ice"))
                 {
                     CrosshairChange(true);
@@ -447,7 +473,6 @@ namespace Scripts
 
                     if (Input.GetKeyDown(KeyCode.E) && hasScrewdriver)
                     {
-                        Destroy(screwdriver);
                         vent.GetComponent<Animator>().Play("ventScrew");
                         GameObject.Find("ventEnterCollider").GetComponent<BoxCollider>().enabled = true;
                     }
