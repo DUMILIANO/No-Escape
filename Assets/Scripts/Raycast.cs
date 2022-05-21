@@ -73,7 +73,9 @@ namespace Scripts
         public GameObject thePlayer;
         public Rigidbody body;
         public Doll badEnding;
-        public GameObject panel; 
+        public GameObject panel;
+        public GameObject leftHand;
+        public GameObject rightHand;
         
 
 
@@ -167,6 +169,7 @@ namespace Scripts
                                     held.Remove(door.key);
                                     hasKey = false;
                                     Destroy(door.key);
+                                    player.GetComponent<FirstPersonController>().enabled = false;
                                     StartCoroutine(BadEnding());
                                     
                                 }
@@ -620,8 +623,19 @@ namespace Scripts
 
         IEnumerator BadEnding()
         {
+            player.GetComponent<Animation>().Play("PlayerInPos");
             yield return new WaitForSeconds(0.5f);
+            leftHand.GetComponent<Animation>().Play("leftHand");
+            rightHand.GetComponent<Animation>().Play("rightHand");
+            yield return new WaitForSeconds(0.3f);
+            leftHand.GetComponent<MeshRenderer>().enabled = true;
+            rightHand.GetComponent<MeshRenderer>().enabled = true;
+            yield return new WaitForSeconds(0.9f);
+            leftHand.transform.parent = player.transform;
+            rightHand.transform.parent = player.transform;
+            yield return new WaitForSeconds(0.3f);
             player.GetComponent<Animation>().Play("BadEnding");
+            
         }
 
         IEnumerator GoodEnding()
