@@ -2774,19 +2774,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.6931692, y: 3.0304163, z: 1.188407}
   m_Center: {x: 0.7940754, y: 0.5088102, z: 0.68770945}
---- !u!65 &77023322
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5194334309095605539}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 0.8814756, y: 1.7725742, z: 2.0000005}
-  m_Center: {x: -0.00000011920928, y: 0.000000014901161, z: -0.000000059604645}
 --- !u!1 &78922352
 GameObject:
   m_ObjectHideFlags: 0
@@ -16005,6 +15992,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 93
       objectReference: {fileID: 0}
+    - target: {fileID: -2565703341047745845, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 81.68
+      objectReference: {fileID: 0}
     - target: {fileID: -2552259910582932590, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -27545,7 +27536,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &990948323
 AudioSource:
   m_ObjectHideFlags: 0
@@ -83342,11 +83333,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2501394357989818793}
   m_Mesh: {fileID: -3329902420748629119, guid: cd1a7e7adc26f164cb49378ae8ffacc9, type: 3}
---- !u!1 &5194334309095605539 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5194334309628646677, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
-  m_PrefabInstance: {fileID: 542019638}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5194334309177461178
 GameObject:
   m_ObjectHideFlags: 0

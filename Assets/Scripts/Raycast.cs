@@ -199,12 +199,14 @@ namespace Scripts
 
                     if (door.name == "basementHouseDoor" && Input.GetKeyDown(KeyCode.E) && hasKey && door.key.GetComponent<PickUp>().equipped)
                     {
+                        Debug.Log("WOadas");
                         StartCoroutine(EnterBasement());
                         Destroy(door.key);
                         door.audio.PlayOneShot(door.doorOpeningSFX);
                         inventory.Remove(door.key.GetComponent<PickUp>().item);
                         held.Remove(door.key);
-                        hasKey = false;
+                        hasKey = true;
+                        door.locked = false;
                     }
 
                     if (door.name == "basementDoor" && Input.GetKeyDown(KeyCode.E))
