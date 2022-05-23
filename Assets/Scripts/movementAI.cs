@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityStandardAssets.Characters.ThirdPerson;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace Scripts
 {
@@ -36,6 +37,8 @@ namespace Scripts
         public int waitTimeCheck;
         Vector3 oldpos;
         public PhoneUI phnUI;
+
+        public GameObject jumpscare;
         
         IEnumerator checkPosition()
         {
@@ -201,6 +204,7 @@ namespace Scripts
         }
         IEnumerator deathScene()
         {
+            jumpscare.SetActive(true);
             audio.PlayOneShot(scream);
             yield return new WaitForSeconds(6f);
             SceneManager.LoadScene(2);
