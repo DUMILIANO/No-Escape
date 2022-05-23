@@ -72,6 +72,11 @@ namespace Scripts
         public Transform tpTarget;
         public GameObject thePlayer;
         public Rigidbody body;
+        public Doll badEnding;
+        public GameObject panel;
+        public GameObject leftHand;
+        public GameObject rightHand;
+        
 
 
         void Start()
@@ -151,33 +156,57 @@ namespace Scripts
                                 }
                             }
                         }
-                        if (door.isRedDoor)
+                        if (door.isRedDoor && badEnding.dollPlaced == false)
                         {
                             if(door.key.GetComponent<PickUp>().equipped)
                             {
                                 if(Input.GetKeyDown(KeyCode.E) && hasKey)
                                 {
+                                    Debug.Log("NO THIS ONE");
                                     door.locked = false;
                                     door.audio.PlayOneShot(door.doorOpeningSFX);
                                     inventory.Remove(door.key.GetComponent<PickUp>().item);
                                     held.Remove(door.key);
                                     hasKey = false;
                                     Destroy(door.key);
-                                    SceneManager.LoadScene(0);
+                                    player.GetComponent<FirstPersonController>().enabled = false;
+                                    StartCoroutine(BadEnding());
+                                    
                                 }
                             }
                         }
-                        
+                        else if (door.isRedDoor && badEnding.dollPlaced == true)
+                        {
+                            if (door.key.GetComponent<PickUp>().equipped)
+                            {
+                                if (Input.GetKeyDown(KeyCode.E) && hasKey)
+                                {
+                                    Debug.Log("THIS ONE");
+                                    door.locked = false;
+                                    door.audio.PlayOneShot(door.doorOpeningSFX);
+                                    inventory.Remove(door.key.GetComponent<PickUp>().item);
+                                    held.Remove(door.key);
+                                    hasKey = false;
+                                    Destroy(door.key);
+                                    panel.gameObject.SetActive(true);
+                                    StartCoroutine(GoodEnding());
+                                     
+
+                                }
+                            }
+                        }
                     }
 
                     if (door.name == "basementHouseDoor" && Input.GetKeyDown(KeyCode.E) && hasKey && door.key.GetComponent<PickUp>().equipped)
                     {
+                        Debug.Log("WOadas");
                         StartCoroutine(EnterBasement());
                         Destroy(door.key);
                         door.audio.PlayOneShot(door.doorOpeningSFX);
                         inventory.Remove(door.key.GetComponent<PickUp>().item);
                         held.Remove(door.key);
-                        hasKey = false;
+                        hasKey = true;
+                        door.locked = false;
                     }
 
                     if (door.name == "basementDoor" && Input.GetKeyDown(KeyCode.E))
@@ -188,17 +217,16 @@ namespace Scripts
                     if (Input.GetKeyDown(KeyCode.E) && door.locked)
                         {
                             door.audio.PlayOneShot(door.doorLockedSFX);
-                            if(door.name != "storageDoor" || door.name != "basementHouseDoor")
+                            if(door.name != "storageDoor")
                             {
                                 blockedDoortxt.gameObject.SetActive(true);
                                 StartCoroutine(TextOffAfterTime());
                             }
                             
-                        }
-                    
+                        }                  
                     else if (Input.GetKeyDown(KeyCode.E) && door.locked == false && !door.doOnce)
                     {
-                       
+                        Debug.Log("working");
                         door.PlayAnimation();
                         isCrosshairActive = true;
                     }
@@ -593,6 +621,31 @@ namespace Scripts
             bookTxt.gameObject.SetActive(false);
             ventTxt.gameObject.SetActive(false);
             iceTxt.gameObject.SetActive(false);
+        }
+
+        IEnumerator BadEnding()
+        {
+            player.GetComponent<Animation>().Play("PlayerInPos");
+            yield return new WaitForSeconds(0.5f);
+            leftHand.GetComponent<Animation>().Play("leftHand");
+            rightHand.GetComponent<Animation>().Play("rightHand");
+            yield return new WaitForSeconds(0.3f);
+            leftHand.GetComponent<MeshRenderer>().enabled = true;
+            rightHand.GetComponent<MeshRenderer>().enabled = true;
+            yield return new WaitForSeconds(0.9f);
+            leftHand.transform.parent = player.transform;
+            rightHand.transform.parent = player.transform;
+            yield return new WaitForSeconds(0.3f);
+            player.GetComponent<Animation>().Play("BadEnding");
+            
+        }
+
+        IEnumerator GoodEnding()
+        {
+            yield return new WaitForSeconds(0.5f);
+            panel.GetComponent<Animation>().Play("endingfade");
+            yield return new WaitForSeconds(2f);
+            SceneManager.LoadScene(3);
         }
     }
 }
