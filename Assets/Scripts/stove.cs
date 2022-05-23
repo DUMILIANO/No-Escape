@@ -16,6 +16,8 @@ namespace Scripts
         public Inventory inventory;
         public holding held;
         public ParticleSystem smoke;
+        public GameObject screwdriverMesh;
+        
         
         // Start is called before the first frame update
         void Start()
@@ -48,6 +50,7 @@ namespace Scripts
             held.Remove(ice);  
             Destroy(ice);
             screwdriver.gameObject.layer = 0;
+            screwdriverMesh.gameObject.layer = 0;
             ice = null;
             iceCube = null;
             screwdriverCollider.enabled = true;

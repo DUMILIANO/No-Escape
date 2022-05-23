@@ -25,8 +25,6 @@ namespace Scripts
         public GameObject FirstPersonController;
         public GameObject emissionPanel;
         public GameObject shadowPanel;
-        public string animationName;
-        public Animator doorAnim;
         public bool blinking;
         public bool CutSceneDone = false;
         public float timeDelay;
