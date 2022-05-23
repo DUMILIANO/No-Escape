@@ -77,7 +77,8 @@ namespace Scripts
         public GameObject leftHand;
         public GameObject rightHand;
         public GameObject panelBadEnding;
-        
+        public GameObject roomPainting;
+        public GameObject portraitPanel;
 
 
         void Start()
@@ -545,6 +546,20 @@ namespace Scripts
                     }
                 }
 
+                else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("SpawnroomPainting"))
+                {
+                    CrosshairChange(true);
+                    interact.gameObject.SetActive(true);
+
+                    if (Input.GetKeyDown(KeyCode.E) && hasScrewdriver == true)
+                    {
+                        player.GetComponent<FirstPersonController>(). enabled = false;
+                        portraitPanel.GetComponent<Animation>().Play("breakingPanel");
+                        StartCoroutine(BreakPainting());                  
+                    }
+
+                }
+
                 else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("doll"))
                 {
                     CrosshairChange(true);
@@ -566,7 +581,7 @@ namespace Scripts
                     CrosshairChange(false);
                     //doOnce = false;
                     bookPos.GetChild(0).gameObject.SetActive(false);
-                }
+                } 
             }
 
 
@@ -582,6 +597,13 @@ namespace Scripts
                 crosshair.color = Color.white;
                 isCrosshairActive = false;
             }
+        }
+
+        IEnumerator BreakPainting()
+        {
+            yield return new WaitForSeconds(0.5f);
+            roomPainting.GetComponent<Animation>().Play("portraitAnim");
+            player.GetComponent<FirstPersonController>(). enabled = true;
         }
 
         IEnumerator EnterVent()

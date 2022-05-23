@@ -27,6 +27,7 @@ TagManager:
   - CorridorPainting
   - doll
   - dollContainer
+  - SpawnroomPainting
   layers:
   - Default
   - TransparentFX
