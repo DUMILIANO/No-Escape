@@ -635,7 +635,7 @@ namespace Scripts
             yield return new WaitForSeconds(0.3f);
             leftHand.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().enabled = true;
             rightHand.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().enabled = true;
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.2f);
             player.GetComponent<Animation>().Play("BadEnding");
             yield return new WaitForSeconds(1f);
             panelBadEnding.GetComponent<Animation>().Play("BadEndingBlack");
