@@ -1068,7 +1068,7 @@ MonoBehaviour:
   container: []
   count: 0
   allCount: 0
-  puzzleComplete: 1
+  puzzleComplete: 0
   animationName: kitchenDoorHalfOpen
   doorAnim: {fileID: 1025432927}
   bookShelfHint: {fileID: 445557957}
@@ -13155,10 +13155,10 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.754717, g: 0.5343634, b: 0.34531865, a: 1}
-  m_Intensity: 17.53
-  m_Range: 439.7
+  m_Intensity: 17
+  m_Range: 430
   m_SpotAngle: 179
-  m_InnerSpotAngle: 87.57356
+  m_InnerSpotAngle: 87.57361
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0
@@ -28618,6 +28618,7 @@ GameObject:
   - component: {fileID: 990948325}
   - component: {fileID: 990948324}
   - component: {fileID: 990948323}
+  - component: {fileID: 990948333}
   m_Layer: 0
   m_Name: enemy
   m_TagString: enemy
@@ -28923,6 +28924,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 60
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!111 &990948333
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 990948322}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: -203655887218126122, guid: 5c8d5e8bc282e164393b7af4a86ad8aa, type: 3}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &991109141
 GameObject:
   m_ObjectHideFlags: 0
