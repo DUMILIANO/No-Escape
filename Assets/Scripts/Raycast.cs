@@ -157,6 +157,17 @@ namespace Scripts
                                 }
                             }
                         }
+                        if (door.name == "basementHouseDoor" && Input.GetKeyDown(KeyCode.E) && hasKey && door.key.GetComponent<PickUp>().equipped)
+                        {
+                            Debug.Log("WOadas");
+                            StartCoroutine(EnterBasement());
+                            Destroy(door.key);
+                            door.audio.PlayOneShot(door.doorOpeningSFX);
+                            inventory.Remove(door.key.GetComponent<PickUp>().item);
+                            held.Remove(door.key);
+                            hasKey = false;
+                            door.locked = false;
+                        }
                         if (door.isRedDoor && badEnding.dollPlaced == false)
                         {
                             if(door.key.GetComponent<PickUp>().equipped)
@@ -198,17 +209,7 @@ namespace Scripts
                         }
                     }
 
-                    if (door.name == "basementHouseDoor" && Input.GetKeyDown(KeyCode.E) && hasKey && door.key.GetComponent<PickUp>().equipped)
-                    {
-                        Debug.Log("WOadas");
-                        StartCoroutine(EnterBasement());
-                        Destroy(door.key);
-                        door.audio.PlayOneShot(door.doorOpeningSFX);
-                        inventory.Remove(door.key.GetComponent<PickUp>().item);
-                        held.Remove(door.key);
-                        hasKey = true;
-                        door.locked = false;
-                    }
+                    
 
                     if (door.name == "basementDoor" && Input.GetKeyDown(KeyCode.E))
                     {
@@ -216,21 +217,28 @@ namespace Scripts
                     }
 
                     if (Input.GetKeyDown(KeyCode.E) && door.locked)
+                    {
+                        door.audio.PlayOneShot(door.doorLockedSFX);
+                        if(door.name != "storageDoor")
                         {
-                            door.audio.PlayOneShot(door.doorLockedSFX);
-                            if(door.name != "storageDoor")
-                            {
-                                blockedDoortxt.gameObject.SetActive(true);
-                                StartCoroutine(TextOffAfterTime());
-                            }
-                            
-                        }                  
+                            blockedDoortxt.gameObject.SetActive(true);
+                            StartCoroutine(TextOffAfterTime());
+                        }
+                        
+                    }
+                    else if (Input.GetKeyDown(KeyCode.E) && door.locked == false && door.name == "basementHouseDoor")
+                    {
+                        Debug.Log("working");
+                        StartCoroutine(EnterBasement());
+                        isCrosshairActive = true;
+                    }                  
                     else if (Input.GetKeyDown(KeyCode.E) && door.locked == false && !door.doOnce)
                     {
                         Debug.Log("working");
                         door.PlayAnimation();
                         isCrosshairActive = true;
                     }
+                    
 
                 }
                 else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag(keyTag))
