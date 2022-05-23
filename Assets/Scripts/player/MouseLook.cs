@@ -15,6 +15,7 @@ namespace Scripts
         public float smoothTime = 5f;
         public bool lockCursor = true;
 
+        float yRot, xRot;
 
         private Quaternion m_CharacterTargetRot;
         private Quaternion m_CameraTargetRot;
@@ -25,11 +26,14 @@ namespace Scripts
             m_CameraTargetRot = camera.localRotation;
         }
 
+        public void SetRotation(Quaternion rot_in) {
+            m_CameraTargetRot = rot_in;
+        }
 
         public void LookRotation(Transform character, Transform camera)
         {
-            float yRot = Input.GetAxis("Mouse X") * XSensitivity;
-            float xRot = Input.GetAxis("Mouse Y") * YSensitivity;
+            yRot = Input.GetAxis("Mouse X") * XSensitivity;
+            xRot = Input.GetAxis("Mouse Y") * YSensitivity;
 
             m_CharacterTargetRot *= Quaternion.Euler (0f, yRot, 0f);
             m_CameraTargetRot *= Quaternion.Euler (-xRot, 0f, 0f);

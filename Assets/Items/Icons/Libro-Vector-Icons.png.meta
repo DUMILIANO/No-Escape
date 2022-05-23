@@ -1,25 +1,7 @@
 fileFormatVersion: 2
 guid: aa38c1b3f47ae0e42af233197ec9dce2
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: 5713476172155806255
-    second: Libro-Vector-Icons_0
-  - first:
-      213: 4746182154648344063
-    second: Libro-Vector-Icons_1
-  - first:
-      213: -6332706104949717908
-    second: Libro-Vector-Icons_2
-  - first:
-      213: 4038522665802324766
-    second: Libro-Vector-Icons_3
-  - first:
-      213: 7677287082793011797
-    second: Libro-Vector-Icons_4
-  - first:
-      213: -5894601548046799420
-    second: Libro-Vector-Icons_5
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -107,137 +89,11 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Libro-Vector-Icons_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 400
-        height: 400
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f22610aae485a4f40800000000000000
-      internalID: 5713476172155806255
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Libro-Vector-Icons_1
-      rect:
-        serializedVersion: 2
-        x: 360
-        y: 0
-        width: 400
-        height: 400
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ff5dc17f583ddd140800000000000000
-      internalID: 4746182154648344063
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Libro-Vector-Icons_2
-      rect:
-        serializedVersion: 2
-        x: 720
-        y: 0
-        width: 400
-        height: 400
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c6446838955bd18a0800000000000000
-      internalID: -6332706104949717908
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Libro-Vector-Icons_3
-      rect:
-        serializedVersion: 2
-        x: 1080
-        y: 0
-        width: 400
-        height: 400
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e1bd280b7f6bb0830800000000000000
-      internalID: 4038522665802324766
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Libro-Vector-Icons_4
-      rect:
-        serializedVersion: 2
-        x: 1440
-        y: 0
-        width: 400
-        height: 400
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 55a82900de33b8a60800000000000000
-      internalID: 7677287082793011797
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Libro-Vector-Icons_5
-      rect:
-        serializedVersion: 2
-        x: 1800
-        y: 0
-        width: 360
-        height: 400
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4cde33c7f1b223ea0800000000000000
-      internalID: -5894601548046799420
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 8f2762c5d17cf4544ae880c4399e8d5c
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 

@@ -18,6 +18,8 @@ namespace Scripts
         public AudioClip doorLockedSFX;
         public AudioSource audio;
         public bool doOnce = false;
+        public AudioSource doorCrk;
+        public AudioSource doorCrkclosed;
 
         private void Awake()
         {
@@ -36,18 +38,21 @@ namespace Scripts
             if (!locked && !open)
             {
                 doorAnim.Play(openAnimationName, 0, 0.0f);
-                //open = true;
+                doorCrk.Play();
+                open = true;
             }
             else if (open)
             {
                 doorAnim.Play(closeAnimationName, 0, 0.0f);
-                //open = false;
+                doorCrkclosed.Play();
+                open = false;
             }
         }
         public void CheckOpen()
         {
             open = true;
             doOnce = !doOnce;
+            
         }
         public void CheckClose()
         {
