@@ -76,6 +76,7 @@ namespace Scripts
         public GameObject panel;
         public GameObject leftHand;
         public GameObject rightHand;
+        public GameObject panelBadEnding;
         
 
 
@@ -625,18 +626,19 @@ namespace Scripts
 
         IEnumerator BadEnding()
         {
+            crosshair.enabled = false;
+            interact.enabled = false;
             player.GetComponent<Animation>().Play("PlayerInPos");
             yield return new WaitForSeconds(0.5f);
             leftHand.GetComponent<Animation>().Play("leftHand");
             rightHand.GetComponent<Animation>().Play("rightHand");
             yield return new WaitForSeconds(0.3f);
-            leftHand.GetComponent<MeshRenderer>().enabled = true;
-            rightHand.GetComponent<MeshRenderer>().enabled = true;
-            yield return new WaitForSeconds(0.9f);
-            leftHand.transform.parent = player.transform;
-            rightHand.transform.parent = player.transform;
-            yield return new WaitForSeconds(0.3f);
+            leftHand.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().enabled = true;
+            rightHand.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().enabled = true;
+            yield return new WaitForSeconds(0.5f);
             player.GetComponent<Animation>().Play("BadEnding");
+            yield return new WaitForSeconds(1f);
+            panelBadEnding.GetComponent<Animation>().Play("BadEndingBlack");
             
         }
 
