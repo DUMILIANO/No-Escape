@@ -546,7 +546,7 @@ namespace Scripts
                     }
                 }
 
-                else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("SpawnroomPainting"))
+                else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("SpawnroomPainting") && hasScrewdriver == true)
                 {
                     CrosshairChange(true);
                     interact.gameObject.SetActive(true);

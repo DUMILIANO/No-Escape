@@ -1070,7 +1070,7 @@ MonoBehaviour:
   allCount: 0
   puzzleComplete: 0
   animationName: kitchenDoorHalfOpen
-  doorAnim: {fileID: 1025432927}
+  doorAnim: {fileID: 5252682845318140975}
   bookShelfHint: {fileID: 445557957}
 --- !u!1001 &34016886
 PrefabInstance:
@@ -20945,8 +20945,6 @@ MonoBehaviour:
   FirstPersonController: {fileID: 1878288962}
   emissionPanel: {fileID: 1392680859}
   shadowPanel: {fileID: 1034353754}
-  animationName: kitchenDoorHalfOpen
-  doorAnim: {fileID: 1025432927}
   blinking: 0
   CutSceneDone: 0
   timeDelay: 0
@@ -37270,7 +37268,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 92
+  m_RootOrder: 93
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1387950755
 GameObject:
@@ -46967,7 +46965,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -50750,7 +50748,7 @@ Transform:
   - {fileID: 275210144}
   - {fileID: 1136482687}
   m_Father: {fileID: 0}
-  m_RootOrder: 91
+  m_RootOrder: 92
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1785633046 stripped
 RectTransform:
@@ -62340,14 +62338,14 @@ MonoBehaviour:
   isRedDoor: 0
   isWhiteDoor: 1
   key: {fileID: 193788349}
-  openAnimationName: door Open-
-  closeAnimationName: door Close-
-  doorOpeningSFX: {fileID: 8300000, guid: bf419d1e5a7761d4e8c7be2988d7141c, type: 3}
+  openAnimationName: door Open+
+  closeAnimationName: door Close+
+  doorOpeningSFX: {fileID: 8300000, guid: cbdd7c98e9c8c23408a1315c6014b95d, type: 3}
   doorLockedSFX: {fileID: 8300000, guid: ec5830478747e3a45890bcd26b907733, type: 3}
   audio: {fileID: 1976369355}
   doOnce: 0
-  doorCrk: {fileID: 0}
-  doorCrkclosed: {fileID: 0}
+  doorCrk: {fileID: 275210145}
+  doorCrkclosed: {fileID: 1136482688}
 --- !u!208 &152955310828625156
 NavMeshObstacle:
   m_ObjectHideFlags: 0

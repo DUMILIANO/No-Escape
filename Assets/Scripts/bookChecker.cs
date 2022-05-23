@@ -47,8 +47,9 @@ namespace Scripts
             if(puzzleComplete && doOnce)
             {
                 door.audio.PlayOneShot(door.doorOpeningSFX);
+                doorAnim.Play(animationName);
                 doOnce = false;
-                doorAnim.Play(animationName, 0, 0.0f);
+                
             }
         }
         IEnumerator TextOffAfterTime()
