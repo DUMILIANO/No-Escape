@@ -206,7 +206,7 @@ namespace Scripts
         {
             jumpscare.SetActive(true);
             audio.PlayOneShot(scream);
-            yield return new WaitForSeconds(6f);
+            yield return new WaitForSeconds(4f);
             SceneManager.LoadScene(2);
             inventoryUI.cursorIsLocked = !inventoryUI.cursorIsLocked;
         }
