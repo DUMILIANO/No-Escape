@@ -67,6 +67,7 @@ namespace Scripts
         public GameObject propLock;
         public TMP_Text ventTxt;
         public TMP_Text iceTxt;
+        public TMP_Text newspaper;
         public bool inBasement = false;
         public Transform target;
         public Transform tpTarget;
@@ -82,6 +83,7 @@ namespace Scripts
         public GameObject portraitPanel;
         public bool portraitMoved = false;
         public LockControl isSolved;
+        public bool newspaperTxt = false;
 
 
         void Start()
@@ -562,6 +564,20 @@ namespace Scripts
                     }
                 }
 
+                else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("newspaper"))
+                {
+                    CrosshairChange(true);
+                    interact.gameObject.SetActive(true);
+                    picktxt.gameObject.SetActive(false);
+
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        newspaper.gameObject.SetActive(true);
+                        newspaperTxt = true;
+                        StartCoroutine(TextOffAfterTime());
+                    }
+                }
+
                 else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("SpawnroomPainting") && hasScrewdriver == true && paintingDoOnce == false)
                 {
                     CrosshairChange(true);
@@ -626,17 +642,22 @@ namespace Scripts
         {
             if(player.transform.position.z > -16f)
             {
+                player.GetComponent<FirstPersonController>().enabled = false;
                 player.GetComponent<Animation>().Play("enteringVent");
-                yield return new WaitForSeconds(2f);
+                yield return new WaitForSeconds(1f);
                 player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, -16f);
+                yield return new WaitForSeconds(0.1f);
+                player.GetComponent<FirstPersonController>().enabled = true;
 
             }
-            else if (player.transform.position.z < -16f)
+            else if (player.transform.position.z < -15f)
             {
+                //player.GetComponent<FirstPersonController>().enabled = false;
                 player.GetComponent<Animation>().Play("enteringVent");
                 yield return new WaitForSeconds(2f);
                 player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, -15f);
-                
+                yield return new WaitForSeconds(0.5f);
+                //player.GetComponent<FirstPersonController>().enabled = true;
             }
         }
 
@@ -662,6 +683,12 @@ namespace Scripts
 
         IEnumerator TextOffAfterTime()
         {
+            if(newspaperTxt == true)
+            {
+                yield return new WaitForSeconds(5f);
+                newspaper.gameObject.SetActive(false);
+            }
+
             yield return new WaitForSeconds(2f);
             blockedtxt.gameObject.SetActive(false); 
             blockedDoortxt.gameObject.SetActive(false);

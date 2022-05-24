@@ -28,6 +28,7 @@ TagManager:
   - doll
   - dollContainer
   - SpawnroomPainting
+  - newspaper
   layers:
   - Default
   - TransparentFX
