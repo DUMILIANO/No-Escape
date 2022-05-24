@@ -55194,7 +55194,7 @@ MonoBehaviour:
   bookPos: {fileID: 1935479993}
   check: {fileID: 1333186711}
   hasKey: 0
-  hasScrewdriver: 1
+  hasScrewdriver: 0
   pendClock: {fileID: 1578326115}
   inventory: {fileID: 850075310}
   held: {fileID: 1649704528}
@@ -55244,6 +55244,7 @@ MonoBehaviour:
   portraitMoved: 0
   isSolved: {fileID: 1711064637}
   newspaperTxt: 0
+  hasDoll: 0
 --- !u!114 &1878288967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56939,7 +56940,7 @@ MonoBehaviour:
   locked: 1
   isRedDoor: 0
   isWhiteDoor: 0
-  key: {fileID: 0}
+  key: {fileID: 1232812858}
   openAnimationName: KCdoorOpen
   closeAnimationName: KCdoorClose
   doorOpeningSFX: {fileID: 8300000, guid: cbdd7c98e9c8c23408a1315c6014b95d, type: 3}

@@ -84,6 +84,7 @@ namespace Scripts
         public bool portraitMoved = false;
         public LockControl isSolved;
         public bool newspaperTxt = false;
+        public bool hasDoll = false;
 
 
         void Start()
@@ -416,7 +417,7 @@ namespace Scripts
                     }
                 }
 
-                else if(Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("dollContainer"))
+                else if(Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("dollContainer") && hasDoll == true)
                 {
                     CrosshairChange(true);
                     dollPos = hit.collider.transform;
@@ -602,6 +603,7 @@ namespace Scripts
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         pickup.Pick();
+                        hasDoll = true;
                         pickup.transform.localPosition = new Vector3 (-0.2f, 0f, 0f);
                         pickup.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
                     }
@@ -712,7 +714,8 @@ namespace Scripts
             player.GetComponent<Animation>().Play("BadEnding");
             yield return new WaitForSeconds(1f);
             panelBadEnding.GetComponent<Animation>().Play("BadEndingBlack");
-            
+            SceneManager.LoadScene(3);
+
         }
 
         IEnumerator GoodEnding()
