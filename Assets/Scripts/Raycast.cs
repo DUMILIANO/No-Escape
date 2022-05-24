@@ -78,6 +78,7 @@ namespace Scripts
         public GameObject rightHand;
         public GameObject panelBadEnding;
         public GameObject roomPainting;
+        public bool paintingDoOnce;
         public GameObject portraitPanel;
 
 
@@ -546,13 +547,13 @@ namespace Scripts
                     }
                 }
 
-                else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("SpawnroomPainting") && hasScrewdriver == true)
+                else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("SpawnroomPainting") && hasScrewdriver == true && paintingDoOnce == false)
                 {
                     CrosshairChange(true);
                     interact.gameObject.SetActive(true);
-
                     if (Input.GetKeyDown(KeyCode.E) && hasScrewdriver == true)
                     {
+                        paintingDoOnce = true;
                         player.GetComponent<FirstPersonController>(). enabled = false;
                         portraitPanel.GetComponent<Animation>().Play("breakingPanel");
                         StartCoroutine(BreakPainting());                  
