@@ -10,7 +10,7 @@ namespace Scripts
         private int[] result, correctCombination;
         public GameObject key;
         public MeshCollider[] lockCol;
-        public MeshRenderer[] lockwheel;
+        public GameObject[] children;
         public GameObject lockObj;
         public bool solved = false;
         public Raycast raycast;
@@ -54,15 +54,26 @@ namespace Scripts
                 {
                     collider.enabled = false;
                 }
-                foreach (MeshRenderer rend in lockwheel)
-                
+
+                for (int a = 0; a < transform.childCount; a++)
+                {
+                    transform.GetChild(a).gameObject.SetActive(false);
+                }
+                raycast.crosshair.enabled = true;
+                raycast.lockCam.SetActive(false);
+                raycast.player.SetActive(true);
+                inventoryUI.cursorIsLocked = true;
+                raycast.leaveLockTxt.gameObject.SetActive(false);
+                raycast.crosshair.color = Color.white;
+                raycast.propLock.SetActive(true);
+                StartCoroutine(LockSolved());
             }
 
         }
 
         IEnumerator LockSolved()
         {
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(0.5f);
             lockObj.GetComponent<Animation>().Play("lockanim");
         }
 

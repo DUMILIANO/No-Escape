@@ -49906,6 +49906,7 @@ MonoBehaviour:
   - {fileID: 483803392}
   - {fileID: 1285793462}
   - {fileID: 555921777}
+  children: []
   lockObj: {fileID: 1442936020}
   solved: 0
   raycast: {fileID: 1878288966}
