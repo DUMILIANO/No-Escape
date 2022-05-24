@@ -11401,7 +11401,7 @@ MonoBehaviour:
     m_Bits: 1
   enemy: {fileID: 381647604}
   player: {fileID: 1974573355}
-  collider: {fileID: 0}
+  collider: {fileID: 1326565554}
   character: {fileID: 381647600}
   audio: {fileID: 381647599}
   clip: {fileID: 8300000, guid: cc438e06c86201d4389e695f3e1a13e8, type: 3}
@@ -11415,13 +11415,13 @@ MonoBehaviour:
   scream: {fileID: 8300000, guid: 658eadc4bd25837478d2aad6b50e36ec, type: 3}
   inventoryUI: {fileID: 0}
   points:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 145110489}
+  - {fileID: 787624050}
+  - {fileID: 1540151709}
+  - {fileID: 1470473977}
+  - {fileID: 1907952226}
+  - {fileID: 1132511849}
+  - {fileID: 959827005}
   waitTimeCheck: 3
   phnUI: {fileID: 957751675}
   jumpscare: {fileID: 915655684}
