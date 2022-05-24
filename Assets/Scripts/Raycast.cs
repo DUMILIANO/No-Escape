@@ -80,6 +80,8 @@ namespace Scripts
         public GameObject roomPainting;
         public bool paintingDoOnce;
         public GameObject portraitPanel;
+        public bool portraitMoved = false;
+        public LockControl isSolved;
 
 
         void Start()
@@ -468,7 +470,7 @@ namespace Scripts
                         //doOnce = true;
                     }
                 }
-                else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("lock"))
+                else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("lock") && isSolved.solved == false)
                 {
                     CrosshairChange(true);
                     interact.gameObject.SetActive(true);
@@ -487,6 +489,18 @@ namespace Scripts
                         lockCamPP.SetActive(true);
                         player.SetActive(false);
                         inventoryUI.cursorIsLocked = !inventoryUI.cursorIsLocked;
+                    }
+
+                    if(isSolved.solved == true)
+                    {
+                        crosshair.enabled = true;
+                        lockCam.SetActive(false);
+                        player.SetActive(true);
+                        inventoryUI.cursorIsLocked = true;
+                        lockObject.SetActive(false);
+                        leaveLockTxt.gameObject.SetActive(false);
+
+
                     }
                 }
 
@@ -535,7 +549,7 @@ namespace Scripts
                     }
                     
                 }
-                else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("CorridorPainting") && finishedCutScene.CutSceneDone == true)
+                else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("CorridorPainting") && finishedCutScene.CutSceneDone == true && portraitMoved == false)
                 {
                     CrosshairChange(true);
                     interact.gameObject.SetActive(true);
@@ -543,6 +557,7 @@ namespace Scripts
 
                     if (Input.GetKeyDown(KeyCode.E))
                     {
+                        portraitMoved = true;
                         painting.GetComponent<Animation>().Play("paintingAnim");
                     }
                 }
