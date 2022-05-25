@@ -42,7 +42,6 @@ namespace Scripts
 
             if (raycast.inLockView == true && Input.GetKeyDown(KeyCode.E))
             {
-                Debug.Log("Pressed");
                 raycast.crosshair.enabled = true;
                 raycast.picktxt.enabled = true;
                 raycast.lockCam.SetActive(false);

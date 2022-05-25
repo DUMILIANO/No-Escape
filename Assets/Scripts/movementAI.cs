@@ -147,8 +147,6 @@ namespace Scripts
             if(enemy.remainingDistance > enemy.stoppingDistance)
             {
                 character.Move(enemy.desiredVelocity, false, false);
-                //audio.PlayOneShot(clip);
-                //audio.Play();
             }
             else
             {

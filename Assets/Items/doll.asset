@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: doll
   m_EditorClassIdentifier: 
   name: doll
-  icon: {fileID: 21300000, guid: 1537b67c1c7b013439e5d21cd9db56ea, type: 3}
+  icon: {fileID: 21300000, guid: a6eb6b09226d57a4795c8b2974b26cd6, type: 3}
   important: 1
   held: {fileID: 0}
   raycast: {fileID: 0}

@@ -67,6 +67,7 @@ namespace Scripts
         public GameObject propLock;
         public TMP_Text ventTxt;
         public TMP_Text iceTxt;
+        public TMP_Text newspaper;
         public bool inBasement = false;
         public Transform target;
         public Transform tpTarget;
@@ -80,6 +81,10 @@ namespace Scripts
         public GameObject roomPainting;
         public bool paintingDoOnce;
         public GameObject portraitPanel;
+        public bool portraitMoved = false;
+        public LockControl isSolved;
+        public bool newspaperTxt = false;
+        public bool hasDoll = false;
 
 
         void Start()
@@ -412,7 +417,7 @@ namespace Scripts
                     }
                 }
 
-                else if(Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("dollContainer"))
+                else if(Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("dollContainer") && hasDoll == true)
                 {
                     CrosshairChange(true);
                     dollPos = hit.collider.transform;
@@ -468,7 +473,7 @@ namespace Scripts
                         //doOnce = true;
                     }
                 }
-                else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("lock"))
+                else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("lock") && isSolved.solved == false)
                 {
                     CrosshairChange(true);
                     interact.gameObject.SetActive(true);
@@ -487,6 +492,18 @@ namespace Scripts
                         lockCamPP.SetActive(true);
                         player.SetActive(false);
                         inventoryUI.cursorIsLocked = !inventoryUI.cursorIsLocked;
+                    }
+
+                    if(isSolved.solved == true)
+                    {
+                        crosshair.enabled = true;
+                        lockCam.SetActive(false);
+                        player.SetActive(true);
+                        inventoryUI.cursorIsLocked = true;
+                        lockObject.SetActive(false);
+                        leaveLockTxt.gameObject.SetActive(false);
+
+
                     }
                 }
 
@@ -514,6 +531,7 @@ namespace Scripts
                     if (Input.GetKeyDown(KeyCode.E) && hasScrewdriver)
                     {
                         vent.GetComponent<Animator>().Play("ventScrew");
+                        vent.GetComponent<AudioSource>().Play();
                         GameObject.Find("ventEnterCollider").GetComponent<BoxCollider>().enabled = true;
                     }
                     else if (Input.GetKeyDown(KeyCode.E) && !hasScrewdriver)
@@ -535,7 +553,7 @@ namespace Scripts
                     }
                     
                 }
-                else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("CorridorPainting") && finishedCutScene.CutSceneDone == true)
+                else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("CorridorPainting") && finishedCutScene.CutSceneDone == true && portraitMoved == false)
                 {
                     CrosshairChange(true);
                     interact.gameObject.SetActive(true);
@@ -543,7 +561,22 @@ namespace Scripts
 
                     if (Input.GetKeyDown(KeyCode.E))
                     {
+                        portraitMoved = true;
                         painting.GetComponent<Animation>().Play("paintingAnim");
+                    }
+                }
+
+                else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("newspaper"))
+                {
+                    CrosshairChange(true);
+                    interact.gameObject.SetActive(true);
+                    picktxt.gameObject.SetActive(false);
+
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        newspaper.gameObject.SetActive(true);
+                        newspaperTxt = true;
+                        StartCoroutine(TextOffAfterTime());
                     }
                 }
 
@@ -571,6 +604,7 @@ namespace Scripts
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         pickup.Pick();
+                        hasDoll = true;
                         pickup.transform.localPosition = new Vector3 (-0.2f, 0f, 0f);
                         pickup.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
                     }
@@ -611,17 +645,24 @@ namespace Scripts
         {
             if(player.transform.position.z > -16f)
             {
+                player.GetComponent<FirstPersonController>().enabled = false;
                 player.GetComponent<Animation>().Play("enteringVent");
-                yield return new WaitForSeconds(2f);
+                Debug.Log("entering1");
+                yield return new WaitForSeconds(1f);
                 player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, -16f);
+                yield return new WaitForSeconds(0.1f);
+                player.GetComponent<FirstPersonController>().enabled = true;
 
             }
-            else if (player.transform.position.z < -16f)
+            else if (player.transform.position.z < -15f)
             {
+                player.GetComponent<FirstPersonController>().enabled = false;
                 player.GetComponent<Animation>().Play("enteringVent");
-                yield return new WaitForSeconds(2f);
+                yield return new WaitForSeconds(1f);
+                Debug.Log("entering2");
                 player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, -15f);
-                
+                yield return new WaitForSeconds(0.1f);
+                player.GetComponent<FirstPersonController>().enabled = true;
             }
         }
 
@@ -647,6 +688,12 @@ namespace Scripts
 
         IEnumerator TextOffAfterTime()
         {
+            if(newspaperTxt == true)
+            {
+                yield return new WaitForSeconds(5f);
+                newspaper.gameObject.SetActive(false);
+            }
+
             yield return new WaitForSeconds(2f);
             blockedtxt.gameObject.SetActive(false); 
             blockedDoortxt.gameObject.SetActive(false);
@@ -670,7 +717,8 @@ namespace Scripts
             player.GetComponent<Animation>().Play("BadEnding");
             yield return new WaitForSeconds(1f);
             panelBadEnding.GetComponent<Animation>().Play("BadEndingBlack");
-            
+            SceneManager.LoadScene(3);
+
         }
 
         IEnumerator GoodEnding()
