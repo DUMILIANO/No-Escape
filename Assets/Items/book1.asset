@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: book1
   m_EditorClassIdentifier: 
   name: book1
-  icon: {fileID: -5894601548046799420, guid: aa38c1b3f47ae0e42af233197ec9dce2, type: 3}
+  icon: {fileID: 7677287082793011797, guid: aa38c1b3f47ae0e42af233197ec9dce2, type: 3}
   important: 1
   held: {fileID: 0}
   raycast: {fileID: 0}
