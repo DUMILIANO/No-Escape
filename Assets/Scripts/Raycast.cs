@@ -85,6 +85,8 @@ namespace Scripts
         public LockControl isSolved;
         public bool newspaperTxt = false;
         public bool hasDoll = false;
+        public AudioSource deathAmbience;
+        public AudioSource whisper;
 
 
         void Start()
@@ -718,6 +720,8 @@ namespace Scripts
             yield return new WaitForSeconds(1f);
             panelBadEnding.GetComponent<Animation>().Play("BadEndingBlack");
             SceneManager.LoadScene(3);
+            deathAmbience.Play();
+            whisper.Play();
 
         }
 
