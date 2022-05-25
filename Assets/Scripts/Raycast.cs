@@ -706,6 +706,9 @@ namespace Scripts
 
         IEnumerator BadEnding()
         {
+            whisper.Play();
+            yield return new WaitForSeconds(0.5f);
+            deathAmbience.Play();
             crosshair.enabled = false;
             interact.enabled = false;
             player.GetComponent<Animation>().Play("PlayerInPos");
@@ -721,8 +724,6 @@ namespace Scripts
             panelBadEnding.GetComponent<Animation>().Play("BadEndingBlack");
             yield return new WaitForSeconds(2f);
             SceneManager.LoadScene(3);
-            deathAmbience.Play();
-            whisper.Play();
 
         }
 
