@@ -531,6 +531,7 @@ namespace Scripts
                     if (Input.GetKeyDown(KeyCode.E) && hasScrewdriver)
                     {
                         vent.GetComponent<Animator>().Play("ventScrew");
+                        vent.GetComponent<AudioSource>().Play();
                         GameObject.Find("ventEnterCollider").GetComponent<BoxCollider>().enabled = true;
                     }
                     else if (Input.GetKeyDown(KeyCode.E) && !hasScrewdriver)

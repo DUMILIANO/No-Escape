@@ -32,6 +32,7 @@ namespace Scripts
             {
                 screwdriver.transform.SetParent(container.transform);
                 iceCube.GetComponent<Animation>().Play("MeltingIce");
+                iceCube.GetComponent<AudioSource>().Play();
                 ice.gameObject.tag = "Untagged";
                 smoke.Play();
                 screwdriver.GetComponent<Animation>().Play("screwdriver");

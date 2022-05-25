@@ -66,6 +66,7 @@ namespace Scripts
                 bool wasPickedUp = Inventory.instance.Add(item);
                 if (wasPickedUp)
                 {
+                    this.gameObject.GetComponent<AudioSource>().Play();
                     SetLayerRecursively(this.gameObject, 7);
                     Debug.Log(this.gameObject);
                     equipped = true;

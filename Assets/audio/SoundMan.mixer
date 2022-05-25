@@ -19,6 +19,25 @@ AudioMixerGroupController:
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
+--- !u!243 &-8009897774549784090
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: iceMelting
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 597753c4d9ec0a34b929b534d62d8a19
+  m_Children: []
+  m_Volume: 6838eb6bc3783634b85f2d7dd1a28fc5
+  m_Pitch: 77d4cdb944031a748b2499f62970ae34
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -6422960211934482418}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 1
+  m_BypassEffects: 0
 --- !u!244 &-7949048245985527178
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
@@ -29,6 +48,20 @@ AudioMixerEffectController:
   m_EffectID: 65ef381cdbf426e488f86524f1e5c875
   m_EffectName: Attenuation
   m_MixLevel: 8b4e0fe476d98c340add1df41387467b
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!244 &-6422960211934482418
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 71739e3abeca0c84285efc459754ec04
+  m_EffectName: Attenuation
+  m_MixLevel: 687dcac535efa6b4eabd151cf6b0420a
   m_Parameters: []
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
@@ -108,6 +141,7 @@ AudioMixerController:
     - 048a431c47aa278499e4d6dbbc58b5d1
     - d7c407ce56107cf4a8a638a59adf0050
     - 15315b2b9c626d5419ead7d989ea77cb
+    - 597753c4d9ec0a34b929b534d62d8a19
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -125,6 +159,7 @@ AudioMixerGroupController:
   - {fileID: -999379737664325353}
   - {fileID: 5341652491056581612}
   - {fileID: -8402615949680031949}
+  - {fileID: -8009897774549784090}
   m_Volume: 2d21ca3ff81333a439ce3f8f5b5d60f2
   m_Pitch: d692d77a35ed85245a031bc5972f14fa
   m_Send: 00000000000000000000000000000000
