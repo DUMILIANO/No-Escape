@@ -59483,7 +59483,7 @@ Animation:
   m_GameObject: {fileID: 1974573355}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 828226f8c38ac2f47b99dfdbce20d175, type: 2}
+  m_Animation: {fileID: 7400000, guid: bef60b05b2aa96b4ca57133f375104c5, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: 828226f8c38ac2f47b99dfdbce20d175, type: 2}
   - {fileID: 7400000, guid: a131f7f543a7fd440ab4625646f7492c, type: 2}
@@ -59495,7 +59495,7 @@ Animation:
   - {fileID: 7400000, guid: d6dc38d4baf78e1448e1301d0d857cd8, type: 2}
   - {fileID: 7400000, guid: bef60b05b2aa96b4ca57133f375104c5, type: 2}
   m_WrapMode: 0
-  m_PlayAutomatically: 0
+  m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
 --- !u!4 &1974863115
@@ -59529,7 +59529,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: b5b4cf9615676a049bc4929d255710e2, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
