@@ -719,6 +719,7 @@ namespace Scripts
             player.GetComponent<Animation>().Play("BadEnding");
             yield return new WaitForSeconds(1f);
             panelBadEnding.GetComponent<Animation>().Play("BadEndingBlack");
+            yield return new WaitForSeconds(2f);
             SceneManager.LoadScene(3);
             deathAmbience.Play();
             whisper.Play();
