@@ -646,6 +646,7 @@ namespace Scripts
             {
                 player.GetComponent<FirstPersonController>().enabled = false;
                 player.GetComponent<Animation>().Play("enteringVent");
+                Debug.Log("entering1");
                 yield return new WaitForSeconds(1f);
                 player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, -16f);
                 yield return new WaitForSeconds(0.1f);
@@ -654,12 +655,13 @@ namespace Scripts
             }
             else if (player.transform.position.z < -15f)
             {
-                //player.GetComponent<FirstPersonController>().enabled = false;
+                player.GetComponent<FirstPersonController>().enabled = false;
                 player.GetComponent<Animation>().Play("enteringVent");
-                yield return new WaitForSeconds(2f);
+                yield return new WaitForSeconds(1f);
+                Debug.Log("entering2");
                 player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, -15f);
-                yield return new WaitForSeconds(0.5f);
-                //player.GetComponent<FirstPersonController>().enabled = true;
+                yield return new WaitForSeconds(0.1f);
+                player.GetComponent<FirstPersonController>().enabled = true;
             }
         }
 
