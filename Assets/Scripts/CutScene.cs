@@ -37,7 +37,10 @@ namespace Scripts
         public AudioSource ghostHeartbeat;
 
 
-
+        public void Start()
+        {
+            player.GetComponent<Animation>().Play("WakingUp");
+        }
         public void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.tag == "Player" && animPlayed == false && puzzleDone.puzzleComplete == true)

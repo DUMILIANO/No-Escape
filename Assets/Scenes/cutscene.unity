@@ -59518,9 +59518,9 @@ Animation:
   m_GameObject: {fileID: 1974573355}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: bef60b05b2aa96b4ca57133f375104c5, type: 2}
+  m_Animation: {fileID: 7400000, guid: 828226f8c38ac2f47b99dfdbce20d175, type: 2}
   m_Animations:
-  - {fileID: 7400000, guid: 828226f8c38ac2f47b99dfdbce20d175, type: 2}
+  - {fileID: 7400000, guid: 319407ecaf4e3004ab8791f00304da3b, type: 2}
   - {fileID: 7400000, guid: a131f7f543a7fd440ab4625646f7492c, type: 2}
   - {fileID: 7400000, guid: 4b51cb2f3fc90e540b143cc0b122a381, type: 2}
   - {fileID: 7400000, guid: f5dd82e57a87cee49aaab8418a2d27e3, type: 2}
@@ -59529,6 +59529,7 @@ Animation:
   - {fileID: 7400000, guid: 9bcad55469eb7b6488af11630849a43d, type: 2}
   - {fileID: 7400000, guid: d6dc38d4baf78e1448e1301d0d857cd8, type: 2}
   - {fileID: 7400000, guid: bef60b05b2aa96b4ca57133f375104c5, type: 2}
+  - {fileID: 7400000, guid: 828226f8c38ac2f47b99dfdbce20d175, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -59553,7 +59554,7 @@ Transform:
   - {fileID: 134991741}
   m_Father: {fileID: 0}
   m_RootOrder: 23
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -0.7144352, y: -12.456627, z: 0}
 --- !u!82 &1976369355
 AudioSource:
   m_ObjectHideFlags: 0
