@@ -9,9 +9,10 @@ namespace Scripts
     {
         public TMP_Text clockTxt;
         bool doOnce = true;
+        public bookChecker complete;
         private void OnTriggerEnter(Collider other)
         {
-            if (other.tag == "Player" && doOnce)
+            if (other.tag == "Player" && doOnce && complete.puzzleComplete == true)
             {
                 clockTxt.gameObject.SetActive(true);
                 StartCoroutine(textOff());

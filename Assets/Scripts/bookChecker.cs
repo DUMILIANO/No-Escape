@@ -11,7 +11,7 @@ namespace Scripts
         public List<GameObject> container = new List<GameObject>();
         public int count;
         public int allCount;
-        public bool puzzleComplete;
+        public bool puzzleComplete = false;
         bool doOnce = true;
         public string animationName;
         public Animator doorAnim;

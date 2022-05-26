@@ -29818,7 +29818,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &990948323
 AudioSource:
   m_ObjectHideFlags: 0
@@ -30110,8 +30110,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 990948322}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26, y: -0.758, z: -3.36}
-  m_LocalScale: {x: 1.6749, y: 1.6749, z: 1.6749}
+  m_LocalPosition: {x: 26.01, y: -0.85, z: -3.3424}
+  m_LocalScale: {x: 1.182091, y: 1.182091, z: 1.182091}
   m_Children:
   - {fileID: 1119361117}
   - {fileID: 915072455}
@@ -34773,6 +34773,39 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1221709494}
   m_CullTransparentMesh: 1
+--- !u!1 &1222289198 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7333631254909853010, guid: 8c4eddc679477ee4987116705e8828d0, type: 3}
+  m_PrefabInstance: {fileID: 542019638}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1222289202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1222289198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da9247983098e8d45ab9b67136ba6b10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  door: {fileID: 3455292421680977270}
+  complete: {fileID: 33197114}
+  doOnce: 1
+--- !u!65 &1222289203
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1222289198}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.66610557, y: 4.985827, z: 0.49624237}
+  m_Center: {x: 0.8076102, y: 1.4865234, z: 1.4284408}
 --- !u!1 &1223385480
 GameObject:
   m_ObjectHideFlags: 0
@@ -38124,6 +38157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clockTxt: {fileID: 429701254}
+  complete: {fileID: 0}
 --- !u!65 &1344700417
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -56889,6 +56923,7 @@ MonoBehaviour:
   hasDoll: 0
   deathAmbience: {fileID: 597800619}
   whisper: {fileID: 1127907926}
+  complete: {fileID: 33197114}
 --- !u!114 &1878288967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59505,8 +59540,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1974573355}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 39.7, y: -0.2427442, z: -18.07}
+  m_LocalRotation: {x: -0, y: -0.70711094, z: -0, w: -0.7071027}
+  m_LocalPosition: {x: 40.49, y: -0.2427442, z: -17.972}
   m_LocalScale: {x: 1, y: 0.87172, z: 1}
   m_Children:
   - {fileID: 1878288963}
@@ -59518,7 +59553,7 @@ Transform:
   - {fileID: 134991741}
   m_Father: {fileID: 0}
   m_RootOrder: 23
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1976369355
 AudioSource:
   m_ObjectHideFlags: 0
@@ -63392,7 +63427,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 87, y: -224.26}
+  m_AnchoredPosition: {x: 70.015, y: -183}
   m_SizeDelta: {x: 1614.374, y: 293.51}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2099577411
@@ -63415,9 +63450,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "It is beleived that the virgin haunts women that have not fulfiled their
-    purpose whilst alive. \n\nThere are rumours out there that to put the ghost to
-    rest, you have to bury it with some sort of man toy??"
+  m_text: 'It is believed that the virgin ghost would haunt newlywed couples and
+    girls their age to carry out their vengeance.
+
+
+    There were rumours that ceremonies
+    used to take place in order to lay these ghost to rest, which consisted of burying
+    a male doll with the body of the ghost.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9e9f999905ee1654bbb58bc769310d7c, type: 2}
   m_sharedMaterial: {fileID: 7381182251817044073, guid: 9e9f999905ee1654bbb58bc769310d7c, type: 2}
