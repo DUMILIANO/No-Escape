@@ -40,7 +40,7 @@ namespace Scripts
 					//forward speed more control than strafe
 					CurrentTargetSpeed = ForwardSpeed;
 				}
-	            if (Input.GetKey(RunKey))
+	            /*if (Input.GetKey(RunKey))
 	            {
 		            CurrentTargetSpeed *= RunMultiplier;
 		            m_Running = true;
@@ -48,7 +48,7 @@ namespace Scripts
 	            else
 	            {
 		            m_Running = false;
-	            }
+	            }*/
             }
 
             public bool Running

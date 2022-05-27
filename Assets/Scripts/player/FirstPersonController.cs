@@ -228,7 +228,7 @@ namespace Scripts
             m_IsWalking = !Input.GetKey(KeyCode.LeftShift);
 
             // walk run speed
-            speed = m_IsWalking ? m_WalkSpeed : m_RunSpeed;
+            speed = m_WalkSpeed;
             m_Input = new Vector2(horizontal, vertical);
 
             // normalize input if it exceeds 1 in combined length:
