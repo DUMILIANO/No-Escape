@@ -83,7 +83,6 @@ namespace Scripts
         public GameObject portraitPanel;
         public bool portraitMoved = false;
         public LockControl isSolved;
-        public bool newspaperTxt = false;
         public bool hasDoll = false;
         public AudioSource deathAmbience;
         public AudioSource whisper;
@@ -340,7 +339,7 @@ namespace Scripts
                         {
                             bookPos.GetChild(0).gameObject.SetActive(true);
 
-                            if(Input.GetKeyDown(KeyCode.E) && child.activeSelf && (child.name == "redBook" || child.name == "lBlueBook" || child.name == "blueBook" || child.name == "greenBook" || child.name == "pinkBook" || child.name == "orangeBook"))
+                            if(Input.GetKeyDown(KeyCode.Mouse0) && child.activeSelf && (child.name == "redBook" || child.name == "lBlueBook" || child.name == "blueBook" || child.name == "greenBook" || child.name == "pinkBook" || child.name == "orangeBook"))
                             {
                                 child.gameObject.layer = 0;
                                 child.transform.GetChild(0).gameObject.layer = 0;
@@ -406,7 +405,7 @@ namespace Scripts
                     stovePos = hit.collider.transform;
                     foreach(GameObject child in held.children)
                     {
-                        if(Input.GetKeyDown(KeyCode.E) && child.activeSelf && child.name == "Ice")
+                        if(Input.GetKeyDown(KeyCode.Mouse0) && child.activeSelf && child.name == "Ice")
                         {
                             PickUp iceScript = child.GetComponent<PickUp>();
                             child.transform.SetParent(stovePos);
@@ -426,7 +425,7 @@ namespace Scripts
                     dollPos = hit.collider.transform;
                     foreach(GameObject child in held.children)
                     {
-                        if(Input.GetKeyDown(KeyCode.E) && child.activeSelf && child.name == "doll")
+                        if(Input.GetKeyDown(KeyCode.Mouse0) && child.activeSelf && child.name == "doll")
                         {
                             PickUp doll = child.GetComponent<PickUp>();
                             child.transform.SetParent(dollPos);
@@ -569,20 +568,6 @@ namespace Scripts
                     }
                 }
 
-                else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("newspaper"))
-                {
-                    CrosshairChange(true);
-                    interact.gameObject.SetActive(true);
-                    picktxt.gameObject.SetActive(false);
-
-                    if (Input.GetKeyDown(KeyCode.E))
-                    {
-                        newspaper.gameObject.SetActive(true);
-                        newspaperTxt = true;
-                        StartCoroutine(TextOffAfterTime());
-                    }
-                }
-
                 else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("SpawnroomPainting") && hasScrewdriver == true && paintingDoOnce == false)
                 {
                     CrosshairChange(true);
@@ -691,12 +676,6 @@ namespace Scripts
 
         IEnumerator TextOffAfterTime()
         {
-            if(newspaperTxt == true)
-            {
-                yield return new WaitForSeconds(5f);
-                newspaper.gameObject.SetActive(false);
-            }
-
             yield return new WaitForSeconds(2f);
             blockedtxt.gameObject.SetActive(false); 
             blockedDoortxt.gameObject.SetActive(false);

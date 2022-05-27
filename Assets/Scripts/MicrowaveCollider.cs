@@ -9,23 +9,23 @@ namespace Scripts
     public class MicrowaveCollider : MonoBehaviour
     {
         public TMP_Text timeTxt;
-        bool doOnce = true;
+        
         private void OnTriggerEnter(Collider other)
         {
-            if (other.tag == "Player" && doOnce)
+            if (other.tag == "Player")
             {
                 timeTxt.gameObject.SetActive(true);
-                StartCoroutine(textOff());
-                doOnce = false;
             }
         }
 
-        IEnumerator textOff()
+        private void OnTriggerExit(Collider other)
         {
-            yield return new WaitForSeconds(2);
-            timeTxt.gameObject.SetActive(false);
-
+            if (other.tag == "Player")
+            {
+                timeTxt.gameObject.SetActive(false);
+            }
         }
+
     }
 }
 
