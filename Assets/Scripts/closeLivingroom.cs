@@ -15,13 +15,14 @@ namespace Scripts
         {
             if(other.tag == "Player" && complete.puzzleComplete == false && doOnce == true )
             {
-                door.PlayAnimation();
+                door.doorAnim.Play(door.closeAnimationName, 0, 0.0f);
                 door.locked = true;
                 doOnce = false;
             }
 
             else if(other.tag == "Player" && door.locked == true && complete.puzzleComplete == true)
             {
+                door.doorAnim.Play(door.openAnimationName, 0, 0.0f);
                 door.locked = false;
             }
         }

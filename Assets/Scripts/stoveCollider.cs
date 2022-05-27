@@ -10,22 +10,21 @@ namespace Scripts
     public class stoveCollider : MonoBehaviour
     {
         public TMP_Text stoveTxt;
-        bool doOnce = true;
+
         private void OnTriggerEnter(Collider other)
         {
-            if (other.tag == "Player" && doOnce)
+            if (other.tag == "Player")
             {
                 stoveTxt.gameObject.SetActive(true);
-                StartCoroutine(textOff());
-                doOnce = false;
             }
         }
 
-        IEnumerator textOff()
+        private void OnTriggerExit(Collider other)
         {
-            yield return new WaitForSeconds(2);
-            stoveTxt.gameObject.SetActive(false);
-
+            if (other.tag == "Player")
+            {
+                stoveTxt.gameObject.SetActive(false);
+            }
         }
     }
 }
