@@ -87,6 +87,7 @@ namespace Scripts
         public bool hasDoll = false;
         public AudioSource deathAmbience;
         public AudioSource whisper;
+        public bookChecker complete;
 
 
         void Start()
@@ -376,7 +377,7 @@ namespace Scripts
                         //doOnce = true;
                     }
                 }
-                else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("hours"))
+                else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("hours") && complete.puzzleComplete == true)
                 {
                     CrosshairChange(true);
                     interact.gameObject.SetActive(true);
@@ -388,7 +389,7 @@ namespace Scripts
                         pendClock.hours();
                     }
                 }
-                 else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("minutes"))
+                 else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("minutes") && complete.puzzleComplete == true)
                 {
                     CrosshairChange(true);
                     interact.gameObject.SetActive(true);

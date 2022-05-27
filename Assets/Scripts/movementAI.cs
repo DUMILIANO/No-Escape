@@ -39,6 +39,10 @@ namespace Scripts
         public PhoneUI phnUI;
 
         public GameObject jumpscare;
+        public GameObject jumpPanel;
+        public AudioClip ambience;
+        public GameObject wspp;
+        public AudioClip lights;
         
         IEnumerator checkPosition()
         {
@@ -178,7 +182,8 @@ namespace Scripts
             if(collision.gameObject.tag == "Player")
             {
                 Debug.Log("Dead");
-                StartCoroutine(deathScene());
+                jumpscare.SetActive(true);
+                this.gameObject.SetActive(false);
             }
         }
 
@@ -200,14 +205,19 @@ namespace Scripts
                 audio.Pause();
             }
         }
-        IEnumerator deathScene()
+        /*public IEnumerator deathScene()
         {
-            jumpscare.SetActive(true);
+            
+            wspp.SetActive(false);
+            audio.PlayOneShot(ambience);
+            audio.PlayOneShot(lights);
+            jumpPanel.SetActive(true);
+            yield return new WaitForSeconds(0.5f);
             audio.PlayOneShot(scream);
-            yield return new WaitForSeconds(4f);
+            yield return new WaitForSeconds(3f);
             SceneManager.LoadScene(2);
             inventoryUI.cursorIsLocked = !inventoryUI.cursorIsLocked;
-        }
+        }*/
     } 
 }
 

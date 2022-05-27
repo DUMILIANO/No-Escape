@@ -72,7 +72,7 @@ namespace Scripts
             phoneturnOn.Play();
         }
 
-        IEnumerator FinishAnim()
+        public IEnumerator FinishAnim()
         {
             phoneUI.SetActive(false); 
             inventoryUI.cursorIsLocked = !inventoryUI.cursorIsLocked;
