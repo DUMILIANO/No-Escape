@@ -36,7 +36,7 @@ namespace Scripts
         }
         public void Update()
         {
-            if(Input.GetKeyDown(KeyCode.X) && GameObject.Find("phone").GetComponent<PickUp>().equipped)
+            if(Input.GetKeyDown(KeyCode.Q) && GameObject.Find("phone").GetComponent<PickUp>().equipped)
             {
                 raycast.phoneText.gameObject.SetActive(false);
                 raycast.objectives.gameObject.SetActive(false);

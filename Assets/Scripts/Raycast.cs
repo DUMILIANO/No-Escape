@@ -87,7 +87,7 @@ namespace Scripts
         public AudioSource deathAmbience;
         public AudioSource whisper;
         public bookChecker complete;
-
+        public TMP_Text place;
 
         void Start()
         {
@@ -328,7 +328,7 @@ namespace Scripts
                 else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("container"))
                 {
                     CrosshairChange(true);
-                    interact.gameObject.SetActive(true);
+                    interact.gameObject.SetActive(false);
                     picktxt.gameObject.SetActive(false);
                     bookPos = hit.collider.transform;
                     
@@ -338,8 +338,9 @@ namespace Scripts
                         if(child.activeSelf && (child.name == "redBook" || child.name == "lBlueBook" || child.name == "blueBook" || child.name == "greenBook" || child.name == "pinkBook" || child.name == "orangeBook"))
                         {
                             bookPos.GetChild(0).gameObject.SetActive(true);
+                            place.gameObject.SetActive(true);
 
-                            if(Input.GetKeyDown(KeyCode.Mouse0) && child.activeSelf && (child.name == "redBook" || child.name == "lBlueBook" || child.name == "blueBook" || child.name == "greenBook" || child.name == "pinkBook" || child.name == "orangeBook"))
+                            if (Input.GetKeyDown(KeyCode.Mouse0) && child.activeSelf && (child.name == "redBook" || child.name == "lBlueBook" || child.name == "blueBook" || child.name == "greenBook" || child.name == "pinkBook" || child.name == "orangeBook"))
                             {
                                 child.gameObject.layer = 0;
                                 child.transform.GetChild(0).gameObject.layer = 0;
@@ -422,6 +423,7 @@ namespace Scripts
                 else if(Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("dollContainer") && hasDoll == true)
                 {
                     CrosshairChange(true);
+                    place.gameObject.SetActive(true);
                     dollPos = hit.collider.transform;
                     foreach(GameObject child in held.children)
                     {
@@ -586,8 +588,8 @@ namespace Scripts
                 {
                     CrosshairChange(true);
                     pickup = hit.collider.gameObject.GetComponent<PickUp>();
-                    interact.gameObject.SetActive(true);
-                    picktxt.gameObject.SetActive(false);
+                    interact.gameObject.SetActive(false);
+                    picktxt.gameObject.SetActive(true);
 
                     if (Input.GetKeyDown(KeyCode.E))
                     {
@@ -601,6 +603,7 @@ namespace Scripts
                 {
                     interact.gameObject.SetActive(false);
                     picktxt.gameObject.SetActive(false);
+                    place.gameObject.SetActive(false);
                     CrosshairChange(false);
                     //doOnce = false;
                     bookPos.GetChild(0).gameObject.SetActive(false);
@@ -704,6 +707,7 @@ namespace Scripts
             panelBadEnding.GetComponent<Animation>().Play("BadEndingBlack");
             yield return new WaitForSeconds(2f);
             SceneManager.LoadScene(3);
+            
 
         }
 
@@ -713,6 +717,7 @@ namespace Scripts
             panel.GetComponent<Animation>().Play("endingfade");
             yield return new WaitForSeconds(2f);
             SceneManager.LoadScene(3);
+            
         }
     }
 }
