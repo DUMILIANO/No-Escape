@@ -10,6 +10,7 @@ namespace Scripts
 {
     public class movementAI : MonoBehaviour
     {
+        public bool doOnce = false;
         public float viewRadius = 15;
         public LayerMask playerMask;
         public float viewAngle = 90;
@@ -193,8 +194,12 @@ namespace Scripts
             {
                 hittable = true;
                 Debug.Log("Heartbeatttt");
-                raycast.gettingCloser.gameObject.SetActive(true);
-                StartCoroutine(TextOff());
+                if(doOnce == false)
+                {
+                    raycast.gettingCloser.gameObject.SetActive(true);
+                    StartCoroutine(TextOff());
+                    doOnce = true;
+                }
                 audio.Play();
             }
         }
