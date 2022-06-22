@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
+
 namespace Scripts
 {
     public class bookChecker : MonoBehaviour
@@ -17,6 +19,7 @@ namespace Scripts
         public Animator doorAnim;
         bool doOnceBooks = true;
         public TMP_Text bookShelfHint;
+        public Animation nextScene;
 
 
         void Update()
@@ -46,16 +49,19 @@ namespace Scripts
 
             if(puzzleComplete && doOnce)
             {
-                door.audio.PlayOneShot(door.doorOpeningSFX);
-                doorAnim.Play(animationName);
-                doOnce = false;
-                
+                nextScene.Play();
+                StartCoroutine(NextScene());
             }
         }
         IEnumerator TextOffAfterTime()
         {
             yield return new WaitForSeconds(2f);
             bookShelfHint.gameObject.SetActive(false); 
+        }
+        IEnumerator NextScene()
+        {
+            yield return new WaitForSeconds(1f);
+            SceneManager.LoadScene(4);
         }
     }
 }

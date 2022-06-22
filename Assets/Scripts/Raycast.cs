@@ -336,12 +336,11 @@ namespace Scripts
                 }
                 else if (Physics.Raycast(transform.position, fwd, out hit, raylength, mask) && hit.collider.CompareTag("container"))
                 {
-                    CrosshairChange(true);
+                    CrosshairChange(false);
                     interact.gameObject.SetActive(false);
                     picktxt.gameObject.SetActive(false);
                     bookPos = hit.collider.transform;
-                    
-                    
+                                       
                     foreach(GameObject child in held.children)
                     {
                         if(child.activeSelf && (child.name == "redBook" || child.name == "lBlueBook" || child.name == "blueBook" || child.name == "greenBook" || child.name == "pinkBook" || child.name == "orangeBook"))

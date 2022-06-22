@@ -35,11 +35,16 @@ namespace Scripts
         public GameObject closedPanel;
         public AudioSource ghostWhisper;
         public AudioSource ghostHeartbeat;
+        public bool doOnce = false;
 
 
         public void Start()
         {
-            player.GetComponent<Animation>().Play("WakingUp");
+            if(doOnce == false)
+            {
+                player.GetComponent<Animation>().Play("WakingUp");
+                doOnce = true;
+            }
         }
         public void OnTriggerEnter(Collider other)
         {
