@@ -16,7 +16,7 @@ namespace Scripts
         public InventoryUI inventoryUI;
         public bool pressed = false;
         public float rotateSpeed = 2.719166f;
-        bool inLockView = false;
+        public bool inLockView = false;
         public Raycast raycast;
         public string name;
 
@@ -40,7 +40,7 @@ namespace Scripts
         private void Update()
         {
 
-            if (raycast.inLockView == true && Input.GetKeyDown(KeyCode.E))
+            if (raycast.inLockView == true && Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Escape))
             {
                 raycast.crosshair.enabled = true;
                 raycast.picktxt.enabled = true;

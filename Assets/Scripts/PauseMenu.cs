@@ -17,6 +17,7 @@ namespace Scripts
         public GameObject ControlsMenu;
         public GameObject DisplayMenu;
         public GameObject Inventory;
+        public Raycast inlock;
 
 
         // Start is called before the first frame update
@@ -28,7 +29,7 @@ namespace Scripts
         // Update is called once per frame
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Escape) && inlock.inLockView == false)
             {
 
                 if (GameIsPaused)

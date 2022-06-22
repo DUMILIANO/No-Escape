@@ -88,6 +88,9 @@ namespace Scripts
         public AudioSource whisper;
         public bookChecker complete;
         public TMP_Text place;
+        public TMP_Text gettingCloser;
+        public TMP_Text exitDoor;
+        public GameObject pausedMenu;
 
         void Start()
         {
@@ -150,6 +153,12 @@ namespace Scripts
                             blockedtxt.gameObject.SetActive(true);
                             StartCoroutine(TextOffAfterTime());
                             
+                        }
+                        if (door.name == "exitDoor" && Input.GetKeyDown(KeyCode.E))
+                        {
+                            exitDoor.gameObject.SetActive(true);
+                            StartCoroutine(TextOffAfterTime());
+
                         }
                         if (door.isWhiteDoor)
                         {
@@ -216,6 +225,7 @@ namespace Scripts
                                 }
                             }
                         }
+
                     }
 
                     
@@ -225,7 +235,7 @@ namespace Scripts
                         StartCoroutine(EnterHouse());
                     }
 
-                    if (Input.GetKeyDown(KeyCode.E) && door.locked)
+                    if (Input.GetKeyDown(KeyCode.E) && door.locked && door.name != "exitDoor")
                     {
                         door.audio.PlayOneShot(door.doorLockedSFX);
                         if(door.name != "storageDoor")
@@ -233,7 +243,6 @@ namespace Scripts
                             blockedDoortxt.gameObject.SetActive(true);
                             StartCoroutine(TextOffAfterTime());
                         }
-                        
                     }
                     else if (Input.GetKeyDown(KeyCode.E) && door.locked == false && door.name == "basementHouseDoor")
                     {
@@ -685,6 +694,7 @@ namespace Scripts
             bookTxt.gameObject.SetActive(false);
             ventTxt.gameObject.SetActive(false);
             iceTxt.gameObject.SetActive(false);
+            exitDoor.gameObject.SetActive(false);
         }
 
         IEnumerator BadEnding()

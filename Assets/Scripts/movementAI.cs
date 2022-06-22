@@ -18,7 +18,7 @@ namespace Scripts
         public GameObject player;
         public GameObject collider;
         public ThirdPersonCharacter character;
-
+        public Raycast raycast;
         public AudioSource audio; 
         public AudioClip clip;
         [SerializeField]AudioClip[] audioClip;
@@ -192,7 +192,9 @@ namespace Scripts
             if(other.tag == "collider")
             {
                 hittable = true;
-                Debug.Log("Heartbeat");
+                Debug.Log("Heartbeatttt");
+                raycast.gettingCloser.gameObject.SetActive(true);
+                StartCoroutine(TextOff());
                 audio.Play();
             }
         }
@@ -205,19 +207,11 @@ namespace Scripts
                 audio.Pause();
             }
         }
-        /*public IEnumerator deathScene()
+        public IEnumerator TextOff()
         {
-            
-            wspp.SetActive(false);
-            audio.PlayOneShot(ambience);
-            audio.PlayOneShot(lights);
-            jumpPanel.SetActive(true);
-            yield return new WaitForSeconds(0.5f);
-            audio.PlayOneShot(scream);
-            yield return new WaitForSeconds(3f);
-            SceneManager.LoadScene(2);
-            inventoryUI.cursorIsLocked = !inventoryUI.cursorIsLocked;
-        }*/
+            yield return new WaitForSeconds(3);
+            raycast.gettingCloser.gameObject.SetActive(false);
+        }
     } 
 }
 
