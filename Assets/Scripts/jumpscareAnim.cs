@@ -35,7 +35,6 @@ namespace Scripts
                 audio.PlayOneShot(ambience);
                 audio.PlayOneShot(lights);
                 jumpPanel.SetActive(true);
-                yield return new WaitForSeconds(0.5f);
                 audio.PlayOneShot(scream);
                 yield return new WaitForSeconds(3f);
                 SceneManager.LoadScene(2);

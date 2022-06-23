@@ -91,6 +91,7 @@ namespace Scripts
         public TMP_Text gettingCloser;
         public TMP_Text exitDoor;
         public GameObject pausedMenu;
+        
 
         void Start()
         {
@@ -113,6 +114,7 @@ namespace Scripts
         // Update is called once per frame
         void Update()
         {
+            
 
             if(bookPos != null)
             {
@@ -607,6 +609,8 @@ namespace Scripts
                         pickup.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
                     }
                 }
+
+                
                 else
                 {
                     interact.gameObject.SetActive(false);

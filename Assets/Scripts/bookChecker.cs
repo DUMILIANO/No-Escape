@@ -20,6 +20,7 @@ namespace Scripts
         bool doOnceBooks = true;
         public TMP_Text bookShelfHint;
         public Animation nextScene;
+        public TMP_Text dropPhoneText;
 
 
         void Update()
@@ -56,12 +57,17 @@ namespace Scripts
         IEnumerator TextOffAfterTime()
         {
             yield return new WaitForSeconds(2f);
-            bookShelfHint.gameObject.SetActive(false); 
+            bookShelfHint.gameObject.SetActive(false);
+            dropPhoneText.gameObject.SetActive(false);
         }
         IEnumerator NextScene()
         {
             yield return new WaitForSeconds(1f);
             SceneManager.LoadScene(4);
+            yield return new WaitForSeconds(1f);
+            dropPhoneText.gameObject.SetActive(true);
+            StartCoroutine(TextOffAfterTime());
+
         }
     }
 }
