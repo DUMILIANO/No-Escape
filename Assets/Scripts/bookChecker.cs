@@ -65,6 +65,7 @@ namespace Scripts
             yield return new WaitForSeconds(1f);
             SceneManager.LoadScene(4);
             yield return new WaitForSeconds(1f);
+            Debug.Log("Running");
             dropPhoneText.gameObject.SetActive(true);
             StartCoroutine(TextOffAfterTime());
 
