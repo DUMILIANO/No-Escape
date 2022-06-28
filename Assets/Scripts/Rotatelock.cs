@@ -40,7 +40,7 @@ namespace Scripts
         private void Update()
         {
 
-            if (raycast.inLockView == true && Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Escape))
+            if (raycast.inLockView == true && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("BackLock")))
             {
                 raycast.crosshair.enabled = true;
                 raycast.picktxt.enabled = true;
@@ -50,11 +50,10 @@ namespace Scripts
                 raycast.lockObject.SetActive(false);
                 raycast.leaveLockTxt.gameObject.SetActive(false);
                 raycast.propLock.SetActive(true);
+                raycast.inLockView = false;
 
             }
-
         }
-
 
         IEnumerator RotateWheel()
         {

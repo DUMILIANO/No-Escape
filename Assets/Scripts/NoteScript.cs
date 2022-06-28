@@ -21,7 +21,7 @@ namespace Scripts
         private void Update()
         {
 
-            if (raycast.inNoteView == true && Input.GetKeyDown(KeyCode.E))
+            if (raycast.inNoteView == true && (Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("Note")))
             {
                 Debug.Log("Pressed");
                 raycast.crosshair.enabled = true;

@@ -1,16 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
-
 
 namespace Scripts
 {
     public class Raycast : MonoBehaviour
     {
-        [SerializeField] private float raylength = 2.5f;
+        public float raylength = 2.5f;
         [SerializeField] private LayerMask layerMaskInteract;
         [SerializeField] private string excludeLayerName = null;
         [SerializeField] private KeyCode openDoorKey = KeyCode.Mouse0;
@@ -91,11 +91,10 @@ namespace Scripts
         public TMP_Text gettingCloser;
         public TMP_Text exitDoor;
         public GameObject pausedMenu;
-        
 
         void Start()
         {
-            picktxt.gameObject.SetActive(false);
+            picktxt.gameObject.SetActive(false);         
         }
 
         public void noteAnim()
@@ -114,12 +113,11 @@ namespace Scripts
         // Update is called once per frame
         void Update()
         {
-            
-
-            if(bookPos != null)
+            if (bookPos != null)
             {
                 bookPos.GetChild(0).gameObject.SetActive(false);
             }
+
             RaycastHit hit;
             RaycastHit bHit;
             Vector3 fwd = transform.TransformDirection(Vector3.forward);
@@ -136,7 +134,9 @@ namespace Scripts
                     interact.gameObject.SetActive(true);
                     picktxt.gameObject.SetActive(false);
                     pickup = hit.collider.gameObject.GetComponent<PickUp>();
-                    if (Input.GetKey(KeyCode.E))
+                    
+
+                    if (Input.GetKey(KeyCode.E) || Input.GetKey("Square Button"))
                     {
                         pickup.Pick();
                         isCrosshairActive = true;
@@ -150,13 +150,13 @@ namespace Scripts
                     picktxt.gameObject.SetActive(false);
                     if(door.locked)
                     {
-                        if(door.name == "storageDoor" && Input.GetKeyDown(KeyCode.E))
+                        if(door.name == "storageDoor" && (Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("X Button")))
                         {
                             blockedtxt.gameObject.SetActive(true);
                             StartCoroutine(TextOffAfterTime());
                             
                         }
-                        if (door.name == "exitDoor" && Input.GetKeyDown(KeyCode.E))
+                        if (door.name == "exitDoor" && (Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("X Button")))
                         {
                             exitDoor.gameObject.SetActive(true);
                             StartCoroutine(TextOffAfterTime());
@@ -166,7 +166,7 @@ namespace Scripts
                         {
                             if(door.key.GetComponent<PickUp>().equipped)
                             {
-                                if(Input.GetKeyDown(KeyCode.E) && hasKey)
+                                if((Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("X Button")) && hasKey)
                                 {
                                     door.locked = false;
                                     door.audio.PlayOneShot(door.doorOpeningSFX);
@@ -177,7 +177,7 @@ namespace Scripts
                                 }
                             }
                         }
-                        if (door.name == "basementHouseDoor" && Input.GetKeyDown(KeyCode.E) && hasKey && door.key.GetComponent<PickUp>().equipped)
+                        if (door.name == "basementHouseDoor" && (Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("X Button")) && hasKey && door.key.GetComponent<PickUp>().equipped)
                         {
                             Debug.Log("WOadas");
                             StartCoroutine(EnterBasement());
@@ -192,7 +192,7 @@ namespace Scripts
                         {
                             if(door.key.GetComponent<PickUp>().equipped)
                             {
-                                if(Input.GetKeyDown(KeyCode.E) && hasKey)
+                                if((Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("X Button")) && hasKey)
                                 {
                                     Debug.Log("NO THIS ONE");
                                     door.locked = false;
@@ -211,7 +211,7 @@ namespace Scripts
                         {
                             if (door.key.GetComponent<PickUp>().equipped)
                             {
-                                if (Input.GetKeyDown(KeyCode.E) && hasKey)
+                                if ((Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("X Button")) && hasKey)
                                 {
                                     Debug.Log("THIS ONE");
                                     door.locked = false;
@@ -232,12 +232,12 @@ namespace Scripts
 
                     
 
-                    if (door.name == "basementDoor" && Input.GetKeyDown(KeyCode.E))
+                    if (door.name == "basementDoor" && (Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("X Button")))
                     {
                         StartCoroutine(EnterHouse());
                     }
 
-                    if (Input.GetKeyDown(KeyCode.E) && door.locked && door.name != "exitDoor")
+                    if ((Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("X Button")) && door.locked && door.name != "exitDoor")
                     {
                         door.audio.PlayOneShot(door.doorLockedSFX);
                         if(door.name != "storageDoor")
@@ -246,13 +246,13 @@ namespace Scripts
                             StartCoroutine(TextOffAfterTime());
                         }
                     }
-                    else if (Input.GetKeyDown(KeyCode.E) && door.locked == false && door.name == "basementHouseDoor")
+                    else if ((Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("X Button")) && door.locked == false && door.name == "basementHouseDoor")
                     {
                         Debug.Log("working");
                         StartCoroutine(EnterBasement());
                         isCrosshairActive = true;
                     }                  
-                    else if (Input.GetKeyDown(KeyCode.E) && door.locked == false && !door.doOnce)
+                    else if ((Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("X Button")) && door.locked == false && !door.doOnce)
                     {
                         Debug.Log("working");
                         door.PlayAnimation();
@@ -268,7 +268,7 @@ namespace Scripts
                     picktxt.gameObject.SetActive(true);
                     interact.gameObject.SetActive(false);
 
-                    if (Input.GetKeyDown(KeyCode.E))
+                    if (Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("Square Button"))
                     {
                         pickup.Pick();
                         hasKey = true;
@@ -289,7 +289,7 @@ namespace Scripts
                     }
                     
 
-                    if (Input.GetKeyDown(KeyCode.E))
+                    if (Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("Square Button"))
                     {
                         pickup.Pick();
                         StartCoroutine(TextOffAfterTime());
@@ -322,7 +322,7 @@ namespace Scripts
                     picktxt.gameObject.SetActive(true);
                     interact.gameObject.SetActive(false);
 
-                    if (Input.GetKeyDown(KeyCode.E))
+                    if (Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("Square Button"))
                     {
                         phoneText.gameObject.SetActive(true);
                         objectives.gameObject.SetActive(true);
@@ -350,7 +350,7 @@ namespace Scripts
                             bookPos.GetChild(0).gameObject.SetActive(true);
                             place.gameObject.SetActive(true);
 
-                            if (Input.GetKeyDown(KeyCode.Mouse0) && child.activeSelf && (child.name == "redBook" || child.name == "lBlueBook" || child.name == "blueBook" || child.name == "greenBook" || child.name == "pinkBook" || child.name == "orangeBook"))
+                            if ((Input.GetKeyDown(KeyCode.Mouse0) || Input.GetButtonDown("X Button")) && child.activeSelf && (child.name == "redBook" || child.name == "lBlueBook" || child.name == "blueBook" || child.name == "greenBook" || child.name == "pinkBook" || child.name == "orangeBook"))
                             {
                                 child.gameObject.layer = 0;
                                 child.transform.GetChild(0).gameObject.layer = 0;
@@ -361,7 +361,9 @@ namespace Scripts
                                 child.transform.localScale = Vector3.one;
                                 inventory.Remove(bookScript.item);
                                 held.Remove(child);
-                                
+                                place.gameObject.SetActive(false);
+
+
                                 bookPos.GetComponent<bookContainer>().Check();
                                 
                             }
@@ -377,7 +379,7 @@ namespace Scripts
                     interact.gameObject.SetActive(true);
                     picktxt.gameObject.SetActive(false);
 
-                    if (Input.GetKeyDown(KeyCode.E) && !drawer.doOnce)
+                    if ((Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("X Button")) && !drawer.doOnce)
                     {
                         
                         drawer.PlayAnimation();
@@ -394,7 +396,7 @@ namespace Scripts
                     picktxt.gameObject.SetActive(false);
                     hours = hit.collider.transform;
                     
-                    if (Input.GetKeyDown(KeyCode.E))
+                    if (Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("X Button"))
                     {
                         pendClock.hours();
                     }
@@ -406,7 +408,7 @@ namespace Scripts
                     picktxt.gameObject.SetActive(false);
                     hours = hit.collider.transform;
                     
-                    if (Input.GetKeyDown(KeyCode.E))
+                    if (Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("X Button"))
                     {
                         pendClock.minutes();
                     }
@@ -416,7 +418,7 @@ namespace Scripts
                     stovePos = hit.collider.transform;
                     foreach(GameObject child in held.children)
                     {
-                        if(Input.GetKeyDown(KeyCode.Mouse0) && child.activeSelf && child.name == "Ice")
+                        if((Input.GetKeyDown(KeyCode.Mouse0) || Input.GetButtonDown("X Button")) && child.activeSelf && child.name == "Ice")
                         {
                             PickUp iceScript = child.GetComponent<PickUp>();
                             child.transform.SetParent(stovePos);
@@ -437,7 +439,7 @@ namespace Scripts
                     dollPos = hit.collider.transform;
                     foreach(GameObject child in held.children)
                     {
-                        if(Input.GetKeyDown(KeyCode.Mouse0) && child.activeSelf && child.name == "doll")
+                        if((Input.GetKeyDown(KeyCode.Mouse0) || Input.GetButtonDown("X Button")) && child.activeSelf && child.name == "doll")
                         {
                             PickUp doll = child.GetComponent<PickUp>();
                             child.transform.SetParent(dollPos);
@@ -459,7 +461,7 @@ namespace Scripts
                     interact.gameObject.SetActive(false);
 
 
-                    if (Input.GetKeyDown(KeyCode.E))
+                    if (Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("Square Button"))
                     {
                         iceTxt.gameObject.SetActive(true);
                         StartCoroutine(TextOffAfterTime());
@@ -476,7 +478,7 @@ namespace Scripts
                     picktxt.gameObject.SetActive(true);
                     interact.gameObject.SetActive(false);
 
-                    if (Input.GetKeyDown(KeyCode.E))
+                    if (Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("Square Button"))
                     {
                         Debug.Log(pickup.item.name);
                         pickup.Pick();
@@ -494,8 +496,9 @@ namespace Scripts
                     picktxt.gameObject.SetActive(false);
                     lockScript = hit.collider.gameObject.GetComponent<Rotatelock>();
 
-                    if (Input.GetKeyDown(KeyCode.E))
+                    if (Input.GetKeyDown(KeyCode.E) || (Input.GetButtonDown("X Button")))
                     {
+                        
                         leaveLockTxt.gameObject.SetActive(true);
                         propLock.SetActive(false);
                         lockObject.SetActive(true);                     
@@ -506,6 +509,7 @@ namespace Scripts
                         lockCamPP.SetActive(true);
                         player.SetActive(false);
                         inventoryUI.cursorIsLocked = !inventoryUI.cursorIsLocked;
+                        
                     }
 
                     if(isSolved.solved == true)
@@ -513,11 +517,10 @@ namespace Scripts
                         crosshair.enabled = true;
                         lockCam.SetActive(false);
                         player.SetActive(true);
+                        inLockView = false;
                         inventoryUI.cursorIsLocked = true;
                         lockObject.SetActive(false);
                         leaveLockTxt.gameObject.SetActive(false);
-
-
                     }
                 }
 
@@ -529,7 +532,7 @@ namespace Scripts
                     
                     //noteScript = hit.collider.gameObject.GetComponent<NoteScript>();
 
-                    if (Input.GetKeyDown(KeyCode.E))
+                    if (Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("X Button"))
                     {
                         noteAnim();
 
@@ -542,13 +545,13 @@ namespace Scripts
                     picktxt.gameObject.SetActive(false);
                     var vent = hit.collider.gameObject;
 
-                    if (Input.GetKeyDown(KeyCode.E) && hasScrewdriver)
+                    if ((Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("X Button")) && hasScrewdriver)
                     {
                         vent.GetComponent<Animator>().Play("ventScrew");
                         vent.GetComponent<AudioSource>().Play();
                         GameObject.Find("ventEnterCollider").GetComponent<BoxCollider>().enabled = true;
                     }
-                    else if (Input.GetKeyDown(KeyCode.E) && !hasScrewdriver)
+                    else if ((Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("X Button")) && !hasScrewdriver)
                     {
                         ventTxt.gameObject.SetActive(true);
                         StartCoroutine(TextOffAfterTime());
@@ -561,7 +564,7 @@ namespace Scripts
                     picktxt.gameObject.SetActive(false);
                     var ventCol = hit.collider.gameObject;
 
-                    if (Input.GetKeyDown(KeyCode.E))
+                    if ((Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("X Button")))
                     {
                         StartCoroutine(EnterVent());
                     }
@@ -573,7 +576,7 @@ namespace Scripts
                     interact.gameObject.SetActive(true);
                     picktxt.gameObject.SetActive(false);
 
-                    if (Input.GetKeyDown(KeyCode.E))
+                    if ((Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("X Button")))
                     {
                         portraitMoved = true;
                         painting.GetComponent<Animation>().Play("paintingAnim");
@@ -584,7 +587,7 @@ namespace Scripts
                 {
                     CrosshairChange(true);
                     interact.gameObject.SetActive(true);
-                    if (Input.GetKeyDown(KeyCode.E) && hasScrewdriver == true)
+                    if ((Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("X Button")) && hasScrewdriver == true)
                     {
                         paintingDoOnce = true;
                         player.GetComponent<FirstPersonController>(). enabled = false;
@@ -601,7 +604,7 @@ namespace Scripts
                     interact.gameObject.SetActive(false);
                     picktxt.gameObject.SetActive(true);
 
-                    if (Input.GetKeyDown(KeyCode.E))
+                    if (Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("Square Button"))
                     {
                         pickup.Pick();
                         hasDoll = true;

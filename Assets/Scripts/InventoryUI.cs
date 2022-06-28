@@ -12,6 +12,8 @@ namespace Scripts
         public bool cursorIsLocked = true;
         public GameObject invText;
         public PauseMenu menuScript;
+        
+        
 
         // Start is called before the first frame update
         void Start()
@@ -24,8 +26,9 @@ namespace Scripts
         // Update is called once per frame
         void Update()
         {
-            if(Input.GetKeyDown(KeyCode.I) && PauseMenu.GameIsPaused == false)
+            if((Input.GetKeyDown(KeyCode.I) || Input.GetButtonDown("Triangle")) && PauseMenu.GameIsPaused == false )
             {
+                
                 invText.gameObject.SetActive(false);
                 inventoryUI.SetActive(!inventoryUI.activeSelf);
                 
@@ -41,6 +44,7 @@ namespace Scripts
             }
             else
             {
+                
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
             }

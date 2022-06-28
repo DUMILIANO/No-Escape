@@ -18,6 +18,7 @@ namespace Scripts
         public GameObject DisplayMenu;
         public GameObject Inventory;
         public Raycast inlock;
+        public bool inMenu = false;
 
 
         // Start is called before the first frame update
@@ -29,17 +30,19 @@ namespace Scripts
         // Update is called once per frame
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Escape) && inlock.inLockView == false)
+            if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Pause Button")) && inlock.inLockView == false)
             {
 
                 if (GameIsPaused)
                 {
+                    inventoryUi.cursorIsLocked = true;
                     Resume();
 
                 }
                 else
                 {
                     Pause();
+                    
                 }
             }
         }
@@ -58,13 +61,13 @@ namespace Scripts
         }
 
         public void Pause()
-        {
-            inventoryUi.cursorIsLocked = false;
+        {   
             Inventory.SetActive(false);
             PausedMenu.SetActive(true);
             PauseMenuUI.SetActive(true);
             Time.timeScale = 0f;
             GameIsPaused = true;
+            inventoryUi.cursorIsLocked = false;
         }
     
 
