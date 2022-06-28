@@ -7718,7 +7718,6 @@ Animation:
   m_Animations:
   - {fileID: 7400000, guid: d6dc38d4baf78e1448e1301d0d857cd8, type: 2}
   - {fileID: 7400000, guid: 3f706ca8b61fb8c4696c7359ea69ae6d, type: 2}
-  - {fileID: 0}
   - {fileID: 7400000, guid: 872bfad42ce56ba49931611d9b933b7d, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 0
@@ -23666,7 +23665,7 @@ MonoBehaviour:
   emissionPanel: {fileID: 1392680859}
   shadowPanel: {fileID: 1034353754}
   blinking: 0
-  CutSceneDone: 1
+  CutSceneDone: 0
   timeDelay: 0
   ghostAI: {fileID: 990948322}
   menu: {fileID: 957751675}
@@ -57940,7 +57939,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1796613034
 MonoBehaviour:
   m_ObjectHideFlags: 0

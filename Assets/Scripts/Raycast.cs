@@ -91,6 +91,7 @@ namespace Scripts
         public TMP_Text gettingCloser;
         public TMP_Text exitDoor;
         public GameObject pausedMenu;
+        
 
         void Start()
         {
